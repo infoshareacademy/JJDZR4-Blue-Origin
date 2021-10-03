@@ -10,13 +10,22 @@ public class Menu {
 
         do {
             printMainMenu();
-            response = scanner.nextInt();
+            try {
+                response = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("");
+                response = -1;
+                scanner.nextLine();
+            }
+
             switch (response) {
                 case 0:
                     System.out.println("Czy na pewno wyjsc(T/N)?");
-                    //dodac obsluge
-
-                    break;
+                    Scanner scanner1 = new Scanner(System.in);
+                    String wantToQuit = scanner1.nextLine();
+                    if (wantToQuit.toUpperCase().equals("T")) {
+                        break;
+                    }else response = -1;
                 case 1:
                     clientMenu();
                     break;
@@ -29,7 +38,7 @@ public class Menu {
                     break;
             }
 
-        }while (response < 0 || response > 2) ;
+        } while (response < 0 || response > 2);
 
 
     }
@@ -41,9 +50,16 @@ public class Menu {
         System.out.println("1. panel klienta");
         System.out.println("2. panel uslugodawcy");
     }
+    private void printProviderMenu(){
+
+    }
 
     private void clientMenu() {
+
+
     }
+
     private void providerMenu() {
+
     }
 }
