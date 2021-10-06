@@ -15,5 +15,5 @@ public class ServiceProvider {
     private ServiceType serviceType;
     private Date[] availability;
     private boolean isActive;
-    private int rating;
+    private Rating[] rating;
 }
