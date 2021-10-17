@@ -97,6 +97,8 @@ public class Menu {
         System.out.println("2. Edytuj konto");
         System.out.println("3. Usuń konto");
 
+        //menuAddNewProvider.
+
     }
 
     private void clientMenu() {
