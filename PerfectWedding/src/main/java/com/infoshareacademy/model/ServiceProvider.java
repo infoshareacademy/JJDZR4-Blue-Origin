@@ -1,6 +1,7 @@
 package com.infoshareacademy.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class ServiceProvider {
 
@@ -13,7 +14,7 @@ public class ServiceProvider {
     private String websiteAddress;
     private Location location;
     private ServiceType serviceType;
-    private Date[] availability;
+    private List<Date> availability;
     private boolean isActive;
-    private Rating[] rating;
+    private List<Rating> rating;
 }
