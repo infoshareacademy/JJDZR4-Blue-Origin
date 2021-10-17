@@ -1,4 +1,4 @@
-package com.infoshareacademy;
+package com.infoshareacademy.model;
 
 public class Rating {
     private int rating;

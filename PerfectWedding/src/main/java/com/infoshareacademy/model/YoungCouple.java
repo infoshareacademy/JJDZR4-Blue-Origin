@@ -1,4 +1,4 @@
-package com.infoshareacademy;
+package com.infoshareacademy.model;
 
 import java.util.Date;
 
