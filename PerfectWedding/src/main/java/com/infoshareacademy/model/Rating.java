@@ -3,4 +3,31 @@ package com.infoshareacademy.model;
 public class Rating {
     private int rating;
     private String Comment;
+
+    public Rating(int rating) {
+        this.rating = rating;
+    }
+
+    public Rating(int rating, String comment) {
+        this.rating = rating;
+        Comment = comment;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+
+
+    public String getComment() {
+        return Comment;
+    }
+
+    @Override
+    public String toString() {
+        return "Rating{" +
+                "rating=" + rating +
+                ", Comment='" + Comment + '\'' +
+                '}';
+    }
 }

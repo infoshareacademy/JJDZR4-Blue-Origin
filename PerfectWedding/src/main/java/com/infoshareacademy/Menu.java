@@ -1,12 +1,9 @@
 package com.infoshareacademy;
-
 import java.util.Scanner;
-
 public class Menu {
     Scanner scanner = new Scanner(System.in);
     private int response;
     private String wantToQuit;
-
     public void mainMenu() {
         do {
             printMainMenu();
@@ -21,7 +18,7 @@ public class Menu {
                     else mainMenu();
                     break;
                 case 1:
-                    clientMenu();
+                    findProvider();
                     break;
                 case 2:
                     providerMenu();
@@ -32,7 +29,6 @@ public class Menu {
             }
         } while (response < 0 || response > 2);
     }
-
     private void providerMenu() {
         ProvidersOperations providersOperations = new ProvidersOperations();
         do {
@@ -61,15 +57,14 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 3);
+        mainMenu();
     }
-
     private String reallyQuitSkeleton() {
         System.out.println("Czy na pewno wyjsc(T/N)?");
         Scanner scanner1 = new Scanner(System.in);
         String wantToQuit = scanner1.nextLine();
         return wantToQuit;
     }
-
     private int skeletonMenu() {
         try {
             response = scanner.nextInt();
@@ -80,15 +75,13 @@ public class Menu {
         }
         return response;
     }
-
     private void printMainMenu() {
         System.out.println("Menu główne");
         System.out.println("Wybierz opcje:");
         System.out.println("0. wyjście z programu.");
-        System.out.println("1. panel klienta");
+        System.out.println("1. wyszukiwnaie dostawcy");
         System.out.println("2. panel usługodawcy");
     }
-
     private void printProviderMenu() {
         System.out.println("Menu usługodawcy");
         System.out.println("Wybierz opcje:");
@@ -96,16 +89,8 @@ public class Menu {
         System.out.println("1. Załóż konto");
         System.out.println("2. Edytuj konto");
         System.out.println("3. Usuń konto");
-
-        //menuAddNewProvider.
-
     }
-
-    private void clientMenu() {
+    private void findProvider() {
         System.out.println("Menu klienta - do zrobienia :)");
-    }
-
-    private void deleteAccount() {
-        System.out.println("Usunięcie konta - do zrobienia :P");
     }
 }

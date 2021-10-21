@@ -1,11 +1,9 @@
 package com.infoshareacademy.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ServiceProvider {
-
     private int ID;
     private String companyName;
     private String ownerName;
@@ -17,44 +15,58 @@ public class ServiceProvider {
     private ServiceType serviceType;
     private Availability availability;
     private boolean isActive;
-    private List<Rating> rating;
-
+    private List<Rating> ratingList;
+    private double averageRating;
+    public ServiceProvider() {
+        ratingList = new ArrayList<>();
+    }
+    public List<Rating> getRatingList() {
+        return ratingList;
+    }
+    public void setRatingList(List<Rating> ratingList) {
+        this.ratingList = ratingList;
+    }
+    public double getAverageRating() {
+        double sum = 0;
+        for (Rating rating : ratingList) {
+            sum += rating.getRating();
+        }
+        if (ratingList.size() > 0) {
+            return sum / ratingList.size();
+        } else {
+            return -1.0; //returns -1 if no rating has been done so far
+        }
+    }
+    public void addRating(int rating, String comment) {
+        ratingList.add(new Rating(rating, comment));
+    }
+    public void addRating(int rating) {
+        ratingList.add(new Rating(rating));
+    }
     public Availability getAvailability() {
         return availability;
     }
-
     public void setAvailability(Availability availability) {
         this.availability = availability;
     }
-
-    public ServiceProvider() {
-
-    }
-
     public int getID() {
         return ID;
     }
-
     public void setID(int ID) {
         this.ID = ID;
     }
-
     public String getCompanyName() {
         return companyName;
     }
-
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
-
     public String getOwnerName() {
         return ownerName;
     }
-
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
     }
-
     public String getOwnerSurname() {
         return ownerSurname;
     }
@@ -107,10 +119,10 @@ public class ServiceProvider {
         return availability;
     }*/
 
-   /* public void setAvailability(List<Date> availability) {
-        this.availability = availability;
-    }
-*/
+    /* public void setAvailability(List<Date> availability) {
+         this.availability = availability;
+     }
+ */
     public boolean isActive() {
         return isActive;
     }
@@ -119,13 +131,6 @@ public class ServiceProvider {
         isActive = active;
     }
 
-    public List<Rating> getRating() {
-        return rating;
-    }
-
-    public void setRating(List<Rating> rating) {
-        this.rating = rating;
-    }
 
     @Override
     public String toString() {
