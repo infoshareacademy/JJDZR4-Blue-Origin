@@ -17,15 +17,19 @@ public class ServiceProvider {
     private boolean isActive;
     private List<Rating> ratingList;
     private double averageRating;
+
     public ServiceProvider() {
         ratingList = new ArrayList<>();
     }
+
     public List<Rating> getRatingList() {
         return ratingList;
     }
+
     public void setRatingList(List<Rating> ratingList) {
         this.ratingList = ratingList;
     }
+
     public double getAverageRating() {
         double sum = 0;
         for (Rating rating : ratingList) {
@@ -37,36 +41,47 @@ public class ServiceProvider {
             return -1.0; //returns -1 if no rating has been done so far
         }
     }
+
     public void addRating(int rating, String comment) {
         ratingList.add(new Rating(rating, comment));
     }
+
     public void addRating(int rating) {
         ratingList.add(new Rating(rating));
     }
+
     public Availability getAvailability() {
         return availability;
     }
+
     public void setAvailability(Availability availability) {
         this.availability = availability;
     }
+
     public int getID() {
         return ID;
     }
+
     public void setID(int ID) {
         this.ID = ID;
     }
+
     public String getCompanyName() {
         return companyName;
     }
+
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
+
     public String getOwnerName() {
         return ownerName;
     }
+
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
     }
+
     public String getOwnerSurname() {
         return ownerSurname;
     }

@@ -7,16 +7,18 @@ import java.util.List;
 
 // outer class
 public class ProviderDataBase {
-    List<ServiceProvider> listOfProviders=new ArrayList<>();
+    List<ServiceProvider> listOfProviders = new ArrayList<>();
+
     @Override
     public String toString() {
-        String toReturn="";
+        String toReturn = "";
         for (ServiceProvider provider : listOfProviders) {
-           toReturn+=provider.toString();
+            toReturn += provider.toString();
         }
         return toReturn;
     }
-    public void addNewProvider (ServiceProvider provider){
+
+    public void addNewProvider(ServiceProvider provider) {
         listOfProviders.add(provider);
     }
 }

@@ -17,8 +17,6 @@ public class Rating {
         return rating;
     }
 
-
-
     public String getComment() {
         return Comment;
     }
