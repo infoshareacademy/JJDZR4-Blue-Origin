@@ -31,6 +31,7 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 2);
+        mainMenu();
     }
 
     private void providerMenu() {
@@ -63,6 +64,7 @@ public class Menu {
         } while (response < 0 || response > 3);
         mainMenu();
     }
+
 
     private String reallyQuitSkeleton() {
         System.out.println("Czy na pewno wyjsc(T/N)?");

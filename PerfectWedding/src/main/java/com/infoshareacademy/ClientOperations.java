@@ -11,18 +11,20 @@ public class ClientOperations {
         Integer rating = 0;
         Integer serviceProviderPosInArray = 0;
         Integer maxSupplierNumber=App.providerDataBase.listOfProviders.size()-1;
+        serviceProviderPosInArray = Integer.parseInt(scanInput("podaj nr dostawcy do oceny. Od 0 do "+maxSupplierNumber));
         do {
-            serviceProviderPosInArray = Integer.parseInt(scanInput("podaj nr dostawcy. Od 0 do "+maxSupplierNumber));
-            rating = Integer.parseInt(scanInput("podaj ocene od 0 do 5"));
+
+            rating = Integer.parseInt(scanInput("podaj ocene od 0 do 5 (-1 aby zakonczyc ocene)"));
             if (rating >= 0) {
                 String comment = scanInput("podaj komentarz (moze byc puste)");
                 rateByClient( serviceProviderPosInArray,rating, comment);
             }
-        } while (rating > 0);
+        } while (rating >= 0);
         for (Rating ratingInArray : App.providerDataBase.listOfProviders.get(serviceProviderPosInArray).getRatingList()) {
             System.out.println(ratingInArray.toString());
         }
         System.out.println("srednia ocena to: " + App.providerDataBase.listOfProviders.get(serviceProviderPosInArray).getAverageRating());
+
     }
 
     private void rateByClient(Integer serviceProviderPosInArray, Integer rating, String comment) {
