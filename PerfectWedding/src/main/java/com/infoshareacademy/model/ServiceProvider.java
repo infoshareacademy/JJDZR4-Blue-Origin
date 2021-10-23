@@ -18,6 +18,8 @@ public class ServiceProvider {
     private List<Rating> ratingList;
     private double averageRating;
 
+    static int id = 1;
+
     public ServiceProvider() {
         ratingList = new ArrayList<>();
     }
@@ -62,8 +64,8 @@ public class ServiceProvider {
         return ID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setID() {
+        this.ID = id++;
     }
 
     public String getCompanyName() {
@@ -150,16 +152,19 @@ public class ServiceProvider {
     @Override
     public String toString() {
         return "ServiceProvider{" +
-                "companyName='" + companyName + '\'' +
+                "ID=" + ID +
+                ", companyName='" + companyName + '\'' +
                 ", ownerName='" + ownerName + '\'' +
                 ", ownerSurname='" + ownerSurname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", websiteAddress='" + websiteAddress + '\'' +
-                ", location=" + location.getLocality() +
-                ", serviceType=" + serviceType.getName() +
+                ", location=" + location +
+                ", serviceType=" + serviceType +
                 ", availability=" + availability +
                 ", isActive=" + isActive +
+                ", ratingList=" + ratingList +
+                ", averageRating=" + averageRating +
                 '}';
     }
 }
