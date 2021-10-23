@@ -21,17 +21,16 @@ public class Menu {
                     else mainMenu();
                     break;
                 case 1:
-                    findProvider();
+                    clientMenu();
                     break;
                 case 2:
                     providerMenu();
                     break;
                 default:
-                    System.out.println("wybierz opcje 0,1 lub 2");
+                    choiceOptions();
                     break;
             }
         } while (response < 0 || response > 2);
-        mainMenu();
     }
 
     private void providerMenu() {
@@ -58,16 +57,43 @@ public class Menu {
                     providersOperations.deleteProvider();
                     break;
                 default:
-                    System.out.println("wybierz opcje:");
+                    choiceOptions();
                     break;
             }
         } while (response < 0 || response > 3);
-        mainMenu();
+        newMenu();
     }
 
+    private void clientMenu() {
+        ClientOperations clientOperations = new ClientOperations();
+        do {
+            printClientMenu();
+            skeletonMenu();
+            switch (response) {
+                case 0:
+                    reallyQuitSkeleton();
+                    if (wantToQuit.toUpperCase().equals("T")) {
+                        break;
+                    } else if (wantToQuit.toUpperCase().equals("N"))
+                        response = -1;
+                    else providerMenu();
+                    break;
+                case 1:
+                    clientOperations.findProvider();
+                    break;
+                case 2:
+                    clientOperations.dummyCallOfRating();
+                    break;
+                default:
+                    choiceOptions();
+                    break;
+            }
+        } while (response < 0 || response > 3);
+        newMenu();
+    }
 
     private String reallyQuitSkeleton() {
-        System.out.println("Czy na pewno wyjsc(T/N)?");
+        System.out.println("Czy na pewno wyjść (T/N)?");
         Scanner scanner1 = new Scanner(System.in);
         String wantToQuit = scanner1.nextLine();
         return wantToQuit;
@@ -84,27 +110,39 @@ public class Menu {
         return response;
     }
 
-    private void printMainMenu() {
-        System.out.println("Menu główne");
+    public void newMenu() {
+        Menu menu = new Menu();
+        mainMenu();
+    }
+
+    private void choiceOptions() {
+        System.out.println("wybierz opcje:");
+    }
+
+    private void lessPrintlnInPrint() {
         System.out.println("Wybierz opcje:");
         System.out.println("0. wyjście z programu.");
-        System.out.println("1. ocena dostawcy"); //this needs to be done via separate menu containing "wyszukaj dostawce" and "ocena dostawcy" at least
+    }
+
+    private void printMainMenu() {
+        System.out.println("Menu główne");
+        lessPrintlnInPrint();
+        System.out.println("1. panel klienta");
         System.out.println("2. panel usługodawcy");
     }
 
     private void printProviderMenu() {
         System.out.println("Menu usługodawcy");
-        System.out.println("Wybierz opcje:");
-        System.out.println("0. wyjście z programu.");
+        lessPrintlnInPrint();
         System.out.println("1. Załóż konto");
         System.out.println("2. Edytuj konto");
         System.out.println("3. Usuń konto");
     }
 
-    private void findProvider() {
-        System.out.println("Menu klienta - do zrobienia :)\n na teraz tylko dodawanie ratingu");
-        ClientOperations clientOperations = new ClientOperations();
-        clientOperations.dummyCallOfRating();
-
+    private void printClientMenu() {
+        System.out.println("Menu klienta");
+        lessPrintlnInPrint();
+        System.out.println("1. Wyszukiwarka");
+        System.out.println("2. Ocena dostawcy");
     }
 }

@@ -4,27 +4,19 @@ import com.infoshareacademy.model.Availability;
 import com.infoshareacademy.model.Location;
 import com.infoshareacademy.model.ServiceProvider;
 import com.infoshareacademy.model.ServiceType;
+import com.infoshareacademy.PerfectWeddingUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
+import static com.infoshareacademy.PerfectWeddingUtils.scanInput;
+
 public class ProvidersOperations {
     ServiceProvider provider = new ServiceProvider();
 
-    public static String scanInput(String prompt) {
-        System.out.println(prompt);
-        String toReturn = new String();
-        try {
-            Scanner scanner = new Scanner(System.in);
-            toReturn = scanner.nextLine();
-        } catch (Exception e) {
-            System.out.println("nieodpowiedia wartosc");
-            scanInput(prompt);
-        }
-        return toReturn;
-    }
+
 
     public void createProvider() {
         provider.setCompanyName(scanInput("Podaj nazwe firmy"));
