@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 import static com.infoshareacademy.PerfectWeddingUtils.scanInput;
 
-public class ProvidersOperations {
+public class ProvidersAdd {
     ServiceProvider provider = new ServiceProvider();
 
 
@@ -48,9 +48,6 @@ public class ProvidersOperations {
         return false;
     }
 
-    public void editProvider() {
-    }
 
-    public void deleteProvider() {
-    }
+
 }
