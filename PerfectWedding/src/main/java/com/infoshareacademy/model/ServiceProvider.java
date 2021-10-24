@@ -158,9 +158,9 @@ public class ServiceProvider {
                 ", websiteAddress='" + websiteAddress + '\'' +
                 ", location=" + location.getLocality() +'\'' +
                 ", serviceType=" + serviceType.getName() +'\'' +
-                ", availability=" + availability +'\'' +
-                ", rating=" + ratingList +'\'' +
-                ", isActive=" + isActive +'\'' +
+                ", availability=\n" + availability +'\n' +
+                ", rating=\n" + ratingList +'\n' +
+                ", isActive=" + isActive +
                 "}\n";
     }
 }

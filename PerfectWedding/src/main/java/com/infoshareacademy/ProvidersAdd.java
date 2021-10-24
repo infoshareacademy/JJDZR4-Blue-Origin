@@ -17,7 +17,7 @@ public class ProvidersAdd {
 
 
     public void createProvider() {
-        Availability availability = new Availability();
+
         LocalDate availableDate = null;
         provider.setCompanyName(scanInput("Podaj nazwe firmy"));
         provider.setOwnerName(scanInput("Podaj Imie wlasciciela"));
@@ -28,15 +28,14 @@ public class ProvidersAdd {
         provider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
         provider.setServiceType(new ServiceType(scanInput("Rodzaj uslugi")));
         provider.setActive(askIfActive("Dostawca aktywny (T/N)?"));
-
-        addAvailability(availability);
-
+        addAvailability();
         App.providerDataBase.addNewProvider(provider);
 
 
     }
 
-    private void addAvailability(Availability availability) {
+    private void addAvailability() {
+        Availability availability = new Availability();
         LocalDate availableDate;
         do {
             availableDate = scanInputDate("Podaj date dostepnosci (RRRR-MM-DD)", "q", LocalDate.of(1900, 1, 1));
