@@ -18,7 +18,9 @@ public class PerfectWeddingUtils {
 
     public static Integer scanInput(String prompt, Integer min, Integer max) {
         System.out.println(prompt);
-        Integer toReturn = -2;
+        Integer toReturn = 0;
+        boolean exit = false;
+
         do {
             try {
                 Scanner scanner = new Scanner(System.in);
@@ -26,11 +28,12 @@ public class PerfectWeddingUtils {
                 if (toReturn < min || toReturn > max) {
                     throw new Exception();
                 }
+                exit=true;
             } catch (Exception e) {
-                toReturn = -2;
-                System.out.println("nieodpowiedia wartosc");
+                exit = false;
+                System.out.println("nieodpowiedia wartosc.\n"+prompt);
             }
-        } while (toReturn == -2);
+        } while (!exit);
         return toReturn;
     }
 }

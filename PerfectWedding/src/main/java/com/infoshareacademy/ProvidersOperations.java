@@ -34,8 +34,6 @@ public class ProvidersOperations {
         availability.addNewAvailability(parse);
         provider.setAvailability(availability);
         App.providerDataBase.addNewProvider(provider);
-
-
     }
 
     public boolean askIfActive(String prompt) {
