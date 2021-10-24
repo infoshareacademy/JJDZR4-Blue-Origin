@@ -14,12 +14,13 @@ public class ProvidersEdit {
         List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Current providers are shown below: ");
+        System.out.println("Aktualna lista usługodawców wygląda następująco: ");
         for (ServiceProvider n: providersList) {
-            System.out.println("ID " + n.getID() + " and owner name is " + n.getOwnerName());
+            System.out.println("ID " + n.getID() +" Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
         }
-        System.out.println("Chose provider to be edited (type ID): ");
-        int chosenProviderId = scanner.nextInt();
+//        System.out.println("Wybierz usługodawcę, którego chcesz edytować (podaj ID): ");
+
+        int chosenProviderId = scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): ", 1, providersList.size());
         editSelectedProvider(chosenProviderId-1);
     }
 
@@ -27,12 +28,12 @@ public class ProvidersEdit {
         List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
         Scanner scanner = new Scanner(System.in);
         boolean areYouFinished = true;
-        System.out.println("Chosen provider details are: ");
+        System.out.println("Szczegóły wybranego dostawcy: ");
         System.out.println(providersList.get(i).toString());
 
         do {
             String chosenField = null;
-            chosenField = scanInput("Which field would you like to edit?");
+            chosenField = scanInput("Które pole chciałbyś edytować? (podaj nazwę pola)");
 
             switch (chosenField) {
                 case "companyName": providersList.get(i).setCompanyName(scanInput("Podaj nazwe firmy: "));
@@ -52,12 +53,12 @@ public class ProvidersEdit {
                 case "service": providersList.get(i).setServiceType(new ServiceType(scanInput("Podaj rodzaj uslugi: ")));
                     break;
                 default:
-                    System.out.println("None field chosen");
+                    System.out.println("Nie wybrano żadnego pola.");
                     editProvider();
 
             }
-            String response = scanInput("Would you like to change any other field? (yes/no)");
-            if (response.equals("yes")) {
+            String response = scanInput("Czy chciałbyś edytować jeszcze jaieś pole? (tak/nie)");
+            if (response.equals("tak")) {
                 areYouFinished = true;
             } else {
                 areYouFinished = false;
