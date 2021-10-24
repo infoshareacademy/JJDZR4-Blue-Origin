@@ -18,7 +18,7 @@ public class Menu {
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
-                    else mainMenu();
+                    else newMenu();
                     break;
                 case 1:
                     clientMenu();
@@ -34,7 +34,9 @@ public class Menu {
     }
 
     private void providerMenu() {
-        ProvidersOperations providersOperations = new ProvidersOperations();
+        ProvidersAdd providersAdd = new ProvidersAdd();
+        ProvidersEdit providersEdit = new ProvidersEdit();
+        ProvidersDisable providersDisable = new ProvidersDisable();
         do {
             printProviderMenu();
             skeletonMenu();
@@ -45,16 +47,16 @@ public class Menu {
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
-                    else providerMenu();
+                    else newMenu();
                     break;
                 case 1:
-                    providersOperations.createProvider();
+                    providersAdd.createProvider();
                     break;
                 case 2:
-                    providersOperations.editProvider();
+                    providersEdit.editProvider();
                     break;
                 case 3:
-                    providersOperations.deleteProvider();
+                    providersDisable.deleteProvider();
                     break;
                 default:
                     choiceOptions();
@@ -95,7 +97,7 @@ public class Menu {
     private String reallyQuitSkeleton() {
         System.out.println("Czy na pewno wyjść (T/N)?");
         Scanner scanner1 = new Scanner(System.in);
-        String wantToQuit = scanner1.nextLine();
+        wantToQuit = scanner1.nextLine();
         return wantToQuit;
     }
 
