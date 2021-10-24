@@ -1,5 +1,7 @@
 package com.infoshareacademy;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class PerfectWeddingUtils {
@@ -28,10 +30,35 @@ public class PerfectWeddingUtils {
                 if (toReturn < min || toReturn > max) {
                     throw new Exception();
                 }
-                exit=true;
+                exit = true;
             } catch (Exception e) {
                 exit = false;
-                System.out.println("nieodpowiedia wartosc.\n"+prompt);
+                System.out.println("nieodpowiedia wartosc.\n" + prompt);
+            }
+        } while (!exit);
+        return toReturn;
+    }
+
+    public static LocalDate scanInputDate(String prompt, String exitCode, LocalDate exitMessage) {
+        System.out.println(prompt+"Aby wyjsc nacisnij '"+exitCode+"'");
+        LocalDate toReturn = null;
+        boolean exit = false;
+
+        do {
+            try {
+                Scanner scanner = new Scanner(System.in);
+                String dataToParse = scanner.nextLine();
+                if(dataToParse.equals(exitCode)){
+                    toReturn=exitMessage;
+                    exit=true;
+                }
+                else {
+                    toReturn = LocalDate.parse(dataToParse, DateTimeFormatter.ISO_LOCAL_DATE);
+                    exit = true;
+                }
+            } catch (Exception e) {
+                exit = false;
+                System.out.println("nieodpowiedia wartosc.\n" + prompt);
             }
         } while (!exit);
         return toReturn;
