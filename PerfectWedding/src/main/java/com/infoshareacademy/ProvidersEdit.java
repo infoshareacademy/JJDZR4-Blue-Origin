@@ -29,7 +29,7 @@ public class ProvidersEdit {
         Scanner scanner = new Scanner(System.in);
         boolean areYouFinished = true;
         System.out.println("Szczegóły wybranego dostawcy: ");
-        System.out.println(providersList.get(i).toString());
+        System.out.println(providersList.get(i).toStringVertical());
 
         do {
             String chosenField = null;
@@ -57,7 +57,7 @@ public class ProvidersEdit {
                     editProvider();
 
             }
-            String response = scanInput("Czy chciałbyś edytować jeszcze jaieś pole? (tak/nie)");
+            String response = scanInput("Czy chciałbyś edytować jeszcze jakieś pole? (tak/nie)");
             if (response.equals("tak")) {
                 areYouFinished = true;
             } else {
