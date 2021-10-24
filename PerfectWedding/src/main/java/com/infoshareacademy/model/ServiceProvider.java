@@ -156,10 +156,11 @@ public class ServiceProvider {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", websiteAddress='" + websiteAddress + '\'' +
-                ", location=" + location.getLocality() +
-                ", serviceType=" + serviceType.getName() +
-                ", availability=" + availability +
-                ", isActive=" + isActive +
-                '}';
+                ", location=" + location.getLocality() +'\'' +
+                ", serviceType=" + serviceType.getName() +'\'' +
+                ", availability=" + availability +'\'' +
+                ", rating=" + ratingList +'\'' +
+                ", isActive=" + isActive +'\'' +
+                "}\n";
     }
 }

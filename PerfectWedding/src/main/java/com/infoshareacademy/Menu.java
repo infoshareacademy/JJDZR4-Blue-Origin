@@ -15,6 +15,8 @@ public class Menu {
                 case 0:
                     reallyQuitSkeleton();
                     if (wantToQuit.toUpperCase().equals("T")) {
+                        //just for testing - prints out all providers data
+                        System.out.println(App.providerDataBase.toString());
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
