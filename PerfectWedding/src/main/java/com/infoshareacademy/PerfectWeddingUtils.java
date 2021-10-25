@@ -39,6 +39,30 @@ public class PerfectWeddingUtils {
         return toReturn;
     }
 
+    public static Boolean returnTrueOrFalse(String prompt) {
+        System.out.println(prompt);
+        Scanner scanner = new Scanner(System.in);
+        Boolean condition = false;
+        String scannerInput = "null";
+
+        while (!(scannerInput.equals("tak") || scannerInput.equals("nie"))) {
+            try {
+                System.out.println("Podaj tak/nie: ");
+                scannerInput = scanner.nextLine();
+            } catch (Exception e) {
+                System.out.println("Podaj tak/nie: ");
+            }
+        }
+
+        if (scannerInput.equals("tak")) {
+            condition = true;
+        } else {
+            condition = false;
+        }
+        return condition;
+
+    }
+
     public static LocalDate scanInputDate(String prompt, String exitCode, LocalDate exitMessage) {
         System.out.println(prompt+"Aby wyjsc nacisnij '"+exitCode+"'");
         LocalDate toReturn = null;
