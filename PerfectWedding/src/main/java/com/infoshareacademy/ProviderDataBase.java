@@ -13,9 +13,13 @@ public class ProviderDataBase {
     public String toString() {
         String toReturn = "";
         for (ServiceProvider provider : listOfProviders) {
-            toReturn += provider.toString();
+            toReturn += provider.toString() + "\n";
         }
         return toReturn;
+    }
+
+    public List<ServiceProvider> getListOfProviders() {
+        return listOfProviders;
     }
 
     public void addNewProvider(ServiceProvider provider) {
