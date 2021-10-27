@@ -15,9 +15,7 @@ import static com.infoshareacademy.PerfectWeddingUtils.scanInputDate;
 public class ProvidersAdd {
     ServiceProvider provider = new ServiceProvider();
 
-
     public void createProvider() {
-
         LocalDate availableDate = null;
         provider.setCompanyName(scanInput("Podaj nazwe firmy"));
         provider.setOwnerName(scanInput("Podaj Imie wlasciciela"));
@@ -31,7 +29,6 @@ public class ProvidersAdd {
         addAvailability();
         provider.setID();
         App.providerDataBase.addNewProvider(provider);
-
     }
 
     private void addAvailability() {
@@ -55,6 +52,4 @@ public class ProvidersAdd {
         }
         return false;
     }
-
-
 }

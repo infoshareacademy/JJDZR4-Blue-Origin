@@ -33,18 +33,33 @@ public class ClientOperations {
         App.providerDataBase.listOfProviders.get(serviceProviderPosInArray).addRating(rating, comment);
     }
 
-    public void findProvider() {
-        List<ServiceProvider> providersList1 = App.providerDataBase.getListOfProviders();
+    public void findProviderByLocality() {
+        List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
         String finder = scanInput("Wyszukaj usługodawcę poprzez lokalizację\n" + "Podaj nazwę miejscowości: ");
 
-        for (ServiceProvider re : providersList1) {
-            if (providersList1.get(re.getID()).getLocation().getLocality().equals(finder))
-                System.out.println(providersList1.get(re.getID()).toStringVertical());
+        for (ServiceProvider re : providersList) {
+            if (re.getLocation().getLocality().equals(finder))
+                System.out.println(re.toStringVertical());
             else {
                 System.out.println("Brak wyników");
             }
-
         }
         new Menu().mainMenu();
     }
+
+    public void findProviderByType() {
+        List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
+        String finder = scanInput("Wyszukaj usługodawcę poprzez rodzaj usługi\n" + "Podaj rodzaj usługi: ");
+
+        for (ServiceProvider re : providersList) {
+            if (re.getServiceType().getName().equals(finder))
+                System.out.println(re.toStringVertical());
+            else {
+                System.out.println("Brak wyników");
+            }
+        }
+        new Menu().mainMenu();
+
+    }
 }
+
