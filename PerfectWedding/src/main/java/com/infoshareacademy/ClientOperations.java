@@ -4,7 +4,6 @@ import com.infoshareacademy.model.Rating;
 import com.infoshareacademy.model.ServiceProvider;
 
 import java.util.List;
-import java.util.Scanner;
 
 import static com.infoshareacademy.PerfectWeddingUtils.scanInput;
 
@@ -36,8 +35,7 @@ public class ClientOperations {
 
     public void findProvider() {
         List<ServiceProvider> providersList1 = App.providerDataBase.getListOfProviders();
-        Scanner scanner = new Scanner(System.in);
-        String finder = scanner.nextLine();
+        String finder = scanInput("Wyszukaj usługodawcę poprzez lokalizację\n" + "Podaj nazwę miejscowości: ");
 
         for (ServiceProvider re : providersList1) {
             if (providersList1.get(re.getID()).getLocation().getLocality().equals(finder))
@@ -47,5 +45,6 @@ public class ClientOperations {
             }
 
         }
+        new Menu().mainMenu();
     }
 }
