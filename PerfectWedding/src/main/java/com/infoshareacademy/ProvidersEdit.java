@@ -127,7 +127,7 @@ public class ProvidersEdit {
             }
             index = scanInput("Podaj ID terminu do usunięcia: ", 1, availableDates.size());
             availableDates.remove(index-1);
-        } while (!returnTrueOrFalse("Czy już skończyłeś?"));
+        } while (!returnTrueOrFalse("Czy już skończyłeś?", "tak", "nie"));
 
     }
 

@@ -39,22 +39,22 @@ public class PerfectWeddingUtils {
         return toReturn;
     }
 
-    public static Boolean returnTrueOrFalse(String prompt) {
+    public static Boolean returnTrueOrFalse(String prompt, String trueForThisString, String falseForThisString) {
         System.out.println(prompt);
         Scanner scanner = new Scanner(System.in);
         Boolean condition = false;
         String scannerInput = "null";
 
-        while (!(scannerInput.equals("tak") || scannerInput.equals("nie"))) {
+        while (!(scannerInput.equals(trueForThisString) || scannerInput.equals(falseForThisString))) {
             try {
-                System.out.println("Podaj tak/nie: ");
+                System.out.println("Podaj " + trueForThisString + " lub " + falseForThisString);
                 scannerInput = scanner.nextLine();
             } catch (Exception e) {
-                System.out.println("Podaj tak/nie: ");
+                System.out.println("Podaj " + trueForThisString + " lub " + falseForThisString);
             }
         }
 
-        if (scannerInput.equals("tak")) {
+        if (scannerInput.equals(trueForThisString)) {
             condition = true;
         } else {
             condition = false;
