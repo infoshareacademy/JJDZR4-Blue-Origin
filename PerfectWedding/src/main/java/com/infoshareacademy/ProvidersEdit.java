@@ -25,7 +25,7 @@ public class ProvidersEdit {
     }
 
     public void editSelectedProvider(int providerId) {
-        List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
+//        List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
         Scanner scanner = new Scanner(System.in);
         boolean areYouFinished = true;
         System.out.println("Szczegóły wybranego dostawcy: ");
@@ -115,9 +115,10 @@ public class ProvidersEdit {
         Availability availability = new Availability();
         availability = providersList.get(providerId).getAvailability();
         List<LocalDate> availableDates = availability.getAvailability();
-        System.out.println("Wolne terminy to: ");
+
 
         do {
+            System.out.println("Wolne terminy to: ");
             int i = 1;
             for (LocalDate n: availableDates) {
                 System.out.println(i++ + ". " + n);
