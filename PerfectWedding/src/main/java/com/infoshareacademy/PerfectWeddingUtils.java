@@ -29,6 +29,10 @@ public class PerfectWeddingUtils {
                 toReturn = scanner.nextInt();
                 if (toReturn < min || toReturn > max) {
                     throw new Exception();
+                } else {
+                    if (toReturn == 0) {
+                        toReturn = 0;
+                    }
                 }
                 exit = true;
             } catch (Exception e) {

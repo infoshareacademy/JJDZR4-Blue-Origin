@@ -12,6 +12,7 @@ import java.util.Scanner;
 import static com.infoshareacademy.PerfectWeddingUtils.*;
 
 public class ProvidersEdit {
+    Menu menu = new Menu();
     List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
 
     public void editProvider() {
@@ -20,8 +21,12 @@ public class ProvidersEdit {
         for (ServiceProvider n : providersList) {
             System.out.println("ID " + n.getID() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
         }
-        int chosenProviderId = scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): ", 1, providersList.size());
-        editSelectedProvider(chosenProviderId - 1);
+        int chosenProviderId = scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): \n Podaj 0, aby wyjść do menu głównego.", 0, providersList.size());
+        if (chosenProviderId == 0) {
+            menu.mainMenu();
+        } else {
+            editSelectedProvider(chosenProviderId - 1);
+        }
     }
 
     public void editSelectedProvider(int providerId) {
