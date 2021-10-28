@@ -15,6 +15,10 @@ public class Availability {
         availability.add(date);
     }
 
+    public List<LocalDate> getAvailability() {
+        return availability;
+    }
+
     @Override
     public String toString() {
         String toReturn = "";

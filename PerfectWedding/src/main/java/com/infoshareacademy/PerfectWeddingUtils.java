@@ -29,6 +29,10 @@ public class PerfectWeddingUtils {
                 toReturn = scanner.nextInt();
                 if (toReturn < min || toReturn > max) {
                     throw new Exception();
+                } else {
+                    if (toReturn == 0) {
+                        toReturn = 0;
+                    }
                 }
                 exit = true;
             } catch (Exception e) {
@@ -37,6 +41,30 @@ public class PerfectWeddingUtils {
             }
         } while (!exit);
         return toReturn;
+    }
+
+    public static Boolean returnTrueOrFalse(String prompt, String trueForThisString, String falseForThisString) {
+        System.out.println(prompt);
+        Scanner scanner = new Scanner(System.in);
+        Boolean condition = false;
+        String scannerInput = "null";
+
+        while (!(scannerInput.equals(trueForThisString) || scannerInput.equals(falseForThisString))) {
+            try {
+                System.out.println("Podaj " + trueForThisString + " lub " + falseForThisString);
+                scannerInput = scanner.nextLine();
+            } catch (Exception e) {
+                System.out.println("Podaj " + trueForThisString + " lub " + falseForThisString);
+            }
+        }
+
+        if (scannerInput.equals(trueForThisString)) {
+            condition = true;
+        } else {
+            condition = false;
+        }
+        return condition;
+
     }
 
     public static LocalDate scanInputDate(String prompt, String exitCode, LocalDate exitMessage) {

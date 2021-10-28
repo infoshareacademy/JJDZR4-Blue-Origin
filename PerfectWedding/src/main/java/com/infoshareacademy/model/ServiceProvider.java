@@ -18,6 +18,8 @@ public class ServiceProvider {
     private List<Rating> ratingList;
     private double averageRating;
 
+    static int id = 1;
+
     public ServiceProvider() {
         ratingList = new ArrayList<>();
     }
@@ -62,8 +64,9 @@ public class ServiceProvider {
         return ID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+
+    public void setID() {
+        this.ID = id++;
     }
 
     public String getCompanyName() {
@@ -150,6 +153,7 @@ public class ServiceProvider {
     @Override
     public String toString() {
         return "ServiceProvider{" +
+                "ID=" + ID +
                 "companyName='" + companyName + '\'' +
                 ", ownerName='" + ownerName + '\'' +
                 ", ownerSurname='" + ownerSurname + '\'' +
@@ -162,5 +166,31 @@ public class ServiceProvider {
                 ", rating=\n" + ratingList +'\n' +
                 ", isActive=" + isActive +
                 "}\n";
+    }
+
+    public String toStringVertical() {
+        return
+                "ID: " + ID
+                + "\n companyName: " + companyName
+                + "\n ownerName: " + ownerName
+                + "\n ownerSurname: " + ownerSurname
+                + "\n phone: " + phone
+                + "\n email: " + email
+                + "\n websiteAddress: " + websiteAddress
+                    + "\n   voivodeship: " + location.getVoivodeship()
+                    + "\n   locality: " + location.getLocality()
+                    + "\n   streetName: " + location.getStreetName()
+                    + "\n   buildingNumber: " + location.getBuildingNumber() + "\n"
+
+                    + "\n   ID: " + serviceType.getID()
+                    + "\n   name: " + serviceType.getName()
+                    + "\n   description: " + serviceType.getDescription()
+                    + "\n   currency: " + serviceType.getCurrency()
+                    + "\n   price: " + serviceType.getPrice()
+
+                + "\n availability: " + availability
+                + "\n rating: " + ratingList
+                + "\n isActive: " + isActive;
+
     }
 }
