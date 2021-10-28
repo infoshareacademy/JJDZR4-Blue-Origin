@@ -14,14 +14,12 @@ public class Menu {
             switch (response) {
                 case 0:
                     reallyQuitSkeleton();
-                    if (wantToQuit.equalsIgnoreCase("T")) {
+                    if (wantToQuit.toUpperCase().equals("T")) {
                         System.out.println(App.providerDataBase.toString());
                         break;
-                    } else if (wantToQuit.equalsIgnoreCase("N")) {
-                        mainMenu();
-                    } else {
+                    } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
-                    }
+                    else mainMenu();
                     break;
                 case 1:
                     clientMenu();
@@ -47,13 +45,11 @@ public class Menu {
             switch (response) {
                 case 0:
                     reallyQuitSkeleton();
-                    if (!wantToQuit.equalsIgnoreCase("T")) {
-                        if (wantToQuit.equalsIgnoreCase("N"))
-                            response = -1;
-                        else providerMenu();
-                    } else {
+                    if (wantToQuit.toUpperCase().equals("T")) {
                         break;
-                    }
+                    } else if (wantToQuit.toUpperCase().equals("N"))
+                        response = -1;
+                    else providerMenu();
                     break;
                 case 1:
                     providersAdd.createProvider();
@@ -139,7 +135,7 @@ public class Menu {
         try {
             response = scanner.nextInt();
         } catch (Exception e) {
-            System.out.println();
+            System.out.println("");
             response = -1;
             scanner.nextLine();
         }
