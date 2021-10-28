@@ -1,6 +1,5 @@
 package com.infoshareacademy;
 
-import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Menu {
@@ -15,12 +14,14 @@ public class Menu {
             switch (response) {
                 case 0:
                     reallyQuitSkeleton();
-                    if (wantToQuit.toUpperCase().equals("T")) {
+                    if (wantToQuit.equalsIgnoreCase("T")) {
                         System.out.println(App.providerDataBase.toString());
                         break;
-                    } else if (wantToQuit.toUpperCase().equals("N"))
+                    } else if (wantToQuit.equalsIgnoreCase("N")) {
+                        mainMenu();
+                    } else {
                         response = -1;
-                    else mainMenu();
+                    }
                     break;
                 case 1:
                     clientMenu();
@@ -36,7 +37,7 @@ public class Menu {
         mainMenu();
     }
 
-    private void providerMenu() {
+    public void providerMenu() {
         ProvidersAdd providersAdd = new ProvidersAdd();
         ProvidersEdit providersEdit = new ProvidersEdit();
         ProvidersDisable providersDisable = new ProvidersDisable();
@@ -46,11 +47,13 @@ public class Menu {
             switch (response) {
                 case 0:
                     reallyQuitSkeleton();
-                    if (wantToQuit.toUpperCase().equals("T")) {
+                    if (!wantToQuit.equalsIgnoreCase("T")) {
+                        if (wantToQuit.equalsIgnoreCase("N"))
+                            response = -1;
+                        else providerMenu();
+                    } else {
                         break;
-                    } else if (wantToQuit.toUpperCase().equals("N"))
-                        response = -1;
-                    else providerMenu();
+                    }
                     break;
                 case 1:
                     providersAdd.createProvider();
@@ -66,10 +69,10 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 3);
-        mainMenu();
+        providerMenu();
     }
 
-    private void clientMenu() {
+    public void clientMenu() {
         ClientOperations clientOperations = new ClientOperations();
         do {
             printClientMenu();
@@ -94,10 +97,10 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 3);
-        mainMenu();
+        clientMenu();
     }
 
-    private void clientFinderMenu() {
+    public void clientFinderMenu() {
         ClientOperations clientOperations = new ClientOperations();
         do {
             printClientFinderMenu();
@@ -122,7 +125,7 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 2);
-        mainMenu();
+        clientFinderMenu();
     }
 
     private String reallyQuitSkeleton() {
@@ -136,7 +139,7 @@ public class Menu {
         try {
             response = scanner.nextInt();
         } catch (Exception e) {
-            System.out.println("");
+            System.out.println();
             response = -1;
             scanner.nextLine();
         }

@@ -9,6 +9,7 @@ import static com.infoshareacademy.PerfectWeddingUtils.scanInput;
 
 
 public class ClientOperations {
+    int reference = 0;
 
     public void dummyCallOfRating() {
         //this method will be removed - this is just manual call out of method rateByClient - in the future rateByClient should be called out after "Wyszukaj dostawce"
@@ -34,17 +35,19 @@ public class ClientOperations {
     }
 
     public void findProviderByLocality() {
+
         List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
         String finder = scanInput("Wyszukaj usługodawcę poprzez lokalizację\n" + "Podaj nazwę miejscowości: ");
 
         for (ServiceProvider re : providersList) {
-            if (re.getLocation().getLocality().equals(finder))
+            if (re.getLocation().getLocality().equals(finder)) {
+                reference += 1;
                 System.out.println(re.toStringVertical());
-            else {
-                System.out.println("Brak wyników");
+            }
+            if (reference < 1) {
+                System.out.println("Brak wyników\n");
             }
         }
-        new Menu().mainMenu();
     }
 
     public void findProviderByType() {
@@ -52,14 +55,15 @@ public class ClientOperations {
         String finder = scanInput("Wyszukaj usługodawcę poprzez rodzaj usługi\n" + "Podaj rodzaj usługi: ");
 
         for (ServiceProvider re : providersList) {
-            if (re.getServiceType().getName().equals(finder))
+            if (re.getServiceType().getName().equals(finder)) {
+                reference += 1;
                 System.out.println(re.toStringVertical());
-            else {
-                System.out.println("Brak wyników");
             }
         }
-        new Menu().mainMenu();
-
+        if (reference < 1) {
+            System.out.println("Brak wyników\n");
+        }
     }
+
 }
 
