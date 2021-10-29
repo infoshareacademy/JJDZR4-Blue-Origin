@@ -16,7 +16,7 @@ public class ServiceProvider {
     private Availability availability;
     private boolean isActive;
     private List<Rating> ratingList;
-    private double averageRating;
+    double averageRating;
 
     static int id = 1;
 
@@ -133,14 +133,6 @@ public class ServiceProvider {
         this.serviceType = serviceType;
     }
 
-    /*public List<Date> getAvailability() {
-        return availability;
-    }*/
-
-    /* public void setAvailability(List<Date> availability) {
-         this.availability = availability;
-     }
- */
     public boolean isActive() {
         return isActive;
     }
@@ -170,7 +162,7 @@ public class ServiceProvider {
 
     public String toStringVertical() {
         return
-                "ID: " + ID
+                  "\n ID: " + ID
                 + "\n companyName: " + companyName
                 + "\n ownerName: " + ownerName
                 + "\n ownerSurname: " + ownerSurname
@@ -180,17 +172,15 @@ public class ServiceProvider {
                     + "\n   voivodeship: " + location.getVoivodeship()
                     + "\n   locality: " + location.getLocality()
                     + "\n   streetName: " + location.getStreetName()
-                    + "\n   buildingNumber: " + location.getBuildingNumber() + "\n"
-
-                    + "\n   ID: " + serviceType.getID()
+                    + "\n   buildingNumber: " + location.getBuildingNumber()
                     + "\n   name: " + serviceType.getName()
                     + "\n   description: " + serviceType.getDescription()
                     + "\n   currency: " + serviceType.getCurrency()
                     + "\n   price: " + serviceType.getPrice()
-
-                + "\n availability: " + availability
+                + "availability: " + availability
                 + "\n rating: " + ratingList
-                + "\n isActive: " + isActive;
+                + "\n isActive: " + isActive
+                +"\n";
 
     }
 }

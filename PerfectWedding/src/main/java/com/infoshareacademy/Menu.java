@@ -15,12 +15,11 @@ public class Menu {
                 case 0:
                     reallyQuitSkeleton();
                     if (wantToQuit.toUpperCase().equals("T")) {
-                        //just for testing - prints out all providers data
                         System.out.println(App.providerDataBase.toString());
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
-                    else newMenu();
+                    else mainMenu();
                     break;
                 case 1:
                     clientMenu();
@@ -33,9 +32,10 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 2);
+        mainMenu();
     }
 
-    private void providerMenu() {
+    public void providerMenu() {
         ProvidersAdd providersAdd = new ProvidersAdd();
         ProvidersEdit providersEdit = new ProvidersEdit();
         ProvidersDisable providersDisable = new ProvidersDisable();
@@ -49,7 +49,7 @@ public class Menu {
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
-                    else newMenu();
+                    else providerMenu();
                     break;
                 case 1:
                     providersAdd.createProvider();
@@ -65,10 +65,10 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 3);
-        newMenu();
+        providerMenu();
     }
 
-    private void clientMenu() {
+    public void clientMenu() {
         ClientOperations clientOperations = new ClientOperations();
         do {
             printClientMenu();
@@ -80,10 +80,10 @@ public class Menu {
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
-                    else providerMenu();
+                    else clientMenu();
                     break;
                 case 1:
-                    clientOperations.findProvider();
+                    clientFinderMenu();
                     break;
                 case 2:
                     clientOperations.dummyCallOfRating();
@@ -93,7 +93,35 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 3);
-        newMenu();
+        clientMenu();
+    }
+
+    public void clientFinderMenu() {
+        ClientOperations clientOperations = new ClientOperations();
+        do {
+            printClientFinderMenu();
+            skeletonMenu();
+            switch (response) {
+                case 0:
+                    reallyQuitSkeleton();
+                    if (wantToQuit.toUpperCase().equals("T")) {
+                        break;
+                    } else if (wantToQuit.toUpperCase().equals("N"))
+                        response = -1;
+                    else clientMenu();
+                    break;
+                case 1:
+                    clientOperations.findProviderByLocality();
+                    break;
+                case 2:
+                    clientOperations.findProviderByType();
+                    break;
+                default:
+                    choiceOptions();
+                    break;
+            }
+        } while (response < 0 || response > 2);
+        clientFinderMenu();
     }
 
     private String reallyQuitSkeleton() {
@@ -114,13 +142,8 @@ public class Menu {
         return response;
     }
 
-    public void newMenu() {
-        Menu menu = new Menu();
-        mainMenu();
-    }
-
     private void choiceOptions() {
-        System.out.println("wybierz opcje:");
+        System.out.println("wybierz tylko dostępne opcje: ");
     }
 
     private void lessPrintlnInPrint() {
@@ -148,5 +171,12 @@ public class Menu {
         lessPrintlnInPrint();
         System.out.println("1. Wyszukiwarka");
         System.out.println("2. Ocena dostawcy");
+    }
+
+    private void printClientFinderMenu() {
+        System.out.println("Szukaj usługodawcy: ");
+        lessPrintlnInPrint();
+        System.out.println("1. wg miejscowości");
+        System.out.println("2. wg rodzaju usługi");
     }
 }
