@@ -29,6 +29,7 @@ public class ProvidersAdd {
         addAvailability();
         provider.setID();
         App.providerDataBase.addNewProvider(provider);
+//        App.providerDataBase.addProviderListToFile();
     }
 
     private void addAvailability() {
