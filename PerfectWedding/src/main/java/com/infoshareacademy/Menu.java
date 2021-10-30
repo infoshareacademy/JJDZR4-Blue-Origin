@@ -16,6 +16,7 @@ public class Menu {
                     reallyQuitSkeleton();
                     if (wantToQuit.toUpperCase().equals("T")) {
                         System.out.println(App.providerDataBase.toString());
+                        response = 1;
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
@@ -46,6 +47,7 @@ public class Menu {
                 case 0:
                     reallyQuitSkeleton();
                     if (wantToQuit.toUpperCase().equals("T")) {
+                        response = 1;
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
@@ -80,6 +82,7 @@ public class Menu {
                 case 0:
                     reallyQuitSkeleton();
                     if (wantToQuit.toUpperCase().equals("T")) {
+                        response = 1;
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
@@ -110,6 +113,7 @@ public class Menu {
                 case 0:
                     reallyQuitSkeleton();
                     if (wantToQuit.toUpperCase().equals("T")) {
+                        response = 1;
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
