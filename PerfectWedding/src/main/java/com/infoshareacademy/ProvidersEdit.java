@@ -21,6 +21,10 @@ public class ProvidersEdit {
         for (ServiceProvider n : providersList) {
             System.out.println("ID " + n.getID() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
         }
+        int ifExit = scanInput("Jeżeli chcesz zakończyć wybierz 0, w innym wypadku wybierz 1", 0, 1);
+        if (ifExit == 0) {
+            new Menu().mainMenu();
+        } else ;
         int chosenProviderId = scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): \n Podaj 0, aby wyjść do menu głównego.", 0, providersList.size());
         if (chosenProviderId == 0) {
             menu.mainMenu();
@@ -68,6 +72,12 @@ public class ProvidersEdit {
                 case "availability":
                     editAvailabilities(providerId);
                     break;
+                case "active":
+                    System.out.println("true or false");
+                    Scanner scanner12 = new Scanner(System.in);
+                    boolean isActiveQ = scanner.nextBoolean();
+                    providersList.get(providerId).setActive(isActiveQ);
+                    break;
                 default:
                     System.out.println("Nie wybrano żadnego pola.");
                     editProvider();
@@ -95,7 +105,7 @@ public class ProvidersEdit {
             addAvailability(providerId);
         } else {
             if (choice.equals("usuń")) {
-            removeAvailability(providerId);
+                removeAvailability(providerId);
             }
         }
     }
@@ -125,18 +135,17 @@ public class ProvidersEdit {
         do {
             System.out.println("Wolne terminy to: ");
             int i = 1;
-            for (LocalDate n: availableDates) {
+            for (LocalDate n : availableDates) {
                 System.out.println(i++ + ". " + n);
             }
-            if (availableDates.isEmpty()){
+            if (availableDates.isEmpty()) {
                 break;
             }
             index = scanInput("Podaj ID terminu do usunięcia: ", 1, availableDates.size());
-            availableDates.remove(index-1);
+            availableDates.remove(index - 1);
         } while (!returnTrueOrFalse("Czy już skończyłeś?", "tak", "nie"));
 
     }
-
 
 
 }

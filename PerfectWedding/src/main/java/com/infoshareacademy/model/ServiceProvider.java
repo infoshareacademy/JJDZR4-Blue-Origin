@@ -69,6 +69,7 @@ public class ServiceProvider {
         this.ID = id++;
     }
 
+
     public String getCompanyName() {
         return companyName;
     }

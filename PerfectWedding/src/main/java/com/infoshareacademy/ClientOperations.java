@@ -52,7 +52,7 @@ public class ClientOperations {
         String finder = scanInput("Wyszukaj usługodawcę poprzez lokalizację\n" + "Podaj nazwę miejscowości: ");
 
         for (ServiceProvider re : providersList) {
-            if (re.getLocation().getLocality().equals(finder)) {
+            if (re.getLocation().getLocality().equals(finder) && re.isActive()) {
                 reference += 1;
                 System.out.println(re.toStringVertical());
             }
@@ -67,7 +67,7 @@ public class ClientOperations {
         String finder = scanInput("Wyszukaj usługodawcę poprzez rodzaj usługi\n" + "Podaj rodzaj usługi: ");
 
         for (ServiceProvider re : providersList) {
-            if (re.getServiceType().getName().equals(finder)) {
+            if (re.getServiceType().getName().equals(finder) && re.isActive()) {
                 reference += 1;
                 System.out.println(re.toStringVertical());
             }
