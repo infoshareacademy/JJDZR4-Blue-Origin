@@ -34,7 +34,7 @@ public class ProviderDataBase {
 
     public void addProviderListToFile(){
         ObjectMapper mapper = new ObjectMapper();
-    String path = "src/main/resources/providers.json";
+    String path = "/home/agnieszka/Desktop/ISA JAVA/PROJEKT/jjdzr4-blue-origin/PerfectWedding/src/resources/providers.json";
         try {
             mapper.writeValue(new File(path), listOfProviders);
         } catch (IOException e) {
@@ -43,7 +43,7 @@ public class ProviderDataBase {
 
         public void readProviderListFromFile(){
         ObjectMapper mapper = new ObjectMapper();
-    String path = "src/main/resources/providers.json";
+    String path = "/home/agnieszka/Desktop/ISA JAVA/PROJEKT/jjdzr4-blue-origin/PerfectWedding/src/resources/providers.json";
             try {
                 mapper.readValue(new File(path), List.class);
             } catch (IOException e) {

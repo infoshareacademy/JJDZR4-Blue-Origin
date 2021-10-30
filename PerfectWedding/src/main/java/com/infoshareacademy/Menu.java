@@ -16,6 +16,7 @@ public class Menu {
                     reallyQuitSkeleton();
                     if (wantToQuit.toUpperCase().equals("T")) {
                         System.out.println(App.providerDataBase.toString());
+                        App.providerDataBase.addProviderListToFile();
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
@@ -46,6 +47,7 @@ public class Menu {
                 case 0:
                     reallyQuitSkeleton();
                     if (wantToQuit.toUpperCase().equals("T")) {
+                        App.providerDataBase.addProviderListToFile();
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
@@ -65,7 +67,7 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 3);
-        providerMenu();
+//        providerMenu();
     }
 
     public void clientMenu() {
@@ -105,6 +107,7 @@ public class Menu {
                 case 0:
                     reallyQuitSkeleton();
                     if (wantToQuit.toUpperCase().equals("T")) {
+
                         break;
                     } else if (wantToQuit.toUpperCase().equals("N"))
                         response = -1;
