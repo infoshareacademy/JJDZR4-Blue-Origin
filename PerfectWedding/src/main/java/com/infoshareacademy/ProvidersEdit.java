@@ -19,7 +19,7 @@ public class ProvidersEdit {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Aktualna lista usługodawców wygląda następująco: ");
         for (ServiceProvider n : providersList) {
-            System.out.println("ID " + n.getID() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
+            System.out.println("ID " + n.getId() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
         }
         int chosenProviderId = scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): \n Podaj 0, aby wyjść do menu głównego.", 0, providersList.size());
         if (chosenProviderId == 0) {
@@ -119,7 +119,7 @@ public class ProvidersEdit {
         LocalDate availableDate;
         Availability availability = new Availability();
         availability = providersList.get(providerId).getAvailability();
-        List<LocalDate> availableDates = availability.getAvailability();
+        List<LocalDate> availableDates = availability.getDates();
 
 
         do {

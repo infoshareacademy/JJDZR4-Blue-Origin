@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceProvider {
-    private int ID;
+    private int id;
     private String companyName;
     private String ownerName;
     private String ownerSurname;
@@ -18,7 +18,7 @@ public class ServiceProvider {
     private List<Rating> ratingList;
     double averageRating;
 
-    static int id = 1;
+    static int ID = 1;
 
     public ServiceProvider() {
         ratingList = new ArrayList<>();
@@ -60,13 +60,13 @@ public class ServiceProvider {
         this.availability = availability;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
 
     public void setID() {
-        this.ID = id++;
+        this.id = ID++;
     }
 
     public String getCompanyName() {
@@ -145,7 +145,7 @@ public class ServiceProvider {
     @Override
     public String toString() {
         return "ServiceProvider{" +
-                "ID=" + ID +
+                "ID=" + id +
                 "companyName='" + companyName + '\'' +
                 ", ownerName='" + ownerName + '\'' +
                 ", ownerSurname='" + ownerSurname + '\'' +
@@ -162,7 +162,7 @@ public class ServiceProvider {
 
     public String toStringVertical() {
         return
-                  "\n ID: " + ID
+                  "\n ID: " + id
                 + "\n companyName: " + companyName
                 + "\n ownerName: " + ownerName
                 + "\n ownerSurname: " + ownerSurname

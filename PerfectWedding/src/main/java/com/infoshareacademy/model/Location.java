@@ -10,6 +10,9 @@ public class Location {
     private String streetName;
     private int buildingNumber;
 
+    public Location() {
+    }
+
     public Location(String locality) {
         this.locality = locality;
     }

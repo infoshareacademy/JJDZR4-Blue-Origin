@@ -1,20 +1,29 @@
 package com.infoshareacademy;
 
-import static org.junit.Assert.assertTrue;
-
+import com.infoshareacademy.model.Availability;
+import com.infoshareacademy.model.Location;
+import com.infoshareacademy.model.ServiceProvider;
+import com.infoshareacademy.model.ServiceType;
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
+import java.time.LocalDate;
+
+public class AppTest {
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void deserializeServiceProvider() {
+        ProviderDataBase providerDataBase = new ProviderDataBase();
+        ServiceProvider serviceProvider = new ServiceProvider();
+        serviceProvider.setLocation(new Location());
+        serviceProvider.setServiceType(new ServiceType());
+        var availability = new Availability();
+        availability.addNewAvailability(LocalDate.now());
+        serviceProvider.setAvailability(availability);
+        providerDataBase.addNewProvider(serviceProvider);
+
+        providerDataBase.addProviderListToFile();
+
+        providerDataBase.readProviderListFromFile();
+        providerDataBase.getListOfProviders().forEach(System.out::println);
     }
 }
