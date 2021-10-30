@@ -17,25 +17,28 @@ public class ClientOperations {
         Integer rating;
         Integer serviceProviderPosInArray;
         List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Aktualna lista usługodawców wygląda następująco: ");
-            for (ServiceProvider n : providersList) {
-                System.out.println("ID " + n.getID() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
-            }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Aktualna lista usługodawców wygląda następująco: ");
+        for (ServiceProvider n : providersList) {
+            System.out.println("ID " + n.getID() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
+        }
+        int ifExit = scanInput("Jeżeli chcesz zakończyć wybierz 0, w innym wypadku wybierz 1", 0, 1);
+        if (ifExit == 0) {
+            new Menu().mainMenu();
+        } else ;
 
-
-        Integer maxSupplierNumber = App.providerDataBase.listOfProviders.size() ;
+        Integer maxSupplierNumber = App.providerDataBase.listOfProviders.size();
         serviceProviderPosInArray = scanInput("podaj nr dostawcy do oceny. Od 1 do " + maxSupplierNumber, 0, maxSupplierNumber);
         do {
             rating = scanInput("podaj ocene od 0 do 5 (-1 aby zakonczyc ocene)", -1, 5);
             if (rating >= 0) {
                 String comment = scanInput("podaj komentarz (moze byc puste)");
-                rateByClient(serviceProviderPosInArray-1, rating, comment);
+                rateByClient(serviceProviderPosInArray - 1, rating, comment);
             }
         } while (rating >= 0);
-        for (Rating ratingInArray : App.providerDataBase.listOfProviders.get(serviceProviderPosInArray-1).getRatingList())
+        for (Rating ratingInArray : App.providerDataBase.listOfProviders.get(serviceProviderPosInArray - 1).getRatingList())
             System.out.println(ratingInArray.toString());
-        System.out.println("średnia ocena to: " + App.providerDataBase.listOfProviders.get(serviceProviderPosInArray-1).getAverageRating());
+        System.out.println("średnia ocena to: " + App.providerDataBase.listOfProviders.get(serviceProviderPosInArray - 1).getAverageRating());
     }
 
     private void rateByClient(Integer serviceProviderPosInArray, Integer rating, String comment) {
@@ -53,9 +56,9 @@ public class ClientOperations {
                 reference += 1;
                 System.out.println(re.toStringVertical());
             }
-            if (reference < 1) {
-                System.out.println("Brak wyników\n");
-            }
+        }
+        if (reference == 0) {
+            System.out.println("Brak wyników\n");
         }
     }
 
@@ -69,7 +72,7 @@ public class ClientOperations {
                 System.out.println(re.toStringVertical());
             }
         }
-        if (reference < 1) {
+        if (reference == 0) {
             System.out.println("Brak wyników\n");
         }
     }

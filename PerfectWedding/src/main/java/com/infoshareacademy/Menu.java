@@ -32,7 +32,7 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 2);
-        //mainMenu();
+
     }
 
     public void providerMenu() {
@@ -53,19 +53,22 @@ public class Menu {
                     break;
                 case 1:
                     providersAdd.createProvider();
+                    mainMenu();
                     break;
                 case 2:
                     providersEdit.editProvider();
+                    mainMenu();
                     break;
                 case 3:
                     providersDisable.deleteProvider();
+                    mainMenu();;
                     break;
                 default:
                     choiceOptions();
                     break;
             }
         } while (response < 0 || response > 3);
-        providerMenu();
+
     }
 
     public void clientMenu() {
@@ -84,16 +87,18 @@ public class Menu {
                     break;
                 case 1:
                     clientFinderMenu();
+                    mainMenu();
                     break;
                 case 2:
                     clientOperations.dummyCallOfRating();
+                    mainMenu();
                     break;
                 default:
                     choiceOptions();
                     break;
             }
-        } while (response < 0 || response > 3);
-        clientMenu();
+        } while (response < 0 || response > 2);
+
     }
 
     public void clientFinderMenu() {
@@ -112,16 +117,18 @@ public class Menu {
                     break;
                 case 1:
                     clientOperations.findProviderByLocality();
+                    mainMenu();
                     break;
                 case 2:
                     clientOperations.findProviderByType();
+                    mainMenu();
                     break;
                 default:
                     choiceOptions();
                     break;
             }
         } while (response < 0 || response > 2);
-        clientFinderMenu();
+
     }
 
     private String reallyQuitSkeleton() {
