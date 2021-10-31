@@ -19,6 +19,10 @@ public class ProvidersDisable {
                 System.out.println("ID " + n.getId() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
             }
         }
+        int ifExit = scanInput("Jeżeli chcesz zakończyć wybierz 0, w innym wypadku wybierz 1", 0, 1);
+        if (ifExit == 0) {
+            new Menu().mainMenu();
+        } else ;
         int chosenProviderId = scanInput("Wybierz usługodawcę, którego chcesz usunąć (podaj ID): ", 1, providersList.size());
         providersList.get(chosenProviderId - 1).setActive(false);
     }
