@@ -4,7 +4,6 @@ public class ServiceType {
     private int ID;
     private String name;
     private String description;
-    private String currency;
     private float price;
 
     public ServiceType() {
@@ -38,14 +37,6 @@ public class ServiceType {
         this.description = description;
     }
 
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
     public float getPrice() {
         return price;
     }
@@ -60,7 +51,6 @@ public class ServiceType {
                 "ID=" + ID +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", currency='" + currency + '\'' +
                 ", price=" + price +
                 '}';
     }
