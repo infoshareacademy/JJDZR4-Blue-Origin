@@ -1,0 +1,94 @@
+[ {
+  "id" : 1,
+  "companyName" : "iSA",
+  "ownerName" : "Mariusz",
+  "ownerSurname" : "Sz",
+  "phone" : "123456",
+  "email" : "biuro@isa.com",
+  "websiteAddress" : "www.isa.com",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "Gdansk",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "szkolenia",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ "2021-10-30", "2021-10-31" ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+}, {
+  "id" : 2,
+  "companyName" : "ABC",
+  "ownerName" : "Marek",
+  "ownerSurname" : "Zegarek",
+  "phone" : "987654",
+  "email" : "a@b.com",
+  "websiteAddress" : "www.abc.com",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "Szczecin",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "wszystko",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ "2021-11-11", "2021-12-12" ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+}, {
+  "id" : 3,
+  "companyName" : "Videoperfect",
+  "ownerName" : "Pawel",
+  "ownerSurname" : "Dampc",
+  "phone" : "570099286",
+  "email" : "poczta@videoperfect.eu",
+  "websiteAddress" : "www.videoperfect.eu",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "Szemud",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "wideofilmowanie",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ "2021-01-01" ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+} ]

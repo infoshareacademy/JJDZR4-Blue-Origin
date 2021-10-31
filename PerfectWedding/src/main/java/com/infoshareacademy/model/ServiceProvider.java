@@ -171,11 +171,8 @@ public class ServiceProvider {
                 + "\n websiteAddress: " + websiteAddress
                     + "\n   voivodeship: " + location.getVoivodeship()
                     + "\n   locality: " + location.getLocality()
-                    + "\n   streetName: " + location.getStreetName()
-                    + "\n   buildingNumber: " + location.getBuildingNumber()
                     + "\n   name: " + serviceType.getName()
                     + "\n   description: " + serviceType.getDescription()
-                    + "\n   currency: " + serviceType.getCurrency()
                     + "\n   price: " + serviceType.getPrice()
                 + "availability: " + availability
                 + "\n rating: " + ratingList

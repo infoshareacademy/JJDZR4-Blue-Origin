@@ -158,14 +158,14 @@ public class Menu {
 
     private void lessPrintlnInPrint() {
         System.out.println("Wybierz opcje:");
-        System.out.println("0. wyjście z programu.");
+        System.out.println("0. Wyjście z programu");
     }
 
     private void printMainMenu() {
         System.out.println("Menu główne");
         lessPrintlnInPrint();
-        System.out.println("1. panel klienta");
-        System.out.println("2. panel usługodawcy");
+        System.out.println("1. Panel klienta");
+        System.out.println("2. Panel usługodawcy");
     }
 
     private void printProviderMenu() {
