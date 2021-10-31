@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceProvider {
-    private int ID;
+    private int id;
     private String companyName;
     private String ownerName;
     private String ownerSurname;
@@ -18,7 +18,7 @@ public class ServiceProvider {
     private List<Rating> ratingList;
     double averageRating;
 
-    static int id = 1;
+    static int ID = 1;
 
     public ServiceProvider() {
         ratingList = new ArrayList<>();
@@ -60,15 +60,14 @@ public class ServiceProvider {
         this.availability = availability;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
 
     public void setID() {
-        this.ID = id++;
+        this.id = id++;
     }
-
 
     public String getCompanyName() {
         return companyName;
@@ -146,42 +145,42 @@ public class ServiceProvider {
     @Override
     public String toString() {
         return "ServiceProvider{" +
-                "ID=" + ID +
+                "ID=" + id +
                 "companyName='" + companyName + '\'' +
                 ", ownerName='" + ownerName + '\'' +
                 ", ownerSurname='" + ownerSurname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", websiteAddress='" + websiteAddress + '\'' +
-                ", location=" + location.getLocality() + '\'' +
-                ", serviceType=" + serviceType.getName() + '\'' +
-                ", availability=\n" + availability + '\n' +
-                ", rating=\n" + ratingList + '\n' +
+                ", location=" + location.getLocality() +'\'' +
+                ", serviceType=" + serviceType.getName() +'\'' +
+                ", availability=\n" + availability +'\n' +
+                ", rating=\n" + ratingList +'\n' +
                 ", isActive=" + isActive +
                 "}\n";
     }
 
     public String toStringVertical() {
         return
-                "\n ID: " + ID
-                        + "\n companyName: " + companyName
-                        + "\n ownerName: " + ownerName
-                        + "\n ownerSurname: " + ownerSurname
-                        + "\n phone: " + phone
-                        + "\n email: " + email
-                        + "\n websiteAddress: " + websiteAddress
-                        + "\n   locality: " + location.getLocality()
-                       /* + "\n   voivodeship: " + location.getVoivodeship()
-                        + "\n   streetName: " + location.getStreetName()
-                        + "\n   buildingNumber: " + location.getBuildingNumber()*/
-                        + "\n   name: " + serviceType.getName()
-                       /* + "\n   description: " + serviceType.getDescription()
-                        + "\n   currency: " + serviceType.getCurrency()
-                        + "\n   price: " + serviceType.getPrice()*/
-                        + "\n availability: " + availability
-                        + "\n rating: " + ratingList
-                        + "\n isActive: " + isActive
-                        + "\n";
+                  "\n ID: " + id
+                + "\n companyName: " + companyName
+                + "\n ownerName: " + ownerName
+                + "\n ownerSurname: " + ownerSurname
+                + "\n phone: " + phone
+                + "\n email: " + email
+                + "\n websiteAddress: " + websiteAddress
+                    + "\n   voivodeship: " + location.getVoivodeship()
+                    + "\n   locality: " + location.getLocality()
+                    + "\n   streetName: " + location.getStreetName()
+                    + "\n   buildingNumber: " + location.getBuildingNumber()
+                    + "\n   name: " + serviceType.getName()
+                    + "\n   description: " + serviceType.getDescription()
+                    + "\n   currency: " + serviceType.getCurrency()
+                    + "\n   price: " + serviceType.getPrice()
+                + "availability: " + availability
+                + "\n rating: " + ratingList
+                + "\n isActive: " + isActive
+                +"\n";
 
     }
 }

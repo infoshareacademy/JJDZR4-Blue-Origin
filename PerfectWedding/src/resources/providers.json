@@ -1,0 +1,187 @@
+[ {
+  "id" : 1,
+  "companyName" : "iSA",
+  "ownerName" : "Mariusz",
+  "ownerSurname" : "Sz",
+  "phone" : "123456",
+  "email" : "biuro@isa.com",
+  "websiteAddress" : "www.isa.com",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "Gdansk",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "szkolenia",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ "2021-10-30", "2021-10-31" ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+}, {
+  "id" : 2,
+  "companyName" : "ABC",
+  "ownerName" : "Marek",
+  "ownerSurname" : "Zegarek",
+  "phone" : "987654",
+  "email" : "a@b.com",
+  "websiteAddress" : "www.abc.com",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "Szczecin",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "wszystko",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ "2021-11-11", "2021-12-12" ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+}, {
+  "id" : 3,
+  "companyName" : "vp",
+  "ownerName" : "pawel",
+  "ownerSurname" : "damc",
+  "phone" : "324234",
+  "email" : "twerte",
+  "websiteAddress" : "twwwwww",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "szemud",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "foto",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ "2021-01-01" ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+}, {
+  "id" : 4,
+  "companyName" : "dfdsfsd",
+  "ownerName" : "fsdfsdf",
+  "ownerSurname" : "sdfsdfsd",
+  "phone" : "fsdfsdf",
+  "email" : "sdfsdfsd",
+  "websiteAddress" : "fsdfsdf",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "sopot",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "video",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+}, {
+  "id" : 5,
+  "companyName" : "111111111111",
+  "ownerName" : "11111111",
+  "ownerSurname" : "11111111",
+  "phone" : "11111111",
+  "email" : "11111111",
+  "websiteAddress" : "111111111",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "1111111",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "1111111111",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+}, {
+  "id" : 0,
+  "companyName" : "erere",
+  "ownerName" : "rerere",
+  "ownerSurname" : "rerere",
+  "phone" : "rerer",
+  "email" : "erere",
+  "websiteAddress" : "rerer",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "erere",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "rerer",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+} ]

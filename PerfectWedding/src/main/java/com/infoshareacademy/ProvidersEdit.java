@@ -19,7 +19,7 @@ public class ProvidersEdit {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Aktualna lista usługodawców wygląda następująco: ");
         for (ServiceProvider n : providersList) {
-            System.out.println("ID " + n.getID() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
+            System.out.println("ID " + n.getId() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
         }
         int ifExit = scanInput("Jeżeli chcesz zakończyć wybierz 0, w innym wypadku wybierz 1", 0, 1);
         if (ifExit == 0) {
@@ -129,7 +129,7 @@ public class ProvidersEdit {
         LocalDate availableDate;
         Availability availability = new Availability();
         availability = providersList.get(providerId).getAvailability();
-        List<LocalDate> availableDates = availability.getAvailability();
+        List<LocalDate> availableDates = availability.getDates();
 
 
         do {

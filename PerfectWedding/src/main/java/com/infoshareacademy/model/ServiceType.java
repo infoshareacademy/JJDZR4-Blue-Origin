@@ -7,6 +7,9 @@ public class ServiceType {
     private String currency;
     private float price;
 
+    public ServiceType() {
+    }
+
     public ServiceType(String name) {
         this.name = name;
     }
