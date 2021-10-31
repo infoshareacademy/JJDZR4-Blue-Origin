@@ -16,7 +16,6 @@ public class ProvidersEdit {
     List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
 
     public void editProvider() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Aktualna lista usługodawców wygląda następująco: ");
         for (ServiceProvider n : providersList) {
             System.out.println("ID " + n.getId() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
@@ -34,7 +33,6 @@ public class ProvidersEdit {
     }
 
     public void editSelectedProvider(int providerId) {
-//        List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
         Scanner scanner = new Scanner(System.in);
         boolean areYouFinished = true;
         System.out.println("Szczegóły wybranego dostawcy: ");
@@ -74,7 +72,6 @@ public class ProvidersEdit {
                     break;
                 case "active":
                     System.out.println("true or false");
-                    Scanner scanner12 = new Scanner(System.in);
                     boolean isActiveQ = scanner.nextBoolean();
                     providersList.get(providerId).setActive(isActiveQ);
                     break;
@@ -95,7 +92,6 @@ public class ProvidersEdit {
 
     public void editAvailabilities(int providerId) {
         String choice = "unknown";
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Wolne terminy to: ");
         System.out.println(providersList.get(providerId).getAvailability());
         System.out.println("W celu dodania terminu dostępności napisz \"dodaj\" \nW celu usunięcia terminu dostępności napisz \"usuń\"");
@@ -146,6 +142,4 @@ public class ProvidersEdit {
         } while (!returnTrueOrFalse("Czy już skończyłeś?", "tak", "nie"));
 
     }
-
-
 }
