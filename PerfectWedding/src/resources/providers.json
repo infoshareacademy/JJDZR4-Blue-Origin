@@ -62,24 +62,24 @@
   "active" : true
 }, {
   "id" : 3,
-  "companyName" : "vp",
-  "ownerName" : "pawel",
-  "ownerSurname" : "damc",
-  "phone" : "324234",
-  "email" : "twerte",
-  "websiteAddress" : "twwwwww",
+  "companyName" : "Videoperfect",
+  "ownerName" : "Pawel",
+  "ownerSurname" : "Dampc",
+  "phone" : "570099286",
+  "email" : "poczta@videoperfect.eu",
+  "websiteAddress" : "www.videoperfect.eu",
   "location" : {
     "country" : null,
     "voivodeship" : null,
     "county" : null,
     "commune" : null,
-    "locality" : "szemud",
+    "locality" : "Szemud",
     "postalCode" : null,
     "streetName" : null,
     "buildingNumber" : 0
   },
   "serviceType" : {
-    "name" : "foto",
+    "name" : "wideofilmowanie",
     "description" : null,
     "currency" : null,
     "price" : 0.0,
@@ -87,99 +87,6 @@
   },
   "availability" : {
     "dates" : [ "2021-01-01" ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true
-}, {
-  "id" : 4,
-  "companyName" : "dfdsfsd",
-  "ownerName" : "fsdfsdf",
-  "ownerSurname" : "sdfsdfsd",
-  "phone" : "fsdfsdf",
-  "email" : "sdfsdfsd",
-  "websiteAddress" : "fsdfsdf",
-  "location" : {
-    "country" : null,
-    "voivodeship" : null,
-    "county" : null,
-    "commune" : null,
-    "locality" : "sopot",
-    "postalCode" : null,
-    "streetName" : null,
-    "buildingNumber" : 0
-  },
-  "serviceType" : {
-    "name" : "video",
-    "description" : null,
-    "currency" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true
-}, {
-  "id" : 5,
-  "companyName" : "111111111111",
-  "ownerName" : "11111111",
-  "ownerSurname" : "11111111",
-  "phone" : "11111111",
-  "email" : "11111111",
-  "websiteAddress" : "111111111",
-  "location" : {
-    "country" : null,
-    "voivodeship" : null,
-    "county" : null,
-    "commune" : null,
-    "locality" : "1111111",
-    "postalCode" : null,
-    "streetName" : null,
-    "buildingNumber" : 0
-  },
-  "serviceType" : {
-    "name" : "1111111111",
-    "description" : null,
-    "currency" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true
-}, {
-  "id" : 0,
-  "companyName" : "erere",
-  "ownerName" : "rerere",
-  "ownerSurname" : "rerere",
-  "phone" : "rerer",
-  "email" : "erere",
-  "websiteAddress" : "rerer",
-  "location" : {
-    "country" : null,
-    "voivodeship" : null,
-    "county" : null,
-    "commune" : null,
-    "locality" : "erere",
-    "postalCode" : null,
-    "streetName" : null,
-    "buildingNumber" : 0
-  },
-  "serviceType" : {
-    "name" : "rerer",
-    "description" : null,
-    "currency" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,
