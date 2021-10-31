@@ -1,5 +1,6 @@
 package com.infoshareacademy;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Menu {
@@ -14,11 +15,11 @@ public class Menu {
             switch (response) {
                 case 0:
                     reallyQuitSkeleton();
-                    if (wantToQuit.toUpperCase().equals("T")) {
-                        System.out.println(App.providerDataBase.toString());
+                    if (wantToQuit.equals("T")) {
+                        App.providerDataBase.addProviderListToFile();
                         response = 1;
                         break;
-                    } else if (wantToQuit.toUpperCase().equals("N"))
+                    } else if (wantToQuit.equals("N"))
                         response = -1;
                     else mainMenu();
                     break;
@@ -33,7 +34,6 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 2);
-
     }
 
     public void providerMenu() {
@@ -46,10 +46,11 @@ public class Menu {
             switch (response) {
                 case 0:
                     reallyQuitSkeleton();
-                    if (wantToQuit.toUpperCase().equals("T")) {
+                    if (wantToQuit.equals("T")) {
+                        App.providerDataBase.addProviderListToFile();
                         response = 1;
                         break;
-                    } else if (wantToQuit.toUpperCase().equals("N"))
+                    } else if (wantToQuit.equals("N"))
                         response = -1;
                     else providerMenu();
                     break;
@@ -63,14 +64,13 @@ public class Menu {
                     break;
                 case 3:
                     providersDisable.deleteProvider();
-                    mainMenu();;
+                    mainMenu();
                     break;
                 default:
                     choiceOptions();
                     break;
             }
         } while (response < 0 || response > 3);
-
     }
 
     public void clientMenu() {
@@ -81,10 +81,10 @@ public class Menu {
             switch (response) {
                 case 0:
                     reallyQuitSkeleton();
-                    if (wantToQuit.toUpperCase().equals("T")) {
+                    if (wantToQuit.equals("T")) {
                         response = 1;
                         break;
-                    } else if (wantToQuit.toUpperCase().equals("N"))
+                    } else if (wantToQuit.equals("N"))
                         response = -1;
                     else clientMenu();
                     break;
@@ -100,9 +100,8 @@ public class Menu {
                     choiceOptions();
                     break;
             }
-        } while (response < 0 || response > 2);
-
-    }
+        } while (response < 0 || response > 3);
+            }
 
     public void clientFinderMenu() {
         ClientOperations clientOperations = new ClientOperations();
@@ -112,10 +111,10 @@ public class Menu {
             switch (response) {
                 case 0:
                     reallyQuitSkeleton();
-                    if (wantToQuit.toUpperCase().equals("T")) {
+                    if (wantToQuit.equals("T")) {
                         response = 1;
                         break;
-                    } else if (wantToQuit.toUpperCase().equals("N"))
+                    } else if (wantToQuit.equals("N"))
                         response = -1;
                     else clientMenu();
                     break;
@@ -138,7 +137,7 @@ public class Menu {
     private String reallyQuitSkeleton() {
         System.out.println("Czy na pewno wyjść (T/N)?");
         Scanner scanner1 = new Scanner(System.in);
-        wantToQuit = scanner1.nextLine();
+        wantToQuit = scanner1.nextLine().toUpperCase(Locale.ROOT);
         return wantToQuit;
     }
 
