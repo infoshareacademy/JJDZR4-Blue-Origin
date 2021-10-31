@@ -80,6 +80,8 @@ public class ProvidersEdit {
             String response = scanInput("Czy chciałbyś edytować jeszcze jakieś pole? (tak/nie)");
             if (response.equals("tak")) {
                 areYouFinished = true;
+                System.out.println("Szczegóły wybranego dostawcy: ");
+                System.out.println(providersList.get(providerId).toStringVertical());
             } else {
                 areYouFinished = false;
             }

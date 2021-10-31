@@ -98,7 +98,9 @@ public class PerfectWeddingUtils {
     public static void printListOfProviders (List<ServiceProvider> providersList) {
         System.out.println("Aktualna lista usługodawców wygląda następująco: ");
         for (ServiceProvider n : providersList) {
-            System.out.println("ID " + n.getId() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
+            System.out.println("ID -> " + n.getId() + " || "
+                    + " Nazwa firmy -> " + n.getCompanyName() + " || "
+                    + " Imię i nazwisko właściciela -> " + n.getOwnerName() + " " + n.getOwnerSurname());
         }
     }
 }
