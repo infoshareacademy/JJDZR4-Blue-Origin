@@ -79,7 +79,7 @@ public class PerfectWeddingUtils {
             try {
                 Scanner scanner = new Scanner(System.in);
                 String dataToParse = scanner.nextLine();
-                if(dataToParse.equals(exitCode)){
+                if(dataToParse.equalsIgnoreCase(exitCode)){
                     toReturn=exitMessage;
                     exit=true;
                 }
