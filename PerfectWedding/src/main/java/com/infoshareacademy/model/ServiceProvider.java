@@ -20,7 +20,7 @@ public class ServiceProvider {
     private boolean isActive;
     private List<Rating> ratingList;
     double averageRating;
-    private int ID = 1;
+    private int ID;
 
     public int getID() {
         return ID;
@@ -155,8 +155,8 @@ public class ServiceProvider {
     @Override
     public String toString() {
         return "ServiceProvider{" +
-                "ID=" + id +
-                "companyName='" + companyName + '\'' +
+                "ID=" + ID +
+                ", companyName='" + companyName + '\'' +
                 ", ownerName='" + ownerName + '\'' +
                 ", ownerSurname='" + ownerSurname + '\'' +
                 ", phone='" + phone + '\'' +
