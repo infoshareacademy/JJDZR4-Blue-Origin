@@ -1,7 +1,10 @@
 package com.infoshareacademy;
 
+import com.infoshareacademy.model.ServiceProvider;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Scanner;
 
 public class PerfectWeddingUtils {
@@ -90,5 +93,12 @@ public class PerfectWeddingUtils {
             }
         } while (!exit);
         return toReturn;
+    }
+
+    public static void printListOfProviders (List<ServiceProvider> providersList) {
+        System.out.println("Aktualna lista usługodawców wygląda następująco: ");
+        for (ServiceProvider n : providersList) {
+            System.out.println("ID " + n.getId() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
+        }
     }
 }

@@ -16,10 +16,7 @@ public class ProvidersEdit {
     List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
 
     public void editProvider() {
-        System.out.println("Aktualna lista usługodawców wygląda następująco: ");
-        for (ServiceProvider n : providersList) {
-            System.out.println("ID " + n.getId() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
-        }
+        printListOfProviders(providersList);
         int ifExit = scanInput("Jeżeli chcesz zakończyć wybierz 0, w innym wypadku wybierz 1", 0, 1);
         if (ifExit == 0) {
             new Menu().mainMenu();
