@@ -46,4 +46,28 @@
   "ratingList" : [ ],
   "averageRating" : -1.0,
   "active" : true
+}, {
+  "id" : 0,
+  "companyName" : "q",
+  "ownerName" : "q",
+  "ownerSurname" : "q",
+  "phone" : "q",
+  "email" : "q",
+  "websiteAddress" : "q",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "q"
+  },
+  "serviceType" : {
+    "name" : "q",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
 } ]
