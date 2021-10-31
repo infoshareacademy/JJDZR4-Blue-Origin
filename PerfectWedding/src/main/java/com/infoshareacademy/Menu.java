@@ -137,7 +137,7 @@ public class Menu {
     private String reallyQuitSkeleton() {
         System.out.println("Czy na pewno wyjść (T/N)?");
         Scanner scanner1 = new Scanner(System.in);
-        wantToQuit = scanner1.nextLine().toUpperCase(Locale.ROOT);
+        wantToQuit = scanner1.nextLine().toUpperCase();
         return wantToQuit;
     }
 
