@@ -1,4 +1,5 @@
 [ {
+  "ID" : 1,
   "companyName" : "Test",
   "ownerName" : "Mateusz",
   "ownerSurname" : "K",
@@ -23,6 +24,7 @@
   "active" : true,
   "id" : 1
 }, {
+  "ID" : 2,
   "companyName" : "Infoshare",
   "ownerName" : "God",
   "ownerSurname" : "AllSeeingEye",
@@ -47,6 +49,7 @@
   "active" : true,
   "id" : 2
 }, {
+  "ID" : 3,
   "companyName" : "q",
   "ownerName" : "q",
   "ownerSurname" : "q",
@@ -66,11 +69,15 @@
   "availability" : {
     "dates" : [ ]
   },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
+  "ratingList" : [ {
+    "rating" : 5,
+    "comment" : null
+  } ],
+  "averageRating" : 5.0,
   "active" : true,
   "id" : 3
 }, {
+  "ID" : 4,
   "companyName" : "q",
   "ownerName" : "w",
   "ownerSurname" : "w",
@@ -95,6 +102,7 @@
   "active" : false,
   "id" : 4
 }, {
+  "ID" : 5,
   "companyName" : "e",
   "ownerName" : "e",
   "ownerSurname" : "e",
@@ -119,6 +127,7 @@
   "active" : true,
   "id" : 5
 }, {
+  "ID" : 6,
   "companyName" : "r",
   "ownerName" : "r",
   "ownerSurname" : "r",
@@ -143,11 +152,12 @@
   "active" : false,
   "id" : 6
 }, {
+  "ID" : 7,
   "companyName" : "y",
   "ownerName" : "y",
   "ownerSurname" : "y",
   "phone" : "y",
-  "email" : "y",
+  "email" : "kdlsjflkja",
   "websiteAddress" : "y",
   "location" : {
     "voivodeship" : null,
@@ -166,4 +176,160 @@
   "averageRating" : -1.0,
   "active" : true,
   "id" : 7
+}, {
+  "ID" : 8,
+  "companyName" : "u",
+  "ownerName" : "u",
+  "ownerSurname" : "u",
+  "phone" : "u",
+  "email" : "u",
+  "websiteAddress" : "u",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "u"
+  },
+  "serviceType" : {
+    "name" : "u",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ "2022-07-08" ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "id" : 8
+}, {
+  "ID" : 9,
+  "companyName" : "a",
+  "ownerName" : "a",
+  "ownerSurname" : "a",
+  "phone" : "a",
+  "email" : "a",
+  "websiteAddress" : "a",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "a"
+  },
+  "serviceType" : {
+    "name" : "a",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ "2021-04-01" ]
+  },
+  "ratingList" : [ {
+    "rating" : 5,
+    "comment" : null
+  }, {
+    "rating" : 3,
+    "comment" : null
+  } ],
+  "averageRating" : 4.0,
+  "active" : true,
+  "id" : 9
+}, {
+  "ID" : 10,
+  "companyName" : "s",
+  "ownerName" : "s",
+  "ownerSurname" : "s",
+  "phone" : "s",
+  "email" : "s",
+  "websiteAddress" : "s",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "s"
+  },
+  "serviceType" : {
+    "name" : "s",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : false,
+  "id" : 10
+}, {
+  "ID" : 11,
+  "companyName" : "z",
+  "ownerName" : "z",
+  "ownerSurname" : "z",
+  "phone" : "z",
+  "email" : "z",
+  "websiteAddress" : "z",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "z"
+  },
+  "serviceType" : {
+    "name" : "z",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "id" : 11
+}, {
+  "ID" : 12,
+  "companyName" : "o",
+  "ownerName" : "o",
+  "ownerSurname" : "o",
+  "phone" : "o",
+  "email" : "o",
+  "websiteAddress" : "o",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "o"
+  },
+  "serviceType" : {
+    "name" : "o",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : false,
+  "id" : 12
+}, {
+  "ID" : 13,
+  "companyName" : "f",
+  "ownerName" : "f",
+  "ownerSurname" : "f",
+  "phone" : "f",
+  "email" : "f",
+  "websiteAddress" : "f",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "f"
+  },
+  "serviceType" : {
+    "name" : "f",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "id" : 13
 } ]

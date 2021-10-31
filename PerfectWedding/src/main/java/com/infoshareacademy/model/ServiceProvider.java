@@ -1,13 +1,20 @@
 package com.infoshareacademy.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.ArrayList;
 import java.util.List;
-@JsonIgnoreProperties(ignoreUnknown = true)
-
+//@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonPropertyOrder({ "ID", "companyName", "ownerName", "ownerSurname", "phone",
+        "email","websiteAddress","location","serviceType","availability","isActive","ratingList"
+,"averageRating"})
 public class ServiceProvider {
     static int id;
+
+    @JsonProperty(value = "ID")
+    private int ID;
     private String companyName;
     private String ownerName;
     private String ownerSurname;
@@ -20,7 +27,7 @@ public class ServiceProvider {
     private boolean isActive;
     private List<Rating> ratingList;
     double averageRating;
-    private int ID = 1;
+
 
     public int getID() {
         return ID;
@@ -155,8 +162,8 @@ public class ServiceProvider {
     @Override
     public String toString() {
         return "ServiceProvider{" +
-                "ID=" + id +
-                "companyName='" + companyName + '\'' +
+                "ID=" + ID +
+                ", companyName='" + companyName + '\'' +
                 ", ownerName='" + ownerName + '\'' +
                 ", ownerSurname='" + ownerSurname + '\'' +
                 ", phone='" + phone + '\'' +
@@ -172,7 +179,7 @@ public class ServiceProvider {
 
     public String toStringVertical() {
         return
-                  "\n ID: " + id
+                  "\n ID: " + ID
                 + "\n companyName: " + companyName
                 + "\n ownerName: " + ownerName
                 + "\n ownerSurname: " + ownerSurname
