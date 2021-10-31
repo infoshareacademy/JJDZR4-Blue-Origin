@@ -103,4 +103,14 @@ public class PerfectWeddingUtils {
                     + " Imię i nazwisko właściciela -> " + n.getOwnerName() + " " + n.getOwnerSurname());
         }
     }
+
+    public static void printWelcomeLogo () {
+        System.out.println("  _____  ______ _____  ______ ______ _____ _______  __          ________ _____  _____ _____ _   _  _____ ");
+        System.out.println("|  __ \\|  ____|  __ \\|  ____|  ____/ ____|__   __| \\ \\        / /  ____|  __ \\|  __ \\_   _| \\ | |/ ____|");
+        System.out.println("| |__) | |__  | |__) | |__  | |__ | |       | |     \\ \\  /\\  / /| |__  | |  | | |  | || | |  \\| | |  __ ");
+        System.out.println("|  ___/|  __| |  _  /|  __| |  __|| |       | |      \\ \\/  \\/ / |  __| | |  | | |  | || | | . ` | | |_ |");
+        System.out.println("| |    | |____| | \\ \\| |    | |___| |____   | |       \\  /\\  /  | |____| |__| | |__| || |_| |\\  | |__| |");
+        System.out.println("|_|    |______|_|  \\_\\_|    |______\\_____|  |_|        \\/  \\/   |______|_____/|_____/_____|_| \\_|\\_____|");
+        System.out.println();
+    }
 }
