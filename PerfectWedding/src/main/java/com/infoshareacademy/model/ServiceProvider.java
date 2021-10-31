@@ -7,7 +7,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class ServiceProvider {
-    private int id;
+    static int id;
     private String companyName;
     private String ownerName;
     private String ownerSurname;
@@ -20,11 +20,22 @@ public class ServiceProvider {
     private boolean isActive;
     private List<Rating> ratingList;
     double averageRating;
+    private int ID = 1;
 
-    static int ID = 1;
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+
 
     public ServiceProvider() {
         ratingList = new ArrayList<>();
+        id++;
+        ID=id;
     }
 
     public List<Rating> getRatingList() {
@@ -63,14 +74,10 @@ public class ServiceProvider {
         this.availability = availability;
     }
 
-    public int getId() {
-        return id;
-    }
 
 
-    public void setId() {
-        this.id = id++;
-    }
+
+
 
     public String getCompanyName() {
         return companyName;

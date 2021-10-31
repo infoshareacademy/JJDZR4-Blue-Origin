@@ -16,7 +16,7 @@ public class ProvidersDisable {
         System.out.println("Aktualna lista usługodawców wygląda następująco: ");
         for (ServiceProvider n : providersList) {
             if (n.isActive()) {
-                System.out.println("ID " + n.getId() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
+                System.out.println("ID " + n.getID() + " Nazwa firmy " + n.getCompanyName() + " Imię i nazwisko właściciela " + n.getOwnerName() + " " + n.getOwnerSurname());
             }
         }
         int ifExit = scanInput("Jeżeli chcesz zakończyć wybierz 0, w innym wypadku wybierz 1", 0, 1);

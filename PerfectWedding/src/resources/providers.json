@@ -1,5 +1,4 @@
 [ {
-  "id" : 1,
   "companyName" : "Test",
   "ownerName" : "Mateusz",
   "ownerSurname" : "K",
@@ -21,9 +20,9 @@
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,
-  "active" : true
+  "active" : true,
+  "id" : 1
 }, {
-  "id" : 2,
   "companyName" : "Infoshare",
   "ownerName" : "God",
   "ownerSurname" : "AllSeeingEye",
@@ -45,9 +44,9 @@
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,
-  "active" : true
+  "active" : true,
+  "id" : 2
 }, {
-  "id" : 0,
   "companyName" : "q",
   "ownerName" : "q",
   "ownerSurname" : "q",
@@ -69,5 +68,102 @@
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,
-  "active" : true
+  "active" : true,
+  "id" : 3
+}, {
+  "companyName" : "q",
+  "ownerName" : "w",
+  "ownerSurname" : "w",
+  "phone" : "w",
+  "email" : "w",
+  "websiteAddress" : "w",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "w"
+  },
+  "serviceType" : {
+    "name" : "w",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : false,
+  "id" : 4
+}, {
+  "companyName" : "e",
+  "ownerName" : "e",
+  "ownerSurname" : "e",
+  "phone" : "e",
+  "email" : "e",
+  "websiteAddress" : "e",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "e"
+  },
+  "serviceType" : {
+    "name" : "e",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "id" : 5
+}, {
+  "companyName" : "r",
+  "ownerName" : "r",
+  "ownerSurname" : "r",
+  "phone" : "r",
+  "email" : "r",
+  "websiteAddress" : "r",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "r"
+  },
+  "serviceType" : {
+    "name" : "r",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : false,
+  "id" : 6
+}, {
+  "companyName" : "y",
+  "ownerName" : "y",
+  "ownerSurname" : "y",
+  "phone" : "y",
+  "email" : "y",
+  "websiteAddress" : "y",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "y"
+  },
+  "serviceType" : {
+    "name" : "y",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "id" : 7
 } ]
