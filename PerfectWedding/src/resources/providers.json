@@ -30,7 +30,7 @@
   "averageRating" : -1.0,
   "active" : true
 }, {
-  "id" : 1,
+  "id" : 2,
   "companyName" : "ABC",
   "ownerName" : "Marek",
   "ownerSurname" : "Zegarek",
@@ -61,7 +61,7 @@
   "averageRating" : -1.0,
   "active" : true
 }, {
-  "id" : 1,
+  "id" : 3,
   "companyName" : "vp",
   "ownerName" : "pawel",
   "ownerSurname" : "damc",
@@ -92,7 +92,7 @@
   "averageRating" : -1.0,
   "active" : true
 }, {
-  "id" : 1,
+  "id" : 4,
   "companyName" : "dfdsfsd",
   "ownerName" : "fsdfsdf",
   "ownerSurname" : "sdfsdfsd",
@@ -111,6 +111,68 @@
   },
   "serviceType" : {
     "name" : "video",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+}, {
+  "id" : 5,
+  "companyName" : "111111111111",
+  "ownerName" : "11111111",
+  "ownerSurname" : "11111111",
+  "phone" : "11111111",
+  "email" : "11111111",
+  "websiteAddress" : "111111111",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "1111111",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "1111111111",
+    "description" : null,
+    "currency" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true
+}, {
+  "id" : 0,
+  "companyName" : "erere",
+  "ownerName" : "rerere",
+  "ownerSurname" : "rerere",
+  "phone" : "rerer",
+  "email" : "erere",
+  "websiteAddress" : "rerer",
+  "location" : {
+    "country" : null,
+    "voivodeship" : null,
+    "county" : null,
+    "commune" : null,
+    "locality" : "erere",
+    "postalCode" : null,
+    "streetName" : null,
+    "buildingNumber" : 0
+  },
+  "serviceType" : {
+    "name" : "rerer",
     "description" : null,
     "currency" : null,
     "price" : 0.0,

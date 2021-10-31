@@ -66,7 +66,7 @@ public class ServiceProvider {
 
 
     public void setID() {
-        this.id = ID++;
+        this.id = id++;
     }
 
     public String getCompanyName() {
