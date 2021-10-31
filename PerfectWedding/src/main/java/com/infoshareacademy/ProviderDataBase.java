@@ -14,7 +14,7 @@ import java.util.List;
 // outer class
 public class ProviderDataBase {
 
-    private static final String PROVIDERS_PATH = System.getProperty("user.dir") + "/src/resources/providers.json";
+    private static final String PROVIDERS_PATH = "/home/paweldampc/Desktop/InfoShare/jjdzr4-blue-origin/PerfectWedding/src/resources/providers.json";
     private final ObjectMapper mapper;
 
     List<ServiceProvider> listOfProviders;

@@ -65,7 +65,7 @@ public class ServiceProvider {
     }
 
 
-    public void setID() {
+    public void setId() {
         this.id = id++;
     }
 
