@@ -179,7 +179,7 @@ public class ServiceProvider {
 
     public String toStringVertical() {
         return
-                  "\n ID: " + ID
+                  "\n ID: " + id
                 + "\n companyName: " + companyName
                 + "\n ownerName: " + ownerName
                 + "\n ownerSurname: " + ownerSurname
