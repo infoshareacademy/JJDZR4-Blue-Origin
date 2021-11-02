@@ -1,18 +1,18 @@
 package com.infoshareacademy.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.ArrayList;
 import java.util.List;
+
 //@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonPropertyOrder({ "ID", "companyName", "ownerName", "ownerSurname", "phone",
-        "email","websiteAddress","location","serviceType","availability","isActive","ratingList"
-,"averageRating"})
+@JsonPropertyOrder({"ID", "companyName", "ownerName", "ownerSurname", "phone",
+        "email", "websiteAddress", "location", "serviceType", "availability", "isActive", "ratingList"
+        , "averageRating"})
 public class ServiceProvider {
     static int id;
-
+    double averageRating;
     @JsonProperty(value = "ID")
     private int ID;
     private String companyName;
@@ -26,8 +26,13 @@ public class ServiceProvider {
     private Availability availability;
     private boolean isActive;
     private List<Rating> ratingList;
-    double averageRating;
 
+
+    public ServiceProvider() {
+        ratingList = new ArrayList<>();
+        id++;
+        ID = id;
+    }
 
     public int getID() {
         return ID;
@@ -35,14 +40,6 @@ public class ServiceProvider {
 
     public void setID(int ID) {
         this.ID = ID;
-    }
-
-
-
-    public ServiceProvider() {
-        ratingList = new ArrayList<>();
-        id++;
-        ID=id;
     }
 
     public List<Rating> getRatingList() {
@@ -80,10 +77,6 @@ public class ServiceProvider {
     public void setAvailability(Availability availability) {
         this.availability = availability;
     }
-
-
-
-
 
 
     public String getCompanyName() {
@@ -169,32 +162,33 @@ public class ServiceProvider {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", websiteAddress='" + websiteAddress + '\'' +
-                ", location=" + location.getLocality() +'\'' +
-                ", serviceType=" + serviceType.getName() +'\'' +
-                ", availability=\n" + availability +'\n' +
-                ", rating=\n" + ratingList +'\n' +
+                ", location=" + location.getLocality() + '\'' +
+                ", serviceType=" + serviceType.getName() + '\'' +
+                ", availability=\n" + availability + '\n' +
+                ", rating=\n" + ratingList + '\n' +
                 ", isActive=" + isActive +
                 "}\n";
     }
 
+
     public String toStringVertical() {
         return
-                  "\n ID: " + id
-                + "\n companyName: " + companyName
-                + "\n ownerName: " + ownerName
-                + "\n ownerSurname: " + ownerSurname
-                + "\n phone: " + phone
-                + "\n email: " + email
-                + "\n websiteAddress: " + websiteAddress
-                    + "\n   voivodeship: " + location.getVoivodeship()
-                    + "\n   locality: " + location.getLocality()
-                    + "\n   name: " + serviceType.getName()
-                    + "\n   description: " + serviceType.getDescription()
-                    + "\n   price: " + serviceType.getPrice()
-                + "availability: " + availability
-                + "\n rating: " + ratingList
-                + "\n isActive: " + isActive
-                +"\n";
+                "\n ID: " + id
+                        + "\n companyName: " + companyName
+                        + "\n ownerName: " + ownerName
+                        + "\n ownerSurname: " + ownerSurname
+                        + "\n phone: " + phone
+                        + "\n email: " + email
+                        + "\n websiteAddress: " + websiteAddress
+                        + "\n   voivodeship: " + location.getVoivodeship()
+                        + "\n   locality: " + location.getLocality()
+                        + "\n   name: " + serviceType.getName()
+                        + "\n   description: " + serviceType.getDescription()
+                        + "\n   price: " + serviceType.getPrice()
+                        + "availability: " + availability
+                        + "\n rating: " + ratingList
+                        + "\n isActive: " + isActive
+                        + "\n";
 
     }
 }
