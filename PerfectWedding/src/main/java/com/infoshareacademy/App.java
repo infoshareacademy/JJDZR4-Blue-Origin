@@ -8,6 +8,8 @@ public class App
     {
         PerfectWeddingUtils.printWelcomeLogo();
         providerDataBase.readProviderListFromFile();
+        //below line just for testing purposes to eb removed later
+        System.out.println(providerDataBase);
         Menu menu = new Menu();
         menu.mainMenu();
         providerDataBase.addProviderListToFile();

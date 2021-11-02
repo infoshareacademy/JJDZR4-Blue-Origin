@@ -27,7 +27,7 @@ public class ProvidersAdd {
         provider.setServiceType(new ServiceType(scanInput("Rodzaj uslugi")));
         provider.setActive(askIfActive("Dostawca aktywny (T/N)?"));
         addAvailability();
-        provider.setId();
+        //provider.setId();
         App.providerDataBase.addNewProvider(provider);
 //        App.providerDataBase.addProviderListToFile();
     }
