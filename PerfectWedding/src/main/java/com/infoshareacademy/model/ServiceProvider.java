@@ -11,10 +11,10 @@ import java.util.List;
         "email", "websiteAddress", "location", "serviceType", "availability", "isActive", "ratingList"
         , "averageRating"})
 public class ServiceProvider {
-    static int id;
+    public static int incrementalID;
     double averageRating;
-    @JsonProperty(value = "ID")
-    private int ID;
+    @JsonProperty(value = "currentID")
+    private int currentID;
     private String companyName;
     private String ownerName;
     private String ownerSurname;
@@ -30,16 +30,16 @@ public class ServiceProvider {
 
     public ServiceProvider() {
         ratingList = new ArrayList<>();
-        id++;
-        ID = id;
+        incrementalID++;
+        currentID = incrementalID;
     }
 
-    public int getID() {
-        return ID;
+    public int getCurrentID() {
+        return currentID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setCurrentID(int currentID) {
+        this.currentID = currentID;
     }
 
     public List<Rating> getRatingList() {
@@ -155,7 +155,7 @@ public class ServiceProvider {
     @Override
     public String toString() {
         return "ServiceProvider{" +
-                "ID=" + ID +
+                "ID=" + currentID +
                 ", companyName='" + companyName + '\'' +
                 ", ownerName='" + ownerName + '\'' +
                 ", ownerSurname='" + ownerSurname + '\'' +
@@ -173,7 +173,7 @@ public class ServiceProvider {
 
     public String toStringVertical() {
         return
-                "\n ID: " + ID
+                "\n ID: " + currentID
                         + "\n companyName: " + companyName
                         + "\n ownerName: " + ownerName
                         + "\n ownerSurname: " + ownerSurname
