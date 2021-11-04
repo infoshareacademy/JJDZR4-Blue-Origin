@@ -71,7 +71,7 @@ public class PerfectWeddingUtils {
     }
 
     public static LocalDate scanInputDate(String prompt, String exitCode, LocalDate exitMessage) {
-        System.out.println(prompt+"Aby wyjsc nacisnij '"+exitCode+"'");
+        System.out.println(prompt + "Aby wyjsc nacisnij '" + exitCode + "'");
         LocalDate toReturn = null;
         boolean exit = false;
 
@@ -79,11 +79,10 @@ public class PerfectWeddingUtils {
             try {
                 Scanner scanner = new Scanner(System.in);
                 String dataToParse = scanner.nextLine();
-                if(dataToParse.equalsIgnoreCase(exitCode)){
-                    toReturn=exitMessage;
-                    exit=true;
-                }
-                else {
+                if (dataToParse.equalsIgnoreCase(exitCode)) {
+                    toReturn = exitMessage;
+                    exit = true;
+                } else {
                     toReturn = LocalDate.parse(dataToParse, DateTimeFormatter.ISO_LOCAL_DATE);
                     exit = true;
                 }
@@ -95,7 +94,7 @@ public class PerfectWeddingUtils {
         return toReturn;
     }
 
-    public static void printListOfProviders (List<ServiceProvider> providersList) {
+    public static void printListOfProviders(List<ServiceProvider> providersList) {
         System.out.println("Aktualna lista usługodawców wygląda następująco: ");
         for (ServiceProvider n : providersList) {
             System.out.println("ID -> " + n.getCurrentID() + " || "
@@ -104,7 +103,17 @@ public class PerfectWeddingUtils {
         }
     }
 
-    public static void printWelcomeLogo () {
+    public static int returnIndexOfProviderAppointedByProviderId(List<ServiceProvider> providersList, int id) {
+        int indexOfServiceProvider = -1;
+        for (ServiceProvider n : providersList) {
+            if (n.getCurrentID() == id) {
+                indexOfServiceProvider = providersList.indexOf(n);
+            }
+        }
+        return indexOfServiceProvider;
+    }
+
+    public static void printWelcomeLogo() {
         System.out.println("  _____  ______ _____  ______ ______ _____ _______  __          ________ _____  _____ _____ _   _  _____ ");
         System.out.println("|  __ \\|  ____|  __ \\|  ____|  ____/ ____|__   __| \\ \\        / /  ____|  __ \\|  __ \\_   _| \\ | |/ ____|");
         System.out.println("| |__) | |__  | |__) | |__  | |__ | |       | |     \\ \\  /\\  / /| |__  | |  | | |  | || | |  \\| | |  __ ");

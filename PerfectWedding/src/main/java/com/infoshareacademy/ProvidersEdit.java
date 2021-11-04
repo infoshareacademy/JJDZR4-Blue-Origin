@@ -20,8 +20,9 @@ public class ProvidersEdit {
         int ifExit = scanInput("Jeżeli chcesz zakończyć wybierz 0, w innym wypadku wybierz 1", 0, 1);
         if (ifExit == 0) {
             new Menu().mainMenu();
-        } else ;
-        int chosenProviderId = scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): \n Podaj 0, aby wyjść do menu głównego.", 0, providersList.size());
+        }
+        // returnIndexOfProviderAppointedByProviderID wymaga podania ID, które jest przekazywane tej metodzie metodą scanInput, stąd taki tasiemiec.
+        int chosenProviderId = returnIndexOfProviderAppointedByProviderId(providersList, scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): \n Podaj 0, aby wyjść do menu głównego.", 0, 999))+1;
         if (chosenProviderId == 0) {
             menu.mainMenu();
         } else {

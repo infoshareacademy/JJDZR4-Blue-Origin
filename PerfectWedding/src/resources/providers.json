@@ -70,4 +70,28 @@
   "averageRating" : -1.0,
   "active" : true,
   "currentID" : 4
+}, {
+  "companyName" : "TestHighID",
+  "ownerName" : "Mateusz",
+  "ownerSurname" : "",
+  "phone" : "500500500",
+  "email" : "test@test.pl",
+  "websiteAddress" : "www.test.pl",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "Lublin"
+  },
+  "serviceType" : {
+    "name" : "IT",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ "2020-01-01" ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "currentID" : 55
 } ]
