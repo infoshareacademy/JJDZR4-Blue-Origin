@@ -41,6 +41,7 @@ public class ProviderDataBase {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public void readProviderListFromFile() {
@@ -49,6 +50,13 @@ public class ProviderDataBase {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        int maxID = 0;
+        for (ServiceProvider provider : listOfProviders) {
+            if (provider.getCurrentID() > maxID) {
+                maxID = provider.getCurrentID();
+            }
+        }
+        ServiceProvider.incrementalID =maxID;
     }
 
     @Override

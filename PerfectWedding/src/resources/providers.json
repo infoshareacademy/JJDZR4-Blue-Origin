@@ -1,84 +1,5 @@
 [ {
-  "ID" : 1,
-  "companyName" : "Test",
-  "ownerName" : "Mateusz",
-  "ownerSurname" : "K",
-  "phone" : "500500500",
-  "email" : "test@test.pl",
-  "websiteAddress" : "test.pl",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "Lublin"
-  },
-  "serviceType" : {
-    "name" : "IT",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ "2021-10-31" ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "id" : 1
-}, {
-  "ID" : 2,
-  "companyName" : "Infoshare",
-  "ownerName" : "God",
-  "ownerSurname" : "AllSeeingEye",
-  "phone" : "700700700",
-  "email" : "infoshare@infoshare.pl",
-  "websiteAddress" : "www.infoshare.pl",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "Gdańsk"
-  },
-  "serviceType" : {
-    "name" : "IT",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ "1999-01-01", "2001-02-02" ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "id" : 2
-}, {
-  "ID" : 3,
-  "companyName" : "q",
-  "ownerName" : "q",
-  "ownerSurname" : "q",
-  "phone" : "q",
-  "email" : "q",
-  "websiteAddress" : "q",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "q"
-  },
-  "serviceType" : {
-    "name" : "q",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ {
-    "rating" : 5,
-    "comment" : null
-  } ],
-  "averageRating" : 5.0,
-  "active" : true,
-  "id" : 3
-}, {
-  "ID" : 4,
-  "companyName" : "q",
+  "companyName" : "w",
   "ownerName" : "w",
   "ownerSurname" : "w",
   "phone" : "w",
@@ -95,14 +16,37 @@
     "id" : 0
   },
   "availability" : {
+    "dates" : [ "2021-04-05" ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : false,
+  "currentID" : 2
+}, {
+  "companyName" : "e",
+  "ownerName" : "e",
+  "ownerSurname" : "e",
+  "phone" : "e",
+  "email" : "e",
+  "websiteAddress" : "e",
+  "location" : {
+    "voivodeship" : null,
+    "locality" : "e"
+  },
+  "serviceType" : {
+    "name" : "e",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
     "dates" : [ ]
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,
   "active" : false,
-  "id" : 4
+  "currentID" : 3
 }, {
-  "ID" : 5,
   "companyName" : "e",
   "ownerName" : "e",
   "ownerSurname" : "e",
@@ -125,211 +69,29 @@
   "ratingList" : [ ],
   "averageRating" : -1.0,
   "active" : true,
-  "id" : 5
+  "currentID" : 4
 }, {
-  "ID" : 6,
-  "companyName" : "r",
-  "ownerName" : "r",
-  "ownerSurname" : "r",
-  "phone" : "r",
-  "email" : "r",
-  "websiteAddress" : "r",
+  "companyName" : "TestHighID",
+  "ownerName" : "Mateusz",
+  "ownerSurname" : "",
+  "phone" : "500500500",
+  "email" : "test@test.pl",
+  "websiteAddress" : "www.test.pl",
   "location" : {
     "voivodeship" : null,
-    "locality" : "r"
+    "locality" : "Lublin"
   },
   "serviceType" : {
-    "name" : "r",
+    "name" : "IT",
     "description" : null,
     "price" : 0.0,
     "id" : 0
   },
   "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : false,
-  "id" : 6
-}, {
-  "ID" : 7,
-  "companyName" : "y",
-  "ownerName" : "y",
-  "ownerSurname" : "y",
-  "phone" : "y",
-  "email" : "kdlsjflkja",
-  "websiteAddress" : "y",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "y"
-  },
-  "serviceType" : {
-    "name" : "y",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
+    "dates" : [ "2020-01-01" ]
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,
   "active" : true,
-  "id" : 7
-}, {
-  "ID" : 8,
-  "companyName" : "u",
-  "ownerName" : "u",
-  "ownerSurname" : "u",
-  "phone" : "u",
-  "email" : "u",
-  "websiteAddress" : "u",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "u"
-  },
-  "serviceType" : {
-    "name" : "u",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ "2022-07-08" ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "id" : 8
-}, {
-  "ID" : 9,
-  "companyName" : "a",
-  "ownerName" : "a",
-  "ownerSurname" : "a",
-  "phone" : "a",
-  "email" : "a",
-  "websiteAddress" : "a",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "a"
-  },
-  "serviceType" : {
-    "name" : "a",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ "2021-04-01" ]
-  },
-  "ratingList" : [ {
-    "rating" : 5,
-    "comment" : null
-  }, {
-    "rating" : 3,
-    "comment" : null
-  } ],
-  "averageRating" : 4.0,
-  "active" : true,
-  "id" : 9
-}, {
-  "ID" : 10,
-  "companyName" : "s",
-  "ownerName" : "s",
-  "ownerSurname" : "s",
-  "phone" : "s",
-  "email" : "s",
-  "websiteAddress" : "s",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "s"
-  },
-  "serviceType" : {
-    "name" : "s",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : false,
-  "id" : 10
-}, {
-  "ID" : 11,
-  "companyName" : "z",
-  "ownerName" : "z",
-  "ownerSurname" : "z",
-  "phone" : "z",
-  "email" : "z",
-  "websiteAddress" : "z",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "z"
-  },
-  "serviceType" : {
-    "name" : "z",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "id" : 11
-}, {
-  "ID" : 12,
-  "companyName" : "o",
-  "ownerName" : "o",
-  "ownerSurname" : "o",
-  "phone" : "o",
-  "email" : "o",
-  "websiteAddress" : "o",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "o"
-  },
-  "serviceType" : {
-    "name" : "o",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : false,
-  "id" : 12
-}, {
-  "ID" : 13,
-  "companyName" : "f",
-  "ownerName" : "f",
-  "ownerSurname" : "f",
-  "phone" : "f",
-  "email" : "f",
-  "websiteAddress" : "f",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "f"
-  },
-  "serviceType" : {
-    "name" : "f",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "id" : 13
+  "currentID" : 55
 } ]
