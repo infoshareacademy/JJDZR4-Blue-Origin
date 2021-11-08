@@ -5,7 +5,7 @@ import com.infoshareacademy.model.ServiceProvider;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.infoshareacademy.PerfectWeddingUtils.scanInput;
+import static com.infoshareacademy.Utils.scanInput;
 
 public class ProvidersDisable {
 

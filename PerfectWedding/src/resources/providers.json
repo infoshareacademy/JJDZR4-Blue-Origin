@@ -1,40 +1,64 @@
 [ {
-  "companyName" : "w",
+  "companyName" : "q",
+  "ownerName" : "w",
+  "ownerSurname" : "e",
+  "phone" : "q",
+  "email" : "q",
+  "websiteAddress" : "q",
+  "location" : {
+    "voivodeship" : "ZACHODNIOPOMORSKIE",
+    "city" : "w"
+  },
+  "serviceType" : {
+    "name" : "qwer",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "currentID" : 1
+}, {
+  "companyName" : "q",
+  "ownerName" : "q",
+  "ownerSurname" : "q",
+  "phone" : "q",
+  "email" : "q",
+  "websiteAddress" : "q",
+  "location" : {
+    "voivodeship" : "DOLNOSLASKIE",
+    "city" : "q"
+  },
+  "serviceType" : {
+    "name" : "t",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "currentID" : 2
+}, {
+  "companyName" : "q",
   "ownerName" : "w",
   "ownerSurname" : "w",
   "phone" : "w",
   "email" : "w",
   "websiteAddress" : "w",
   "location" : {
-    "voivodeship" : null,
-    "locality" : "w"
+    "voivodeship" : "POMORSKIE",
+    "city" : "w"
   },
   "serviceType" : {
-    "name" : "w",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ "2021-04-05" ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : false,
-  "currentID" : 2
-}, {
-  "companyName" : "e",
-  "ownerName" : "e",
-  "ownerSurname" : "e",
-  "phone" : "e",
-  "email" : "e",
-  "websiteAddress" : "e",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "e"
-  },
-  "serviceType" : {
-    "name" : "e",
+    "name" : "q",
     "description" : null,
     "price" : 0.0,
     "id" : 0
@@ -44,54 +68,6 @@
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,
-  "active" : false,
+  "active" : true,
   "currentID" : 3
-}, {
-  "companyName" : "e",
-  "ownerName" : "e",
-  "ownerSurname" : "e",
-  "phone" : "e",
-  "email" : "e",
-  "websiteAddress" : "e",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "e"
-  },
-  "serviceType" : {
-    "name" : "e",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "currentID" : 4
-}, {
-  "companyName" : "TestHighID",
-  "ownerName" : "Mateusz",
-  "ownerSurname" : "",
-  "phone" : "500500500",
-  "email" : "test@test.pl",
-  "websiteAddress" : "www.test.pl",
-  "location" : {
-    "voivodeship" : null,
-    "locality" : "Lublin"
-  },
-  "serviceType" : {
-    "name" : "IT",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ "2020-01-01" ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "currentID" : 55
 } ]

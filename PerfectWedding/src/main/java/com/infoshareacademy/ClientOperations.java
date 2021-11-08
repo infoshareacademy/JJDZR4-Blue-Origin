@@ -6,7 +6,7 @@ import com.infoshareacademy.model.ServiceProvider;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.infoshareacademy.PerfectWeddingUtils.scanInput;
+import static com.infoshareacademy.Utils.scanInput;
 
 
 public class ClientOperations {
@@ -52,7 +52,7 @@ public class ClientOperations {
         String finder = scanInput("Wyszukaj usługodawcę poprzez lokalizację\n" + "Podaj nazwę miejscowości: ");
 
         for (ServiceProvider re : providersList) {
-            if (re.getLocation().getLocality().equals(finder) && re.isActive()) {
+            if (re.getLocation().getCity().equals(finder) && re.isActive()) {
                 reference += 1;
                 System.out.println(re.toStringVertical());
             }

@@ -2,30 +2,31 @@ package com.infoshareacademy.model;
 
 public class Location {
 
-    private String voivodeship;
-    private String locality;
+    private Voivodeship voivodeship;
+    private String city;
+
 
     public Location() {
     }
 
-    public Location(String locality) {
-        this.locality = locality;
+    public Location(String city) {
+        this.city = city;
     }
 
-    public String getVoivodeship() {
+    public Voivodeship getVoivodeship() {
         return voivodeship;
     }
 
-    public void setVoivodeship(String voivodeship) {
+    public void setVoivodeship(Voivodeship voivodeship) {
         this.voivodeship = voivodeship;
     }
 
-    public String getLocality() {
-        return locality;
+    public String getCity() {
+        return city;
     }
 
-    public void setLocality(String locality) {
-        this.locality = locality;
+    public void setCity(String city) {
+        this.city = city;
     }
 
 }

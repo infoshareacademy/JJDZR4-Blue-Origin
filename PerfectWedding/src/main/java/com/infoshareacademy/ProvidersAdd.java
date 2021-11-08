@@ -1,16 +1,16 @@
 package com.infoshareacademy;
 
-import com.infoshareacademy.model.Availability;
-import com.infoshareacademy.model.Location;
-import com.infoshareacademy.model.ServiceProvider;
+import com.infoshareacademy.model.*;
 import com.infoshareacademy.model.ServiceType;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static com.infoshareacademy.PerfectWeddingUtils.scanInput;
-import static com.infoshareacademy.PerfectWeddingUtils.scanInputDate;
+import static com.infoshareacademy.Utils.scanInput;
+import static com.infoshareacademy.Utils.scanInputDate;
 
 public class ProvidersAdd {
     ServiceProvider provider = new ServiceProvider();
@@ -23,13 +23,20 @@ public class ProvidersAdd {
         provider.setPhone(scanInput("Podaj nr telefonu"));
         provider.setEmail(scanInput("Podaj email firmy"));
         provider.setWebsiteAddress(scanInput("Podaj adres strony www firmy"));
-        provider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
+        setVoivodeship();
         provider.setServiceType(new ServiceType(scanInput("Rodzaj uslugi")));
         provider.setActive(askIfActive("Dostawca aktywny (T/N)?"));
         addAvailability();
-        //provider.setId();
         App.providerDataBase.addNewProvider(provider);
-//        App.providerDataBase.addProviderListToFile();
+
+    }
+
+    public void setVoivodeship() {
+        provider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
+        List<Voivodeship> listOfVoivodeships = Arrays.asList(Voivodeship.values());
+        System.out.println("Wybierz wojewodztwo z ponizszej list");
+        System.out.println(Utils.listToString(listOfVoivodeships, true));
+        provider.getLocation().setVoivodeship(listOfVoivodeships.get(Utils.scanForInt("Wybiez wojewodztwo od 1 do " + listOfVoivodeships.size(), 1, listOfVoivodeships.size(), true).get(0) - 1));
     }
 
     private void addAvailability() {

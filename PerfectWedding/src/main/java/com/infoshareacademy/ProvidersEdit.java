@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.infoshareacademy.PerfectWeddingUtils.*;
+import static com.infoshareacademy.Utils.*;
 
 public class ProvidersEdit {
     Menu menu = new Menu();
