@@ -94,4 +94,28 @@
   "averageRating" : -1.0,
   "active" : true,
   "currentID" : 4
+}, {
+  "companyName" : "q",
+  "ownerName" : "y",
+  "ownerSurname" : "y",
+  "phone" : "123456789",
+  "email" : "rqwerq",
+  "websiteAddress" : "12323",
+  "location" : {
+    "voivodeship" : "POMORSKIE",
+    "city" : "gdynia"
+  },
+  "serviceType" : {
+    "name" : "trt",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "currentID" : 5
 } ]
