@@ -19,7 +19,7 @@ public class ProvidersAdd {
         provider.setCompanyName(scanInput("Podaj nazwe firmy"));
         provider.setOwnerName(scanInput("Podaj Imie wlasciciela"));
         provider.setOwnerSurname(scanInput("Podaj nazwisko wlasciciela"));
-        provider.setPhone(scanInput("Podaj nr telefonu"));
+        setPhone(provider);
         provider.setEmail(scanInput("Podaj email firmy"));
         provider.setWebsiteAddress(scanInput("Podaj adres strony www firmy"));
         setVoivodeship(provider);
@@ -28,6 +28,7 @@ public class ProvidersAdd {
         addAvailability();
         App.providerDataBase.addNewProvider(provider);
     }
+
 
 
 

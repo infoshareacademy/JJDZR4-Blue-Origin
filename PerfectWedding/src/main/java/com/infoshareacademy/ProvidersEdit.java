@@ -51,7 +51,7 @@ public class ProvidersEdit {
                     providersList.get(providerId).setOwnerSurname(scanInput("Podaj nazwisko wlasciciela: "));
                     break;
                 case "phone":
-                    providersList.get(providerId).setPhone(scanInput("Podaj telefon: "));
+                    setPhone(providersList.get(providerId));
                     break;
                 case "email":
                     providersList.get(providerId).setEmail(scanInput("Podaj imie email: "));

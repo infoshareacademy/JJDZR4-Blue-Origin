@@ -7,6 +7,8 @@ import com.infoshareacademy.model.Voivodeship;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public abstract class Utils {
     public static String scanInput(String prompt) {
@@ -217,5 +219,21 @@ public abstract class Utils {
         System.out.println("Wybierz wojewodztwo z ponizszej list");
         System.out.println(Utils.listToString(listOfVoivodeships, true));
         serviceProvider.getLocation().setVoivodeship(listOfVoivodeships.get(Utils.scanForInt("Wybiez wojewodztwo od 1 do " + listOfVoivodeships.size(), 1, listOfVoivodeships.size(), true).get(0) - 1));
+    }
+    public static boolean isPhoneNumberValid(String s)
+    {     Pattern p = Pattern.compile("^\\d{9}$");
+
+        Matcher m = p.matcher(s);
+
+        return (m.matches());
+    }
+
+    public static void setPhone(ServiceProvider serviceProvider) {
+        String phoneNumber = "";
+        do {
+            phoneNumber=scanInput("Podaj nr telefonu (9 cyfr bez zera na poczatku)");
+        } while (!isPhoneNumberValid(phoneNumber));
+        ;
+        serviceProvider.setPhone(phoneNumber);
     }
 }
