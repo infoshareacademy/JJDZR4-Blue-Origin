@@ -61,6 +61,7 @@ public class ProvidersEdit {
                     break;
                 case "location":
                     providersList.get(providerId).setLocation(new Location(scanInput("Podaj miejscowosc: ")));
+                    setVoivodeship(providersList.get(providerId));
                     break;
                 case "service":
                     providersList.get(providerId).setServiceType(new ServiceType(scanInput("Podaj rodzaj uslugi: ")));

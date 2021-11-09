@@ -30,8 +30,8 @@
   "email" : "q",
   "websiteAddress" : "q",
   "location" : {
-    "voivodeship" : "DOLNOSLASKIE",
-    "city" : "q"
+    "voivodeship" : "POMORSKIE",
+    "city" : "Gdynia"
   },
   "serviceType" : {
     "name" : "t",
@@ -44,7 +44,7 @@
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,
-  "active" : true,
+  "active" : false,
   "currentID" : 2
 }, {
   "companyName" : "q",
@@ -70,4 +70,28 @@
   "averageRating" : -1.0,
   "active" : true,
   "currentID" : 3
+}, {
+  "companyName" : "t",
+  "ownerName" : "t",
+  "ownerSurname" : "t",
+  "phone" : "t",
+  "email" : "t",
+  "websiteAddress" : "t",
+  "location" : {
+    "voivodeship" : "KUJAWSKOPOMORSKIE",
+    "city" : "Torun"
+  },
+  "serviceType" : {
+    "name" : "r",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "currentID" : 4
 } ]

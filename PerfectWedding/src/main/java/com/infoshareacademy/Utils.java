@@ -1,6 +1,8 @@
 package com.infoshareacademy;
 
+import com.infoshareacademy.model.Location;
 import com.infoshareacademy.model.ServiceProvider;
+import com.infoshareacademy.model.Voivodeship;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -208,5 +210,12 @@ public abstract class Utils {
             }
         }
         return toReturn;
+    }
+    public static void setVoivodeship(ServiceProvider serviceProvider) {
+        serviceProvider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
+        List<Voivodeship> listOfVoivodeships = Arrays.asList(Voivodeship.values());
+        System.out.println("Wybierz wojewodztwo z ponizszej list");
+        System.out.println(Utils.listToString(listOfVoivodeships, true));
+        serviceProvider.getLocation().setVoivodeship(listOfVoivodeships.get(Utils.scanForInt("Wybiez wojewodztwo od 1 do " + listOfVoivodeships.size(), 1, listOfVoivodeships.size(), true).get(0) - 1));
     }
 }

@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static com.infoshareacademy.Utils.scanInput;
-import static com.infoshareacademy.Utils.scanInputDate;
+import static com.infoshareacademy.Utils.*;
 
 public class ProvidersAdd {
     ServiceProvider provider = new ServiceProvider();
@@ -23,21 +22,14 @@ public class ProvidersAdd {
         provider.setPhone(scanInput("Podaj nr telefonu"));
         provider.setEmail(scanInput("Podaj email firmy"));
         provider.setWebsiteAddress(scanInput("Podaj adres strony www firmy"));
-        setVoivodeship();
+        setVoivodeship(provider);
         provider.setServiceType(new ServiceType(scanInput("Rodzaj uslugi")));
         provider.setActive(askIfActive("Dostawca aktywny (T/N)?"));
         addAvailability();
         App.providerDataBase.addNewProvider(provider);
-
     }
 
-    public void setVoivodeship() {
-        provider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
-        List<Voivodeship> listOfVoivodeships = Arrays.asList(Voivodeship.values());
-        System.out.println("Wybierz wojewodztwo z ponizszej list");
-        System.out.println(Utils.listToString(listOfVoivodeships, true));
-        provider.getLocation().setVoivodeship(listOfVoivodeships.get(Utils.scanForInt("Wybiez wojewodztwo od 1 do " + listOfVoivodeships.size(), 1, listOfVoivodeships.size(), true).get(0) - 1));
-    }
+
 
     private void addAvailability() {
         Availability availability = new Availability();

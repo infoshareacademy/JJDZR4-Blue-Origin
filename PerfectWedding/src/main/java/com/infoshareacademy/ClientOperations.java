@@ -6,7 +6,7 @@ import com.infoshareacademy.model.ServiceProvider;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.infoshareacademy.Utils.scanInput;
+import static com.infoshareacademy.Utils.*;
 
 
 public class ClientOperations {
