@@ -214,7 +214,7 @@ public abstract class Utils {
         return toReturn;
     }
     public static void setVoivodeship(ServiceProvider serviceProvider) {
-        serviceProvider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
+//        serviceProvider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
         List<Voivodeship> listOfVoivodeships = Arrays.asList(Voivodeship.values());
         System.out.println("Wybierz wojewodztwo z ponizszej list");
         System.out.println(Utils.listToString(listOfVoivodeships, true));

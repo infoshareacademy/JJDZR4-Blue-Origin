@@ -102,8 +102,8 @@
   "email" : "rqwerq",
   "websiteAddress" : "12323",
   "location" : {
-    "voivodeship" : "POMORSKIE",
-    "city" : "gdynia"
+    "voivodeship" : "KUJAWSKOPOMORSKIE",
+    "city" : "bydgoszcz"
   },
   "serviceType" : {
     "name" : "trt",
