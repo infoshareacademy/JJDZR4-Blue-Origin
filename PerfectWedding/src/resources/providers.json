@@ -102,8 +102,8 @@
   "email" : "rqwerq",
   "websiteAddress" : "12323",
   "location" : {
-    "voivodeship" : "POMORSKIE",
-    "city" : "gdynia"
+    "voivodeship" : "KUJAWSKOPOMORSKIE",
+    "city" : "bydgoszcz"
   },
   "serviceType" : {
     "name" : "trt",
@@ -118,4 +118,28 @@
   "averageRating" : -1.0,
   "active" : true,
   "currentID" : 5
+}, {
+  "companyName" : "u",
+  "ownerName" : "u",
+  "ownerSurname" : "u",
+  "phone" : "123123123",
+  "email" : "rqewr",
+  "websiteAddress" : "rewqr",
+  "location" : {
+    "voivodeship" : "ZACHODNIOPOMORSKIE",
+    "city" : "ewqr"
+  },
+  "serviceType" : {
+    "name" : "qewrew",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "currentID" : 6
 } ]

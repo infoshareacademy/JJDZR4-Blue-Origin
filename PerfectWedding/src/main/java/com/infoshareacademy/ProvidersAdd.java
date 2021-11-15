@@ -22,6 +22,7 @@ public class ProvidersAdd {
         setPhone(provider);
         provider.setEmail(scanInput("Podaj email firmy"));
         provider.setWebsiteAddress(scanInput("Podaj adres strony www firmy"));
+        provider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
         setVoivodeship(provider);
         provider.setServiceType(new ServiceType(scanInput("Rodzaj uslugi")));
         provider.setActive(askIfActive("Dostawca aktywny (T/N)?"));
