@@ -1,16 +1,15 @@
 package com.infoshareacademy;
 
-import com.infoshareacademy.model.Availability;
-import com.infoshareacademy.model.Location;
-import com.infoshareacademy.model.ServiceProvider;
+import com.infoshareacademy.model.*;
 import com.infoshareacademy.model.ServiceType;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static com.infoshareacademy.PerfectWeddingUtils.scanInput;
-import static com.infoshareacademy.PerfectWeddingUtils.scanInputDate;
+import static com.infoshareacademy.Utils.*;
 
 public class ProvidersAdd {
     ServiceProvider provider = new ServiceProvider();
@@ -20,17 +19,19 @@ public class ProvidersAdd {
         provider.setCompanyName(scanInput("Podaj nazwe firmy"));
         provider.setOwnerName(scanInput("Podaj Imie wlasciciela"));
         provider.setOwnerSurname(scanInput("Podaj nazwisko wlasciciela"));
-        provider.setPhone(scanInput("Podaj nr telefonu"));
+        setPhone(provider);
         provider.setEmail(scanInput("Podaj email firmy"));
         provider.setWebsiteAddress(scanInput("Podaj adres strony www firmy"));
         provider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
+        setVoivodeship(provider);
         provider.setServiceType(new ServiceType(scanInput("Rodzaj uslugi")));
         provider.setActive(askIfActive("Dostawca aktywny (T/N)?"));
         addAvailability();
-        //provider.setId();
         App.providerDataBase.addNewProvider(provider);
-//        App.providerDataBase.addProviderListToFile();
     }
+
+
+
 
     private void addAvailability() {
         Availability availability = new Availability();

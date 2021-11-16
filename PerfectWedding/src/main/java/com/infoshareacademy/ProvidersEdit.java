@@ -1,7 +1,6 @@
 package com.infoshareacademy;
 
 import com.infoshareacademy.model.Availability;
-import com.infoshareacademy.model.Location;
 import com.infoshareacademy.model.ServiceProvider;
 import com.infoshareacademy.model.ServiceType;
 
@@ -9,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.infoshareacademy.PerfectWeddingUtils.*;
+import static com.infoshareacademy.Utils.*;
 
 public class ProvidersEdit {
     Menu menu = new Menu();
@@ -22,7 +21,7 @@ public class ProvidersEdit {
             new Menu().mainMenu();
         }
         // returnIndexOfProviderAppointedByProviderID wymaga podania ID, które jest przekazywane tej metodzie metodą scanInput, stąd taki tasiemiec.
-        int chosenProviderId = returnIndexOfProviderAppointedByProviderId(providersList, scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): \n Podaj 0, aby wyjść do menu głównego.", 0, 999))+1;
+        int chosenProviderId = returnIndexOfProviderAppointedByProviderId(providersList, scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): \n Podaj 0, aby wyjść do menu głównego.", 0, 999)) + 1;
         if (chosenProviderId == 0) {
             menu.mainMenu();
         } else {
@@ -51,7 +50,7 @@ public class ProvidersEdit {
                     providersList.get(providerId).setOwnerSurname(scanInput("Podaj nazwisko wlasciciela: "));
                     break;
                 case "phone":
-                    providersList.get(providerId).setPhone(scanInput("Podaj telefon: "));
+                    setPhone(providersList.get(providerId));
                     break;
                 case "email":
                     providersList.get(providerId).setEmail(scanInput("Podaj imie email: "));
@@ -59,8 +58,11 @@ public class ProvidersEdit {
                 case "websiteAddress":
                     providersList.get(providerId).setWebsiteAddress(scanInput("Podaj strone internetowa: "));
                     break;
-                case "location":
-                    providersList.get(providerId).setLocation(new Location(scanInput("Podaj miejscowosc: ")));
+                case "locality":
+                    providersList.get(providerId).getLocation().setCity(scanInput("Podaj miejscowosc: "));
+                    break;
+                case "voivodeship":
+                    setVoivodeship(providersList.get(providerId));
                     break;
                 case "service":
                     providersList.get(providerId).setServiceType(new ServiceType(scanInput("Podaj rodzaj uslugi: ")));

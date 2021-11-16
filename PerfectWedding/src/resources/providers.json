@@ -1,40 +1,40 @@
 [ {
-  "companyName" : "w",
+  "companyName" : "q",
   "ownerName" : "w",
-  "ownerSurname" : "w",
-  "phone" : "w",
-  "email" : "w",
-  "websiteAddress" : "w",
+  "ownerSurname" : "e",
+  "phone" : "q",
+  "email" : "q",
+  "websiteAddress" : "q",
   "location" : {
-    "voivodeship" : null,
-    "locality" : "w"
+    "voivodeship" : "ZACHODNIOPOMORSKIE",
+    "city" : "w"
   },
   "serviceType" : {
-    "name" : "w",
+    "name" : "qwer",
     "description" : null,
     "price" : 0.0,
     "id" : 0
   },
   "availability" : {
-    "dates" : [ "2021-04-05" ]
+    "dates" : [ ]
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,
-  "active" : false,
-  "currentID" : 2
+  "active" : true,
+  "currentID" : 1
 }, {
-  "companyName" : "e",
-  "ownerName" : "e",
-  "ownerSurname" : "e",
-  "phone" : "e",
-  "email" : "e",
-  "websiteAddress" : "e",
+  "companyName" : "q",
+  "ownerName" : "q",
+  "ownerSurname" : "q",
+  "phone" : "q",
+  "email" : "q",
+  "websiteAddress" : "q",
   "location" : {
-    "voivodeship" : null,
-    "locality" : "e"
+    "voivodeship" : "POMORSKIE",
+    "city" : "Gdynia"
   },
   "serviceType" : {
-    "name" : "e",
+    "name" : "t",
     "description" : null,
     "price" : 0.0,
     "id" : 0
@@ -45,20 +45,44 @@
   "ratingList" : [ ],
   "averageRating" : -1.0,
   "active" : false,
-  "currentID" : 3
+  "currentID" : 2
 }, {
-  "companyName" : "e",
-  "ownerName" : "e",
-  "ownerSurname" : "e",
-  "phone" : "e",
-  "email" : "e",
-  "websiteAddress" : "e",
+  "companyName" : "q",
+  "ownerName" : "w",
+  "ownerSurname" : "w",
+  "phone" : "w",
+  "email" : "w",
+  "websiteAddress" : "w",
   "location" : {
-    "voivodeship" : null,
-    "locality" : "e"
+    "voivodeship" : "POMORSKIE",
+    "city" : "w"
   },
   "serviceType" : {
-    "name" : "e",
+    "name" : "q",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "currentID" : 3
+}, {
+  "companyName" : "t",
+  "ownerName" : "t",
+  "ownerSurname" : "t",
+  "phone" : "t",
+  "email" : "t",
+  "websiteAddress" : "t",
+  "location" : {
+    "voivodeship" : "KUJAWSKOPOMORSKIE",
+    "city" : "Torun"
+  },
+  "serviceType" : {
+    "name" : "r",
     "description" : null,
     "price" : 0.0,
     "id" : 0
@@ -71,27 +95,51 @@
   "active" : true,
   "currentID" : 4
 }, {
-  "companyName" : "TestHighID",
-  "ownerName" : "Mateusz",
-  "ownerSurname" : "",
-  "phone" : "500500500",
-  "email" : "test@test.pl",
-  "websiteAddress" : "www.test.pl",
+  "companyName" : "q",
+  "ownerName" : "y",
+  "ownerSurname" : "y",
+  "phone" : "123456789",
+  "email" : "rqwerq",
+  "websiteAddress" : "12323",
   "location" : {
-    "voivodeship" : null,
-    "locality" : "Lublin"
+    "voivodeship" : "KUJAWSKOPOMORSKIE",
+    "city" : "bydgoszcz"
   },
   "serviceType" : {
-    "name" : "IT",
+    "name" : "trt",
     "description" : null,
     "price" : 0.0,
     "id" : 0
   },
   "availability" : {
-    "dates" : [ "2020-01-01" ]
+    "dates" : [ ]
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,
   "active" : true,
-  "currentID" : 55
+  "currentID" : 5
+}, {
+  "companyName" : "u",
+  "ownerName" : "u",
+  "ownerSurname" : "u",
+  "phone" : "123123123",
+  "email" : "rqewr",
+  "websiteAddress" : "rewqr",
+  "location" : {
+    "voivodeship" : "ZACHODNIOPOMORSKIE",
+    "city" : "ewqr"
+  },
+  "serviceType" : {
+    "name" : "qewrew",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "currentID" : 6
 } ]
