@@ -160,7 +160,7 @@
     "id" : 0
   },
   "availability" : {
-    "dates" : [ "2020-02-02" ]
+    "dates" : [ "2020-02-02", "1999-07-07" ]
   },
   "ratingList" : [ ],
   "averageRating" : -1.0,

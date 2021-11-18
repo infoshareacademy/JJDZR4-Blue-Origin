@@ -78,8 +78,8 @@ public class ProvidersEdit {
                     break;
                 default:
                     System.out.println("Nie wybrano żadnego pola.");
+                    areYouFinished = false;
                     editProvider();
-
             }
             String response = scanInput("Czy chciałbyś edytować jeszcze jakieś pole? (tak/nie)");
             if (response.equals("tak")) {
@@ -99,13 +99,17 @@ public class ProvidersEdit {
         System.out.println(providersList.get(providerId).getAvailability());
         System.out.println("W celu dodania terminu dostępności napisz \"dodaj\" \nW celu usunięcia terminu dostępności napisz \"usuń\"");
 
-        choice = scanInput("");
-        if (choice.equals("dodaj")) {
-            addAvailability(providerId);
-        } else {
-            if (choice.equals("usuń")) {
+        choice = scanInputV2("", "dodaj", "usuń", "q");
+
+        switch (choice) {
+            case "dodaj":
+                addAvailability(providerId);
+                break;
+            case "usuń":
                 removeAvailability(providerId);
-            }
+                break;
+            case "q":
+                return;
         }
     }
 
@@ -124,12 +128,9 @@ public class ProvidersEdit {
 
     public void removeAvailability(int providerId) {
         int index = 0;
-        boolean areYouFinished = false;
-        LocalDate availableDate;
         Availability availability = new Availability();
         availability = providersList.get(providerId).getAvailability();
         List<LocalDate> availableDates = availability.getDates();
-
 
         do {
             System.out.println("Wolne terminy to: ");
