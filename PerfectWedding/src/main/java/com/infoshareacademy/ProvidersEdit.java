@@ -11,19 +11,20 @@ import java.util.Scanner;
 import static com.infoshareacademy.Utils.*;
 
 public class ProvidersEdit {
-    Menu menu = new Menu();
     List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
 
     public void editProvider() {
-        printListOfProviders(providersList);
-        int ifExit = scanInput("Jeżeli chcesz zakończyć wybierz 0, w innym wypadku wybierz 1", 0, 1);
-        if (ifExit == 0) {
-            new Menu().mainMenu();
+
+        if (providersList.isEmpty()) {
+            System.out.println("There are no providers. \n");
+            return;
+        } else {
+            printListOfProviders(providersList);
         }
         // returnIndexOfProviderAppointedByProviderID wymaga podania ID, które jest przekazywane tej metodzie metodą scanInput, stąd taki tasiemiec.
         int chosenProviderId = returnIndexOfProviderAppointedByProviderId(providersList, scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): \n Podaj 0, aby wyjść do menu głównego.", 0, 999)) + 1;
         if (chosenProviderId == 0) {
-            menu.mainMenu();
+            return;
         } else {
             editSelectedProvider(chosenProviderId - 1);
         }

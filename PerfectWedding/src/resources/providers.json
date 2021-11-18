@@ -1,5 +1,5 @@
 [ {
-  "companyName" : "q",
+  "companyName" : "Test",
   "ownerName" : "w",
   "ownerSurname" : "e",
   "phone" : "q",
@@ -23,8 +23,8 @@
   "active" : true,
   "currentID" : 1
 }, {
-  "companyName" : "q",
-  "ownerName" : "q",
+  "companyName" : "SecondTest",
+  "ownerName" : "Mateusz",
   "ownerSurname" : "q",
   "phone" : "q",
   "email" : "q",
@@ -119,7 +119,7 @@
   "active" : true,
   "currentID" : 5
 }, {
-  "companyName" : "u",
+  "companyName" : "ROLF",
   "ownerName" : "u",
   "ownerSurname" : "u",
   "phone" : "123123123",
@@ -142,4 +142,28 @@
   "averageRating" : -1.0,
   "active" : true,
   "currentID" : 6
+}, {
+  "companyName" : "FirmaTestowa",
+  "ownerName" : "Mateusz",
+  "ownerSurname" : "",
+  "phone" : "500500500",
+  "email" : "test@test.pl",
+  "websiteAddress" : "test.pl",
+  "location" : {
+    "voivodeship" : "LUBELSKIE",
+    "city" : "Lublin"
+  },
+  "serviceType" : {
+    "name" : "IT",
+    "description" : null,
+    "price" : 0.0,
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ "2020-02-02" ]
+  },
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
+  "active" : true,
+  "currentID" : 8
 } ]
