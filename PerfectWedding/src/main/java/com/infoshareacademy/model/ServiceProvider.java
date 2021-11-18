@@ -185,7 +185,7 @@ public class ServiceProvider {
                         + "\n   name: " + serviceType.getName()
                         + "\n   description: " + serviceType.getDescription()
                         + "\n   price: " + serviceType.getPrice()
-                        + "availability: " + availability
+                        + "\n availability: " + availability
                         + "\n rating: " + ratingList
                         + "\n isActive: " + isActive
                         + "\n";
