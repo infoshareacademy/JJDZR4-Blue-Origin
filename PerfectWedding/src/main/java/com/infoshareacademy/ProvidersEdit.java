@@ -96,7 +96,7 @@ public class ProvidersEdit {
         System.out.println(providersList.get(providerId).getAvailability());
         System.out.println("W celu dodania terminu dostępności napisz \"dodaj\" \nW celu usunięcia terminu dostępności napisz \"usuń\"");
 
-        choice = scanInputV2("", "dodaj", "usuń", "q");
+        choice = scanForString("", "dodaj", "usuń", "q");
 
         switch (choice) {
             case "dodaj":
@@ -108,6 +108,8 @@ public class ProvidersEdit {
             case "q":
                 System.out.println("Wychodzę z menu edycji dostępności \n");
                 return;
+            default:
+                System.out.println("SOMETHING WENT WRONG! :O");
         }
     }
 

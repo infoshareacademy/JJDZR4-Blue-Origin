@@ -23,27 +23,6 @@ public abstract class Utils {
         return toReturn;
     }
 
-    public static String scanInputV2(String prompt, String firstOption, String secondOption, String quitOption) {
-        String toReturn = new String();
-        System.out.println(prompt);
-        do {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                toReturn = scanner.nextLine();
-                if (toReturn.equals(quitOption)) {
-                    break;
-                }
-                if (!(toReturn.equalsIgnoreCase(firstOption)) && !(toReturn.equalsIgnoreCase(secondOption))) {
-                    System.out.println("Nieodpowiednia wartość, podaj: " + firstOption + ", " + secondOption + " lub " + quitOption);
-                }
-            } catch (Exception e) {
-                System.out.println("nieodpowiedia wartosc");
-                toReturn = scanInput(prompt);
-            }
-        } while (!(toReturn.equalsIgnoreCase(firstOption)) && !(toReturn.equalsIgnoreCase(secondOption)));
-        return toReturn;
-    }
-
     public static Integer scanInput(String prompt, Integer min, Integer max) {
         System.out.println(prompt);
         Integer toReturn = 0;
