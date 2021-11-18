@@ -1,5 +1,5 @@
 [ {
-  "companyName" : "Test",
+  "companyName" : "firmaNr1",
   "ownerName" : "w",
   "ownerSurname" : "e",
   "phone" : "q",
@@ -47,7 +47,7 @@
   "active" : false,
   "currentID" : 2
 }, {
-  "companyName" : "q",
+  "companyName" : "firmaNr3",
   "ownerName" : "w",
   "ownerSurname" : "w",
   "phone" : "w",
@@ -71,11 +71,11 @@
   "active" : true,
   "currentID" : 3
 }, {
-  "companyName" : "t",
-  "ownerName" : "t",
+  "companyName" : "FirmaTestowa555",
+  "ownerName" : "Krzysztof",
   "ownerSurname" : "t",
   "phone" : "t",
-  "email" : "t",
+  "email" : "test@email.pl",
   "websiteAddress" : "t",
   "location" : {
     "voivodeship" : "KUJAWSKOPOMORSKIE",
@@ -95,11 +95,11 @@
   "active" : true,
   "currentID" : 4
 }, {
-  "companyName" : "q",
+  "companyName" : "FirmaTestowa666",
   "ownerName" : "y",
   "ownerSurname" : "y",
   "phone" : "123456789",
-  "email" : "rqwerq",
+  "email" : "test@test.pl",
   "websiteAddress" : "12323",
   "location" : {
     "voivodeship" : "KUJAWSKOPOMORSKIE",

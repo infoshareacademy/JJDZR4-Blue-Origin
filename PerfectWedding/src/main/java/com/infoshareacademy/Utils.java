@@ -5,10 +5,7 @@ import com.infoshareacademy.model.Voivodeship;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -194,10 +191,10 @@ public abstract class Utils {
         System.out.println(Arrays.toString(allowedAnswers));
         try {
             Scanner scanner = new Scanner(System.in);
-            toReturn = scanner.nextLine();
+            toReturn = scanner.nextLine().toLowerCase(Locale.ROOT);
             boolean isAnswerCorrect = false;
             for (int i = 0; i < allowedAnswers.length; i++) {
-                if (toReturn.equals(allowedAnswers[i])) {
+                if (toReturn.equals(allowedAnswers[i].toLowerCase(Locale.ROOT))) {
                     isAnswerCorrect = true;
                     break;
                 }

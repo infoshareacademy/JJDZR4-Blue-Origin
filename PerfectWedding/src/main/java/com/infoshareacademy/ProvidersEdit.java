@@ -38,7 +38,7 @@ public class ProvidersEdit {
 
         do {
             String chosenField = null;
-            chosenField = scanInput("Które pole chciałbyś edytować? (podaj nazwę pola)");
+            chosenField = scanInput("Które pole chciałbyś edytować? (podaj nazwę pola lub inną wartość, aby zrezygnować)");
 
             switch (chosenField) {
                 case "companyName":
@@ -77,17 +77,14 @@ public class ProvidersEdit {
                     providersList.get(providerId).setActive(isActiveQ);
                     break;
                 default:
-                    System.out.println("Nie wybrano żadnego pola.");
-                    areYouFinished = false;
-                    editProvider();
-            }
-            String response = scanInput("Czy chciałbyś edytować jeszcze jakieś pole? (tak/nie)");
-            if (response.equals("tak")) {
-                areYouFinished = true;
-                System.out.println("Szczegóły wybranego dostawcy: ");
-                System.out.println(providersList.get(providerId).toStringVertical());
-            } else {
-                areYouFinished = false;
+                    System.out.println("Nie wybrano żadnego pola. Czy chcesz edytować innego dostawcę?");
+                    String response = Utils.scanForString("", "Tak", "Nie");
+                    if (response.equalsIgnoreCase("tak")) {
+                        areYouFinished = false;
+                        editProvider();
+                    } else {
+                        return;
+                    }
             }
         }
         while (areYouFinished);
@@ -109,6 +106,7 @@ public class ProvidersEdit {
                 removeAvailability(providerId);
                 break;
             case "q":
+                System.out.println("Wychodzę z menu edycji dostępności \n");
                 return;
         }
     }
