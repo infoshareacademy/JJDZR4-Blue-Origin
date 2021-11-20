@@ -1,6 +1,5 @@
 package com.infoshareacademy;
 
-import com.infoshareacademy.model.Location;
 import com.infoshareacademy.model.ServiceProvider;
 import com.infoshareacademy.model.Voivodeship;
 
@@ -44,7 +43,7 @@ public abstract class Utils {
         } catch (Exception e) {
 //                exit = false;
             System.out.println("nieodpowiedia wartosc.\n" + prompt);
-            toReturn=scanInput(prompt, min, max);
+            toReturn = scanInput(prompt, min, max);
         }
 //        } while (!exit);
         return toReturn;
@@ -80,21 +79,21 @@ public abstract class Utils {
 //        boolean exit = false;
 //
 //        do {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                String dataToParse = scanner.nextLine();
-                if (dataToParse.equalsIgnoreCase(exitCode)) {
-                    toReturn = exitMessage;
+        try {
+            Scanner scanner = new Scanner(System.in);
+            String dataToParse = scanner.nextLine();
+            if (dataToParse.equalsIgnoreCase(exitCode)) {
+                toReturn = exitMessage;
 //                    exit = true;
-                } else {
-                    toReturn = LocalDate.parse(dataToParse, DateTimeFormatter.ISO_LOCAL_DATE);
+            } else {
+                toReturn = LocalDate.parse(dataToParse, DateTimeFormatter.ISO_LOCAL_DATE);
 //                    exit = true;
-                }
-            } catch (Exception e) {
-//                exit = false;
-                System.out.println("nieodpowiedia wartosc.\n" + prompt);
-                toReturn=scanInputDate(prompt, exitCode, exitMessage);
             }
+        } catch (Exception e) {
+//                exit = false;
+            System.out.println("nieodpowiedia wartosc.\n" + prompt);
+            toReturn = scanInputDate(prompt, exitCode, exitMessage);
+        }
 //        } while (!exit);
         return toReturn;
     }
@@ -125,25 +124,25 @@ public abstract class Utils {
         String[] fromScannerDelimited;
         String fromScanner;
 //        do {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                fromScanner = scanner.nextLine();
-                fromScannerDelimited = fromScanner.split(",");
-                if (singleSelection && fromScannerDelimited.length > 1) {
-                    throw new Exception("too many argumets entered");
-                }
-                for (int i = 0; i < fromScannerDelimited.length; i++) {
-                    Integer answerInt = Integer.parseInt(fromScannerDelimited[i]);
-                    if (answerInt >= min && answerInt <= max) {
-                        toReturn.add(answerInt);
-                    } else {
-                        throw new Exception("out of specified range");
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("nieodpowiedia wartosc.");
-                toReturn=scanForInt(prompt, min, max, singleSelection);
+        try {
+            Scanner scanner = new Scanner(System.in);
+            fromScanner = scanner.nextLine();
+            fromScannerDelimited = fromScanner.split(",");
+            if (singleSelection && fromScannerDelimited.length > 1) {
+                throw new Exception("too many argumets entered");
             }
+            for (int i = 0; i < fromScannerDelimited.length; i++) {
+                Integer answerInt = Integer.parseInt(fromScannerDelimited[i]);
+                if (answerInt >= min && answerInt <= max) {
+                    toReturn.add(answerInt);
+                } else {
+                    throw new Exception("out of specified range");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("nieodpowiedia wartosc.");
+            toReturn = scanForInt(prompt, min, max, singleSelection);
+        }
 //        } while (toReturn.size() == 0);
         return toReturn;
     }
@@ -152,13 +151,13 @@ public abstract class Utils {
         System.out.println(prompt);
         String toReturn = "";
 //        do {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                toReturn = scanner.nextLine();
-            } catch (Exception e) {
-                System.out.println("nieodpowiedia wartosc.");
-                toReturn=scanForString(prompt);
-            }
+        try {
+            Scanner scanner = new Scanner(System.in);
+            toReturn = scanner.nextLine();
+        } catch (Exception e) {
+            System.out.println("nieodpowiedia wartosc.");
+            toReturn = scanForString(prompt);
+        }
 //        } while (Objects.equals(toReturn, ""));
         return toReturn;
     }
@@ -166,26 +165,26 @@ public abstract class Utils {
     public static String scanForString(String prompt, String... allowedAnswers) {
         String toReturn = "";
 //        do {
-            System.out.println(prompt);
-            System.out.println("Dopuszczalne wartosci to: ");
-            System.out.println(Arrays.toString(allowedAnswers));
-            try {
-                Scanner scanner = new Scanner(System.in);
-                toReturn = scanner.nextLine();
-                boolean isAnswerCorrect = false;
-                for (int i = 0; i < allowedAnswers.length; i++) {
-                    if (toReturn.equals(allowedAnswers[i])) {
-                        isAnswerCorrect = true;
-                        break;
-                    }
+        System.out.println(prompt);
+        System.out.println("Dopuszczalne wartosci to: ");
+        System.out.println(Arrays.toString(allowedAnswers));
+        try {
+            Scanner scanner = new Scanner(System.in);
+            toReturn = scanner.nextLine().toLowerCase(Locale.ROOT);
+            boolean isAnswerCorrect = false;
+            for (int i = 0; i < allowedAnswers.length; i++) {
+                if (toReturn.equals(allowedAnswers[i].toLowerCase(Locale.ROOT))) {
+                    isAnswerCorrect = true;
+                    break;
                 }
-                if (!isAnswerCorrect) {
-                    throw new Exception("not in the list of allowed answers");
-                }
-            } catch (Exception e) {
-                System.out.println("nieodpowiedia wartosc.");
-                toReturn = scanForString(prompt, allowedAnswers);
             }
+            if (!isAnswerCorrect) {
+                throw new Exception("not in the list of allowed answers");
+            }
+        } catch (Exception e) {
+            System.out.println("nieodpowiedia wartosc.");
+            toReturn = scanForString(prompt, allowedAnswers);
+        }
 //        } while (toReturn.equals(""));
         return toReturn;
     }
@@ -213,6 +212,7 @@ public abstract class Utils {
         }
         return toReturn;
     }
+
     public static void setVoivodeship(ServiceProvider serviceProvider) {
 //        serviceProvider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
         List<Voivodeship> listOfVoivodeships = Arrays.asList(Voivodeship.values());
@@ -220,8 +220,9 @@ public abstract class Utils {
         System.out.println(Utils.listToString(listOfVoivodeships, true));
         serviceProvider.getLocation().setVoivodeship(listOfVoivodeships.get(Utils.scanForInt("Wybiez wojewodztwo od 1 do " + listOfVoivodeships.size(), 1, listOfVoivodeships.size(), true).get(0) - 1));
     }
-    public static boolean isPhoneNumberValid(String s)
-    {     Pattern p = Pattern.compile("^\\d{9}$");
+
+    public static boolean isPhoneNumberValid(String s) {
+        Pattern p = Pattern.compile("^\\d{9}$");
 
         Matcher m = p.matcher(s);
 
@@ -231,7 +232,7 @@ public abstract class Utils {
     public static void setPhone(ServiceProvider serviceProvider) {
         String phoneNumber = "";
         do {
-            phoneNumber=scanInput("Podaj nr telefonu (9 cyfr bez zera na poczatku)");
+            phoneNumber = scanInput("Podaj nr telefonu (9 cyfr bez zera na poczatku)");
         } while (!isPhoneNumberValid(phoneNumber));
         ;
         serviceProvider.setPhone(phoneNumber);

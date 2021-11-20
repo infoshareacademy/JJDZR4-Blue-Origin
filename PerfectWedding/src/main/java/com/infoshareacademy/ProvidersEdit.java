@@ -11,19 +11,20 @@ import java.util.Scanner;
 import static com.infoshareacademy.Utils.*;
 
 public class ProvidersEdit {
-    Menu menu = new Menu();
     List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
 
     public void editProvider() {
-        printListOfProviders(providersList);
-        int ifExit = scanInput("Jeżeli chcesz zakończyć wybierz 0, w innym wypadku wybierz 1", 0, 1);
-        if (ifExit == 0) {
-            new Menu().mainMenu();
+
+        if (providersList.isEmpty()) {
+            System.out.println("There are no providers. \n");
+            return;
+        } else {
+            printListOfProviders(providersList);
         }
         // returnIndexOfProviderAppointedByProviderID wymaga podania ID, które jest przekazywane tej metodzie metodą scanInput, stąd taki tasiemiec.
         int chosenProviderId = returnIndexOfProviderAppointedByProviderId(providersList, scanInput("Wybierz usługodawcę, którego chcesz edytować (podaj ID): \n Podaj 0, aby wyjść do menu głównego.", 0, 999)) + 1;
         if (chosenProviderId == 0) {
-            menu.mainMenu();
+            return;
         } else {
             editSelectedProvider(chosenProviderId - 1);
         }
@@ -37,7 +38,7 @@ public class ProvidersEdit {
 
         do {
             String chosenField = null;
-            chosenField = scanInput("Które pole chciałbyś edytować? (podaj nazwę pola)");
+            chosenField = scanInput("Które pole chciałbyś edytować? (podaj nazwę pola lub inną wartość, aby zrezygnować)");
 
             switch (chosenField) {
                 case "companyName":
@@ -76,17 +77,14 @@ public class ProvidersEdit {
                     providersList.get(providerId).setActive(isActiveQ);
                     break;
                 default:
-                    System.out.println("Nie wybrano żadnego pola.");
-                    editProvider();
-
-            }
-            String response = scanInput("Czy chciałbyś edytować jeszcze jakieś pole? (tak/nie)");
-            if (response.equals("tak")) {
-                areYouFinished = true;
-                System.out.println("Szczegóły wybranego dostawcy: ");
-                System.out.println(providersList.get(providerId).toStringVertical());
-            } else {
-                areYouFinished = false;
+                    System.out.println("Nie wybrano żadnego pola. Czy chcesz edytować innego dostawcę?");
+                    String response = Utils.scanForString("", "Tak", "Nie");
+                    if (response.equalsIgnoreCase("tak")) {
+                        areYouFinished = false;
+                        editProvider();
+                    } else {
+                        return;
+                    }
             }
         }
         while (areYouFinished);
@@ -98,13 +96,20 @@ public class ProvidersEdit {
         System.out.println(providersList.get(providerId).getAvailability());
         System.out.println("W celu dodania terminu dostępności napisz \"dodaj\" \nW celu usunięcia terminu dostępności napisz \"usuń\"");
 
-        choice = scanInput("");
-        if (choice.equals("dodaj")) {
-            addAvailability(providerId);
-        } else {
-            if (choice.equals("usuń")) {
+        choice = scanForString("", "dodaj", "usuń", "q");
+
+        switch (choice) {
+            case "dodaj":
+                addAvailability(providerId);
+                break;
+            case "usuń":
                 removeAvailability(providerId);
-            }
+                break;
+            case "q":
+                System.out.println("Wychodzę z menu edycji dostępności \n");
+                return;
+            default:
+                System.out.println("SOMETHING WENT WRONG! :O");
         }
     }
 
@@ -123,12 +128,9 @@ public class ProvidersEdit {
 
     public void removeAvailability(int providerId) {
         int index = 0;
-        boolean areYouFinished = false;
-        LocalDate availableDate;
         Availability availability = new Availability();
         availability = providersList.get(providerId).getAvailability();
         List<LocalDate> availableDates = availability.getDates();
-
 
         do {
             System.out.println("Wolne terminy to: ");
