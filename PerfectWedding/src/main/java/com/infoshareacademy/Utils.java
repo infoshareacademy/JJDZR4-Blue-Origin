@@ -1,6 +1,8 @@
 package com.infoshareacademy;
 
 import com.infoshareacademy.model.ServiceProvider;
+import com.infoshareacademy.model.ServiceType;
+import com.infoshareacademy.model.TypesOfService;
 import com.infoshareacademy.model.Voivodeship;
 
 import java.time.LocalDate;
@@ -147,6 +149,35 @@ public abstract class Utils {
         return toReturn;
     }
 
+    public static List<Integer> scanForInt(String prompt, int min, int max, boolean singleSelection) {
+        System.out.println(prompt);
+        List<Integer> toReturn = new ArrayList<>();
+        String[] fromScannerDelimited;
+        String fromScanner;
+//        do {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            fromScanner = scanner.nextLine();
+            fromScannerDelimited = fromScanner.split(",");
+            if (singleSelection && fromScannerDelimited.length > 1) {
+                throw new Exception("too many argumets entered");
+            }
+            for (int i = 0; i < fromScannerDelimited.length; i++) {
+                Integer answerInt = Integer.parseInt(fromScannerDelimited[i]);
+                if (answerInt >= min && answerInt <= max) {
+                    toReturn.add(answerInt);
+                } else {
+                    throw new Exception("out of specified range");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("nieodpowiedia wartosc.");
+            toReturn = scanForInt(prompt, min, max, singleSelection);
+        }
+//        } while (toReturn.size() == 0);
+        return toReturn;
+    }
+
     public static String scanForString(String prompt) {
         System.out.println(prompt);
         String toReturn = "";
@@ -220,6 +251,16 @@ public abstract class Utils {
         System.out.println(Utils.listToString(listOfVoivodeships, true));
         serviceProvider.getLocation().setVoivodeship(listOfVoivodeships.get(Utils.scanForInt("Wybiez wojewodztwo od 1 do " + listOfVoivodeships.size(), 1, listOfVoivodeships.size(), true).get(0) - 1));
     }
+    public static List innerTypesOfService(){
+        List<TypesOfService> listOfServiceTypes = Arrays.asList(TypesOfService.values());
+        System.out.println("Wybierz rodzaj usługi z poniższej listy");
+        System.out.println(Utils.listToString(listOfServiceTypes, true));
+        return listOfServiceTypes;
+    }
+    public static void setTypesOfService(ServiceProvider serviceProvider) {
+        innerTypesOfService();
+        serviceProvider.getServiceType().setTypesOfService((TypesOfService) innerTypesOfService().get(Utils.scanForInt("Wybiez usługę od 1 do " + innerTypesOfService().size(), 1, innerTypesOfService().size(), true).get(0) - 1));
+    }
 
     public static boolean isPhoneNumberValid(String s) {
         Pattern p = Pattern.compile("^\\d{9}$");
@@ -236,5 +277,14 @@ public abstract class Utils {
         } while (!isPhoneNumberValid(phoneNumber));
         ;
         serviceProvider.setPhone(phoneNumber);
+    }
+    public static void printWelcomeLogo() {
+        System.out.println("  _____  ______ _____  ______ ______ _____ _______  __          ________ _____  _____ _____ _   _  _____ ");
+        System.out.println("|  __ \\|  ____|  __ \\|  ____|  ____/ ____|__   __| \\ \\        / /  ____|  __ \\|  __ \\_   _| \\ | |/ ____|");
+        System.out.println("| |__) | |__  | |__) | |__  | |__ | |       | |     \\ \\  /\\  / /| |__  | |  | | |  | || | |  \\| | |  __ ");
+        System.out.println("|  ___/|  __| |  _  /|  __| |  __|| |       | |      \\ \\/  \\/ / |  __| | |  | | |  | || | | . ` | | |_ |");
+        System.out.println("| |    | |____| | \\ \\| |    | |___| |____   | |       \\  /\\  /  | |____| |__| | |__| || |_| |\\  | |__| |");
+        System.out.println("|_|    |______|_|  \\_\\_|    |______\\_____|  |_|        \\/  \\/   |______|_____/|_____/_____|_| \\_|\\_____|");
+        System.out.println();
     }
 }

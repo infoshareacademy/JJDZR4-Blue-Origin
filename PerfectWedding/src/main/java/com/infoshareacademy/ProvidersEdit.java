@@ -66,7 +66,7 @@ public class ProvidersEdit {
                     setVoivodeship(providersList.get(providerId));
                     break;
                 case "service":
-                    providersList.get(providerId).setServiceType(new ServiceType(scanInput("Podaj rodzaj uslugi: ")));
+                    setTypesOfService(providersList.get(providerId));
                     break;
                 case "availability":
                     editAvailabilities(providerId);

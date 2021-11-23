@@ -5,12 +5,21 @@ public class ServiceType {
     private String name;
     private String description;
     private float price;
+    TypesOfService typesOfService;
 
     public ServiceType() {
     }
 
     public ServiceType(String name) {
         this.name = name;
+    }
+
+    public TypesOfService getTypesOfService() {
+        return typesOfService;
+    }
+
+    public void setTypesOfService(TypesOfService typesOfService) {
+        this.typesOfService = typesOfService;
     }
 
     public int getID() {
@@ -52,6 +61,7 @@ public class ServiceType {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
+                ", typesOfService=" + typesOfService +
                 '}';
     }
 }

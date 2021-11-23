@@ -1,169 +1,57 @@
 [ {
-  "companyName" : "firmaNr1",
-  "ownerName" : "w",
-  "ownerSurname" : "e",
-  "phone" : "q",
-  "email" : "q",
-  "websiteAddress" : "q",
+  "companyName" : "Videoperfect",
+  "ownerName" : "Paweł",
+  "ownerSurname" : "Dampc",
+  "phone" : "570099286",
+  "email" : "Poczta@videoperfect.eu",
+  "websiteAddress" : "www.videoperfect.eu",
   "location" : {
-    "voivodeship" : "ZACHODNIOPOMORSKIE",
-    "city" : "w"
+    "voivodeship" : "POMORSKIE",
+    "city" : "Szemud"
   },
   "serviceType" : {
-    "name" : "qwer",
+    "name" : null,
     "description" : null,
     "price" : 0.0,
+    "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ ]
+    "dates" : [ "2022-05-01" ]
   },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
+  "ratingList" : [ {
+    "rating" : 5,
+    "comment" : null
+  } ],
+  "averageRating" : 5.0,
   "active" : true,
   "currentID" : 1
 }, {
-  "companyName" : "SecondTest",
-  "ownerName" : "Mateusz",
-  "ownerSurname" : "q",
-  "phone" : "q",
-  "email" : "q",
-  "websiteAddress" : "q",
+  "companyName" : "Inre",
+  "ownerName" : "Piotr",
+  "ownerSurname" : "Dering",
+  "phone" : "518846498",
+  "email" : "inrestudio@gmail.com",
+  "websiteAddress" : "www.inre.pl",
   "location" : {
     "voivodeship" : "POMORSKIE",
-    "city" : "Gdynia"
+    "city" : "Żukowo"
   },
   "serviceType" : {
-    "name" : "t",
+    "name" : null,
     "description" : null,
     "price" : 0.0,
+    "typesOfService" : "FOTOGRAFIA",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ ]
+    "dates" : [ "2022-07-02" ]
   },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : false,
+  "ratingList" : [ {
+    "rating" : 4,
+    "comment" : null
+  } ],
+  "averageRating" : 4.0,
+  "active" : true,
   "currentID" : 2
-}, {
-  "companyName" : "firmaNr3",
-  "ownerName" : "w",
-  "ownerSurname" : "w",
-  "phone" : "w",
-  "email" : "w",
-  "websiteAddress" : "w",
-  "location" : {
-    "voivodeship" : "POMORSKIE",
-    "city" : "w"
-  },
-  "serviceType" : {
-    "name" : "q",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "currentID" : 3
-}, {
-  "companyName" : "FirmaTestowa555",
-  "ownerName" : "Krzysztof",
-  "ownerSurname" : "t",
-  "phone" : "t",
-  "email" : "test@email.pl",
-  "websiteAddress" : "t",
-  "location" : {
-    "voivodeship" : "KUJAWSKOPOMORSKIE",
-    "city" : "Torun"
-  },
-  "serviceType" : {
-    "name" : "r",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "currentID" : 4
-}, {
-  "companyName" : "FirmaTestowa666",
-  "ownerName" : "y",
-  "ownerSurname" : "y",
-  "phone" : "123456789",
-  "email" : "test@test.pl",
-  "websiteAddress" : "12323",
-  "location" : {
-    "voivodeship" : "KUJAWSKOPOMORSKIE",
-    "city" : "bydgoszcz"
-  },
-  "serviceType" : {
-    "name" : "trt",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "currentID" : 5
-}, {
-  "companyName" : "ROLF",
-  "ownerName" : "u",
-  "ownerSurname" : "u",
-  "phone" : "123123123",
-  "email" : "rqewr",
-  "websiteAddress" : "rewqr",
-  "location" : {
-    "voivodeship" : "ZACHODNIOPOMORSKIE",
-    "city" : "ewqr"
-  },
-  "serviceType" : {
-    "name" : "qewrew",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "currentID" : 6
-}, {
-  "companyName" : "FirmaTestowa",
-  "ownerName" : "Mateusz",
-  "ownerSurname" : "",
-  "phone" : "500500500",
-  "email" : "test@test.pl",
-  "websiteAddress" : "test.pl",
-  "location" : {
-    "voivodeship" : "LUBELSKIE",
-    "city" : "Lublin"
-  },
-  "serviceType" : {
-    "name" : "IT",
-    "description" : null,
-    "price" : 0.0,
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ "2020-02-02", "1999-07-07", "1995-03-03" ]
-  },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
-  "active" : true,
-  "currentID" : 8
 } ]

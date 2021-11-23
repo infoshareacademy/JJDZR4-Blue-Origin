@@ -2,7 +2,9 @@ package com.infoshareacademy;
 
 import com.infoshareacademy.model.Rating;
 import com.infoshareacademy.model.ServiceProvider;
+import com.infoshareacademy.model.TypesOfService;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -49,6 +51,7 @@ public class ClientOperations {
     public void findProviderByLocality() {
 
         List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
+
         String finder = scanInput("Wyszukaj usługodawcę poprzez lokalizację\n" + "Podaj nazwę miejscowości: ");
 
         for (ServiceProvider re : providersList) {
@@ -64,10 +67,11 @@ public class ClientOperations {
 
     public void findProviderByType() {
         List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
-        String finder = scanInput("Wyszukaj usługodawcę poprzez rodzaj usługi\n" + "Podaj rodzaj usługi: ");
+        innerTypesOfService();
+        String finder = Utils.scanForInt("Wybiez usługę od 1 do " + innerTypesOfService().size(), 1, innerTypesOfService().size());
 
         for (ServiceProvider re : providersList) {
-            if (re.getServiceType().getName().equals(finder) && re.isActive()) {
+            if (re.getServiceType().getTypesOfService().equals(finder) && re.isActive()) {
                 reference += 1;
                 System.out.println(re.toStringVertical());
             }

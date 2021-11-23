@@ -7,9 +7,9 @@ public class App
     public static void main( String[] args )
     {
         providerDataBase.readProviderListFromFile();
-        System.out.println(providerDataBase);
+//        System.out.println(providerDataBase);
         Menu menu = new Menu();
-        menu.printWelcomeLogo();
+        Utils.printWelcomeLogo();
         menu.mainMenu();
         providerDataBase.addProviderListToFile();
     }
