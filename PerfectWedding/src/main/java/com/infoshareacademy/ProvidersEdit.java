@@ -68,7 +68,7 @@ public class ProvidersEdit {
                 case "name":
                     setTypesOfService(providersList.get(providerId));
                     break;
-                case "description:":
+                case "description":
                     providersList.get(providerId).getServiceType().setDescription(scanInput("Podaj opis działalności"));
                     break;
                 case "price":
