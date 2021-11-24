@@ -120,34 +120,6 @@ public abstract class Utils {
     }
 
 
-    public static List<Integer> scanForInt(String prompt, int min, int max, boolean singleSelection) {
-        System.out.println(prompt);
-        List<Integer> toReturn = new ArrayList<>();
-        String[] fromScannerDelimited;
-        String fromScanner;
-//        do {
-        try {
-            Scanner scanner = new Scanner(System.in);
-            fromScanner = scanner.nextLine();
-            fromScannerDelimited = fromScanner.split(",");
-            if (singleSelection && fromScannerDelimited.length > 1) {
-                throw new Exception("too many argumets entered");
-            }
-            for (int i = 0; i < fromScannerDelimited.length; i++) {
-                Integer answerInt = Integer.parseInt(fromScannerDelimited[i]);
-                if (answerInt >= min && answerInt <= max) {
-                    toReturn.add(answerInt);
-                } else {
-                    throw new Exception("out of specified range");
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("nieodpowiedia wartosc.");
-            toReturn = scanForInt(prompt, min, max, singleSelection);
-        }
-//        } while (toReturn.size() == 0);
-        return toReturn;
-    }
 
     public static List<Integer> scanForInt(String prompt, int min, int max, boolean singleSelection) {
         System.out.println(prompt);
@@ -251,15 +223,12 @@ public abstract class Utils {
         System.out.println(Utils.listToString(listOfVoivodeships, true));
         serviceProvider.getLocation().setVoivodeship(listOfVoivodeships.get(Utils.scanForInt("Wybiez wojewodztwo od 1 do " + listOfVoivodeships.size(), 1, listOfVoivodeships.size(), true).get(0) - 1));
     }
-    public static List innerTypesOfService(){
+
+    public static void setTypesOfService(ServiceProvider serviceProvider) {
         List<TypesOfService> listOfServiceTypes = Arrays.asList(TypesOfService.values());
         System.out.println("Wybierz rodzaj usługi z poniższej listy");
         System.out.println(Utils.listToString(listOfServiceTypes, true));
-        return listOfServiceTypes;
-    }
-    public static void setTypesOfService(ServiceProvider serviceProvider) {
-        innerTypesOfService();
-        serviceProvider.getServiceType().setTypesOfService((TypesOfService) innerTypesOfService().get(Utils.scanForInt("Wybiez usługę od 1 do " + innerTypesOfService().size(), 1, innerTypesOfService().size(), true).get(0) - 1));
+        serviceProvider.getServiceType().setTypesOfService(listOfServiceTypes.get(Utils.scanForInt("Wybiez usługę od 1 do " + listOfServiceTypes.size(), 1, listOfServiceTypes.size(), true).get(0) - 1));
     }
 
     public static boolean isPhoneNumberValid(String s) {

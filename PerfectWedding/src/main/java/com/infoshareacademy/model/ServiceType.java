@@ -2,16 +2,15 @@ package com.infoshareacademy.model;
 
 public class ServiceType {
     private int ID;
-    private String name;
     private String description;
-    private float price;
+    private String price;
     TypesOfService typesOfService;
 
     public ServiceType() {
     }
 
-    public ServiceType(String name) {
-        this.name = name;
+    public String getPrice() {
+        return price;
     }
 
     public TypesOfService getTypesOfService() {
@@ -30,13 +29,6 @@ public class ServiceType {
         this.ID = ID;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getDescription() {
         return description;
@@ -46,11 +38,7 @@ public class ServiceType {
         this.description = description;
     }
 
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
+       public void setPrice(String price) {
         this.price = price;
     }
 
@@ -58,10 +46,9 @@ public class ServiceType {
     public String toString() {
         return "ServiceType{" +
                 "ID=" + ID +
-                ", name='" + name + '\'' +
+                ", typesOfService=" + typesOfService +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", typesOfService=" + typesOfService +
                 '}';
     }
 }

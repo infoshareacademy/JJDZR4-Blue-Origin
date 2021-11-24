@@ -183,8 +183,8 @@ public class ServiceProvider {
                         + "\n   voivodeship: " + location.getVoivodeship()
                         + "\n   locality: " + location.getCity()
                         + "\n   name: " + serviceType.getTypesOfService()
-                        /*+ "\n   description: " + serviceType.getDescription()
-                        + "\n   price: " + serviceType.getPrice()*/
+                        + "\n   description: " + serviceType.getDescription()
+                        + "\n   price: " + serviceType.getPrice()
                         + "\n availability: " + availability
                         + "\n rating: " + ratingList
                         + "\n isActive: " + isActive

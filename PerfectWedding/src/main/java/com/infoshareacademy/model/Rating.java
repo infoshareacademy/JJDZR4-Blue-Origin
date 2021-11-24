@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class Rating {
     private int rating;
-    private String Comment;
+    private String comment;
 
     public Rating() {
     }
@@ -17,7 +17,7 @@ public class Rating {
 
     public Rating(int rating, String comment) {
         this.rating = rating;
-        Comment = comment;
+        this.comment = comment;
     }
 
     public int getRating() {
@@ -25,14 +25,14 @@ public class Rating {
     }
 
     public String getComment() {
-        return Comment;
+        return comment;
     }
 
     @Override
     public String toString() {
         return "Rating{" +
                 "rating=" + rating +
-                ", Comment='" + Comment + '\'' +
+                ", Comment='" + comment + '\'' +
                 '}';
     }
 }

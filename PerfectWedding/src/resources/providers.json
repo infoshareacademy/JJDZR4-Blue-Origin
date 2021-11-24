@@ -3,55 +3,47 @@
   "ownerName" : "Paweł",
   "ownerSurname" : "Dampc",
   "phone" : "570099286",
-  "email" : "Poczta@videoperfect.eu",
-  "websiteAddress" : "www.videoperfect.eu",
+  "email" : "poczta@videoperfect.eu",
+  "websiteAddress" : "videoperfect.eu",
   "location" : {
     "voivodeship" : "POMORSKIE",
     "city" : "Szemud"
   },
   "serviceType" : {
-    "name" : null,
-    "description" : null,
-    "price" : 0.0,
+    "description" : "Zajmujemy się filmowaniem wesel od przygotowań do końca oczepin. W pakiecie 3 szt pendrive, teledysk ślubny.",
+    "price" : "3200 zł",
     "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : {
     "dates" : [ "2022-05-01" ]
   },
-  "ratingList" : [ {
-    "rating" : 5,
-    "comment" : null
-  } ],
-  "averageRating" : 5.0,
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
   "active" : true,
   "currentID" : 1
 }, {
   "companyName" : "Inre",
   "ownerName" : "Piotr",
   "ownerSurname" : "Dering",
-  "phone" : "518846498",
-  "email" : "inrestudio@gmail.com",
-  "websiteAddress" : "www.inre.pl",
+  "phone" : "589656333",
+  "email" : "inre@gmail.com",
+  "websiteAddress" : "inre.pl",
   "location" : {
     "voivodeship" : "POMORSKIE",
     "city" : "Żukowo"
   },
   "serviceType" : {
-    "name" : null,
-    "description" : null,
-    "price" : 0.0,
+    "description" : "Zajmujemy się fotografią od ponad 10 lat. Szukamy klientów którym podoba się nasze podejście do uwieczniania chwil.",
+    "price" : "4000 zł",
     "typesOfService" : "FOTOGRAFIA",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ "2022-07-02" ]
+    "dates" : [ "2022-06-05" ]
   },
-  "ratingList" : [ {
-    "rating" : 4,
-    "comment" : null
-  } ],
-  "averageRating" : 4.0,
+  "ratingList" : [ ],
+  "averageRating" : -1.0,
   "active" : true,
   "currentID" : 2
 } ]

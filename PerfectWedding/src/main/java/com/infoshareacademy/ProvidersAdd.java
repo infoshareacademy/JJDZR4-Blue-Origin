@@ -26,6 +26,8 @@ public class ProvidersAdd {
         setVoivodeship(provider);
         provider.setServiceType(new ServiceType());
         setTypesOfService(provider);
+        provider.getServiceType().setDescription(scanInput("Opis działalności"));
+        provider.getServiceType().setPrice(scanInput("Podaj cenę w pełnych złotych"));
         provider.setActive(askIfActive("Dostawca aktywny (T/N)?"));
         addAvailability();
         App.providerDataBase.addNewProvider(provider);
