@@ -5,6 +5,7 @@ import com.infoshareacademy.model.ServiceProvider;
 import com.infoshareacademy.model.TypesOfService;
 import com.infoshareacademy.model.Voivodeship;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -46,12 +47,17 @@ public class ClientOperations {
 
     private void rateByClient(Integer serviceProviderPosInArray, Integer rating, String comment) {
         //in the future rateByClient should be called out after "Wyszukaj dostawce" - metoda przyjmuje nr doatwcy wg tablicy ProviderDataBase
-        App.providerDataBase.listOfProviders.get(serviceProviderPosInArray).addRating(rating, comment);
+        //App.providerDataBase.listOfProviders.get(serviceProviderPosInArray).addRating(rating, comment);
+        List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
+
+
+
     }
 
     public void findProviderByLocality() {
         Voivodeship finder;
         List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
+        List<ServiceProvider> filteredProvidersList = new ArrayList<>();
         List<Voivodeship> listOfVoivodeships = Arrays.asList(Voivodeship.values());
         System.out.println("Wybierz wojewodztwo z ponizszej list");
         System.out.println(Utils.listToString(listOfVoivodeships, true));
@@ -61,6 +67,7 @@ public class ClientOperations {
             if (re.getLocation().getVoivodeship().equals(finder) && re.isActive()) {
                 reference += 1;
                 System.out.println(re.toStringVertical());
+                filteredProvidersList.add(re);
             }
         }
         if (reference == 0) {
@@ -71,15 +78,17 @@ public class ClientOperations {
     public void findProviderByType() {
         TypesOfService finder;
         List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
+        List<ServiceProvider> filteredProvidersList = new ArrayList<>();
         List<TypesOfService> listOfServiceTypes = Arrays.asList(TypesOfService.values());
         System.out.println("Wybierz rodzaj usługi z poniższej listy");
         System.out.println(Utils.listToString(listOfServiceTypes, true));
-       finder = listOfServiceTypes.get(Utils.scanForInt("Wybiez usługę od 1 do " + listOfServiceTypes.size(), 1, listOfServiceTypes.size(), true).get(0) - 1);
+        finder = listOfServiceTypes.get(Utils.scanForInt("Wybiez usługę od 1 do " + listOfServiceTypes.size(), 1, listOfServiceTypes.size(), true).get(0) - 1);
 
         for (ServiceProvider re : providersList) {
             if (re.getServiceType().getTypesOfService().toString().equals(finder.toString()) && re.isActive()) {
                 reference += 1;
                 System.out.println(re.toStringVertical());
+                filteredProvidersList.add(re);
             }
         }
         if (reference == 0) {
