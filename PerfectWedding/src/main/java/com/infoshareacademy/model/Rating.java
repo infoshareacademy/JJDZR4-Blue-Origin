@@ -28,6 +28,14 @@ public class Rating {
         return comment;
     }
 
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     @Override
     public String toString() {
         return "Rating{" +

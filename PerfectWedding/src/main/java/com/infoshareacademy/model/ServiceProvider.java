@@ -66,9 +66,9 @@ public class ServiceProvider {
         ratingList.add(new Rating(rating, comment));
     }
 
-    public void addRating(int rating) {
-        ratingList.add(new Rating(rating));
-    }
+//    public void addRating(int rating) {
+//        ratingList.add(new Rating(rating));
+//    }
 
     public Availability getAvailability() {
         return availability;

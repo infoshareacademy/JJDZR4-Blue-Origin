@@ -18,8 +18,14 @@
   "availability" : {
     "dates" : [ "2022-05-01" ]
   },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
+  "ratingList" : [ {
+    "rating" : 5,
+    "comment" : "Mega"
+  }, {
+    "rating" : 4,
+    "comment" : "Jeszcze bardziej mega."
+  } ],
+  "averageRating" : 4.5,
   "active" : true,
   "currentID" : 1
 }, {
@@ -42,8 +48,11 @@
   "availability" : {
     "dates" : [ "2022-06-05" ]
   },
-  "ratingList" : [ ],
-  "averageRating" : -1.0,
+  "ratingList" : [ {
+    "rating" : 5,
+    "comment" : "SUper"
+  } ],
+  "averageRating" : 5.0,
   "active" : true,
   "currentID" : 2
 } ]
