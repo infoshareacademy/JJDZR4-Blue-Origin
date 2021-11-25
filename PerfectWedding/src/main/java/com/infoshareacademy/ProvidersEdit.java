@@ -65,8 +65,14 @@ public class ProvidersEdit {
                 case "voivodeship":
                     setVoivodeship(providersList.get(providerId));
                     break;
-                case "service":
-                    providersList.get(providerId).setServiceType(new ServiceType(scanInput("Podaj rodzaj uslugi: ")));
+                case "name":
+                    setTypesOfService(providersList.get(providerId));
+                    break;
+                case "description":
+                    providersList.get(providerId).getServiceType().setDescription(scanInput("Podaj opis działalności"));
+                    break;
+                case "price":
+                    providersList.get(providerId).getServiceType().setPrice(scanInput("Podaj cenę w pełnych złotych"));
                     break;
                 case "availability":
                     editAvailabilities(providerId);

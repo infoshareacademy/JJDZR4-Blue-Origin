@@ -163,7 +163,7 @@ public class ServiceProvider {
                 ", email='" + email + '\'' +
                 ", websiteAddress='" + websiteAddress + '\'' +
                 ", location=" + location.getCity() + '\'' +
-                ", serviceType=" + serviceType.getName() + '\'' +
+                ", serviceType=" + serviceType.getTypesOfService() + '\'' +
                 ", availability=\n" + availability + '\n' +
                 ", rating=\n" + ratingList + '\n' +
                 ", isActive=" + isActive +
@@ -182,7 +182,7 @@ public class ServiceProvider {
                         + "\n websiteAddress: " + websiteAddress
                         + "\n   voivodeship: " + location.getVoivodeship()
                         + "\n   locality: " + location.getCity()
-                        + "\n   name: " + serviceType.getName()
+                        + "\n   name: " + serviceType.getTypesOfService()
                         + "\n   description: " + serviceType.getDescription()
                         + "\n   price: " + serviceType.getPrice()
                         + "\n availability: " + availability

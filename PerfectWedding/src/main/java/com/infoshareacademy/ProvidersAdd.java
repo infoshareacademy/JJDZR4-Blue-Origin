@@ -24,13 +24,14 @@ public class ProvidersAdd {
         provider.setWebsiteAddress(scanInput("Podaj adres strony www firmy"));
         provider.setLocation(new Location(scanInput("Podaj lokalizcje firmy (miasto)")));
         setVoivodeship(provider);
-        provider.setServiceType(new ServiceType(scanInput("Rodzaj uslugi")));
+        provider.setServiceType(new ServiceType());
+        setTypesOfService(provider);
+        provider.getServiceType().setDescription(scanInput("Opis działalności"));
+        provider.getServiceType().setPrice(scanInput("Podaj cenę w pełnych złotych"));
         provider.setActive(askIfActive("Dostawca aktywny (T/N)?"));
         addAvailability();
         App.providerDataBase.addNewProvider(provider);
     }
-
-
 
 
     private void addAvailability() {

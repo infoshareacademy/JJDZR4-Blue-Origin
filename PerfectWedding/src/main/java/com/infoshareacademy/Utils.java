@@ -1,6 +1,8 @@
 package com.infoshareacademy;
 
 import com.infoshareacademy.model.ServiceProvider;
+import com.infoshareacademy.model.ServiceType;
+import com.infoshareacademy.model.TypesOfService;
 import com.infoshareacademy.model.Voivodeship;
 
 import java.time.LocalDate;
@@ -118,6 +120,7 @@ public abstract class Utils {
     }
 
 
+
     public static List<Integer> scanForInt(String prompt, int min, int max, boolean singleSelection) {
         System.out.println(prompt);
         List<Integer> toReturn = new ArrayList<>();
@@ -221,6 +224,13 @@ public abstract class Utils {
         serviceProvider.getLocation().setVoivodeship(listOfVoivodeships.get(Utils.scanForInt("Wybiez wojewodztwo od 1 do " + listOfVoivodeships.size(), 1, listOfVoivodeships.size(), true).get(0) - 1));
     }
 
+    public static void setTypesOfService(ServiceProvider serviceProvider) {
+        List<TypesOfService> listOfServiceTypes = Arrays.asList(TypesOfService.values());
+        System.out.println("Wybierz rodzaj usługi z poniższej listy");
+        System.out.println(Utils.listToString(listOfServiceTypes, true));
+        serviceProvider.getServiceType().setTypesOfService(listOfServiceTypes.get(Utils.scanForInt("Wybiez usługę od 1 do " + listOfServiceTypes.size(), 1, listOfServiceTypes.size(), true).get(0) - 1));
+    }
+
     public static boolean isPhoneNumberValid(String s) {
         Pattern p = Pattern.compile("^\\d{9}$");
 
@@ -236,5 +246,14 @@ public abstract class Utils {
         } while (!isPhoneNumberValid(phoneNumber));
         ;
         serviceProvider.setPhone(phoneNumber);
+    }
+    public static void printWelcomeLogo() {
+        System.out.println("  _____  ______ _____  ______ ______ _____ _______  __          ________ _____  _____ _____ _   _  _____ ");
+        System.out.println("|  __ \\|  ____|  __ \\|  ____|  ____/ ____|__   __| \\ \\        / /  ____|  __ \\|  __ \\_   _| \\ | |/ ____|");
+        System.out.println("| |__) | |__  | |__) | |__  | |__ | |       | |     \\ \\  /\\  / /| |__  | |  | | |  | || | |  \\| | |  __ ");
+        System.out.println("|  ___/|  __| |  _  /|  __| |  __|| |       | |      \\ \\/  \\/ / |  __| | |  | | |  | || | | . ` | | |_ |");
+        System.out.println("| |    | |____| | \\ \\| |    | |___| |____   | |       \\  /\\  /  | |____| |__| | |__| || |_| |\\  | |__| |");
+        System.out.println("|_|    |______|_|  \\_\\_|    |______\\_____|  |_|        \\/  \\/   |______|_____/|_____/_____|_| \\_|\\_____|");
+        System.out.println();
     }
 }

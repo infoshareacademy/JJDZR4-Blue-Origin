@@ -1,5 +1,7 @@
 package com.infoshareacademy;
 
+import com.infoshareacademy.model.ServiceProvider;
+
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -7,15 +9,7 @@ public class Menu {
     Scanner scanner = new Scanner(System.in);
     private int response;
     private String wantToQuit;
-    public void printWelcomeLogo() {
-        System.out.println("  _____  ______ _____  ______ ______ _____ _______  __          ________ _____  _____ _____ _   _  _____ ");
-        System.out.println("|  __ \\|  ____|  __ \\|  ____|  ____/ ____|__   __| \\ \\        / /  ____|  __ \\|  __ \\_   _| \\ | |/ ____|");
-        System.out.println("| |__) | |__  | |__) | |__  | |__ | |       | |     \\ \\  /\\  / /| |__  | |  | | |  | || | |  \\| | |  __ ");
-        System.out.println("|  ___/|  __| |  _  /|  __| |  __|| |       | |      \\ \\/  \\/ / |  __| | |  | | |  | || | | . ` | | |_ |");
-        System.out.println("| |    | |____| | \\ \\| |    | |___| |____   | |       \\  /\\  /  | |____| |__| | |__| || |_| |\\  | |__| |");
-        System.out.println("|_|    |______|_|  \\_\\_|    |______\\_____|  |_|        \\/  \\/   |______|_____/|_____/_____|_| \\_|\\_____|");
-        System.out.println();
-    }
+
     public void mainMenu() {
         do {
             printMainMenu();
@@ -109,7 +103,7 @@ public class Menu {
                     break;
             }
         } while (response < 0 || response > 3);
-            }
+    }
 
     public void clientFinderMenu() {
         ClientOperations clientOperations = new ClientOperations();

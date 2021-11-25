@@ -2,7 +2,10 @@ package com.infoshareacademy;
 
 import com.infoshareacademy.model.Rating;
 import com.infoshareacademy.model.ServiceProvider;
+import com.infoshareacademy.model.TypesOfService;
+import com.infoshareacademy.model.Voivodeship;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -47,12 +50,15 @@ public class ClientOperations {
     }
 
     public void findProviderByLocality() {
-
+        Voivodeship finder;
         List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
-        String finder = scanInput("Wyszukaj usługodawcę poprzez lokalizację\n" + "Podaj nazwę miejscowości: ");
+        List<Voivodeship> listOfVoivodeships = Arrays.asList(Voivodeship.values());
+        System.out.println("Wybierz wojewodztwo z ponizszej list");
+        System.out.println(Utils.listToString(listOfVoivodeships, true));
+        finder = listOfVoivodeships.get(Utils.scanForInt("Wybiez wojewodztwo od 1 do " + listOfVoivodeships.size(), 1, listOfVoivodeships.size(), true).get(0) - 1);
 
         for (ServiceProvider re : providersList) {
-            if (re.getLocation().getCity().equals(finder) && re.isActive()) {
+            if (re.getLocation().getVoivodeship().equals(finder) && re.isActive()) {
                 reference += 1;
                 System.out.println(re.toStringVertical());
             }
@@ -63,11 +69,15 @@ public class ClientOperations {
     }
 
     public void findProviderByType() {
+        TypesOfService finder;
         List<ServiceProvider> providersList = App.providerDataBase.getListOfProviders();
-        String finder = scanInput("Wyszukaj usługodawcę poprzez rodzaj usługi\n" + "Podaj rodzaj usługi: ");
+        List<TypesOfService> listOfServiceTypes = Arrays.asList(TypesOfService.values());
+        System.out.println("Wybierz rodzaj usługi z poniższej listy");
+        System.out.println(Utils.listToString(listOfServiceTypes, true));
+       finder = listOfServiceTypes.get(Utils.scanForInt("Wybiez usługę od 1 do " + listOfServiceTypes.size(), 1, listOfServiceTypes.size(), true).get(0) - 1);
 
         for (ServiceProvider re : providersList) {
-            if (re.getServiceType().getName().equals(finder) && re.isActive()) {
+            if (re.getServiceType().getTypesOfService().toString().equals(finder.toString()) && re.isActive()) {
                 reference += 1;
                 System.out.println(re.toStringVertical());
             }
