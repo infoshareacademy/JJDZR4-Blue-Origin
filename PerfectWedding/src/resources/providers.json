@@ -24,8 +24,14 @@
   }, {
     "rating" : 4,
     "comment" : "Jeszcze bardziej mega."
+  }, {
+    "rating" : 5,
+    "comment" : "Oby tak dalej."
+  }, {
+    "rating" : 5,
+    "comment" : "Sprawdzam ocene w szukajce po typie uslugi."
   } ],
-  "averageRating" : 4.5,
+  "averageRating" : 4.75,
   "active" : true,
   "currentID" : 1
 }, {
@@ -51,6 +57,9 @@
   "ratingList" : [ {
     "rating" : 5,
     "comment" : "SUper"
+  }, {
+    "rating" : 5,
+    "comment" : "Sprawdzam czy da sie dodac koment dla ID ktorego nie ma na liscie."
   } ],
   "averageRating" : 5.0,
   "active" : true,

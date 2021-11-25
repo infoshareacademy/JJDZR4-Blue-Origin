@@ -11,10 +11,6 @@ public class Rating {
     public Rating() {
     }
 
-    public Rating(int rating) {
-        this.rating = rating;
-    }
-
     public Rating(int rating, String comment) {
         this.rating = rating;
         this.comment = comment;
@@ -28,13 +24,6 @@ public class Rating {
         return comment;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
 
     @Override
     public String toString() {

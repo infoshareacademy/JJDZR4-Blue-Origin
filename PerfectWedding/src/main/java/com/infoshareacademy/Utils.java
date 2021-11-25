@@ -192,6 +192,14 @@ public abstract class Utils {
         return toReturn;
     }
 
+    public static ArrayList<Integer> returnIdsFromList (ArrayList<ServiceProvider> listOfProviders) {
+        ArrayList<Integer> listOfIds = new ArrayList<>();
+        for (ServiceProvider n: listOfProviders) {
+            listOfIds.add(n.getCurrentID());
+        }
+        return listOfIds;
+    }
+
     public static <T> String arrayToString(T[] array, Boolean printSequenceNumbers) {
         String toReturn = "";
         for (int i = 0; i < array.length; i++) {
