@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ClientOperations {
-    int reference = 0;
 
     private void rateByClient(List<ServiceProvider> filteredProvidersList) {
         System.out.println("Wybierz usługodawcę, którego chcesz ocenić. Podaj ID:");
@@ -26,10 +25,10 @@ public class ClientOperations {
                 isProviderFoundOnTheList = true;
             }
         }
-
         int providerRating = Utils.scanInput("Podaj liczbe od 1 do 5", 1, 5);
         String providerRatingComment = Utils.scanInput("Podaj komentarz");
-        filteredProvidersList.get(providerToBeRated - 1).addRating(providerRating, providerRatingComment);
+        int indexOfProviderToBeRated = Utils.returnIndexOfProviderAppointedByProviderId(filteredProvidersList, providerToBeRated);
+        filteredProvidersList.get(indexOfProviderToBeRated).addRating(providerRating, providerRatingComment);
     }
 
     public void findProviderByLocality() {
@@ -44,7 +43,6 @@ public class ClientOperations {
 
         for (ServiceProvider re : providersList) {
             if (re.getLocation().getVoivodeship().equals(finder) && re.isActive()) {
-                reference += 1;
                 System.out.println(re.toStringVertical());
                 filteredProvidersList.add(re);
                 areThereAnyProvidersFound = true;
@@ -65,7 +63,6 @@ public class ClientOperations {
 
         for (ServiceProvider re : providersList) {
             if (re.getServiceType().getTypesOfService().toString().equals(finder.toString()) && re.isActive()) {
-                reference += 1;
                 System.out.println(re.toStringVertical());
                 filteredProvidersList.add(re);
                 areThereAnyProvidersFound = true;
@@ -75,12 +72,9 @@ public class ClientOperations {
     }
 
     private void noResultsOrAddCommentToProvider(List<ServiceProvider> filteredProvidersList, boolean areThereAnyProvidersFound) {
-        if (reference == 0) {
+        if (!areThereAnyProvidersFound) {
             System.out.println("Brak wyników\n");
-            return;
-        }
-
-        if (areThereAnyProvidersFound) {
+        } else {
             System.out.println("Czy chciałbyś ocenić, któregoś usługodawcę?");
             String response = Utils.scanForString("", "tak", "nie");
             if (response.equalsIgnoreCase("tak")) {
@@ -88,6 +82,5 @@ public class ClientOperations {
             }
         }
     }
-
 }
 

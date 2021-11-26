@@ -33,8 +33,11 @@
   }, {
     "rating" : 5,
     "comment" : "test"
+  }, {
+    "rating" : 5,
+    "comment" : "Ma sie dodac komentarz dla uslugodawcy ID = 1, wejscie z poziomu wyszukiwarki po lokalizacji."
   } ],
-  "averageRating" : 4.8,
+  "averageRating" : 4.833333333333333,
   "active" : true,
   "currentID" : 1
 }, {
@@ -63,6 +66,12 @@
   }, {
     "rating" : 5,
     "comment" : "Sprawdzam czy da sie dodac koment dla ID ktorego nie ma na liscie."
+  }, {
+    "rating" : 5,
+    "comment" : "Test 26112021"
+  }, {
+    "rating" : 5,
+    "comment" : "Ma sie dodac ocena dla uslugodawcy o ID = 2, wyjcie z poziomu wyszukiwarki po rodzaju uslugi."
   } ],
   "averageRating" : 5.0,
   "active" : true,
