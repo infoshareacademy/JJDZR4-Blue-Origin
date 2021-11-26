@@ -30,8 +30,11 @@
   }, {
     "rating" : 5,
     "comment" : "Sprawdzam ocene w szukajce po typie uslugi."
+  }, {
+    "rating" : 5,
+    "comment" : "test"
   } ],
-  "averageRating" : 4.75,
+  "averageRating" : 4.8,
   "active" : true,
   "currentID" : 1
 }, {

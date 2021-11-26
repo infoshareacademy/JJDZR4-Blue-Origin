@@ -1,14 +1,13 @@
 package com.infoshareacademy;
 
-import com.infoshareacademy.model.Rating;
+
 import com.infoshareacademy.model.ServiceProvider;
 import com.infoshareacademy.model.TypesOfService;
 import com.infoshareacademy.model.Voivodeship;
 
-import java.util.*;
-
-import static com.infoshareacademy.Utils.*;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ClientOperations {
     int reference = 0;
@@ -30,7 +29,7 @@ public class ClientOperations {
 
         int providerRating = Utils.scanInput("Podaj liczbe od 1 do 5", 1, 5);
         String providerRatingComment = Utils.scanInput("Podaj komentarz");
-        filteredProvidersList.get(providerToBeRated-1).addRating(providerRating, providerRatingComment);
+        filteredProvidersList.get(providerToBeRated - 1).addRating(providerRating, providerRatingComment);
     }
 
     public void findProviderByLocality() {
@@ -51,17 +50,7 @@ public class ClientOperations {
                 areThereAnyProvidersFound = true;
             }
         }
-        if (reference == 0) {
-            System.out.println("Brak wyników\n");
-        }
-
-        if (areThereAnyProvidersFound) {
-            System.out.println("Czy chciałbyś ocenić, któregoś usługodawcę?");
-            String response = Utils.scanForString("", "tak", "nie");
-            if (response.equalsIgnoreCase("tak")) {
-                rateByClient(filteredProvidersList);
-            }
-        }
+        noResultsOrAddCommentToProvider(filteredProvidersList, areThereAnyProvidersFound);
     }
 
     public void findProviderByType() {
@@ -82,8 +71,13 @@ public class ClientOperations {
                 areThereAnyProvidersFound = true;
             }
         }
+        noResultsOrAddCommentToProvider(filteredProvidersList, areThereAnyProvidersFound);
+    }
+
+    private void noResultsOrAddCommentToProvider(List<ServiceProvider> filteredProvidersList, boolean areThereAnyProvidersFound) {
         if (reference == 0) {
             System.out.println("Brak wyników\n");
+            return;
         }
 
         if (areThereAnyProvidersFound) {
