@@ -92,7 +92,7 @@ public class Menu {
                     break;
                 case 1:
                     clientFinderMenu();
-                    mainMenu();
+//                    mainMenu();
                     break;
 //                case 2:
 //                    clientOperations.dummyCallOfRating();
