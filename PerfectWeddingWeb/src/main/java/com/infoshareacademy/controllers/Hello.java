@@ -13,6 +13,18 @@ public class Hello {
         return "index";
     }
 
+    @GetMapping("/clients")
+    public String clientsPage() {
+        return "panelKlienta";
+    }
+
+    @GetMapping("/providers")
+    public String providersPage() {
+        return "panelUslugodawcy";
+    }
+
+
+
 
 
 }
