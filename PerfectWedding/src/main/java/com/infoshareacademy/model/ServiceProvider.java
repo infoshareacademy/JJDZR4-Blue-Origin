@@ -46,10 +46,6 @@ public class ServiceProvider {
         return ratingList;
     }
 
-    public void setRatingList(List<Rating> ratingList) {
-        this.ratingList = ratingList;
-    }
-
     public double getAverageRating() {
         double sum = 0;
         for (Rating rating : ratingList) {
@@ -66,10 +62,6 @@ public class ServiceProvider {
         ratingList.add(new Rating(rating, comment));
     }
 
-    public void addRating(int rating) {
-        ratingList.add(new Rating(rating));
-    }
-
     public Availability getAvailability() {
         return availability;
     }
@@ -77,7 +69,6 @@ public class ServiceProvider {
     public void setAvailability(Availability availability) {
         this.availability = availability;
     }
-
 
     public String getCompanyName() {
         return companyName;

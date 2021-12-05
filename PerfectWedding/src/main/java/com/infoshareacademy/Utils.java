@@ -119,8 +119,6 @@ public abstract class Utils {
         return indexOfServiceProvider;
     }
 
-
-
     public static List<Integer> scanForInt(String prompt, int min, int max, boolean singleSelection) {
         System.out.println(prompt);
         List<Integer> toReturn = new ArrayList<>();
@@ -190,6 +188,14 @@ public abstract class Utils {
         }
 //        } while (toReturn.equals(""));
         return toReturn;
+    }
+
+    public static ArrayList<Integer> returnIdsFromList (ArrayList<ServiceProvider> listOfProviders) {
+        ArrayList<Integer> listOfIds = new ArrayList<>();
+        for (ServiceProvider n: listOfProviders) {
+            listOfIds.add(n.getCurrentID());
+        }
+        return listOfIds;
     }
 
     public static <T> String arrayToString(T[] array, Boolean printSequenceNumbers) {

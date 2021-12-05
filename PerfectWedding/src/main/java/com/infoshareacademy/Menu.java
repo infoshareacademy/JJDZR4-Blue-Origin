@@ -92,17 +92,17 @@ public class Menu {
                     break;
                 case 1:
                     clientFinderMenu();
-                    mainMenu();
+//                    mainMenu();
                     break;
-                case 2:
-                    clientOperations.dummyCallOfRating();
-                    mainMenu();
-                    break;
+//                case 2:
+//                    clientOperations.dummyCallOfRating();
+//                    mainMenu();
+//                    break;
                 default:
                     choiceOptions();
                     break;
             }
-        } while (response < 0 || response > 3);
+        } while (response < 0 || response > 1);
     }
 
     public void clientFinderMenu() {
@@ -182,7 +182,7 @@ public class Menu {
         System.out.println("Menu klienta");
         lessPrintlnInPrint();
         System.out.println("1. Wyszukiwarka");
-        System.out.println("2. Ocena dostawcy");
+//        System.out.println("2. Ocena dostawcy");
     }
 
     private void printClientFinderMenu() {
