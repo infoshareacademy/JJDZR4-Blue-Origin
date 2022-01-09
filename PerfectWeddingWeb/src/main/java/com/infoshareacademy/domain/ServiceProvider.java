@@ -23,7 +23,7 @@ public class ServiceProvider {
 
 
     public ServiceProvider() {
-        ratingList = new ArrayList<>();
+//        ratingList = new ArrayList<>();
         incrementalID++;
         currentID = incrementalID;
     }
@@ -54,14 +54,6 @@ public class ServiceProvider {
 
     public void addRating(int rating, String comment) {
         ratingList.add(new Rating(rating, comment));
-    }
-
-    public Availability getAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(Availability availability) {
-        this.availability = availability;
     }
 
     public String getCompanyName() {

@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
-@Repository
-public class ServiceProvider {
+//@Repository
+public class ServiceProviderOldRepo {
     public static int incrementalID;
     double averageRating;
-    @JsonProperty(value = "currentID")
+//    @JsonProperty(value = "currentID")
     private int currentID;
     public String companyName;
     private String ownerName;
@@ -29,7 +29,7 @@ public class ServiceProvider {
     private List<Rating> ratingList;
 
 
-    public ServiceProvider() {
+    public ServiceProviderOldRepo() {
 //        ratingList = new ArrayList<>();
         incrementalID++;
         currentID = incrementalID;

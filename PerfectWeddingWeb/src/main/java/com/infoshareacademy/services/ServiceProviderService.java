@@ -1,6 +1,7 @@
 package com.infoshareacademy.services;
 
-import com.infoshareacademy.repository.ServiceProvider;
+import com.infoshareacademy.domain.ServiceProvider;
+import com.infoshareacademy.repository.ServiceProviderOldRepo;
 import com.infoshareacademy.repository.ServiceProviderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

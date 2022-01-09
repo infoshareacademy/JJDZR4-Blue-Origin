@@ -1,10 +1,10 @@
 package com.infoshareacademy.repository;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.infoshareacademy.domain.ServiceProvider;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
