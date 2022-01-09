@@ -18,8 +18,7 @@ public class ServiceProviderRepo {
     private ObjectMapper allProvidersMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT).configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     private final String pathToRepoForCurrentUser = System.getProperty("user.dir");
     //To sie moze wyjebac na windowsie.
-//    private File allProvidersFile = new File(pathToRepoForCurrentUser + "/src/main/resources/providers.json");
-    private File allProvidersFile = new File("/home/misiozaur/Desktop/Blue Origin/NowyPull/PerfectWeddingWeb/src/main/resources/providers.json");
+    private File allProvidersFile = new File(pathToRepoForCurrentUser + "/PerfectWeddingWeb/src/main/resources/providers.json");
 
     public ServiceProviderRepo() {
         this.serviceProvidersList = importProviders();
