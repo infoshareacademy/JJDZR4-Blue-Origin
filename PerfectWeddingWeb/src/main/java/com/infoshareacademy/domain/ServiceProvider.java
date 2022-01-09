@@ -128,6 +128,9 @@ public class ServiceProvider {
         isActive = active;
     }
 
+    public static int getIncrementalID() {
+        return incrementalID;
+    }
 
     @Override
     public String toString() {
