@@ -1,27 +1,32 @@
 package com.infoshareacademy.controllers;
 
-import com.infoshareacademy.utils.Utils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-public class Hello {
+public class HomePage {
 
     @GetMapping("")
     public String mainPage() {
-        return "index";
+        return "HomePage";
     }
 
     @GetMapping("/clients")
     public String clientsPage() {
-        return "panelKlienta";
+        return "ClientMenu";
     }
 
     @GetMapping("/providers")
     public String providersPage() {
-        return "panelUslugodawcy";
+        return "ProviderMenu";
     }
+
+    @GetMapping("/showallproviders")
+    public String showAllProviders() {
+
+        return "jeszcze nic nie ma";
+    }
+
 
 
 
