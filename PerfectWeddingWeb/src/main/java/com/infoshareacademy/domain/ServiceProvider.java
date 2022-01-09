@@ -1,19 +1,13 @@
 package com.infoshareacademy.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
 import java.util.ArrayList;
 import java.util.List;
 
-//@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonPropertyOrder({"ID", "companyName", "ownerName", "ownerSurname", "phone",
-        "email", "websiteAddress", "location", "serviceType", "availability", "isActive", "ratingList"
-        , "averageRating"})
+
 public class ServiceProvider {
     public static int incrementalID;
     double averageRating;
-    @JsonProperty(value = "currentID")
+//    @JsonProperty(value = "currentID")
     private int currentID;
     private String companyName;
     private String ownerName;

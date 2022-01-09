@@ -1,7 +1,6 @@
 package com.infoshareacademy.repository;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.infoshareacademy.domain.Availability;
 import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.Rating;
@@ -10,10 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-//@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonPropertyOrder({"ID", "companyName", "ownerName", "ownerSurname", "phone",
-        "email", "websiteAddress", "location", "serviceType", "availability", "isActive", "ratingList"
-        , "averageRating"})
 
 @Repository
 public class ServiceProvider {

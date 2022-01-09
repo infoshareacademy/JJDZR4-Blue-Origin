@@ -4,8 +4,6 @@ public class Location {
 
     private Voivodeship voivodeship;
     private String city;
-
-
     public Location() {
     }
 

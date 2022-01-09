@@ -1,6 +1,8 @@
 package com.infoshareacademy.repository;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.stereotype.Repository;
@@ -13,7 +15,7 @@ import java.util.List;
 public class ServiceProviderRepo {
 
     private List<ServiceProvider> serviceProvidersList;
-    private ObjectMapper allProvidersMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+    private ObjectMapper allProvidersMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT).configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     private final String pathToRepoForCurrentUser = System.getProperty("user.dir");
     //To sie moze wyjebac na windowsie.
 //    private File allProvidersFile = new File(pathToRepoForCurrentUser + "/src/main/resources/providers.json");
