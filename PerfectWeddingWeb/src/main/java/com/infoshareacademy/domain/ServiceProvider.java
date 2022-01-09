@@ -1,27 +1,21 @@
-package com.infoshareacademy.repository;
+package com.infoshareacademy.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.infoshareacademy.domain.Availability;
-import com.infoshareacademy.domain.Location;
-import com.infoshareacademy.domain.Rating;
-import com.infoshareacademy.domain.ServiceType;
-import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({"ID", "companyName", "ownerName", "ownerSurname", "phone",
         "email", "websiteAddress", "location", "serviceType", "availability", "isActive", "ratingList"
         , "averageRating"})
-
-@Repository
 public class ServiceProvider {
     public static int incrementalID;
     double averageRating;
     @JsonProperty(value = "currentID")
     private int currentID;
-    public String companyName;
+    private String companyName;
     private String ownerName;
     private String ownerSurname;
     private String phone;
@@ -35,7 +29,7 @@ public class ServiceProvider {
 
 
     public ServiceProvider() {
-//        ratingList = new ArrayList<>();
+        ratingList = new ArrayList<>();
         incrementalID++;
         currentID = incrementalID;
     }
@@ -46,6 +40,34 @@ public class ServiceProvider {
 
     public void setCurrentID(int currentID) {
         this.currentID = currentID;
+    }
+
+    public List<Rating> getRatingList() {
+        return ratingList;
+    }
+
+    public double getAverageRating() {
+        double sum = 0;
+        for (Rating rating : ratingList) {
+            sum += rating.getRating();
+        }
+        if (ratingList.size() > 0) {
+            return sum / ratingList.size();
+        } else {
+            return -1.0; //returns -1 if no rating has been done so far
+        }
+    }
+
+    public void addRating(int rating, String comment) {
+        ratingList.add(new Rating(rating, comment));
+    }
+
+    public Availability getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(Availability availability) {
+        this.availability = availability;
     }
 
     public String getCompanyName() {
@@ -96,6 +118,21 @@ public class ServiceProvider {
         this.websiteAddress = websiteAddress;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public ServiceType getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(ServiceType serviceType) {
+        this.serviceType = serviceType;
+    }
 
     public boolean isActive() {
         return isActive;
@@ -116,10 +153,10 @@ public class ServiceProvider {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", websiteAddress='" + websiteAddress + '\'' +
-//                ", location=" + location.getCity() + '\'' +
-//                ", serviceType=" + serviceType.getTypesOfService() + '\'' +
-//                ", availability=\n" + availability + '\n' +
-//                ", rating=\n" + ratingList + '\n' +
+                ", location=" + location.getCity() + '\'' +
+                ", serviceType=" + serviceType.getTypesOfService() + '\'' +
+                ", availability=\n" + availability + '\n' +
+                ", rating=\n" + ratingList + '\n' +
                 ", isActive=" + isActive +
                 "}\n";
     }
@@ -134,13 +171,13 @@ public class ServiceProvider {
                         + "\n phone: " + phone
                         + "\n email: " + email
                         + "\n websiteAddress: " + websiteAddress
-//                        + "\n   voivodeship: " + location.getVoivodeship()
-//                        + "\n   locality: " + location.getCity()
-//                        + "\n   name: " + serviceType.getTypesOfService()
-//                        + "\n   description: " + serviceType.getDescription()
-//                        + "\n   price: " + serviceType.getPrice()
-//                        + "\n availability: " + availability
-//                        + "\n rating: " + ratingList
+                        + "\n   voivodeship: " + location.getVoivodeship()
+                        + "\n   locality: " + location.getCity()
+                        + "\n   name: " + serviceType.getTypesOfService()
+                        + "\n   description: " + serviceType.getDescription()
+                        + "\n   price: " + serviceType.getPrice()
+                        + "\n availability: " + availability
+                        + "\n rating: " + ratingList
                         + "\n isActive: " + isActive
                         + "\n";
 
