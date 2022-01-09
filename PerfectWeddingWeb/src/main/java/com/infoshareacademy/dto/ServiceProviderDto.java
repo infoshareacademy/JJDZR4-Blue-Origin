@@ -1,5 +1,9 @@
 package com.infoshareacademy.dto;
 
+import com.infoshareacademy.domain.Availability;
+import com.infoshareacademy.domain.Location;
+import com.infoshareacademy.domain.ServiceType;
+
 public class ServiceProviderDto {
     public static int incrementalID;
     double averageRating;
@@ -10,9 +14,9 @@ public class ServiceProviderDto {
     private String phone;
     private String email;
     private String websiteAddress;
-    //    private Location location;
-//    private ServiceType serviceType;
-//    private Availability availability;
+    private Location location;
+    private ServiceType serviceType;
+    private Availability availability;
     private boolean isActive;
 
     public static int getIncrementalID() {

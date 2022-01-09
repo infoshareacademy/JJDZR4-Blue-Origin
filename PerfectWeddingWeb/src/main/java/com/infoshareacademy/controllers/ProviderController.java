@@ -37,7 +37,7 @@ public class ProviderController {
         return "tu bedzie froamtka do dezaktywacji uslugodawcy";
     }
 
-    @RequestMapping(value = "/all-providers")
+    @GetMapping(value = "/all-providers")
     public String showAllProviders(Model model) {
         model.addAttribute("allProvidersTH", serviceProviderService.returnAllServiceProviders());
         return "AllProviders";
