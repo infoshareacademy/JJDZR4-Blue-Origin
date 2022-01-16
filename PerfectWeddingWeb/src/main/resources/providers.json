@@ -58,7 +58,7 @@
     "id" : 0
   },
   "availability" : {
-    "dates" : [ "2022-06-05" ]
+    "dates" : [ "2022-06-05","2022-01-01" ]
   },
   "ratingList" : [ {
     "rating" : 5,

@@ -17,6 +17,11 @@ public class ServiceProvider {
     private String websiteAddress;
     private Location location;
     private ServiceType serviceType;
+
+    public Availability getAvailability() {
+        return availability;
+    }
+
     private Availability availability;
     private boolean isActive;
     private List<Rating> ratingList;
