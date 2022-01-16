@@ -2,7 +2,10 @@ package com.infoshareacademy.dto;
 
 import com.infoshareacademy.domain.Availability;
 import com.infoshareacademy.domain.Location;
+import com.infoshareacademy.domain.Rating;
 import com.infoshareacademy.domain.ServiceType;
+
+import java.util.List;
 
 public class ServiceProviderDto {
     public static int incrementalID;
@@ -16,9 +19,38 @@ public class ServiceProviderDto {
     private String websiteAddress;
     private Location location;
     private ServiceType serviceType;
+    private List<Rating> ratingList;
+
+    public List<Rating> getRatingList() {
+        return ratingList;
+    }
+
+    public void setRatingList(List<Rating> ratingList) {
+        this.ratingList = ratingList;
+    }
 
     public Availability getAvailability() {
         return availability;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public ServiceType getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(ServiceType serviceType) {
+        this.serviceType = serviceType;
+    }
+
+    public void setAvailability(Availability availability) {
+        this.availability = availability;
     }
 
     private Availability availability;
