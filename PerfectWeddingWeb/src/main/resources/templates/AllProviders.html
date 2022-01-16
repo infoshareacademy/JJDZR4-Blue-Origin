@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All Providers</title>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Incremental ID</th>
+    <th>Average Rating</th>
+    <th>Current ID</th>
+    <th>Company Name</th>
+    <th>Owner Name</th>
+    <th>Owner Surname</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Website Address</th>
+    <th>Location</th>
+    <th>Service Type</th>
+    <th>Availability</th>
+    <th>Is Active</th>
+    <th>Rating List</th>
+  </tr>
+
+  <tr th:each="provider : ${allProvidersTH}">
+    <td th:text="${provider.incrementalID}"></td>
+    <td th:text="${provider.averageRating}"></td>
+    <td th:text="${provider.currentID}"></td>
+    <td th:text="${provider.companyName}"></td>
+    <td th:text="${provider.ownerName}"></td>
+    <td th:text="${provider.ownerSurname}"></td>
+    <td th:text="${provider.phone}"></td>
+    <td th:text="${provider.email}"></td>
+    <td th:text="${provider.websiteAddress}"></td>
+<!--    Tu sie wybierze co nam trzeba. Jak wrzuce samo location to rzyga odniesieniem w pamieci.-->
+    <td th:text="${provider.location.getCity()}"></td>
+<!--    Podobnie jak wyzej.-->
+    <td th:text="${provider.serviceType.getTypesOfService()}"></td>
+<!--    Data narazie nie dziala.-->
+    <td th:text="${provider.availability}"></td>
+    <td th:text="${provider.isActive()}"></td>
+    <td th:text="${provider.ratingList}"></td>
+
+
+
+
+  </tr>
+</table>
+
+</body>
+</html>
