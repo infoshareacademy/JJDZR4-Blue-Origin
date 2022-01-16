@@ -1,6 +1,7 @@
 package com.infoshareacademy.services;
 
 import com.infoshareacademy.domain.ServiceProvider;
+import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
@@ -35,9 +36,9 @@ public class ServiceProviderService {
         }
     }
 
-    public void addProvider(ServiceProviderDto serviceProviderDto) {
+    public void addProvider(ServiceAddProviderDto serviceAddProviderDto) {
         serviceProviderRepo.getServiceProvidersList()
-                .add(serviceProviderMapper.mapperFromDto(serviceProviderDto));
+                .add(serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto));
 
     }
 }

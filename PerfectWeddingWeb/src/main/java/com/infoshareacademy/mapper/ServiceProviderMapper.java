@@ -1,6 +1,7 @@
 package com.infoshareacademy.mapper;
 
 import com.infoshareacademy.domain.*;
+import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import org.springframework.stereotype.Component;
 
@@ -41,6 +42,24 @@ public class ServiceProviderMapper {
         serviceProvider.setCurrentID(serviceProviderDto.getCurrentID());
         serviceProvider.setWebsiteAddress(serviceProviderDto.getWebsiteAddress());
         serviceProvider.setRatingList(serviceProviderDto.getRatingList());
+
+        return serviceProvider;
+    }
+    public ServiceProvider mapperFromAddDto (ServiceAddProviderDto serviceAddProviderDto) {
+        ServiceProvider serviceProvider= new ServiceProvider();
+        serviceProvider.setActive(serviceAddProviderDto.isActive());
+        /*serviceProvider.setAvailability(serviceAddProviderDto.getAvailability());*/
+        serviceProvider.setLocation(new Location(serviceAddProviderDto.getCity(), serviceAddProviderDto.getVoivodeship()));
+        serviceProvider.setServiceType(new ServiceType(serviceAddProviderDto.getID(), serviceAddProviderDto.getDescription(), serviceAddProviderDto.getPrice(), serviceAddProviderDto.getTypesOfService()));
+        serviceProvider.setAverageRating(serviceAddProviderDto.getAverageRating());
+        serviceProvider.setCompanyName(serviceAddProviderDto.getCompanyName());
+        serviceProvider.setEmail(serviceAddProviderDto.getEmail());
+        serviceProvider.setOwnerName(serviceAddProviderDto.getOwnerName());
+        serviceProvider.setOwnerSurname(serviceAddProviderDto.getOwnerSurname());
+        serviceProvider.setPhone(serviceAddProviderDto.getPhone());
+        serviceProvider.setCurrentID(serviceAddProviderDto.getCurrentID());
+        serviceProvider.setWebsiteAddress(serviceAddProviderDto.getWebsiteAddress());
+
 
         return serviceProvider;
     }

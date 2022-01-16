@@ -1,13 +1,10 @@
 package com.infoshareacademy.dto;
 
-import com.infoshareacademy.domain.Availability;
-import com.infoshareacademy.domain.Location;
-import com.infoshareacademy.domain.Rating;
-import com.infoshareacademy.domain.ServiceType;
+import com.infoshareacademy.domain.*;
 
 import java.util.List;
 
-public class ServiceProviderDto {
+public class ServiceAddProviderDto {
     public static int incrementalID;
     double averageRating;
     private int currentID;
@@ -17,31 +14,72 @@ public class ServiceProviderDto {
     private String phone;
     private String email;
     private String websiteAddress;
-    private Location location;
-    private ServiceType serviceType;
-    private List<Rating> ratingList;
+    private Voivodeship voivodeship;
+    private String city;
+    private int ID;
+    private String description;
+    private String price;
+    TypesOfService typesOfService;
     private Availability availability;
     private boolean isActive;
+    private ServiceType serviceType;
 
-    public List<Rating> getRatingList() {
-        return ratingList;
+    public int getID() {
+        return ID;
     }
 
-    public void setRatingList(List<Rating> ratingList) {
-        this.ratingList = ratingList;
+    public void setID(int ID) {
+        this.ID = ID;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public TypesOfService getTypesOfService() {
+        return typesOfService;
+    }
+
+    public void setTypesOfService(TypesOfService typesOfService) {
+        this.typesOfService = typesOfService;
+    }
+
+    public Voivodeship getVoivodeship() {
+        return voivodeship;
+    }
+
+    public void setVoivodeship(Voivodeship voivodeship) {
+        this.voivodeship = voivodeship;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+
+
 
     public Availability getAvailability() {
         return availability;
     }
 
-    public Location getLocation() {
-        return location;
-    }
 
-    public void setLocation(Location location) {
-        this.location = location;
-    }
 
     public ServiceType getServiceType() {
         return serviceType;
@@ -62,7 +100,7 @@ public class ServiceProviderDto {
     }
 
     public static void setIncrementalID(int incrementalID) {
-        ServiceProviderDto.incrementalID = incrementalID;
+        ServiceAddProviderDto.incrementalID = incrementalID;
     }
 
     public double getAverageRating() {

@@ -7,6 +7,11 @@ public class Location {
     public Location() {
     }
 
+    public Location( String city, Voivodeship voivodeship) {
+        this.voivodeship = voivodeship;
+        this.city = city;
+    }
+
     public Location(String city) {
         this.city = city;
     }

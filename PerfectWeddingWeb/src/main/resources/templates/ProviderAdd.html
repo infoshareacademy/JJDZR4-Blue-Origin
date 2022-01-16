@@ -12,14 +12,16 @@
     <img th:src="@{LOGO.jpg}"/>
     <br>
     <div style="margin: auto">
-        <!--        <form>-->
-        <!--            Wprowadź nazwę companyName: <input type="text" id="toJestId" name="toJestName"></input>-->
-        <!--        </form>-->
+
 
         <form th:action="@{/providers/create}" method="post" th:object="${serviceProviderDto}">
 <label th:for="companyName" th:text="'podaj Company Name'"></label>
              <input type="text" id="companyName" th:field="*{companyName}"></input>
-            <!--<input type="text" name="ownerName" th:field="*{ownerName}">-->
+           <input type="text" name="ownerName" th:field="*{ownerName}"></input>
+            <input type="text" name="ownerName" th:field="*{city}"></input>
+            <input type="text" name="ownerName" th:field="*{voivodeship}"></input>
+
+
 
             <input th:type="submit" value="Submit">
         </form>
