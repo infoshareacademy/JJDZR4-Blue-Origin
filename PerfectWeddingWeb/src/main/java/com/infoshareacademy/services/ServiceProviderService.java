@@ -6,6 +6,7 @@ import com.infoshareacademy.repository.ServiceProviderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -20,5 +21,13 @@ public class ServiceProviderService {
 
     public List<ServiceProvider> returnAllServiceProviders() {
         return serviceProviderRepo.getServiceProvidersList();
+    }
+
+    public void exportServiceProviders() {
+        try {
+            serviceProviderRepo.exportProviders();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

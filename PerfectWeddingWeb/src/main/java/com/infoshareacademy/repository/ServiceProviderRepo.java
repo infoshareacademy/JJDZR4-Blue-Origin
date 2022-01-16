@@ -9,6 +9,7 @@ import com.infoshareacademy.domain.ServiceProvider;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +42,11 @@ public class ServiceProviderRepo {
 
     public List<ServiceProvider> getServiceProvidersList() {
         return serviceProvidersList;
+    }
+
+    public void exportProviders() throws IOException {
+
+        allProvidersMapper.writerWithDefaultPrettyPrinter().writeValue(allProvidersFile,serviceProvidersList);
+
     }
 }

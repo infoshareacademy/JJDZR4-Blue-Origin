@@ -38,6 +38,8 @@ public class ProviderController {
     @GetMapping("providers/edit")
     @ResponseBody
     public String clientsPage() {
+        serviceProviderService.exportServiceProviders();
+
         return "tu bedzie froamtka do edycji uslugodawcy";
     }
 

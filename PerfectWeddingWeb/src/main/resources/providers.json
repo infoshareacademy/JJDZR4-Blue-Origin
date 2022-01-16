@@ -1,4 +1,6 @@
 [ {
+  "averageRating" : 4.833333333333333,
+  "currentID" : 1,
   "companyName" : "Videoperfect",
   "ownerName" : "Paweł",
   "ownerSurname" : "Dampc",
@@ -16,7 +18,7 @@
     "id" : 0
   },
   "availability" : {
-    "dates" : [ "2022-05-01" ]
+    "dates" : [ [ 2022, 5, 1 ] ]
   },
   "ratingList" : [ {
     "rating" : 5,
@@ -37,10 +39,10 @@
     "rating" : 5,
     "comment" : "Ma sie dodac komentarz dla uslugodawcy ID = 1, wejscie z poziomu wyszukiwarki po lokalizacji."
   } ],
-  "averageRating" : 4.833333333333333,
-  "active" : true,
-  "currentID" : 1
+  "active" : true
 }, {
+  "averageRating" : 5.0,
+  "currentID" : 2,
   "companyName" : "Inre",
   "ownerName" : "Piotr",
   "ownerSurname" : "Dering",
@@ -58,7 +60,7 @@
     "id" : 0
   },
   "availability" : {
-    "dates" : [ "2022-06-05","2022-01-01" ]
+    "dates" : [ [ 2022, 6, 5 ], [ 2022, 1, 1 ] ]
   },
   "ratingList" : [ {
     "rating" : 5,
@@ -73,7 +75,5 @@
     "rating" : 5,
     "comment" : "Ma sie dodac ocena dla uslugodawcy o ID = 2, wyjcie z poziomu wyszukiwarki po rodzaju uslugi."
   } ],
-  "averageRating" : 5.0,
-  "active" : true,
-  "currentID" : 2
+  "active" : true
 } ]
