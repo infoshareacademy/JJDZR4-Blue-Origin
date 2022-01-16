@@ -1,14 +1,17 @@
 package com.infoshareacademy.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
+@Getter
+@Setter
 public class ServiceProvider {
     public static int incrementalID;
     double averageRating;
-//    @JsonProperty(value = "currentID")
     private int currentID;
     private String companyName;
     private String ownerName;
@@ -18,32 +21,15 @@ public class ServiceProvider {
     private String websiteAddress;
     private Location location;
     private ServiceType serviceType;
-
-    public Availability getAvailability() {
-        return availability;
-    }
-
     private Availability availability;
     private boolean isActive;
-    private List<Rating> ratingList=new ArrayList<>();
+    private List<Rating> ratingList = new ArrayList<>();
 
 
     public ServiceProvider() {
 //        ratingList = new ArrayList<>();
         incrementalID++;
         currentID = incrementalID;
-    }
-
-    public int getCurrentID() {
-        return currentID;
-    }
-
-    public void setCurrentID(int currentID) {
-        this.currentID = currentID;
-    }
-
-    public List<Rating> getRatingList() {
-        return ratingList;
     }
 
     public double getAverageRating() {
@@ -59,102 +45,6 @@ public class ServiceProvider {
         } else {
             return -1.0; //returns -1 if no rating has been done so far
         }
-    }
-
-    public void addRating(int rating, String comment) {
-        ratingList.add(new Rating(rating, comment));
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getOwnerName() {
-        return ownerName;
-    }
-
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
-    }
-
-    public String getOwnerSurname() {
-        return ownerSurname;
-    }
-
-    public void setOwnerSurname(String ownerSurname) {
-        this.ownerSurname = ownerSurname;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getWebsiteAddress() {
-        return websiteAddress;
-    }
-
-    public void setWebsiteAddress(String websiteAddress) {
-        this.websiteAddress = websiteAddress;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public ServiceType getServiceType() {
-        return serviceType;
-    }
-
-    public void setServiceType(ServiceType serviceType) {
-        this.serviceType = serviceType;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public static int getIncrementalID() {
-        return incrementalID;
-    }
-
-    public static void setIncrementalID(int incrementalID) {
-        ServiceProvider.incrementalID = incrementalID;
-    }
-
-    public void setAverageRating(double averageRating) {
-        this.averageRating = averageRating;
-    }
-
-    public void setAvailability(Availability availability) {
-        this.availability = availability;
-    }
-
-    public void setRatingList(List<Rating> ratingList) {
-        this.ratingList = ratingList;
     }
 
     @Override
@@ -196,6 +86,5 @@ public class ServiceProvider {
                         + "\n";
 
     }
-
 
 }

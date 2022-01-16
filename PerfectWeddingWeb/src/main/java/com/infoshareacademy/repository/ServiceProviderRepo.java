@@ -45,8 +45,6 @@ public class ServiceProviderRepo {
     }
 
     public void exportProviders() throws IOException {
-
-        allProvidersMapper.writerWithDefaultPrettyPrinter().writeValue(allProvidersFile,serviceProvidersList);
-
+        allProvidersMapper.writerWithDefaultPrettyPrinter().writeValue(allProvidersFile, serviceProvidersList);
     }
 }

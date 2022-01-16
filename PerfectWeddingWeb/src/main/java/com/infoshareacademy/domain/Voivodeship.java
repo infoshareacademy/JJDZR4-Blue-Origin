@@ -1,5 +1,8 @@
 package com.infoshareacademy.domain;
 
+import lombok.Getter;
+
+@Getter
 public enum Voivodeship {
     DOLNOSLASKIE("DOLNOŚLĄSKIE"),
     KUJAWSKOPOMORSKIE("KUJAWSKO-POMORSKIE"),
