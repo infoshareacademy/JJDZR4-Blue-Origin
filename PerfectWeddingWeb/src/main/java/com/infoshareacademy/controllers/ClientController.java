@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ClientController {
 
 //    @GetMapping("/")
-//    public String mainPage() {
+//    public String showCreateForm() {
 //        return "index";
 //    }
 //

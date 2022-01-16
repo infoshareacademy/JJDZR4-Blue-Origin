@@ -1,7 +1,8 @@
 package com.infoshareacademy.services;
 
 import com.infoshareacademy.domain.ServiceProvider;
-import com.infoshareacademy.repository.ServiceProviderOldRepo;
+import com.infoshareacademy.dto.ServiceProviderDto;
+import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +14,14 @@ import java.util.List;
 public class ServiceProviderService {
 
     private ServiceProviderRepo serviceProviderRepo;
+    private ServiceProviderMapper serviceProviderMapper;
 
     @Autowired
-    public ServiceProviderService(ServiceProviderRepo serviceProviderRepo) {
+    public ServiceProviderService(ServiceProviderRepo serviceProviderRepo, ServiceProviderMapper serviceProviderMapper) {
         this.serviceProviderRepo = serviceProviderRepo;
+        this.serviceProviderMapper = serviceProviderMapper;
     }
+
 
     public List<ServiceProvider> returnAllServiceProviders() {
         return serviceProviderRepo.getServiceProvidersList();
@@ -29,5 +33,11 @@ public class ServiceProviderService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void addProvider(ServiceProviderDto serviceProviderDto) {
+        serviceProviderRepo.getServiceProvidersList()
+                .add(serviceProviderMapper.mapperFromDto(serviceProviderDto));
+
     }
 }

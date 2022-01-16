@@ -16,14 +16,14 @@
         <!--            Wprowadź nazwę companyName: <input type="text" id="toJestId" name="toJestName"></input>-->
         <!--        </form>-->
 
-        <form action="/providers/addvalue" method="post">
+        <form th:action="@{/providers/create}" method="post" th:object="${serviceProviderDto}">
+<label th:for="companyName" th:text="'podaj Company Name'"></label>
+             <input type="text" id="companyName" th:field="*{companyName}"></input>
+            <!--<input type="text" name="ownerName" th:field="*{ownerName}">-->
 
-            Podaj companyName: <input type="text" name="companyName"><br><br>
-            Podaj ownerName<input type="text" name="ownerName"><br><br>
-
-            <input type="submit" value="Submit">
+            <input th:type="submit" value="Submit">
         </form>
-
+<!--        action="/all-providers"-->
 
     </div>
 </div>

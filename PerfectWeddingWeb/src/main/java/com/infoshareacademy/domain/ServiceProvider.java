@@ -137,6 +137,22 @@ public class ServiceProvider {
         return incrementalID;
     }
 
+    public static void setIncrementalID(int incrementalID) {
+        ServiceProvider.incrementalID = incrementalID;
+    }
+
+    public void setAverageRating(double averageRating) {
+        this.averageRating = averageRating;
+    }
+
+    public void setAvailability(Availability availability) {
+        this.availability = availability;
+    }
+
+    public void setRatingList(List<Rating> ratingList) {
+        this.ratingList = ratingList;
+    }
+
     @Override
     public String toString() {
         return "ServiceProvider{" +
@@ -176,4 +192,6 @@ public class ServiceProvider {
                         + "\n";
 
     }
+
+
 }
