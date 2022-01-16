@@ -76,4 +76,26 @@
     "comment" : "Ma sie dodac ocena dla uslugodawcy o ID = 2, wyjcie z poziomu wyszukiwarki po rodzaju uslugi."
   } ],
   "active" : true
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 0,
+  "companyName" : "Our new Company",
+  "ownerName" : null,
+  "ownerSurname" : null,
+  "phone" : null,
+  "email" : null,
+  "websiteAddress" : null,
+  "location" : {
+    "voivodeship" : null,
+    "city" : "Gdansk"
+  },
+  "serviceType" : {
+    "description" : "Test",
+    "price" : "300",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 1
+  },
+  "availability" : null,
+  "ratingList" : null,
+  "active" : false
 } ]

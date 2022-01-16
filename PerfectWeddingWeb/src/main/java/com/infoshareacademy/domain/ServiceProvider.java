@@ -2,6 +2,7 @@ package com.infoshareacademy.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class ServiceProvider {
@@ -24,7 +25,7 @@ public class ServiceProvider {
 
     private Availability availability;
     private boolean isActive;
-    private List<Rating> ratingList;
+    private List<Rating> ratingList=new ArrayList<>();
 
 
     public ServiceProvider() {
@@ -46,6 +47,9 @@ public class ServiceProvider {
     }
 
     public double getAverageRating() {
+        if (Objects.isNull(ratingList)) {
+            return -1;
+        }
         double sum = 0;
         for (Rating rating : ratingList) {
             sum += rating.getRating();

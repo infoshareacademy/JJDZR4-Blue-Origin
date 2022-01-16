@@ -1,5 +1,8 @@
 package com.infoshareacademy.controllers;
 
+import com.infoshareacademy.domain.Location;
+import com.infoshareacademy.domain.ServiceType;
+import com.infoshareacademy.domain.TypesOfService;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
@@ -38,7 +41,9 @@ public class ProviderController {
 
     @PostMapping("providers/create")
     public String addProvider(@ModelAttribute ("serviceProviderDto") ServiceProviderDto serviceProviderDto) {
-
+        serviceProviderDto.setLocation(new Location("Gdansk"));//remove later
+        serviceProviderDto.setServiceType(new ServiceType(1,"Test","300",TypesOfService.FILMOWANIE));//remove later
+        serviceProviderService.addProvider(serviceProviderDto);
         return "redirect:/all-providers";
     }
 

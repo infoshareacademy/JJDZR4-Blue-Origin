@@ -6,6 +6,13 @@ public class ServiceType {
     private String price;
     TypesOfService typesOfService;
 
+    public ServiceType(int ID, String description, String price, TypesOfService typesOfService) {
+        this.ID = ID;
+        this.description = description;
+        this.price = price;
+        this.typesOfService = typesOfService;
+    }
+
     public ServiceType() {
     }
 
