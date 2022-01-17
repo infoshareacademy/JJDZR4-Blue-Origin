@@ -7,6 +7,8 @@ import com.infoshareacademy.domain.Voivodeship;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 public class ServiceAddProviderDto {
@@ -25,7 +27,7 @@ public class ServiceAddProviderDto {
     private String description;
     private String price;
     private TypesOfService typesOfService;
-    private Availability availability;
+    private LocalDate availability;
     private boolean isActive;
     private ServiceType serviceType;
 

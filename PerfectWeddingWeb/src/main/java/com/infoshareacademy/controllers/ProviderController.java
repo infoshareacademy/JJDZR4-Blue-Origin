@@ -38,8 +38,6 @@ public class ProviderController {
 
     @PostMapping("providers/create")
     public String addProvider(@ModelAttribute ("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto) {
-//        serviceAddProviderDto.setLocation(new Location("Gdansk"));//remove later
-        serviceAddProviderDto.setServiceType(new ServiceType(1,"Test","300",TypesOfService.FILMOWANIE));//remove later
         serviceProviderService.addProvider(serviceAddProviderDto);
         return "redirect:/all-providers";
     }

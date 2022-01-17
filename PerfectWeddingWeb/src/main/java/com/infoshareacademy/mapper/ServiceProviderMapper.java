@@ -1,11 +1,14 @@
 package com.infoshareacademy.mapper;
 
+import com.infoshareacademy.domain.Availability;
 import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
 
 @Component
 public class ServiceProviderMapper {
@@ -48,7 +51,7 @@ public class ServiceProviderMapper {
     public ServiceProvider mapperFromAddDto(ServiceAddProviderDto serviceAddProviderDto) {
         ServiceProvider serviceProvider = new ServiceProvider();
         serviceProvider.setActive(serviceAddProviderDto.isActive());
-        /*serviceProvider.setAvailability(serviceAddProviderDto.getAvailability());*/
+        serviceProvider.setAvailability(new Availability(Arrays.asList(serviceAddProviderDto.getAvailability())));
         serviceProvider.setLocation(new Location(serviceAddProviderDto.getCity(), serviceAddProviderDto.getVoivodeship()));
         serviceProvider.setServiceType(new ServiceType(serviceAddProviderDto.getID(), serviceAddProviderDto.getDescription(), serviceAddProviderDto.getPrice(), serviceAddProviderDto.getTypesOfService()));
         serviceProvider.setAverageRating(serviceAddProviderDto.getAverageRating());

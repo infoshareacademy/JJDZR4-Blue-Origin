@@ -16,6 +16,10 @@ public class Availability {
     public Availability() {
     }
 
+    public Availability(List<LocalDate> dates) {
+        this.dates = dates;
+    }
+
     public void addNewAvailability(LocalDate date) {
         if (dates == null) {
             dates = new ArrayList<>();
