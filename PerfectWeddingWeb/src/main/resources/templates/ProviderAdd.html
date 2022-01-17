@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang=“en” xmlns:th=“http://www.thymeleaf.org” xmlns:layout=“http://www.ultraq.net.nz/thymeleaf/layout”
-      layout:decorate=“~{layout}“ xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
     <title>This is the title of the webpage!</title>
@@ -15,17 +14,27 @@
 
 
         <form th:action="@{/providers/create}" method="post" th:object="${serviceProviderDto}">
-<label th:for="companyName" th:text="'podaj Company Name'"></label>
-             <input type="text" id="companyName" th:field="*{companyName}"></input>
-           <input type="text" name="ownerName" th:field="*{ownerName}"></input>
-            <input type="text" name="ownerName" th:field="*{city}"></input>
-            <input type="text" name="ownerName" th:field="*{voivodeship}"></input>
 
+            <label th:for="companyName" th:text="'podaj Company Name'"></label>
+            <input type="text" id="companyName" th:field="*{companyName}">
+            <br>
+
+            <label th:for="ownerName" th:text="'Podaj imie wlasciciela'"></label>
+            <input type="text" name="ownerName" th:field="*{ownerName}">
+            <br>
+
+            <label th:for="ownerSurname" th:text="'Podaj nazwisko wlasciciela'"></label>
+            <input type="text" name="ownerSurname" th:field="*{ownerSurname}">
+            <br>
+
+            <label th:for="voivodeship" th:text="'Podaj wojewodztwo'"></label>
+            <input type="text" name="voivodeship" th:field="*{voivodeship}">
+            <br>
 
 
             <input th:type="submit" value="Submit">
         </form>
-<!--        action="/all-providers"-->
+
 
     </div>
 </div>
