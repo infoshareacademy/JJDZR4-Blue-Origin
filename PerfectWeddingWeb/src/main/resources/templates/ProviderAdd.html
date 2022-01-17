@@ -13,25 +13,31 @@
     <div style="margin: auto">
 
 
-        <form th:action="@{/providers/create}" method="post" th:object="${serviceProviderDto}">
+        <form th:action="@{/providers/create}" method="post" th:object="${serviceProviderAddDto}">
 
             <label th:for="companyName" th:text="'podaj Company Name'"></label>
             <input type="text" id="companyName" th:field="*{companyName}">
             <br>
 
             <label th:for="ownerName" th:text="'Podaj imie wlasciciela'"></label>
-            <input type="text" name="ownerName" th:field="*{ownerName}">
+            <input type="text" id="ownerName" th:field="*{ownerName}">
             <br>
 
             <label th:for="ownerSurname" th:text="'Podaj nazwisko wlasciciela'"></label>
-            <input type="text" name="ownerSurname" th:field="*{ownerSurname}">
+            <input type="text" id="ownerSurname" th:field="*{ownerSurname}">
             <br>
+
+<!--            <label th:for="voivodeship" th:text="'Podaj wojewodztwo'"></label>-->
+<!--            <input type="text" id="voivodeship" th:field="*{voivodeship}">-->
+<!--            <br>-->
 
             <label th:for="voivodeship" th:text="'Podaj wojewodztwo'"></label>
-            <input type="text" name="voivodeship" th:field="*{voivodeship}">
+            <select id="voivodeship" th:field="*{voivodeship}">
+                <option th:each="category_option : ${T(com.infoshareacademy.domain.Voivodeship).values()}"
+                        th:value="${category_option}" th:text="${category_option.fullName}">
+                </option>
+            </select>
             <br>
-
-
             <input th:type="submit" value="Submit">
         </form>
 
