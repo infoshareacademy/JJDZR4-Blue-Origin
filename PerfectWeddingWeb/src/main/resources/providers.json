@@ -186,4 +186,28 @@
   "availability" : null,
   "ratingList" : [ ],
   "active" : false
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 0,
+  "companyName" : "test",
+  "ownerName" : "test",
+  "ownerSurname" : "test",
+  "phone" : "test",
+  "email" : "test@test.pl",
+  "websiteAddress" : "test",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Lublin"
+  },
+  "serviceType" : {
+    "description" : "test",
+    "price" : "435",
+    "typesOfService" : "OPRAWA_MUZYCZNA",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 1, 28 ] ]
+  },
+  "ratingList" : [ ],
+  "active" : false
 } ]

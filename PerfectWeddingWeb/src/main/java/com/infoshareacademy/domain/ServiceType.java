@@ -10,7 +10,7 @@ public class ServiceType {
     private int ID;
     private String description;
     private String price;
-    TypesOfService typesOfService;
+    private TypesOfService typesOfService;
 
     public ServiceType(int ID, String description, String price, TypesOfService typesOfService) {
         this.ID = ID;

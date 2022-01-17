@@ -29,6 +29,5 @@ public class ServiceAddProviderDto {
     private TypesOfService typesOfService;
     private LocalDate availability;
     private boolean isActive;
-    private ServiceType serviceType;
 
 }
