@@ -1,5 +1,10 @@
 package com.infoshareacademy.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Location {
 
     private Voivodeship voivodeship;
@@ -13,22 +18,6 @@ public class Location {
     }
 
     public Location(String city) {
-        this.city = city;
-    }
-
-    public Voivodeship getVoivodeship() {
-        return voivodeship;
-    }
-
-    public void setVoivodeship(Voivodeship voivodeship) {
-        this.voivodeship = voivodeship;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
         this.city = city;
     }
 

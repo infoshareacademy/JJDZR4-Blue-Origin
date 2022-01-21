@@ -1,10 +1,14 @@
 package com.infoshareacademy.domain;
 
+
+import lombok.Getter;
+
+@Getter
 public enum TypesOfService {
-    FILMOWANIE ("Filmowanie"),
-    FOTOGRAFIA ("Fotografia"),
-    SALA_WESELNA ("Sala weselna"),
-    OPRAWA_MUZYCZNA ("Oprawa muzyczna");
+    FILMOWANIE("FILMOWANIE"),
+    FOTOGRAFIA("FOTOGRAFIA"),
+    SALA_WESELNA("SALA_WESELNA"),
+    OPRAWA_MUZYCZNA("OPRAWA_MUZYCZNA");
 
     private String fullName;
 

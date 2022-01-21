@@ -30,20 +30,14 @@ public class ProviderController {
         this.serviceProviderMapper = serviceProviderMapper;
     }
 
-
-
-
     @GetMapping("providers/create")
-
     public String showCreateForm(Model model) {
-        model.addAttribute("serviceProviderDto", new ServiceAddProviderDto());
+        model.addAttribute("serviceProviderAddDto", new ServiceAddProviderDto());
         return "ProviderAdd";
     }
 
     @PostMapping("providers/create")
-    public String addProvider(@ModelAttribute ("serviceProviderDto") ServiceAddProviderDto serviceAddProviderDto) {
-//        serviceAddProviderDto.setLocation(new Location("Gdansk"));//remove later
-        serviceAddProviderDto.setServiceType(new ServiceType(1,"Test","300",TypesOfService.FILMOWANIE));//remove later
+    public String addProvider(@ModelAttribute ("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto) {
         serviceProviderService.addProvider(serviceAddProviderDto);
         return "redirect:/all-providers";
     }

@@ -98,4 +98,116 @@
   "availability" : null,
   "ratingList" : null,
   "active" : false
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 0,
+  "companyName" : "",
+  "ownerName" : "",
+  "ownerSurname" : null,
+  "phone" : null,
+  "email" : null,
+  "websiteAddress" : null,
+  "location" : {
+    "voivodeship" : null,
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : null,
+    "price" : null,
+    "typesOfService" : null,
+    "id" : 0
+  },
+  "availability" : null,
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 0,
+  "companyName" : "fdgfdg",
+  "ownerName" : "dfgfdgfd",
+  "ownerSurname" : null,
+  "phone" : null,
+  "email" : null,
+  "websiteAddress" : null,
+  "location" : {
+    "voivodeship" : "LUBELSKIE",
+    "city" : "dfgdfg"
+  },
+  "serviceType" : {
+    "description" : null,
+    "price" : null,
+    "typesOfService" : null,
+    "id" : 0
+  },
+  "availability" : null,
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 0,
+  "companyName" : "TEST SAVE",
+  "ownerName" : "",
+  "ownerSurname" : null,
+  "phone" : null,
+  "email" : null,
+  "websiteAddress" : null,
+  "location" : {
+    "voivodeship" : null,
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : null,
+    "price" : null,
+    "typesOfService" : null,
+    "id" : 0
+  },
+  "availability" : null,
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 0,
+  "companyName" : "TEST SAVE 2",
+  "ownerName" : "tst2",
+  "ownerSurname" : null,
+  "phone" : null,
+  "email" : null,
+  "websiteAddress" : null,
+  "location" : {
+    "voivodeship" : "LUBELSKIE",
+    "city" : "tst2"
+  },
+  "serviceType" : {
+    "description" : null,
+    "price" : null,
+    "typesOfService" : null,
+    "id" : 0
+  },
+  "availability" : null,
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 0,
+  "companyName" : "test",
+  "ownerName" : "test",
+  "ownerSurname" : "test",
+  "phone" : "test",
+  "email" : "test@test.pl",
+  "websiteAddress" : "test",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Lublin"
+  },
+  "serviceType" : {
+    "description" : "test",
+    "price" : "435",
+    "typesOfService" : "OPRAWA_MUZYCZNA",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 1, 28 ] ]
+  },
+  "ratingList" : [ ],
+  "active" : false
 } ]

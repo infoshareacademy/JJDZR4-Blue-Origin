@@ -1,9 +1,12 @@
 package com.infoshareacademy.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.Setter;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-
+@Getter
+@Setter
 public class Rating {
     private int rating;
     private String comment;
@@ -14,14 +17,6 @@ public class Rating {
     public Rating(int rating, String comment) {
         this.rating = rating;
         this.comment = comment;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public String getComment() {
-        return comment;
     }
 
 
