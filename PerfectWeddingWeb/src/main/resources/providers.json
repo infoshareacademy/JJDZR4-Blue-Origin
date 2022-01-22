@@ -122,28 +122,6 @@
   "active" : false
 }, {
   "averageRating" : -1.0,
-  "currentID" : 5,
-  "companyName" : "fdgfdg",
-  "ownerName" : "dfgfdgfd",
-  "ownerSurname" : null,
-  "phone" : null,
-  "email" : null,
-  "websiteAddress" : null,
-  "location" : {
-    "voivodeship" : "LUBELSKIE",
-    "city" : "dfgdfg"
-  },
-  "serviceType" : {
-    "description" : null,
-    "price" : null,
-    "typesOfService" : null,
-    "id" : 0
-  },
-  "availability" : null,
-  "ratingList" : [ ],
-  "active" : false
-}, {
-  "averageRating" : -1.0,
   "currentID" : 6,
   "companyName" : "TEST SAVE",
   "ownerName" : "",
@@ -306,4 +284,5 @@
   },
   "ratingList" : [ ],
   "active" : false
-} ]
+}
+]
