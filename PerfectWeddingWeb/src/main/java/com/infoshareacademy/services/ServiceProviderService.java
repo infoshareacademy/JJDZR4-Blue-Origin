@@ -35,8 +35,9 @@ public class ServiceProviderService {
         }
     }
 
-    public void addProvider(ServiceAddProviderDto serviceAddProviderDto) {
+    public void addProvider(ServiceAddProviderDto serviceAddProviderDto) throws IOException {
         serviceProviderRepo.getServiceProvidersList()
                 .add(serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto));
+        serviceProviderRepo.exportProviders();
     }
 }

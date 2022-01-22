@@ -26,11 +26,7 @@ public class ServiceProvider {
     private List<Rating> ratingList = new ArrayList<>();
 
 
-    public ServiceProvider() {
-//        ratingList = new ArrayList<>();
-        incrementalID++;
-        currentID = incrementalID;
-    }
+
 
     public double getAverageRating() {
         if (Objects.isNull(ratingList)) {

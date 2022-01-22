@@ -4,6 +4,7 @@ import com.infoshareacademy.domain.Availability;
 import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.domain.TypesOfService;
 import com.infoshareacademy.domain.Voivodeship;
+import com.infoshareacademy.repository.ServiceProviderRepo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,4 +31,10 @@ public class ServiceAddProviderDto {
     private LocalDate availability;
     private boolean isActive;
 
+
+
+    public int getCurrentID() {
+        ServiceProviderRepo serviceProviderRepo = new ServiceProviderRepo();
+        return currentID = serviceProviderRepo.getServiceProvidersList().size() + 1;
+    }
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,7 +38,7 @@ public class ProviderController {
     }
 
     @PostMapping("providers/create")
-    public String addProvider(@ModelAttribute ("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto) {
+    public String addProvider(@ModelAttribute ("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto) throws IOException {
         serviceProviderService.addProvider(serviceAddProviderDto);
         return "redirect:/all-providers";
     }
