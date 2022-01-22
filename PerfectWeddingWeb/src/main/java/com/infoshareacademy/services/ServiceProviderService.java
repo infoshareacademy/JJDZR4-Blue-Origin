@@ -1,6 +1,8 @@
 package com.infoshareacademy.services;
 
 import com.infoshareacademy.domain.ServiceProvider;
+import com.infoshareacademy.domain.ServiceType;
+import com.infoshareacademy.domain.TypesOfService;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.dto.ServiceProviderSearchDto;
@@ -45,17 +47,27 @@ public class ServiceProviderService {
                 .add(serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto));
     }
 
-//    public List<ServiceProvider> findByCity(String city) {
-//        return serviceProviderRepo.getServiceProvidersList()
-//                .stream()
-//                .filter(serviceProvider -> serviceProvider.getLocation().getCity().contains(city))
-//                .collect(Collectors.toList());
-//    }
 
     public List<ServiceProvider> findByCity(String city) {
         return serviceProviderRepo.getServiceProvidersList()
                 .stream()
                 .filter(serviceProvider -> StringUtils.containsIgnoreCase(serviceProvider.getLocation().getCity(), city, Locale.ROOT))
+                .collect(Collectors.toList());
+    }
+
+//    public List<ServiceProvider> findTypeOfService(String typeOfService) {
+//        return serviceProviderRepo.getServiceProvidersList()
+//                .stream()
+//                .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
+//                .collect(Collectors.toList());
+//    }
+
+    public List<ServiceProvider> findTypeOfService(String typeOfService) {
+        return serviceProviderRepo.getServiceProvidersList()
+                .stream()
+                .filter(serviceProvider -> serviceProvider.getServiceType() != null)
+                .collect(Collectors.toList()).stream()
+                .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
                 .collect(Collectors.toList());
     }
 }
