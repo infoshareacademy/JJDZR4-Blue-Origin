@@ -31,4 +31,9 @@ public class ProviderRestController {
     public List<ServiceProvider> returnProvidersFoundByServiceType(@PathVariable String service) {
         return serviceProviderService.findTypeOfService(service);
     }
+
+    @GetMapping(value = "/service-provider/search-by-id/{id}")
+    public List<ServiceProvider> returnProvidersFoundById(@PathVariable int id) {
+        return serviceProviderService.findById(id);
+    }
 }

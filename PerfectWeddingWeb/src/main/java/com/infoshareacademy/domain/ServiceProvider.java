@@ -25,9 +25,6 @@ public class ServiceProvider {
     private boolean isActive;
     private List<Rating> ratingList = new ArrayList<>();
 
-
-
-
     public double getAverageRating() {
         if (Objects.isNull(ratingList)) {
             return 0;

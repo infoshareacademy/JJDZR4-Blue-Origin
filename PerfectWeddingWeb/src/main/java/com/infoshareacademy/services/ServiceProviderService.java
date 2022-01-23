@@ -5,7 +5,6 @@ import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
-import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
@@ -26,7 +25,6 @@ public class ServiceProviderService {
     public ServiceProviderService(ServiceProviderRepo serviceProviderRepo, ServiceProviderMapper serviceProviderMapper) {
         this.serviceProviderRepo = serviceProviderRepo;
         this.serviceProviderMapper = serviceProviderMapper;
-
     }
 
 
@@ -34,10 +32,11 @@ public class ServiceProviderService {
         return serviceProviderRepo.getServiceProvidersList();
     }
 
-    public ServiceProviderDto findById (Integer id){
-        ServiceProvider serviceProvider = returnAllServiceProviders().stream().findFirst().get();
-        //toDO
-        return serviceProviderMapper.mapperToDto(serviceProvider);
+    public List<ServiceProvider> findById(Integer id) {
+        return serviceProviderRepo.getServiceProvidersList()
+                .stream()
+                .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
+                .collect(Collectors.toList());
     }
 
     public void exportServiceProviders() {
@@ -49,8 +48,7 @@ public class ServiceProviderService {
     }
 
     public void addProvider(ServiceAddProviderDto serviceAddProviderDto) throws IOException {
-        serviceProviderRepo.getServiceProvidersList()
-                .add(serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto));
+        serviceProviderRepo.getServiceProvidersList().add(serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto));
         serviceProviderRepo.exportProviders();
     }
 
@@ -61,12 +59,6 @@ public class ServiceProviderService {
                 .collect(Collectors.toList());
     }
 
-//    public List<ServiceProvider> findTypeOfService(String typeOfService) {
-//        return serviceProviderRepo.getServiceProvidersList()
-//                .stream()
-//                .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
-//                .collect(Collectors.toList());
-//    }
 
     public List<ServiceProvider> findTypeOfService(String typeOfService) {
         return serviceProviderRepo.getServiceProvidersList()
