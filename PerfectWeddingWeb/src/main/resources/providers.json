@@ -114,7 +114,7 @@
   "serviceType" : {
     "description" : null,
     "price" : null,
-    "typesOfService" : null,
+    "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : null,
@@ -136,7 +136,7 @@
   "serviceType" : {
     "description" : null,
     "price" : null,
-    "typesOfService" : null,
+    "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : null,
@@ -158,7 +158,7 @@
   "serviceType" : {
     "description" : null,
     "price" : null,
-    "typesOfService" : null,
+    "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : null,

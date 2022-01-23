@@ -11,6 +11,7 @@ import org.thymeleaf.util.StringUtils;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,9 +52,18 @@ public class ServiceProviderService {
                 .collect(Collectors.toList());
     }
 
+//    public List<ServiceProvider> findTypeOfService(String typeOfService) {
+//        return serviceProviderRepo.getServiceProvidersList()
+//                .stream()
+//                .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
+//                .collect(Collectors.toList());
+//    }
+
     public List<ServiceProvider> findTypeOfService(String typeOfService) {
         return serviceProviderRepo.getServiceProvidersList()
                 .stream()
+                .filter(serviceProvider -> Objects.nonNull(serviceProvider.getServiceType()))
+                .collect(Collectors.toList()).stream()
                 .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
                 .collect(Collectors.toList());
     }
