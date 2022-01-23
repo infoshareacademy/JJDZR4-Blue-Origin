@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang=“en” xmlns:th=“http://www.thymeleaf.org” xmlns:layout=“http://www.ultraq.net.nz/thymeleaf/layout”
-      layout:decorate=“~{layout}“>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
     <title>This is the title of the webpage!</title>
@@ -12,7 +11,27 @@
     <img th:src="@{LOGO.jpg}"/>
     <h2>Tu ma być wyszukiwarka</h2>
     <button onclick="window.location.href='/'">Return to Main Menu</button>
-
 </div>
+
+
+<form th:object="${cityAndTypeOfService}" th:action="@{/find-by-city}" method="post">
+    <label th:for="searchForProvidersByCity" th:text="'Szukaj wg miasta'"></label>
+    <input type="text" id="searchForProvidersByCity" th:field="*{city}">
+    <button type="submit" th:text="Wyszukaj"></button>
+</form>
+
+<br>
+
+<form th:object="${cityAndTypeOfService}" th:action="@{/find-by-service}" method="post">
+    <label th:for="searchForProvidersByService" th:text="'Szukaj wg rodzaju uslugi'"></label>
+    <select id="searchForProvidersByService" th:field="*{serviceType}">
+        <option th:each="service_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"
+                th:value="${service_option}" th:text="${service_option.fullName}">
+        </option>
+    </select>
+    <button type="submit" th:text="Wyszukaj"></button>
+</form>
+
+
 </body>
 </html>

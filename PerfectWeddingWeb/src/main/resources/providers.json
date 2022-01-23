@@ -77,8 +77,8 @@
   } ],
   "active" : true
 }, {
-  "averageRating" : -1.0,
-  "currentID" : 0,
+  "averageRating" : 0.0,
+  "currentID" : 3,
   "companyName" : "Our new Company",
   "ownerName" : null,
   "ownerSurname" : null,
@@ -99,8 +99,8 @@
   "ratingList" : null,
   "active" : false
 }, {
-  "averageRating" : -1.0,
-  "currentID" : 0,
+  "averageRating" : 0.0,
+  "currentID" : 4,
   "companyName" : "",
   "ownerName" : "",
   "ownerSurname" : null,
@@ -114,37 +114,15 @@
   "serviceType" : {
     "description" : null,
     "price" : null,
-    "typesOfService" : null,
+    "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : null,
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
-  "currentID" : 0,
-  "companyName" : "fdgfdg",
-  "ownerName" : "dfgfdgfd",
-  "ownerSurname" : null,
-  "phone" : null,
-  "email" : null,
-  "websiteAddress" : null,
-  "location" : {
-    "voivodeship" : "LUBELSKIE",
-    "city" : "dfgdfg"
-  },
-  "serviceType" : {
-    "description" : null,
-    "price" : null,
-    "typesOfService" : null,
-    "id" : 0
-  },
-  "availability" : null,
-  "ratingList" : [ ],
-  "active" : false
-}, {
-  "averageRating" : -1.0,
-  "currentID" : 0,
+  "averageRating" : 0.0,
+  "currentID" : 6,
   "companyName" : "TEST SAVE",
   "ownerName" : "",
   "ownerSurname" : null,
@@ -158,15 +136,15 @@
   "serviceType" : {
     "description" : null,
     "price" : null,
-    "typesOfService" : null,
+    "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : null,
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
-  "currentID" : 0,
+  "averageRating" : 0.0,
+  "currentID" : 7,
   "companyName" : "TEST SAVE 2",
   "ownerName" : "tst2",
   "ownerSurname" : null,
@@ -180,15 +158,15 @@
   "serviceType" : {
     "description" : null,
     "price" : null,
-    "typesOfService" : null,
+    "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : null,
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
-  "currentID" : 0,
+  "averageRating" : 0.0,
+  "currentID" : 8,
   "companyName" : "test",
   "ownerName" : "test",
   "ownerSurname" : "test",
@@ -210,4 +188,221 @@
   },
   "ratingList" : [ ],
   "active" : false
-} ]
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 9,
+  "companyName" : "Videoperfect Jerzy Dampc",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "570099286",
+  "email" : "paweldampc@op.pl",
+  "websiteAddress" : "Rzemieślnicza",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Szemud"
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 10,
+  "companyName" : "Videoperfect Paweł Dampc",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "798732277",
+  "email" : "dampc.joanna@wp.pl",
+  "websiteAddress" : "Rzemieślnicza",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Szemud"
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 11,
+  "companyName" : "Videoperfect Jerzy Dampc",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "570099286",
+  "email" : "poczta@videoperfect.eu",
+  "websiteAddress" : "Rzemieślnicza",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Szemud"
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 12,
+  "companyName" : "Videoperfect Paweł Dampc",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "798732277",
+  "email" : "dampc.joanna@wp.pl",
+  "websiteAddress" : "Rzemieślnicza",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Szemud"
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 13,
+  "companyName" : "test 1",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "",
+  "email" : "",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 14,
+  "companyName" : "Videoperfect Jerzy Dampc",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "570099286",
+  "email" : "paweldampc@op.pl",
+  "websiteAddress" : "Rzemieślnicza",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Szemud"
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 15,
+  "companyName" : "Videoperfect Paweł Dampc",
+  "ownerName" : "gh",
+  "ownerSurname" : "ghgh",
+  "phone" : "798732277",
+  "email" : "dampc.joanna@wp.pl",
+  "websiteAddress" : "Rzemieślnicza",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Szemud"
+  },
+  "serviceType" : {
+    "description" : "ghgh",
+    "price" : "70",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 1, 11 ] ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 16,
+  "companyName" : "Videoperfect Paweł Dampc",
+  "ownerName" : "sd",
+  "ownerSurname" : "sd",
+  "phone" : "601 183 713",
+  "email" : "dampc86pawel@gmail.com",
+  "websiteAddress" : "Starowiejska 1",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Gdansk"
+  },
+  "serviceType" : {
+    "description" : "sd",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 1, 19 ] ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 17,
+  "companyName" : "test po refactor",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "",
+  "email" : "",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}
+]

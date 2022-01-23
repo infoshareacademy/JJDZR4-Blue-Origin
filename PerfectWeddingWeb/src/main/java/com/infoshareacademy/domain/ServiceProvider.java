@@ -25,16 +25,9 @@ public class ServiceProvider {
     private boolean isActive;
     private List<Rating> ratingList = new ArrayList<>();
 
-
-    public ServiceProvider() {
-//        ratingList = new ArrayList<>();
-        incrementalID++;
-        currentID = incrementalID;
-    }
-
     public double getAverageRating() {
         if (Objects.isNull(ratingList)) {
-            return -1;
+            return 0;
         }
         double sum = 0;
         for (Rating rating : ratingList) {
@@ -43,7 +36,7 @@ public class ServiceProvider {
         if (ratingList.size() > 0) {
             return sum / ratingList.size();
         } else {
-            return -1.0; //returns -1 if no rating has been done so far
+            return 0; //returns -1 if no rating has been done so far
         }
     }
 

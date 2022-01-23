@@ -2,13 +2,18 @@ package com.infoshareacademy.services;
 
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
+import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.util.StringUtils;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class ServiceProviderService {
@@ -27,6 +32,13 @@ public class ServiceProviderService {
         return serviceProviderRepo.getServiceProvidersList();
     }
 
+    public List<ServiceProvider> findById(Integer id) {
+        return serviceProviderRepo.getServiceProvidersList()
+                .stream()
+                .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
+                .collect(Collectors.toList());
+    }
+
     public void exportServiceProviders() {
         try {
             serviceProviderRepo.exportProviders();
@@ -35,8 +47,25 @@ public class ServiceProviderService {
         }
     }
 
-    public void addProvider(ServiceAddProviderDto serviceAddProviderDto) {
-        serviceProviderRepo.getServiceProvidersList()
-                .add(serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto));
+    public void addProvider(ServiceAddProviderDto serviceAddProviderDto) throws IOException {
+        serviceProviderRepo.getServiceProvidersList().add(serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto));
+        serviceProviderRepo.exportProviders();
+    }
+
+    public List<ServiceProvider> findByCity(String city) {
+        return serviceProviderRepo.getServiceProvidersList()
+                .stream()
+                .filter(serviceProvider -> StringUtils.containsIgnoreCase(serviceProvider.getLocation().getCity(), city, Locale.ROOT))
+                .collect(Collectors.toList());
+    }
+
+
+    public List<ServiceProvider> findTypeOfService(String typeOfService) {
+        return serviceProviderRepo.getServiceProvidersList()
+                .stream()
+                .filter(serviceProvider -> Objects.nonNull(serviceProvider.getServiceType()))
+                .collect(Collectors.toList()).stream()
+                .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
+                .collect(Collectors.toList());
     }
 }
