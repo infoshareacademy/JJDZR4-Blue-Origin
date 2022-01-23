@@ -23,11 +23,6 @@ public class ClientController {
         this.serviceProviderMapper = serviceProviderMapper;
     }
 
-    @GetMapping("/find-by-city")
-    public String findByCity(Model model) {
-        model.addAttribute("cityAndTypeOfService", new ServiceSearchProviderDto());
-        return "ClientMenu";
-    }
 
     @PostMapping("/find-by-city")
     public String findByCity(Model modelOfFoundProviders, @ModelAttribute("serviceSearchProviderDto") ServiceSearchProviderDto serviceSearchProviderDto) {
