@@ -31,8 +31,8 @@ public class HomePageController {
         return "ClientMenu";
     }
 
-    @GetMapping("/value/find-by-city/")
-    public String findByCity(Model model, @RequestParam("searchCity") String city) {
+    @GetMapping("/find-by-city")
+    public String findByCity(@RequestParam("searchCity") String city, Model model) {
         model.addAttribute("providersByCity", serviceProviderService.findByCity(city));
         return "ClientMenu";
     }

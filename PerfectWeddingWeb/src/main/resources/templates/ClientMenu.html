@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang=“en” xmlns:th=“http://www.thymeleaf.org” xmlns:layout=“http://www.ultraq.net.nz/thymeleaf/layout”
-      layout:decorate=“~{layout}“>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
     <title>This is the title of the webpage!</title>
@@ -12,9 +11,19 @@
     <img th:src="@{LOGO.jpg}"/>
     <h2>Tu ma być wyszukiwarka</h2>
     <button onclick="window.location.href='/'">Return to Main Menu</button>
-
-
-
 </div>
+
+<!--<form th:object="${providersByCity}" th:action="@{/find-by-city}" method="get">-->
+<!--    <input th:type="text" th:name="city"></input>-->
+<!--    <button th:type="submit" th:text="Wyszukaj">-->
+<!--    </button>-->
+<!--</form>-->
+
+<form action="/find-by-city">
+    <input th:type="text" th:name="city"></input>
+    <button th:type="submit" th:text="Wyszukaj">
+    </button>
+</form>
+
 </body>
 </html>
