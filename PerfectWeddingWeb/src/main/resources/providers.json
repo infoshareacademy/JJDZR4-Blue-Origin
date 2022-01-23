@@ -404,5 +404,28 @@
   },
   "ratingList" : [ ],
   "active" : false
-}
-]
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 18,
+  "companyName" : "Our new Company",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "",
+  "email" : "",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+} ]
