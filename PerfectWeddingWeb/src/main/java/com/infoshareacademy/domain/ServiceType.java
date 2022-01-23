@@ -22,6 +22,10 @@ public class ServiceType {
     public ServiceType() {
     }
 
+    public TypesOfService getTypesOfService() {
+        return typesOfService;
+    }
+
     @Override
     public String toString() {
         return "ServiceType{" +

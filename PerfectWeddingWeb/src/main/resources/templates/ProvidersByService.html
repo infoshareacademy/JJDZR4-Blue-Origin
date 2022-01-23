@@ -30,7 +30,7 @@
         <th>Rating List</th>
     </tr>
 
-    <tr th:each="provider : ${providersByCityTH}">
+    <tr th:each="provider : ${providersByServiceTH}">
         <td th:text="${provider.incrementalID}"></td>
         <td th:text="${provider.averageRating}"></td>
         <td th:text="${provider.currentID}"></td>
@@ -49,6 +49,7 @@
 
     </tr>
 </table>
+
 
 
 </body>

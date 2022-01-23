@@ -15,10 +15,19 @@
 
 
 <form th:object="${cityAndTypeOfService}" th:action="@{/find-by-city}" method="post">
-    <label th:for="providersByCity" th:text="'Szukaj wg miasta'"></label>
-    <input type="text" id="providersByCity" th:field="*{city}">
+    <label th:for="searchForProvidersByCity" th:text="'Szukaj wg miasta'"></label>
+    <input type="text" id="searchForProvidersByCity" th:field="*{city}">
     <button type="submit" th:text="Wyszukaj"></button>
 </form>
+
+<br>
+
+<form th:object="${cityAndTypeOfService}" th:action="@{/find-by-service}" method="post">
+    <label th:for="searchForProvidersByService" th:text="'Szukaj wg rodzaju uslugi'"></label>
+    <input type="text" id="searchForProvidersByService" th:field="*{serviceType}">
+    <button type="submit" th:text="Wyszukaj"></button>
+</form>
+
 
 </body>
 </html>

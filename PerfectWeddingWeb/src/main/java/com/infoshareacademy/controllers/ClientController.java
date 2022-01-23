@@ -29,9 +29,15 @@ public class ClientController {
         return "ClientMenu";
     }
 
-    @PostMapping(value = "/find-by-city")
+    @PostMapping("/find-by-city")
     public String findByCity(Model modelOfFoundProviders, @ModelAttribute("serviceSearchProviderDto") ServiceSearchProviderDto serviceSearchProviderDto) {
         modelOfFoundProviders.addAttribute("providersByCityTH", serviceProviderService.findByCity(serviceSearchProviderDto.getCity()));
         return "ProvidersByCity";
+    }
+
+    @PostMapping("/find-by-service")
+    public String findByTypeOfService(Model modelOfFoundProviders, @ModelAttribute("serviceSearchProviderDto") ServiceSearchProviderDto serviceSearchProviderDto) {
+        modelOfFoundProviders.addAttribute("providersByServiceTH", serviceProviderService.findTypeOfService(serviceSearchProviderDto.getServiceType()));
+        return "ProvidersByService";
     }
 }
