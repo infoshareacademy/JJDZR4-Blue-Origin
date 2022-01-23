@@ -77,7 +77,7 @@
   } ],
   "active" : true
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 3,
   "companyName" : "Our new Company",
   "ownerName" : null,
@@ -99,7 +99,7 @@
   "ratingList" : null,
   "active" : false
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 4,
   "companyName" : "",
   "ownerName" : "",
@@ -121,7 +121,7 @@
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 6,
   "companyName" : "TEST SAVE",
   "ownerName" : "",
@@ -143,7 +143,7 @@
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 7,
   "companyName" : "TEST SAVE 2",
   "ownerName" : "tst2",
@@ -165,7 +165,7 @@
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 8,
   "companyName" : "test",
   "ownerName" : "test",
@@ -189,7 +189,7 @@
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 9,
   "companyName" : "Videoperfect Jerzy Dampc",
   "ownerName" : "",
@@ -213,7 +213,7 @@
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 10,
   "companyName" : "Videoperfect Paweł Dampc",
   "ownerName" : "",
@@ -237,7 +237,7 @@
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 11,
   "companyName" : "Videoperfect Jerzy Dampc",
   "ownerName" : "",
@@ -261,7 +261,7 @@
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 12,
   "companyName" : "Videoperfect Paweł Dampc",
   "ownerName" : "",
@@ -285,7 +285,7 @@
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 13,
   "companyName" : "test 1",
   "ownerName" : "",
@@ -309,17 +309,17 @@
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 0.0,
   "currentID" : 14,
-  "companyName" : "test 2",
+  "companyName" : "Videoperfect Jerzy Dampc",
   "ownerName" : "",
   "ownerSurname" : "",
-  "phone" : "",
-  "email" : "",
-  "websiteAddress" : "",
+  "phone" : "570099286",
+  "email" : "paweldampc@op.pl",
+  "websiteAddress" : "Rzemieślnicza",
   "location" : {
     "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : ""
+    "city" : "Szemud"
   },
   "serviceType" : {
     "description" : "",

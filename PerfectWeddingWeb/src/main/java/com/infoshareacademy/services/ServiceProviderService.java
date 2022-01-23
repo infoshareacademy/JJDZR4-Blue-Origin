@@ -24,6 +24,7 @@ public class ServiceProviderService {
     public ServiceProviderService(ServiceProviderRepo serviceProviderRepo, ServiceProviderMapper serviceProviderMapper) {
         this.serviceProviderRepo = serviceProviderRepo;
         this.serviceProviderMapper = serviceProviderMapper;
+
     }
 
 
