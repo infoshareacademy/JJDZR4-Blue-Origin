@@ -53,8 +53,9 @@ public class HomePageController {
         return "ClientMenu";
     }
     @PostMapping(value = "/find-by-city-TH")
-    public  String findByCityTH (@ModelAttribute("providersByCity") ServiceSearchProviderDto serviceSearchProviderDto){
-        serviceProviderService.findByCity(serviceSearchProviderDto.getCity());
+    public  String findByCityTH (Model model, @ModelAttribute("providersByCity") ServiceSearchProviderDto serviceSearchProviderDto){
+        model.addAttribute("providersByCityTH",
+                serviceProviderService.findByCity(serviceSearchProviderDto.getCity()));
         return "ProvidersByCity";
     }
 
