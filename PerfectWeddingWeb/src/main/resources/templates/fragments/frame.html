@@ -17,8 +17,9 @@
 <div th:fragment="menu">
   <div class="nav-link navbar-right">
     <nav>
-      <a th:href="@{/providers}" class="nav-link" th:text="#{ToServiceProviderPanel.caption}"></a>
-      <a th:href="@{/find-by-city}" class="nav-link" th:text="#{ToClientPanel.caption}"></a>
+      <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>
+      <div th:insert="fragments/commonButtons :: custom ('find-by-city',#{ToClientPanel.caption})"></div>
+
 
       <!--      <div th:insert="fragments/commonButtons :: custom ('all-cars','Full list of cars')"></div>-->
 <!--      <div th:insert="fragments/commonButtons :: custom ('add-car','Add car')"></div>-->
