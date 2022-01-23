@@ -1,6 +1,5 @@
 package com.infoshareacademy.controllers;
 
-import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.dto.ServiceSearchProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
@@ -10,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomePageController {
@@ -49,13 +47,13 @@ public class HomePageController {
 
     @GetMapping("/find-by-city")
     public String findByCity(Model model) {
-        model.addAttribute("providersByCity", new ServiceSearchProviderDto());
+        model.addAttribute("cityAndTypeOfService", new ServiceSearchProviderDto());
         return "ClientMenu";
     }
-    @PostMapping(value = "/find-by-city-TH")
-    public  String findByCityTH (Model model, @ModelAttribute("providersByCity") ServiceSearchProviderDto serviceSearchProviderDto){
-        model.addAttribute("providersByCityTH",
-                serviceProviderService.findByCity(serviceSearchProviderDto.getCity()));
+
+    @PostMapping(value = "/find-by-city")
+    public String findByCity(Model modelOfFoundProviders, @ModelAttribute("serviceSearchProviderDto") ServiceSearchProviderDto serviceSearchProviderDto) {
+        modelOfFoundProviders.addAttribute("providersByCityTH", serviceProviderService.findByCity(serviceSearchProviderDto.getCity()));
         return "ProvidersByCity";
     }
 
