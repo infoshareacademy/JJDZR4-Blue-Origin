@@ -30,7 +30,6 @@ public class ServiceProviderDto {
 
     ServiceProviderRepo serviceProviderRepo;
 
-
     public void setRatingList(List<Rating> ratingList) {
         this.ratingList = ratingList;
     }
