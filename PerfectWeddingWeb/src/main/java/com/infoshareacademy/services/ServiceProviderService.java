@@ -2,8 +2,10 @@ package com.infoshareacademy.services;
 
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
+import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
+import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
@@ -30,6 +32,12 @@ public class ServiceProviderService {
 
     public List<ServiceProvider> returnAllServiceProviders() {
         return serviceProviderRepo.getServiceProvidersList();
+    }
+
+    public ServiceProviderDto findById (Integer id){
+        ServiceProvider serviceProvider = returnAllServiceProviders().stream().findFirst().get();
+        //toDO
+        return serviceProviderMapper.mapperToDto(serviceProvider);
     }
 
     public void exportServiceProviders() {

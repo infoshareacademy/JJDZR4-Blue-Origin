@@ -332,4 +332,52 @@
   },
   "ratingList" : [ ],
   "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 15,
+  "companyName" : "Videoperfect Paweł Dampc",
+  "ownerName" : "gh",
+  "ownerSurname" : "ghgh",
+  "phone" : "798732277",
+  "email" : "dampc.joanna@wp.pl",
+  "websiteAddress" : "Rzemieślnicza",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Szemud"
+  },
+  "serviceType" : {
+    "description" : "ghgh",
+    "price" : "70",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 1, 11 ] ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 16,
+  "companyName" : "Videoperfect Paweł Dampc",
+  "ownerName" : "sd",
+  "ownerSurname" : "sd",
+  "phone" : "601 183 713",
+  "email" : "dampc86pawel@gmail.com",
+  "websiteAddress" : "Starowiejska 1",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Gdansk"
+  },
+  "serviceType" : {
+    "description" : "sd",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 1, 19 ] ]
+  },
+  "ratingList" : [ ],
+  "active" : false
 } ]
