@@ -284,5 +284,52 @@
   },
   "ratingList" : [ ],
   "active" : false
-}
-]
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 13,
+  "companyName" : "test 1",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "",
+  "email" : "",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 14,
+  "companyName" : "test 2",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "",
+  "email" : "",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+} ]
