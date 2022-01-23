@@ -44,7 +44,7 @@ public class ProviderController {
     @GetMapping("providers/edit/{id}")
     public String editForm(Model model, @PathVariable Integer id) {
 
-        model.addAttribute("serviceProviderAddDto", serviceProvider);
+      //  model.addAttribute("serviceProviderAddDto", serviceProvider);
 
         //toDO dodać po ID
 

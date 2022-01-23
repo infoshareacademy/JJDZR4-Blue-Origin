@@ -66,12 +66,12 @@ public class ServiceProviderMapper {
         serviceProvider.setWebsiteAddress(serviceAddProviderDto.getWebsiteAddress());
         return serviceProvider;
     }
-    public ServiceProviderDto mapperToAddDto(ServiceProvider serviceProvider){
+    public ServiceAddProviderDto mapperToAddDto(ServiceProvider serviceProvider){
         ServiceAddProviderDto serviceAddProviderDto = new ServiceAddProviderDto();
         serviceAddProviderDto.setActive(serviceProvider.isActive());
         serviceAddProviderDto.setAvailability(serviceProvider.getAvailability().getDates().get(0));
-        serviceAddProviderDto.setLocation(new Location(serviceAddProviderDto.getCity(), serviceAddProviderDto.getVoivodeship()));
-        serviceAddProviderDto.setServiceType(new ServiceType(serviceAddProviderDto.getID(), serviceAddProviderDto.getDescription(), serviceAddProviderDto.getPrice(), serviceAddProviderDto.getTypesOfService()));
+//        serviceAddProviderDto.setLocation(new Location(serviceAddProviderDto.getCity(), serviceAddProviderDto.getVoivodeship()));
+//        serviceAddProviderDto.setServiceType(new ServiceType(serviceAddProviderDto.getID(), serviceAddProviderDto.getDescription(), serviceAddProviderDto.getPrice(), serviceAddProviderDto.getTypesOfService()));
         serviceAddProviderDto.setAverageRating(serviceAddProviderDto.getAverageRating());
         serviceAddProviderDto.setCompanyName(serviceAddProviderDto.getCompanyName());
         serviceAddProviderDto.setEmail(serviceAddProviderDto.getEmail());
@@ -80,7 +80,7 @@ public class ServiceProviderMapper {
         serviceAddProviderDto.setPhone(serviceAddProviderDto.getPhone());
         serviceAddProviderDto.setCurrentID(serviceAddProviderDto.getCurrentID());
         serviceAddProviderDto.setWebsiteAddress(serviceAddProviderDto.getWebsiteAddress());
-        return serviceProvider;
+        return serviceAddProviderDto;
     }
 
 }
