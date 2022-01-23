@@ -428,4 +428,28 @@
   },
   "ratingList" : [ ],
   "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 19,
+  "companyName" : "PW",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "",
+  "email" : "",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
 } ]

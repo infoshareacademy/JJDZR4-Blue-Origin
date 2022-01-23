@@ -24,8 +24,8 @@
     <th>Rating List</th>
   </tr>
 
-  <tr th:each="provider : ${allProvidersTH}">
-    <td th:text="${provider.incrementalID}"></td>
+  <tr th:each="provider, stat : ${allProvidersTH}">
+    <td th:text="${stat.index + 1}"></td>
     <td th:text="${provider.averageRating}"></td>
     <td th:text="${provider.currentID}"></td>
     <td th:text="${provider.companyName}"></td>
