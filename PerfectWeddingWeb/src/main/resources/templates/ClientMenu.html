@@ -9,20 +9,20 @@
     <p>
     <h1>Panel Klienta</h1></p>
     <img th:src="@{LOGO.jpg}"/>
-    <h2>Tu ma być wyszukiwarka</h2>
-    <button onclick="window.location.href='/'">Return to Main Menu</button>
+    <h2>Wyszukiwarka</h2>
+
 </div>
 
-
-<form th:object="${cityAndTypeOfService}" th:action="@{/find-by-city}" method="post">
+<br>
+<form th:align="center" th:object="${cityAndTypeOfService}" th:action="@{/find-by-city}" method="post">
     <label th:for="searchForProvidersByCity" th:text="'Szukaj wg miasta'"></label>
     <input type="text" id="searchForProvidersByCity" th:field="*{city}">
     <button type="submit" th:text="Wyszukaj"></button>
 </form>
-
+<br>
 <br>
 
-<form th:object="${cityAndTypeOfService}" th:action="@{/find-by-service}" method="post">
+<form th:align="center" th:object="${cityAndTypeOfService}" th:action="@{/find-by-service}" method="post">
     <label th:for="searchForProvidersByService" th:text="'Szukaj wg rodzaju uslugi'"></label>
     <select id="searchForProvidersByService" th:field="*{serviceType}">
         <option th:each="service_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"
@@ -31,7 +31,10 @@
     </select>
     <button type="submit" th:text="Wyszukaj"></button>
 </form>
-
+<br><br>
+<div th:align="center">
+<button  onclick="window.location.href='/'">Return to Main Menu</button>
+</div>
 
 </body>
 </html>
