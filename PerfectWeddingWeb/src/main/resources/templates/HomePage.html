@@ -13,30 +13,15 @@
 </head>
 <body class="bg-light">
 <header class="section-header">
-    <div class="container">
-        <section class="section-content">
-            <div class="row">
-                <aside class="col-lg-3 text-left">
-                    <img th:src="@{LOGO.jpg}" width="250px"/>
-                </aside>
-                <aside class="col-lg-9 text-center" >
-                    <h2 th:text="#{App.title}">"</h2>
-                </aside>
-            </div>
-        </section>
-    </div>
+    <div th:insert="fragments/frame::header"></div>
 </header>
 
 <section class="section-content py-3">
     <div class="row">
         <aside class="col-lg-2">
-            <div class="nav-link navbar-right">
-                <nav>
-                </nav>
-            </div>
             <div th:insert="fragments/frame::menu"></div>
-        </aside>
 
+        </aside>
     </div>
 </section>
 </body>
