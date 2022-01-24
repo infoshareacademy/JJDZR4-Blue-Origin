@@ -9,20 +9,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
     <link th:href="@{/css/Style.css}" rel="stylesheet" type="text/css"/>
-
+    <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
 </head>
 <body class="bg-light">
-<header class="section-header container">
-    <div th:insert="fragments/frame::header ('test')"></div>
+<header class="section-header">
+    <div th:insert="fragments/frame::header ('Strona Glowna')"></div>
 </header>
+<div class="nav-link navbar-right ">
+    <nav>
+        <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>
+        <div th:insert="fragments/commonButtons :: custom ('clients',#{ToClientPanel.caption})"></div>
+    </nav>
+</div>
+<!--<section class="section-content py-3">-->
+<!--    <div class="row">-->
+<!--        <aside class="col-lg-2">-->
+<!--            <div th:insert="fragments/frame::menu"></div>-->
 
-<section class="section-content py-3">
-    <div class="row">
-        <aside class="col-lg-2">
-            <div th:insert="fragments/frame::menu"></div>
-
-        </aside>
-    </div>
-</section>
+<!--        </aside>-->
+<!--    </div>-->
+<!--</section>-->
 </body>
 </html>

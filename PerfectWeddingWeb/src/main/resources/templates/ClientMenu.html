@@ -4,15 +4,14 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width = device-width, initial-scale = 1">
-<!--    <title th:text="#{HomePage.title}"></title>-->
+    <title th:text="#{ClientMenu.title}"></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
     <link th:href="@{/css/Style.css}" rel="stylesheet" type="text/css"/>
-
     <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
-    <title>This is the title of the webpage!</title>
+
 </head>
 <body>
 <!--<div style="text-align:center">-->
@@ -23,31 +22,38 @@
 <!--    <button onclick="window.location.href='/'">Return to Main Menu</button>-->
 <!--</div>-->
 <body class="bg-light">
-<header class="section-header">
-    <div th:insert="fragments/frame::header"></div>
+<header class="section-header ">
+    <div th:insert="fragments/frame::header ('Panel Klienta')"></div>
 </header>
 
 <section class="section-content py-3">
     <div class="row">
         <aside class="col-lg-2">
-            <div th:insert="fragments/frame::menu"></div>
+            <div class="nav-link navbar-right">
+                <nav>
+                    <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>
+                    <div th:insert="fragments/commonButtons :: custom ('',#{ToMainMenu.caption})"></div>
+                </nav>
+            </div>
+            <div class="form-control left-10">
             <form th:object="${cityAndTypeOfService}" th:action="@{/find-by-city}" method="post">
-                <label th:for="searchForProvidersByCity" th:text="'Szukaj wg miasta'"></label>
-                <input type="text" id="searchForProvidersByCity" th:field="*{city}">
-                <button type="submit" th:text="Wyszukaj"></button>
+                <label class=”control-label” th:for="searchForProvidersByCity" th:text="'Szukaj wg miasta'"></label>
+                <input class="form-control" type="text" id="searchForProvidersByCity" th:field="*{city}">
+                <button class="btn btn-primary " type="submit" th:text="Wyszukaj"></button>
             </form>
 
             <br>
 
             <form th:object="${cityAndTypeOfService}" th:action="@{/find-by-service}" method="post">
-                <label th:for="searchForProvidersByService" th:text="'Szukaj wg rodzaju uslugi'"></label>
-                <select id="searchForProvidersByService" th:field="*{serviceType}">
+                <label class=”control-label” th:for="searchForProvidersByService" th:text="'Szukaj wg rodzaju uslugi'"></label>
+                <select class="form-control" id="searchForProvidersByService" th:field="*{serviceType}">
                     <option th:each="service_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"
                             th:value="${service_option}" th:text="${service_option.fullName}">
                     </option>
                 </select>
-                <button type="submit" th:text="Wyszukaj"></button>
+                <button class="btn btn-primary " type="submit" th:text="Wyszukaj"></button>
             </form>
+            </div>
         </aside>
     </div>
 </section>
