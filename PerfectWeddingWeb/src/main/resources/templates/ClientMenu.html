@@ -14,21 +14,22 @@
 </div>
 
 <br>
-<form th:align="center" th:object="${cityAndTypeOfService}" th:action="@{/find-by-city}" method="post">
+<!--<form th:align="center" th:object="${cityAndTypeOfService}" th:action="@{/find-by-city}" method="post">
     <label th:for="searchForProvidersByCity" th:text="'Szukaj wg miasta'"></label>
     <input type="text" id="searchForProvidersByCity" th:field="*{city}">
     <button type="submit" th:text="Wyszukaj"></button>
 </form>
-<br>
-<br>
+<br>-->
 
 <form th:align="center" th:object="${cityAndTypeOfService}" th:action="@{/find-by-service}" method="post">
-    <label th:for="searchForProvidersByService" th:text="'Szukaj wg rodzaju uslugi'"></label>
+    <label th:for="searchForProvidersByService" th:text="'podaj rodzaj uslugi'"></label>
     <select id="searchForProvidersByService" th:field="*{serviceType}">
         <option th:each="service_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"
                 th:value="${service_option}" th:text="${service_option.fullName}">
         </option>
     </select>
+    <label th:for="searchForProvidersByServicee" th:text="'podaj miasto'"></label>
+    <input type="text" id="searchForProvidersByServicee" th:field="*{city}">
     <button type="submit" th:text="Wyszukaj"></button>
 </form>
 <br><br>

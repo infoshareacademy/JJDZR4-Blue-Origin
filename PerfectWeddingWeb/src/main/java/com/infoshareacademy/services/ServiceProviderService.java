@@ -60,12 +60,14 @@ public class ServiceProviderService {
     }
 
 
-    public List<ServiceProvider> findTypeOfService(String typeOfService) {
+    public List<ServiceProvider> findTypeOfService(String typeOfService, String city) {
         return serviceProviderRepo.getServiceProvidersList()
                 .stream()
                 .filter(serviceProvider -> Objects.nonNull(serviceProvider.getServiceType()))
                 .collect(Collectors.toList()).stream()
                 .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
+                .collect(Collectors.toList()).stream()
+                .filter(serviceProvider -> StringUtils.containsIgnoreCase(serviceProvider.getLocation().getCity(), city, Locale.ROOT))
                 .collect(Collectors.toList());
     }
 }
