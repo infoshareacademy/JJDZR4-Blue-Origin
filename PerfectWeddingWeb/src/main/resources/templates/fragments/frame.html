@@ -28,7 +28,7 @@
     </nav>
   </div>
 </div>
-<div th:fragment="header" class="container">
+<div th:fragment="header (SubMenuCaption)" >
   <section class="section-content">
     <div class="row">
       <aside class="col-lg-3 text-left">
@@ -36,6 +36,7 @@
       </aside>
       <aside class="col-lg-9 text-center" >
         <h2 th:text="#{App.title}">"</h2>
+        <h3 th:text="${SubMenuCaption}"></h3>
       </aside>
     </div>
   </section>
