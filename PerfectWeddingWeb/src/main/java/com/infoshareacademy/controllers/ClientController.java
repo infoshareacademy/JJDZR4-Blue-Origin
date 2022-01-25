@@ -32,7 +32,7 @@ public class ClientController {
 
     @PostMapping("/find-by-service")
     public String findByTypeOfService(Model modelOfFoundProviders, @ModelAttribute("serviceSearchProviderDto") ServiceSearchProviderDto serviceSearchProviderDto) {
-        modelOfFoundProviders.addAttribute("providersByServiceTH", serviceProviderService.findTypeOfService(serviceSearchProviderDto.getServiceType()));
+        modelOfFoundProviders.addAttribute("providersByServiceTH", serviceProviderService.findTypeOfService(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity()));
         return "ProvidersByService";
     }
 }

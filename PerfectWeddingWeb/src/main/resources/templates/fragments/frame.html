@@ -19,14 +19,21 @@
     <nav>
       <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>
       <div th:insert="fragments/commonButtons :: custom ('clients',#{ToClientPanel.caption})"></div>
-
-
-      <!--      <div th:insert="fragments/commonButtons :: custom ('all-cars','Full list of cars')"></div>-->
-<!--      <div th:insert="fragments/commonButtons :: custom ('add-car','Add car')"></div>-->
-<!--      <div th:insert="fragments/commonButtons :: custom ('show-cars-to-repair','Cars to fix')"></div>-->
-<!--      <div th:insert="fragments/commonButtons :: custom ('fixed-cars','Fixed Cars')"></div>-->
     </nav>
   </div>
+</div>
+<div th:fragment="header (SubMenuCaption)" >
+  <section class="section-content">
+    <div class="row">
+      <aside class="col-lg-3 text-left">
+        <img class="" th:src="@{LOGO.jpg}" width="250px"/>
+      </aside>
+      <aside class="col-lg-9 text-center" >
+        <h2 th:text="#{App.title}">"</h2>
+        <h3 th:text="${SubMenuCaption}"></h3>
+      </aside>
+    </div>
+  </section>
 </div>
 </body>
 </html>
