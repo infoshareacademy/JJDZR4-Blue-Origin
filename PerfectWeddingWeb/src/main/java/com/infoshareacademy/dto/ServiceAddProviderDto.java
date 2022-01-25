@@ -6,6 +6,8 @@ import com.infoshareacademy.repository.ServiceProviderRepo;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
@@ -26,6 +28,8 @@ public class ServiceAddProviderDto {
     private String description;
     private String price;
     private TypesOfService typesOfService;
+    @NotNull(message = "You have to type a date.")
+    @Future(message = "You have to type a date from future.")
     private LocalDate availability;
     private boolean isActive;
 

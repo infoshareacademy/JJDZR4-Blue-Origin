@@ -69,6 +69,10 @@
 
             <label th:for="availability" th:text="'Podaj datę dostępności'"></label>
             <input type="date" id="availability" th:field="*{availability}">
+            <div th:if="${#fields.hasErrors('availability')}">
+                <span th:each="error : ${#fields.errors('availability')}" th:text="${error}"></span>
+            </div>
+
             <br>
 
 

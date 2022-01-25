@@ -36,10 +36,10 @@ public class ProviderController {
     @PostMapping("providers/create")
     public String addProvider(@Valid @ModelAttribute("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto,
                               BindingResult bindingResult) throws IOException {
-        serviceProviderService.addProvider(serviceAddProviderDto);
         if (bindingResult.hasErrors()) {
             return "ProviderAdd";
         }
+        serviceProviderService.addProvider(serviceAddProviderDto);
         return "redirect:/all-providers";
     }
 
