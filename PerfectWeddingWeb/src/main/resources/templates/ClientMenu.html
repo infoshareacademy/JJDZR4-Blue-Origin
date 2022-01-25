@@ -39,12 +39,12 @@
             <form th:object="${cityAndTypeOfService}" th:action="@{/find-by-city}" method="post">
                 <label class=”control-label” th:for="searchForProvidersByCity" th:text="'Szukaj wg miasta'"></label>
                 <input class="form-control" type="text" id="searchForProvidersByCity" th:field="*{city}">
-                <button class="btn btn-primary " type="submit" th:text="Wyszukaj"></button>
-            </form>
+<!--                <button class="btn btn-primary " type="submit" th:text="Wyszukaj"></button>-->
+<!--&lt;!&ndash;            </form>&ndash;&gt;-->
 
-            <br>
+<!--&lt;!&ndash;            <br>&ndash;&gt;-->
 
-            <form th:object="${cityAndTypeOfService}" th:action="@{/find-by-service}" method="post">
+<!--            <form th:object="${cityAndTypeOfService}" th:action="@{/find-by-service}" method="post">-->
                 <label class=”control-label” th:for="searchForProvidersByService" th:text="'Szukaj wg rodzaju uslugi'"></label>
                 <select class="form-control" id="searchForProvidersByService" th:field="*{serviceType}">
                     <option th:each="service_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"
