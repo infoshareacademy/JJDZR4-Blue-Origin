@@ -2,7 +2,6 @@ package com.infoshareacademy.services;
 
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
-import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,15 +51,8 @@ public class ServiceProviderService {
         serviceProviderRepo.exportProviders();
     }
 
-    public List<ServiceProvider> findByCity(String city) {
-        return serviceProviderRepo.getServiceProvidersList()
-                .stream()
-                .filter(serviceProvider -> StringUtils.containsIgnoreCase(serviceProvider.getLocation().getCity(), city, Locale.ROOT))
-                .collect(Collectors.toList());
-    }
 
-
-    public List<ServiceProvider> findTypeOfService(String typeOfService, String city) {
+    public List<ServiceProvider> findByCityAndTypeOfService(String typeOfService, String city) {
         return serviceProviderRepo.getServiceProvidersList()
                 .stream()
                 .filter(serviceProvider -> Objects.nonNull(serviceProvider.getServiceType()))
