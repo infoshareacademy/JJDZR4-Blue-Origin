@@ -27,9 +27,9 @@ public class ProviderRestController {
         return serviceProviderService.findByCity(city);
     }
 
-    @GetMapping(value = "/service-provider/search-by-type/{service}")
-    public List<ServiceProvider> returnProvidersFoundByServiceType(@PathVariable String service) {
-        return serviceProviderService.findTypeOfService(service);
+    @GetMapping(value = "/service-provider/search-by-type/{service}{city}")
+    public List<ServiceProvider> returnProvidersFoundByServiceType(@PathVariable String service, String city) {
+        return serviceProviderService.findTypeOfService(service, city);
     }
 
     @GetMapping(value = "/service-provider/search-by-id/{id}")
