@@ -7,8 +7,10 @@ import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,8 +34,12 @@ public class ProviderController {
     }
 
     @PostMapping("providers/create")
-    public String addProvider(@ModelAttribute("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto) throws IOException {
+    public String addProvider(@Valid @ModelAttribute("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto,
+                              BindingResult bindingResult) throws IOException {
         serviceProviderService.addProvider(serviceAddProviderDto);
+        if (bindingResult.hasErrors()) {
+            return "ProviderAdd";
+        }
         return "redirect:/all-providers";
     }
 
