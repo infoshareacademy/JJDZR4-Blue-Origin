@@ -1,19 +1,16 @@
 package com.infoshareacademy.controllers;
 
+import com.infoshareacademy.dto.ServiceSearchProviderDto;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomePage {
+public class HomePageController {
 
     @GetMapping("")
     public String mainPage() {
         return "HomePage";
-    }
-
-    @GetMapping("/clients")
-    public String clientsPage() {
-        return "ClientMenu";
     }
 
     @GetMapping("/providers")
@@ -21,15 +18,10 @@ public class HomePage {
         return "ProviderMenu";
     }
 
-    @GetMapping("/showallproviders")
-    public String showAllProviders() {
-
-        return "jeszcze nic nie ma";
+    @GetMapping("/clients")
+    public String clientsPage(Model model) {
+        model.addAttribute("cityAndTypeOfService", new ServiceSearchProviderDto());
+        return "ClientMenu";
     }
-
-
-
-
-
 
 }

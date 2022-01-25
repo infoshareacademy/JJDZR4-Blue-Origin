@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>All Providers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+    <link th:href="@{/css/Style.css}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
+    <title>All Providers</title>
 </head>
 <body>
+<header class="section-header">
+    <div th:insert="fragments/frame::header ('Wszyscy dostawcy')"></div>
+</header>
+<section class="section-content py-3">
+    <div class="row">
+        <aside class="col-lg-2">
+            <div class="nav-link navbar-right ">
+                <nav>
+                    <div th:insert="fragments/commonButtons :: custom ('',#{ToMainMenu.caption})"></div>
+                </nav>
+            </div>
+        </aside>
 
-<table>
-  <tr>
-    <th>Incremental ID</th>
-    <th>Average Rating</th>
-    <th>Current ID</th>
-    <th>Company Name</th>
-    <th>Owner Name</th>
-    <th>Owner Surname</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Website Address</th>
-    <th>Location</th>
-    <th>Service Type</th>
-    <th>Availability</th>
-    <th>Is Active</th>
-    <th>Rating List</th>
-  </tr>
+        <main class="col-lg-10">
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th>Incremental ID</th>
+                    <th>Average Rating</th>
+                    <th>Current ID</th>
+                    <th>Company Name</th>
+                    <th>Owner Name</th>
+                    <th>Owner Surname</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Website Address</th>
+                    <th>Location</th>
+                    <th>Service Type</th>
+                    <th>Availability</th>
+                    <th>Is Active</th>
+                    <th>Rating List</th>
+                </tr>
 
-  <tr th:each="provider : ${allProvidersTH}">
-    <td th:text="${provider.incrementalID}"></td>
-    <td th:text="${provider.averageRating}"></td>
-    <td th:text="${provider.currentID}"></td>
-    <td th:text="${provider.companyName}"></td>
-    <td th:text="${provider.ownerName}"></td>
-    <td th:text="${provider.ownerSurname}"></td>
-    <td th:text="${provider.phone}"></td>
-    <td th:text="${provider.email}"></td>
-    <td th:text="${provider.websiteAddress}"></td>
-<!--    Tu sie wybierze co nam trzeba. Jak wrzuce samo location to rzyga odniesieniem w pamieci.-->
-    <td th:text="${provider.location.getCity()}"></td>
-<!--    Podobnie jak wyzej.-->
-    <td th:text="${provider.serviceType.getTypesOfService()}"></td>
-<!--    Data narazie nie dziala.-->
-    <td th:text="${provider.availability}"></td>
-    <td th:text="${provider.isActive()}"></td>
-    <td th:text="${provider.ratingList}"></td>
-
-  </tr>
-</table>
-
-<br>
-<a href="http://localhost:8080/providers/create">Create a provider</a>
-
+                <tr th:each="provider, stat : ${allProvidersTH}">
+                    <td th:text="${stat.index + 1}"></td>
+                    <td th:text="${provider.averageRating}"></td>
+                    <td th:text="${provider.currentID}"></td>
+                    <td th:text="${provider.companyName}"></td>
+                    <td th:text="${provider.ownerName}"></td>
+                    <td th:text="${provider.ownerSurname}"></td>
+                    <td th:text="${provider.phone}"></td>
+                    <td th:text="${provider.email}"></td>
+                    <td th:text="${provider.websiteAddress}"></td>
+                    <!--    Tu sie wybierze co nam trzeba. Jak wrzuce samo location to rzyga odniesieniem w pamieci.-->
+                    <td th:text="${provider.location.getCity()}"></td>
+                    <!--    Podobnie jak wyzej.-->
+                    <td th:text="${provider.serviceType.getTypesOfService()}"></td>
+                    <!--    Data narazie nie dziala.-->
+                    <td th:text="${provider.availability}"></td>
+                    <td th:text="${provider.isActive()}"></td>
+                    <td th:text="${provider.ratingList}"></td>
+                </tr>
+            </table>
+        </main>
+        <br>
+    </div>
+</section>
 </body>
 </html>

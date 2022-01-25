@@ -1,6 +1,7 @@
 package com.infoshareacademy.controllers;
 
 import com.infoshareacademy.domain.Location;
+import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.domain.TypesOfService;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
@@ -10,11 +11,9 @@ import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,12 +36,22 @@ public class ProviderController {
     }
 
     @PostMapping("providers/create")
-    public String addProvider(@ModelAttribute ("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto) {
+    public String addProvider(@ModelAttribute("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto) throws IOException {
         serviceProviderService.addProvider(serviceAddProviderDto);
         return "redirect:/all-providers";
     }
 
-    @GetMapping("providers/edit")
+    @GetMapping("providers/edit/{id}")
+    public String editForm(Model model, @PathVariable Integer id) {
+
+        model.addAttribute("serviceProviderAddDto", null);
+
+        //toDO dodać po ID
+
+        return "ProviderAdd";
+    }
+
+
     @ResponseBody
     public String clientsPage() {
         serviceProviderService.exportServiceProviders();
@@ -63,7 +72,7 @@ public class ProviderController {
                 .map(s -> serviceProviderMapper.mapperToDto(s))
                 .collect(Collectors.toList());
 
-        model.addAttribute("allProvidersTH",serviceProviderDtos );
+        model.addAttribute("allProvidersTH", serviceProviderDtos);
         return "AllProviders";
     }
 

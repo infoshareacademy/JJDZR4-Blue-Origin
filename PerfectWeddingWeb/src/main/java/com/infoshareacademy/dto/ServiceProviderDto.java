@@ -4,6 +4,7 @@ import com.infoshareacademy.domain.Availability;
 import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.Rating;
 import com.infoshareacademy.domain.ServiceType;
+import com.infoshareacademy.repository.ServiceProviderRepo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,6 +27,8 @@ public class ServiceProviderDto {
     private List<Rating> ratingList;
     private Availability availability;
     private boolean isActive;
+
+    ServiceProviderRepo serviceProviderRepo;
 
     public void setRatingList(List<Rating> ratingList) {
         this.ratingList = ratingList;
