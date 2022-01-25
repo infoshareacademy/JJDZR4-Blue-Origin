@@ -1,9 +1,5 @@
 package com.infoshareacademy.controllers;
 
-import com.infoshareacademy.domain.Location;
-import com.infoshareacademy.domain.ServiceProvider;
-import com.infoshareacademy.domain.ServiceType;
-import com.infoshareacademy.domain.TypesOfService;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
