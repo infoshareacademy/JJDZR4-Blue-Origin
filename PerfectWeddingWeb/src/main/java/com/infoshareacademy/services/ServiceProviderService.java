@@ -54,59 +54,80 @@ public class ServiceProviderService {
     }
 
 
-    public List<ServiceProvider> findByCityAndTypeOfService(String typeOfService, String city, LocalDate date) {
-        List<ServiceProvider> toReturn = new ArrayList<>();
-        List<ServiceProvider> filteredByTypeAndCity = new ArrayList<>();
-        //filtrujemy po nazwie miasta - dziala
-        filteredByTypeAndCity = serviceProviderRepo.getServiceProvidersList()
-                .stream()
-                .filter(serviceProvider -> StringUtils.containsIgnoreCase(serviceProvider.getLocation().getCity(), city, Locale.ROOT))
-                //zamienilem collect(Collectors.toList()) na toList z JAVA 16
-                .toList();
-        if (!typeOfService.equals("All")) {
-            filteredByTypeAndCity
-                    .stream()
-                    //rozumiem, ze ponizsze ma nas chronic przed null pointer exception
-                    .filter(serviceProvider -> Objects.nonNull(serviceProvider.getServiceType()))
-                    //TODO: te 2 linie sa chyba niepotrzebne?:
-                    .toList()
-                    .stream()
-                    //TODO: ten filtr nie dziala - przepuszcza wszystko
-                    .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
-                    .toList();
-            //TODO: ponisza petla na pewno moze zostac zastapiona filtrem - tylko, ze filtr nie dziala patrz linia 75
-            for (ServiceProvider serviceProvider : filteredByTypeAndCity) {
-                String typeCheck = serviceProvider.getServiceType().getTypesOfService().getFullName();
-                if (typeCheck.equals(typeOfService)) {
-                    toReturn.add(serviceProvider);
-                }
-            }
-            filteredByTypeAndCity = toReturn.stream().toList();
-            toReturn.clear();
-        }
-        if (!Objects.isNull(date)) {
-            //TODO: i ta petla tez pewnie moze zostac wywalona i zastapinoan przez stream
-            for (ServiceProvider serviceProvider : filteredByTypeAndCity) {
-                Integer datesCheck = serviceProvider.getAvailability().getDates()
-                        .stream()
-                        .filter(domainDate -> Objects.nonNull(domainDate))
-                        //TODO: te 2 linie sa chyba niepotrzebne?:
-                        .toList()
-                        .stream()
-                        .filter(domainDate -> domainDate.equals(date))
-                        .toList().size();
-                if (datesCheck > 0) {
-                    toReturn.add(serviceProvider);
-                }
-            }
-            filteredByTypeAndCity = toReturn;
-        }
-        return filteredByTypeAndCity;
-    }
+//    public List<ServiceProvider> findByCityAndTypeOfService(String typeOfService, String city, LocalDate date) {
+//        List<ServiceProvider> toReturn = new ArrayList<>();
+//        List<ServiceProvider> filteredByTypeAndCity = new ArrayList<>();
+//        //filtrujemy po nazwie miasta - dziala
+//        filteredByTypeAndCity = serviceProviderRepo.getServiceProvidersList()
+//                .stream()
+//                .filter(serviceProvider -> StringUtils.containsIgnoreCase(serviceProvider.getLocation().getCity(), city, Locale.ROOT))
+//                //zamienilem collect(Collectors.toList()) na toList z JAVA 16
+//                .toList();
+//        if (!typeOfService.equals("All")) {
+//            filteredByTypeAndCity
+//                    .stream()
+//                    //rozumiem, ze ponizsze ma nas chronic przed null pointer exception
+//                    .filter(serviceProvider -> Objects.nonNull(serviceProvider.getServiceType()))
+//                    //TODO: te 2 linie sa chyba niepotrzebne?:
+//                    .toList()
+//                    .stream()
+//                    //TODO: ten filtr nie dziala - przepuszcza wszystko
+//                    .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
+//                    .toList();
+//            //TODO: ponisza petla na pewno moze zostac zastapiona filtrem - tylko, ze filtr nie dziala patrz linia 75
+//            for (ServiceProvider serviceProvider : filteredByTypeAndCity) {
+//                String typeCheck = serviceProvider.getServiceType().getTypesOfService().getFullName();
+//                if (typeCheck.equals(typeOfService)) {
+//                    toReturn.add(serviceProvider);
+//                }
+//            }
+//            filteredByTypeAndCity = toReturn.stream().toList();
+//            toReturn.clear();
+//        }
+//        if (!Objects.isNull(date)) {
+//            //TODO: i ta petla tez pewnie moze zostac wywalona i zastapinoan przez stream
+//            for (ServiceProvider serviceProvider : filteredByTypeAndCity) {
+//                Integer datesCheck = serviceProvider.getAvailability().getDates()
+//                        .stream()
+//                        .filter(domainDate -> Objects.nonNull(domainDate))
+//                        //TODO: te 2 linie sa chyba niepotrzebne?:
+//                        .toList()
+//                        .stream()
+//                        .filter(domainDate -> domainDate.equals(date))
+//                        .toList().size();
+//                if (datesCheck > 0) {
+//                    toReturn.add(serviceProvider);
+//                }
+//            }
+//            filteredByTypeAndCity = toReturn;
+//        }
+//        return filteredByTypeAndCity;
+//    }
 
     public List<ServiceProvider> findByCityServiceTypeAndDate(String typeOfService, String city, LocalDate date) {
+
+        if (Objects.isNull(date)) {
+            return serviceProviderRepo.getServiceProvidersList().stream()
+                    .filter(sp -> sp.getServiceType().getTypesOfService().getFullName().equalsIgnoreCase(typeOfService))
+                    .filter(sp -> StringUtils.equalsIgnoreCase(sp.getLocation().getCity(), city))
+                    .toList();
+        }
+
+        if (typeOfService.equalsIgnoreCase("WSZYSTKIE")) {
+            return serviceProviderRepo.getServiceProvidersList().stream()
+                    .filter(sp -> StringUtils.equalsIgnoreCase(sp.getLocation().getCity(), city))
+                    .filter(sp -> sp.getAvailability().getDates().contains(date))
+                    .toList();
+        }
+
+        if (typeOfService.equalsIgnoreCase("WSZYSTKIE") && Objects.isNull(date)) {
+            return serviceProviderRepo.getServiceProvidersList().stream()
+                    .filter(sp -> StringUtils.equalsIgnoreCase(sp.getLocation().getCity(), city))
+                    .toList();
+        }
+
         return serviceProviderRepo.getServiceProvidersList().stream()
-                .filter(sp -> sp.getServiceType().equals(typeOfService))
+                .filter(sp -> sp.getServiceType().getTypesOfService().getFullName().equalsIgnoreCase(typeOfService))
                 .filter(sp -> StringUtils.equalsIgnoreCase(sp.getLocation().getCity(), city))
                 .filter(sp -> sp.getAvailability().getDates().contains(date))
                 .toList();
