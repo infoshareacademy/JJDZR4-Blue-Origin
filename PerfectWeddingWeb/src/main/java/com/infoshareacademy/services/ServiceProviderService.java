@@ -94,12 +94,25 @@ public class ServiceProviderService {
                         .toList()
                         .stream()
                         .filter(domainDate -> domainDate.equals(date))
-                        .toList().size();
+                        .toList()
+                        .size();
                 if (datesCheck > 0) {
                     toReturn.add(serviceProvider);
                 }
             }
-            filteredByTypeAndCity = toReturn;
+            filteredByTypeAndCity
+                    .stream()
+                    .filter(serviceProvider -> {
+                        Integer i = serviceProvider.getAvailability().getDates()
+                                .stream()
+                                .filter(dates -> Objects.nonNull(dates))
+                                .filter(dates -> dates.equals(date))
+                                .toList()
+                                .size();
+                        return i > 0;
+                    })
+                    .toList();
+            // filteredByTypeAndCity = toReturn;
         }
         return filteredByTypeAndCity;
     }
