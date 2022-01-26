@@ -103,4 +103,12 @@ public class ServiceProviderService {
         }
         return filteredByTypeAndCity;
     }
+
+    public List<ServiceProvider> findByCityServiceTypeAndDate(String typeOfService, String city, LocalDate date) {
+        return serviceProviderRepo.getServiceProvidersList().stream()
+                .filter(sp -> sp.getServiceType().equals(typeOfService))
+                .filter(sp -> StringUtils.equalsIgnoreCase(sp.getLocation().getCity(), city))
+                .filter(sp -> sp.getAvailability().getDates().contains(date))
+                .toList();
+    }
 }

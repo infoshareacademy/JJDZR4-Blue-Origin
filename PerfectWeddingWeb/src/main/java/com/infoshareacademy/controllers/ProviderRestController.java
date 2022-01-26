@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -22,13 +23,13 @@ public class ProviderRestController {
         this.serviceProviderMapper = serviceProviderMapper;
     }
 
-//    @GetMapping(value = "/service-provider/search-by-type-and-city/{service}/{city}")
-//    public List<ServiceProvider> returnProvidersFoundByServiceTypeAndCity(@PathVariable String service, @PathVariable String city) {
-//        return serviceProviderService.findByCityAndTypeOfService(service, city);
-//    }
-//
-//    @GetMapping(value = "/service-provider/search-by-id/{id}")
-//    public List<ServiceProvider> returnProvidersFoundById(@PathVariable int id) {
-//        return serviceProviderService.findById(id);
-//    }
+    @GetMapping(value = "/service-provider/search-by-type-city-and-date/{service}/{city}/{date}")
+    public List<ServiceProvider> returnProvidersFoundByServiceTypeAndCity(@PathVariable String service, @PathVariable String city, @PathVariable LocalDate date) {
+        return serviceProviderService.findByCityAndTypeOfService(service, city, date);
+    }
+
+    @GetMapping(value = "/service-provider/search-by-id/{id}")
+    public List<ServiceProvider> returnProvidersFoundById(@PathVariable int id) {
+        return serviceProviderService.findById(id);
+    }
 }
