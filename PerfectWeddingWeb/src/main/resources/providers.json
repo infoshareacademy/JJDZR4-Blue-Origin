@@ -87,7 +87,7 @@
   "websiteAddress" : "",
   "location" : {
     "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : ""
+    "city" : "Szemud"
   },
   "serviceType" : {
     "description" : "",
@@ -111,12 +111,12 @@
   "websiteAddress" : "",
   "location" : {
     "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : ""
+    "city" : "SZEMUD"
   },
   "serviceType" : {
     "description" : "",
     "price" : "",
-    "typesOfService" : "FILMOWANIE",
+    "typesOfService" : "FOTOGRAFIA",
     "id" : 0
   },
   "availability" : {
@@ -135,12 +135,12 @@
   "websiteAddress" : "",
   "location" : {
     "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : ""
+    "city" : "SZEMUD"
   },
   "serviceType" : {
     "description" : "",
     "price" : "",
-    "typesOfService" : "FILMOWANIE",
+    "typesOfService" : "FOTOGRAFIA",
     "id" : 0
   },
   "availability" : {
