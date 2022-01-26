@@ -22,6 +22,8 @@ public class ProviderRestController {
         this.serviceProviderMapper = serviceProviderMapper;
     }
 
+    //duzo zaszllo zmian w filrowaniu i trzeba to przerobic, nie wyrzucajcie klasy bo ja uzywam sobie jej do testowania w POSTMANIE
+
 //    @GetMapping(value = "/service-provider/search-by-type-city-and-date/{service}/{city}/{date}")
 //    public List<ServiceProvider> returnProvidersFoundByServiceTypeAndCity(@PathVariable String service, @PathVariable String city, @PathVariable LocalDate date) {
 //        return serviceProviderService.findByCityAndTypeOfService(service, city, date);
@@ -32,8 +34,8 @@ public class ProviderRestController {
 //        return serviceProviderService.findByCityAndTypeOfService(serviceSearchProviderDto);
 //    }
 
-    @GetMapping(value = "/service-provider/search-by-id/{id}")
-    public List<ServiceProvider> returnProvidersFoundById(@PathVariable int id) {
-        return serviceProviderService.findById(id);
-    }
+//    @GetMapping(value = "/service-provider/search-by-id/{id}")
+//    public List<ServiceProvider> returnProvidersFoundById(@PathVariable int id) {
+//        return serviceProviderService.findById(id);
+//    }
 }
