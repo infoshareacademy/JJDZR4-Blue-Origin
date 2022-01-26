@@ -51,6 +51,8 @@
                             th:value="${service_option}" th:text="${service_option.fullName}">
                     </option>
                 </select>
+                <label class=”control-label” th:for="searchForProvidersByDate" th:text="'Szukaj wg daty'"></label>
+                <input class="form-control" type="date" id="searchForProvidersByDate" th:field="*{date}">
                 <button class="btn btn-primary " type="submit" th:text="Wyszukaj"></button>
             </form>
             </div>
