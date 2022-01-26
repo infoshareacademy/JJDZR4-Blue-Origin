@@ -172,4 +172,28 @@
   },
   "ratingList" : [ ],
   "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 4,
+  "companyName" : "Our new Company",
+  "ownerName" : "fdsf",
+  "ownerSurname" : "fasdf",
+  "phone" : "fasdf",
+  "email" : "fasdf@test.pl",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "fdsaf"
+  },
+  "serviceType" : {
+    "description" : "fasdf",
+    "price" : "1",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 2, 22 ] ]
+  },
+  "ratingList" : [ ],
+  "active" : false
 } ]
