@@ -1,16 +1,15 @@
 package com.infoshareacademy.dto;
 
-import com.infoshareacademy.domain.Availability;
-import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.domain.TypesOfService;
 import com.infoshareacademy.domain.Voivodeship;
 import com.infoshareacademy.repository.ServiceProviderRepo;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.Comparator;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -18,27 +17,31 @@ public class ServiceAddProviderDto {
     public static int incrementalID;
     double averageRating;
     private int currentID;
+    @NotEmpty(message = "You have to type a company name.")
     private String companyName;
+    @NotEmpty(message = "You have to type owner name.")
     private String ownerName;
+    @NotEmpty(message = "You have to type a owner surname.")
     private String ownerSurname;
+    @NotEmpty(message = "You have to type a phone number.")
     private String phone;
     private String email;
     private String websiteAddress;
+    @NotNull(message = "You have to pick a voivodeship.")
     private Voivodeship voivodeship;
+    @NotEmpty(message = "You have to type a city.")
     private String city;
     private int ID;
+    @NotEmpty(message = "You have to type a description.")
     private String description;
+    @NotEmpty(message = "You have to name your price.")
     private String price;
+    @NotNull(message = "You have to pick a type of service.")
     private TypesOfService typesOfService;
+    @NotNull(message = "You have to type a date.")
+    @Future(message = "You have to type a date from future.")
     private LocalDate availability;
     private boolean isActive;
-
-
-
-//    public int getCurrentID() {
-//        ServiceProviderRepo serviceProviderRepo = new ServiceProviderRepo();
-//        return currentID = serviceProviderRepo.getServiceProvidersList().size() + 1;
-//    }
 
     public int getCurrentID() {
         ServiceProviderRepo serviceProviderRepo = new ServiceProviderRepo();
@@ -46,5 +49,4 @@ public class ServiceAddProviderDto {
         return currentID = serviceProviderRepo.getServiceProvidersList()
                 .stream().skip(count - 1).findFirst().get().getCurrentID() + 1;
     }
-
 }

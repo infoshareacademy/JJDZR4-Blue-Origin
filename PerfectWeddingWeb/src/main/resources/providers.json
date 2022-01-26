@@ -76,4 +76,100 @@
     "comment" : "Ma sie dodac ocena dla uslugodawcy o ID = 2, wyjcie z poziomu wyszukiwarki po rodzaju uslugi."
   } ],
   "active" : true
-}]
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 3,
+  "companyName" : "",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "",
+  "email" : "",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 1, 26 ] ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 4,
+  "companyName" : "",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "",
+  "email" : "",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 5,
+  "companyName" : "",
+  "ownerName" : "",
+  "ownerSurname" : "",
+  "phone" : "",
+  "email" : "",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : ""
+  },
+  "serviceType" : {
+    "description" : "",
+    "price" : "",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ null ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+}, {
+  "averageRating" : 0.0,
+  "currentID" : 3,
+  "companyName" : "Correct company name",
+  "ownerName" : "Correct Owner",
+  "ownerSurname" : "Correct Owner",
+  "phone" : "500 500 500",
+  "email" : "",
+  "websiteAddress" : "",
+  "location" : {
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Lublin"
+  },
+  "serviceType" : {
+    "description" : "Correct description",
+    "price" : "500",
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 1, 26 ] ]
+  },
+  "ratingList" : [ ],
+  "active" : false
+} ]

@@ -6,7 +6,6 @@ import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -23,16 +22,9 @@ public class ClientController {
         this.serviceProviderMapper = serviceProviderMapper;
     }
 
-
-    @PostMapping("/find-by-city")
-    public String findByCity(Model modelOfFoundProviders, @ModelAttribute("serviceSearchProviderDto") ServiceSearchProviderDto serviceSearchProviderDto) {
-        modelOfFoundProviders.addAttribute("providersByCityTH", serviceProviderService.findByCity(serviceSearchProviderDto.getCity()));
-        return "ProvidersByCity";
-    }
-
-    @PostMapping("/find-by-service")
+    @PostMapping("/find")
     public String findByTypeOfService(Model modelOfFoundProviders, @ModelAttribute("serviceSearchProviderDto") ServiceSearchProviderDto serviceSearchProviderDto) {
-        modelOfFoundProviders.addAttribute("providersByServiceTH", serviceProviderService.findTypeOfService(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity()));
-        return "ProvidersByService";
+        modelOfFoundProviders.addAttribute("providersByServiceTH", serviceProviderService.findByCityAndTypeOfService(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity()));
+        return "FoundProviders";
     }
 }

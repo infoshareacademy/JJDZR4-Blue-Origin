@@ -22,14 +22,9 @@ public class ProviderRestController {
         this.serviceProviderMapper = serviceProviderMapper;
     }
 
-    @GetMapping(value = "/service-provider/search-by-city/{city}")
-    public List<ServiceProvider> returnProvidersFoundByCity(@PathVariable String city) {
-        return serviceProviderService.findByCity(city);
-    }
-
-    @GetMapping(value = "/service-provider/search-by-type/{service}{city}")
-    public List<ServiceProvider> returnProvidersFoundByServiceType(@PathVariable String service, String city) {
-        return serviceProviderService.findTypeOfService(service, city);
+    @GetMapping(value = "/service-provider/search-by-type/{service}/{city}")
+    public List<ServiceProvider> returnProvidersFoundByServiceType(@PathVariable String service, @PathVariable String city) {
+        return serviceProviderService.findByCityAndTypeOfService(service, city);
     }
 
     @GetMapping(value = "/service-provider/search-by-id/{id}")

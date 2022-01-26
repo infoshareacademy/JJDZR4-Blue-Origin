@@ -1,9 +1,5 @@
 package com.infoshareacademy.controllers;
 
-import com.infoshareacademy.domain.Location;
-import com.infoshareacademy.domain.ServiceProvider;
-import com.infoshareacademy.domain.ServiceType;
-import com.infoshareacademy.domain.TypesOfService;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
@@ -11,8 +7,10 @@ import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,7 +34,11 @@ public class ProviderController {
     }
 
     @PostMapping("providers/create")
-    public String addProvider(@ModelAttribute("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto) throws IOException {
+    public String addProvider(@Valid @ModelAttribute("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto,
+                              BindingResult bindingResult) throws IOException {
+        if (bindingResult.hasErrors()) {
+            return "ProviderAdd";
+        }
         serviceProviderService.addProvider(serviceAddProviderDto);
         return "redirect:/all-providers";
     }
