@@ -53,57 +53,7 @@ public class ServiceProviderService {
         serviceProviderRepo.exportProviders();
     }
 
-
-//    public List<ServiceProvider> findByCityAndTypeOfService(String typeOfService, String city, LocalDate date) {
-//        List<ServiceProvider> toReturn = new ArrayList<>();
-//        List<ServiceProvider> filteredByTypeAndCity = new ArrayList<>();
-//        //filtrujemy po nazwie miasta - dziala
-//        filteredByTypeAndCity = serviceProviderRepo.getServiceProvidersList()
-//                .stream()
-//                .filter(serviceProvider -> StringUtils.containsIgnoreCase(serviceProvider.getLocation().getCity(), city, Locale.ROOT))
-//                //zamienilem collect(Collectors.toList()) na toList z JAVA 16
-//                .toList();
-//        if (!typeOfService.equals("All")) {
-//            filteredByTypeAndCity
-//                    .stream()
-//                    //rozumiem, ze ponizsze ma nas chronic przed null pointer exception
-//                    .filter(serviceProvider -> Objects.nonNull(serviceProvider.getServiceType()))
-//                    //TODO: te 2 linie sa chyba niepotrzebne?:
-//                    .toList()
-//                    .stream()
-//                    //TODO: ten filtr nie dziala - przepuszcza wszystko
-//                    .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
-//                    .toList();
-//            //TODO: ponisza petla na pewno moze zostac zastapiona filtrem - tylko, ze filtr nie dziala patrz linia 75
-//            for (ServiceProvider serviceProvider : filteredByTypeAndCity) {
-//                String typeCheck = serviceProvider.getServiceType().getTypesOfService().getFullName();
-//                if (typeCheck.equals(typeOfService)) {
-//                    toReturn.add(serviceProvider);
-//                }
-//            }
-//            filteredByTypeAndCity = toReturn.stream().toList();
-//            toReturn.clear();
-//        }
-//        if (!Objects.isNull(date)) {
-//            //TODO: i ta petla tez pewnie moze zostac wywalona i zastapinoan przez stream
-//            for (ServiceProvider serviceProvider : filteredByTypeAndCity) {
-//                Integer datesCheck = serviceProvider.getAvailability().getDates()
-//                        .stream()
-//                        .filter(domainDate -> Objects.nonNull(domainDate))
-//                        //TODO: te 2 linie sa chyba niepotrzebne?:
-//                        .toList()
-//                        .stream()
-//                        .filter(domainDate -> domainDate.equals(date))
-//                        .toList().size();
-//                if (datesCheck > 0) {
-//                    toReturn.add(serviceProvider);
-//                }
-//            }
-//            filteredByTypeAndCity = toReturn;
-//        }
-//        return filteredByTypeAndCity;
-//    }
-
+    //tu pewnie najczytelniejszy bylby switch, ale musialbym sie zastanowic, poki co niech zostanie
     public List<ServiceProvider> findProviders(String typeOfService, String city, LocalDate date, Boolean onlyActive) {
         List<ServiceProvider> toReturn = new ArrayList();
         if (typeOfService.equalsIgnoreCase("WSZYSTKIE")) {
@@ -114,7 +64,7 @@ public class ServiceProviderService {
             }
         } else {
             if (Objects.isNull(date)) {
-                toReturn = FilterByServiceAndCity(typeOfService, city);
+                toReturn = filterByServiceAndCity(typeOfService, city);
             } else {
                 toReturn = filterServiceCityAndDate(typeOfService, city, date);
             }
@@ -123,8 +73,6 @@ public class ServiceProviderService {
             toReturn = toReturn.stream()
                     .filter(sd -> sd.isActive())
                     .toList();
-
-
         }
         return toReturn;
     }
@@ -150,7 +98,7 @@ public class ServiceProviderService {
                 .toList();
     }
 
-    private List<ServiceProvider> FilterByServiceAndCity(String typeOfService, String city) {
+    private List<ServiceProvider> filterByServiceAndCity(String typeOfService, String city) {
         return serviceProviderRepo.getServiceProvidersList().stream()
                 .filter(sp -> sp.getServiceType().getTypesOfService().getFullName().equalsIgnoreCase(typeOfService))
                 .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
