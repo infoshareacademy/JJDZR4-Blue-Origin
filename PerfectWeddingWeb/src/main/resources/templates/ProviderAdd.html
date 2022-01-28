@@ -24,6 +24,7 @@
 <!--</div>-->
 <body class="bg-light">
 <header class="section-header ">
+
     <div th:insert="fragments/frame::header ('Dodawanie dostawcy')"></div>
 </header>
 
@@ -33,6 +34,7 @@
             <div class="nav-link navbar-right">
                 <nav>
 <!--                    <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>-->
+                    <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>
                     <div th:insert="fragments/commonButtons :: custom ('',#{ToMainMenu.caption})"></div>
                 </nav>
             </div>

@@ -85,7 +85,7 @@ public class ProviderController {
         return "ProviderEditMenu";
     }
 
-    @PostMapping("/find-to-edit")
+    @PostMapping("/providers/edit")
     public String findByTypeOfService(Model modelOfFoundProviders, /*@ModelAttribute("serviceSearchProviderDto")*/ ServiceSearchProviderDto serviceSearchProviderDto) {
         modelOfFoundProviders
                 .addAttribute("providersByServiceTH", serviceProviderService.findProviders(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity(), serviceSearchProviderDto.getDate(), true))

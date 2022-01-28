@@ -36,7 +36,7 @@
                 </nav>
             </div>
             <div class="form-control left-10">
-            <form th:object="${cityAndTypeOfService}" th:action="@{/find-to-edit}" method="post">
+            <form th:object="${cityAndTypeOfService}" th:action="@{/providers/edit}" method="post">
                 <label class=”control-label” th:for="searchForProvidersByCity" th:text="'Szukaj wg miasta'"></label>
                 <input class="form-control" type="text" id="searchForProvidersByCity" th:field="*{city}">
 <!--                <button class="btn btn-primary " type="submit" th:text="Wyszukaj"></button>-->
