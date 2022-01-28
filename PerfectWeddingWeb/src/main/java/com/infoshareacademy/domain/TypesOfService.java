@@ -5,11 +5,12 @@ import lombok.Getter;
 
 @Getter
 public enum TypesOfService {
+    WSZYSTKIE("WSZYSTKIE"),
     FILMOWANIE("FILMOWANIE"),
     FOTOGRAFIA("FOTOGRAFIA"),
     SALA_WESELNA("SALA_WESELNA"),
-    OPRAWA_MUZYCZNA("OPRAWA_MUZYCZNA"),
-    WSZYSTKIE("WSZYSTKIE");
+    OPRAWA_MUZYCZNA("OPRAWA_MUZYCZNA");
+
 
     private String fullName;
 
