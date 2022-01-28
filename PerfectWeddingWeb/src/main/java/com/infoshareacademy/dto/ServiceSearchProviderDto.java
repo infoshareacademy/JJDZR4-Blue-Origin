@@ -15,4 +15,5 @@ public class ServiceSearchProviderDto {
     private LocalDate date;
 
 
+
 }

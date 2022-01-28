@@ -2,6 +2,7 @@ package com.infoshareacademy.controllers;
 
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
+import com.infoshareacademy.dto.ServiceSearchProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,20 @@ public class ProviderController {
 
         model.addAttribute("allProvidersTH", serviceProviderDtos);
         return "AllProviders";
+    }
+
+    @GetMapping("/providers/edit")
+    public String clientsPage(Model model) {
+        model.addAttribute("cityAndTypeOfService", new ServiceSearchProviderDto());
+        return "ProviderEditMenu";
+    }
+
+    @PostMapping("/find-to-edit")
+    public String findByTypeOfService(Model modelOfFoundProviders, /*@ModelAttribute("serviceSearchProviderDto")*/ ServiceSearchProviderDto serviceSearchProviderDto) {
+        modelOfFoundProviders
+                .addAttribute("providersByServiceTH", serviceProviderService.findProviders(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity(), serviceSearchProviderDto.getDate(), true))
+                .addAttribute("ClientPanel", false);
+        return "FoundProviders";
     }
 
 }

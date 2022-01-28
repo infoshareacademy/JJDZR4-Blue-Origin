@@ -45,7 +45,7 @@
                     <th>Location</th>
                     <th>Service Type</th>
                     <th>Availability</th>
-                    <th>Is Active</th>
+                    <th>Akcja</th>
                     <!-- <th>Rating List</th>-->
                 </tr>
 
@@ -70,7 +70,13 @@
                     <td th:text="${provider.serviceType.getTypesOfService()}"></td>
                     <!--    Data narazie nie dziala.-->
                     <td th:text="${provider.availability}"></td>
-                    <td th:text="${provider.isActive()}"></td>
+                    <span th:if="${ClientPanel}">
+                        <td th:text="'tu bedzie przysk przenoszacy na rating'"></td>
+                    </span>
+                    <span th:unless="${ClientPanel}">
+                        <td th:text="'tu bedzie przysk przenoszacy na edycje'"></td>
+                    </span>
+                   <!-- <td th:text="${provider.isActive()}"></td>-->
                     <!-- <td th:text="${provider.ratingList}"></td>-->
                 </tr>
             </table>
