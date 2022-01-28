@@ -10,7 +10,9 @@ import org.thymeleaf.util.StringUtils;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -102,42 +104,48 @@ public class ServiceProviderService {
 //        return filteredByTypeAndCity;
 //    }
 
-    public List<ServiceProvider> findProviders(String typeOfService, String city, LocalDate date) {
-
-        //jesli chcemy wszystkie kategorie jest to rownoznaczne z filtrowaniem bez udzialu kategorii
+    public List<ServiceProvider> findProviders(String typeOfService, String city, LocalDate date, Boolean onlyActive) {
+        List<ServiceProvider> toReturn = new ArrayList();
         if (typeOfService.equalsIgnoreCase("WSZYSTKIE")) {
             if (Objects.isNull(date)) {
-                return filterByCity(city);
+                toReturn = filterByCity(city);
             } else {
-                return filterByCityAndDate(city, date);
+                toReturn = filterByCityAndDate(city, date);
             }
         } else {
             if (Objects.isNull(date)) {
-                return FilterByServiceAndCity(typeOfService, city);
+                toReturn = FilterByServiceAndCity(typeOfService, city);
             } else {
-                return filterServiceCityAndDate(typeOfService, city, date);
+                toReturn = filterServiceCityAndDate(typeOfService, city, date);
             }
         }
-    }
+        if (onlyActive) {
+            toReturn = toReturn.stream()
+                    .filter(sd -> sd.isActive())
+                    .toList();
 
+
+        }
+        return toReturn;
+    }
 
     private List<ServiceProvider> filterServiceCityAndDate(String typeOfService, String city, LocalDate date) {
         return serviceProviderRepo.getServiceProvidersList().stream()
                 .filter(sp -> sp.getServiceType().getTypesOfService().getFullName().equalsIgnoreCase(typeOfService))
-                .filter(sp -> StringUtils.equalsIgnoreCase(sp.getLocation().getCity(), city))
+                .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
                 .filter(sp -> sp.getAvailability().getDates().contains(date))
                 .toList();
     }
 
     private List<ServiceProvider> filterByCity(String city) {
         return serviceProviderRepo.getServiceProvidersList().stream()
-                .filter(sp -> StringUtils.equalsIgnoreCase(sp.getLocation().getCity(), city))
+                .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
                 .toList();
     }
 
     private List<ServiceProvider> filterByCityAndDate(String city, LocalDate date) {
         return serviceProviderRepo.getServiceProvidersList().stream()
-                .filter(sp -> StringUtils.equalsIgnoreCase(sp.getLocation().getCity(), city))
+                .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
                 .filter(sp -> sp.getAvailability().getDates().contains(date))
                 .toList();
     }
@@ -145,7 +153,7 @@ public class ServiceProviderService {
     private List<ServiceProvider> FilterByServiceAndCity(String typeOfService, String city) {
         return serviceProviderRepo.getServiceProvidersList().stream()
                 .filter(sp -> sp.getServiceType().getTypesOfService().getFullName().equalsIgnoreCase(typeOfService))
-                .filter(sp -> StringUtils.equalsIgnoreCase(sp.getLocation().getCity(), city))
+                .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
                 .toList();
     }
 }
