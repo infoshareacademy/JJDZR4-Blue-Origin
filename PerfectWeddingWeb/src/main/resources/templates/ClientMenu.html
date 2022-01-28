@@ -48,7 +48,7 @@
                 <label class=”control-label” th:for="searchForProvidersByService" th:text="'Szukaj wg rodzaju uslugi'"></label>
                 <select class="form-control" id="searchForProvidersByService" th:field="*{serviceType}">
 <!--                    <option th:text="'Wszystkie typy uslug'" th:value="'All'"/>-->
-                    <option th:each="service_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"
+                    <option th:each="service_option : ${T(com.infoshareacademy.domain.TypesOfServiceForForm).values()}"
                             th:value="${service_option}" th:text="${service_option.fullName}">
                     </option>
 

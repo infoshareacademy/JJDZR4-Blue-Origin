@@ -4,7 +4,8 @@ package com.infoshareacademy.domain;
 import lombok.Getter;
 
 @Getter
-public enum TypesOfService {
+public enum TypesOfServiceForForm {
+    WSZYSTKIE("WSZYSTKIE"),
     FILMOWANIE("FILMOWANIE"),
     FOTOGRAFIA("FOTOGRAFIA"),
     SALA_WESELNA("SALA_WESELNA"),
@@ -13,7 +14,7 @@ public enum TypesOfService {
 
     private String fullName;
 
-    TypesOfService(String fullName) {
+    TypesOfServiceForForm(String fullName) {
         this.fullName = fullName;
     }
 
