@@ -71,10 +71,17 @@
                     <!--    Data narazie nie dziala.-->
                     <td th:text="${provider.availability}"></td>
                     <span th:if="${ClientPanel}">
-                        <td th:text="'tu bedzie przysk przenoszacy na rating'"></td>
+                        <td th:text="'tu bedzie przysk przenoszacy na rating'">
+
+                        </td>
                     </span>
                     <span th:unless="${ClientPanel}">
-                        <td th:text="'tu bedzie przysk przenoszacy na edycje'"></td>
+                        <td>
+                            <a th:href="@{edit/{id} (id=${provider.currentID})}">
+                                    <button id="Edit" class="btn btn-secondary" type="button"
+                                            th:text="'Edycja'"></button>
+                                </a>
+                        </td>
                     </span>
                    <!-- <td th:text="${provider.isActive()}"></td>-->
                     <!-- <td th:text="${provider.ratingList}"></td>-->

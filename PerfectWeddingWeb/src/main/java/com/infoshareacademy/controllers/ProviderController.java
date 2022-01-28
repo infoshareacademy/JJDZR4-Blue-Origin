@@ -45,13 +45,14 @@ public class ProviderController {
     }
 
     @GetMapping("providers/edit/{id}")
+    @ResponseBody //TODO: usunac jak juz bedzie gotowa metoda
     public String editForm(Model model, @PathVariable Integer id) {
 
         model.addAttribute("serviceProviderAddDto", null);
 
         //toDO dodać po ID
 
-        return "ProviderAdd";
+        return "tu bedzie formatka edycji pojedynczego dostawcy";
     }
 
 
