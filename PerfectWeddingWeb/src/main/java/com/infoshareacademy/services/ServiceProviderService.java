@@ -105,21 +105,21 @@ public class ServiceProviderService {
     public List<ServiceProvider> findProviders(String typeOfService, String city, LocalDate date) {
 
         //jesli chcemy wszystkie kategorie jest to rownoznaczne z filtrowaniem bez udzialu kategorii
-        if (typeOfService.equalsIgnoreCase("WSZYSTKIE") && Objects.isNull(date)) {
-            return filterByCity(city);
-        }
-
-        if (Objects.isNull(date)) {
-            return FilterByServiceAndCity(typeOfService, city);
-        }
-
-        //jesli chcemy wszystkie kategorie jest to rownoznaczne z filtrowaniem bez udzialu kategorii
         if (typeOfService.equalsIgnoreCase("WSZYSTKIE")) {
-            return filterByCityAndDate(city, date);
+            if (Objects.isNull(date)) {
+                return filterByCity(city);
+            } else {
+                return filterByCityAndDate(city, date);
+            }
+        } else {
+            if (Objects.isNull(date)) {
+                return FilterByServiceAndCity(typeOfService, city);
+            } else {
+                return filterServiceCityAndDate(typeOfService, city, date);
+            }
         }
-
-        return filterServiceCityAndDate(typeOfService, city, date);
     }
+
 
     private List<ServiceProvider> filterServiceCityAndDate(String typeOfService, String city, LocalDate date) {
         return serviceProviderRepo.getServiceProvidersList().stream()
