@@ -103,7 +103,7 @@
                             <span th:each="error : ${#fields.errors('voivodeship')}" th:text="${error}"></span>
                         </div>
                     </tr>
-                   <!-- <tr>
+                    <tr>
                         <label class=”control-label” th:for="TypesOfService" th:text="'Podaj rodzaj usługi'"></label>
                         <select class="form-control" id="TypesOfService" th:field="*{typesOfService}">
                             <option th:each="category_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"
@@ -125,7 +125,7 @@
                         <div th:if="${#fields.hasErrors('price')}">
                             <span th:each="error : ${#fields.errors('price')}" th:text="${error}"></span>
                         </div>
-                    </tr>-->
+                    </tr>
                     <tr>
 
 

@@ -106,9 +106,10 @@ public class ServiceProviderMapper {
         serviceEditProviderDto.setCompanyName(serviceProvider.getCompanyName());
         serviceEditProviderDto.setCity(serviceProvider.getLocation().getCity());
         serviceEditProviderDto.setVoivodeship(serviceProvider.getLocation().getVoivodeship());
-/*        serviceEditProviderDto.setDescription(serviceProvider.getServiceType().getDescription());
+        serviceEditProviderDto.setDescription(serviceProvider.getServiceType().getDescription());
         serviceEditProviderDto.setPrice(serviceProvider.getServiceType().getPrice());
-        serviceEditProviderDto.setTypesOfService(serviceProvider.getServiceType().getTypesOfService());*/
+        serviceEditProviderDto.setTypesOfService(serviceProvider.getServiceType().getTypesOfService());
+
 
 
         // ToDo add more fields

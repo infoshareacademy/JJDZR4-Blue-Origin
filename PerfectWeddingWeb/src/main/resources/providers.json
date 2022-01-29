@@ -103,24 +103,48 @@
 }, {
   "averageRating" : -1.0,
   "currentID" : 4,
-  "companyName" : "Bogumiła Raulin Consulting",
-  "ownerName" : "Kasia",
-  "ownerSurname" : "Kasia",
-  "phone" : "",
-  "email" : "",
-  "websiteAddress" : "",
+  "companyName" : "Videoperfect Jerzy Dampc",
+  "ownerName" : "Lucyna ",
+  "ownerSurname" : "Lucyna",
+  "phone" : "570099286",
+  "email" : "paweldampc@op.pl",
+  "websiteAddress" : "pawel@pawel",
   "location" : {
     "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "Pępowo Kartuskie"
+    "city" : "Szemud"
   },
   "serviceType" : {
     "description" : "Wstawić pranie",
-    "price" : "70",
+    "price" : "69",
     "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : {
     "dates" : [ [ 2022, 2, 22 ] ]
+  },
+  "ratingList" : [ ],
+  "active" : true
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 5,
+  "companyName" : "Videoperfect Jerzy Dampc",
+  "ownerName" : "aaaaa",
+  "ownerSurname" : "aaaaaaaaaaaaaaaaaa",
+  "phone" : "33333333",
+  "email" : "dfdfdfd",
+  "websiteAddress" : "fdfdfd",
+  "location" : {
+    "voivodeship" : "LUBELSKIE",
+    "city" : "Szemudfddfdfdf"
+  },
+  "serviceType" : {
+    "description" : "opis taki jakidfdf",
+    "price" : "1999",
+    "typesOfService" : "FOTOGRAFIA",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 3, 2 ] ]
   },
   "ratingList" : [ ],
   "active" : true

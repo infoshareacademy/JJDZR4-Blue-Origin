@@ -27,7 +27,7 @@ public class ServiceEditProviderDto {
     private String description;
     private String price;
     private TypesOfService typesOfService;
-        private LocalDate availability;
+    private LocalDate availability;
     private boolean isActive;
 
 

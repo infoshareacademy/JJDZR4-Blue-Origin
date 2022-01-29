@@ -1,5 +1,6 @@
 package com.infoshareacademy.services;
 
+import com.infoshareacademy.domain.Availability;
 import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.domain.ServiceType;
@@ -13,10 +14,7 @@ import org.thymeleaf.util.StringUtils;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -52,8 +50,10 @@ public class ServiceProviderService {
         serviceProvider.setEmail(serviceEditProviderDto.getEmail());
         serviceProvider.setWebsiteAddress(serviceEditProviderDto.getWebsiteAddress());
         serviceProvider.setLocation(new Location(serviceEditProviderDto.getCity(), serviceEditProviderDto.getVoivodeship()));
-        serviceProvider.setActive(true);
-//        serviceProvider.setServiceType(new ServiceType(serviceEditProviderDto.getDescription(), serviceEditProviderDto.getPrice(), serviceEditProviderDto.getTypesOfService()));
+        serviceProvider.setServiceType(new ServiceType(serviceEditProviderDto.getDescription(), serviceEditProviderDto.getPrice(), serviceEditProviderDto.getTypesOfService()));
+
+
+
         // ToDo add more fields allowed to edit; we can also create remaping method in ServiceProviderMapper
         serviceProviderRepo.exportProviders();
     }
