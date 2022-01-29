@@ -2,6 +2,7 @@ package com.infoshareacademy.services;
 
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
+import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +34,16 @@ public class ServiceProviderService {
         return serviceProviderRepo.getServiceProvidersList();
     }
 
-    public List<ServiceProvider> findById(Integer id) {
+    public List<ServiceProvider> editById(Integer id) {
         return serviceProviderRepo.getServiceProvidersList()
                 .stream()
                 .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
                 .collect(Collectors.toList());
     }
-
+    public void editProvider(ServiceEditProviderDto serviceEditProviderDto) throws IOException {
+        serviceProviderRepo.getServiceProvidersList().add(serviceProviderMapper.mapperFromEditDto(serviceEditProviderDto));
+        serviceProviderRepo.exportProviders();
+    }
     public void exportServiceProviders() {
         try {
             serviceProviderRepo.exportProviders();
@@ -47,7 +51,6 @@ public class ServiceProviderService {
             e.printStackTrace();
         }
     }
-
     public void addProvider(ServiceAddProviderDto serviceAddProviderDto) throws IOException {
         serviceProviderRepo.getServiceProvidersList().add(serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto));
         serviceProviderRepo.exportProviders();

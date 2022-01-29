@@ -1,6 +1,7 @@
 package com.infoshareacademy.controllers;
 
 import com.infoshareacademy.dto.ServiceAddProviderDto;
+import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.dto.ServiceSearchProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
@@ -41,20 +42,20 @@ public class ProviderController {
             return "ProviderAdd";
         }
         serviceProviderService.addProvider(serviceAddProviderDto);
-        return "redirect:/all-providers";
+        return "redirect:/all-providers"; //toDO przed prezentacją zmienić na HomePage
     }
 
     @GetMapping("providers/edit/{id}")
-    @ResponseBody //TODO: usunac jak juz bedzie gotowa metoda
     public String editForm(Model model, @PathVariable Integer id) {
-
-        model.addAttribute("serviceProviderAddDto", null);
-
-        //toDO dodać po ID
-
-        return "tu bedzie formatka edycji pojedynczego dostawcy";
+        model.addAttribute("serviceProviderEditById", serviceProviderService.editById(id));
+        return "ProviderEditForm";
     }
+    @PostMapping("providers/editById")
+    public String editById(@ModelAttribute("serviceProviderEditByIdTH") ServiceEditProviderDto serviceEditProviderDto) throws IOException {
+        serviceProviderService.editProvider(serviceEditProviderDto);
+                return "redirect:/all-providers";
 
+    }
 
     @ResponseBody
     public String clientsPage() {

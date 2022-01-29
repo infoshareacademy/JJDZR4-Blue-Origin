@@ -5,6 +5,7 @@ import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
+import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import org.springframework.stereotype.Component;
 
@@ -81,6 +82,21 @@ public class ServiceProviderMapper {
 //        serviceAddProviderDto.setCurrentID(serviceAddProviderDto.getCurrentID());
 //        serviceAddProviderDto.setWebsiteAddress(serviceAddProviderDto.getWebsiteAddress());
         return null;
+    }
+    public ServiceProvider mapperFromEditDto(ServiceEditProviderDto serviceEditProviderDto) {
+        ServiceProvider serviceProvider = new ServiceProvider();
+        serviceProvider.setCompanyName(serviceEditProviderDto.getCompanyName());
+        serviceProvider.setOwnerName(serviceEditProviderDto.getOwnerName());
+        serviceProvider.setOwnerSurname(serviceEditProviderDto.getOwnerSurname());
+        serviceProvider.setPhone(serviceEditProviderDto.getPhone());
+        serviceProvider.setEmail(serviceEditProviderDto.getEmail());
+        serviceProvider.setWebsiteAddress(serviceEditProviderDto.getWebsiteAddress());
+        serviceProvider.setLocation(new Location(serviceEditProviderDto.getCity(), serviceEditProviderDto.getVoivodeship()));
+        serviceProvider.setServiceType(new ServiceType(serviceEditProviderDto.getServiceType().getID(), serviceEditProviderDto.getServiceType().getDescription(), serviceEditProviderDto.getServiceType().getPrice(), serviceEditProviderDto.getServiceType().getTypesOfService()));
+        serviceProvider.setActive(serviceEditProviderDto.isActive());
+        serviceProvider.setAvailability(new Availability(Arrays.asList(serviceEditProviderDto.getAvailability())));
+
+        return serviceProvider;
     }
 
 }
