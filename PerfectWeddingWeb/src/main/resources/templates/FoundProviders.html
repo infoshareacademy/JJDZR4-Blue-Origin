@@ -77,6 +77,11 @@
                     </span>
                     <span th:unless="${ClientPanel}">
                         <td>
+                            <a th:href="@{/deactivate/{id}(id=${provider.getCurrentID()})}">
+                                    <button id="d" class="btn btn-secondary" type="button"
+                                            th:text="'Dezaktywuj'"></button></a>
+                        </td>
+                        <td>
                             <a th:href="@{edit/{id} (id=${provider.currentID})}">
                                     <button id="Edit" class="btn btn-secondary" type="button"
                                             th:text="'Edycja'"></button>

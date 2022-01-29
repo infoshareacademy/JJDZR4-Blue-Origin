@@ -1,19 +1,19 @@
 [ {
   "averageRating" : 4.83,
   "currentID" : 1,
-  "companyName" : "Videoperfect Paweł Dampc",
-  "ownerName" : "Paweł",
-  "ownerSurname" : "Dampc",
-  "phone" : "570099286",
-  "email" : "poczta@videoperfect.eu",
-  "websiteAddress" : "videoperfect.eu",
+  "companyName" : "Multimedia360",
+  "ownerName" : "Marek",
+  "ownerSurname" : "Pałubicki",
+  "phone" : "578899563",
+  "email" : "poczta@vmultimedia.eu",
+  "websiteAddress" : "www.multimedia.eu",
   "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "Bojano"
+    "voivodeship" : "POMORSKIE",
+    "city" : "Bolszewo"
   },
   "serviceType" : {
-    "description" : "Zajmujmy sie fajnymi sprawami",
-    "price" : "49",
+    "description" : "Zdjęcia 360",
+    "price" : "2000 zł",
     "typesOfService" : "FOTOGRAFIA",
     "id" : 0
   },
@@ -41,7 +41,7 @@
   } ],
   "active" : true
 }, {
-  "averageRating" : 5.0,
+  "averageRating" : 3,
   "currentID" : 2,
   "companyName" : "Inre",
   "ownerName" : "Piotr",
@@ -63,89 +63,47 @@
     "dates" : [ [ 2022, 6, 5 ], [ 2022, 1, 1 ] ]
   },
   "ratingList" : [ {
-    "rating" : 5,
+    "rating" : 3,
     "comment" : "SUper"
   }, {
-    "rating" : 5,
-    "comment" : "Sprawdzam czy da sie dodac koment dla ID ktorego nie ma na liscie."
-  }, {
-    "rating" : 5,
-    "comment" : "Test 26112021"
-  }, {
-    "rating" : 5,
-    "comment" : "Ma sie dodac ocena dla uslugodawcy o ID = 2, wyjcie z poziomu wyszukiwarki po rodzaju uslugi."
+    "rating" : 3,
+    "comment" : "OK"
   } ],
   "active" : true
 }, {
-  "averageRating" : -1.0,
+  "averageRating" : 5,
   "currentID" : 3,
-  "companyName" : "Videoperfect Jerzy Dampc",
-  "ownerName" : "Jurek",
+  "companyName" : "Videoperfect Paweł Dampc",
+  "ownerName" : "Paweł",
   "ownerSurname" : "Dampc",
   "phone" : "570099286",
-  "email" : "paweldampc@op.pl",
-  "websiteAddress" : "Rzemieślnicza",
+  "email" : "poczta@videoperfect.eu",
+  "websiteAddress" : "www.videoperfect.eu",
   "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
+    "voivodeship" : "POMORSKIE",
     "city" : "Szemud"
   },
   "serviceType" : {
-    "description" : "opisssss",
-    "price" : "23",
+    "description" : "zajmujemy się fotografią",
+    "price" : "3200 zł",
     "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : {
     "dates" : [ [ 2022, 2, 16 ] ]
   },
-  "ratingList" : [ ],
-  "active" : false
-}, {
-  "averageRating" : -1.0,
-  "currentID" : 4,
-  "companyName" : "Videoperfect Jerzy Dampc",
-  "ownerName" : "Lucyna ",
-  "ownerSurname" : "Lucyna",
-  "phone" : "570099286",
-  "email" : "paweldampc@op.pl",
-  "websiteAddress" : "pawel@pawel",
-  "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "Szemud"
-  },
-  "serviceType" : {
-    "description" : "Wstawić pranie",
-    "price" : "69",
-    "typesOfService" : "FILMOWANIE",
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ [ 2022, 2, 22 ] ]
-  },
-  "ratingList" : [ ],
-  "active" : true
-}, {
-  "averageRating" : -1.0,
-  "currentID" : 5,
-  "companyName" : "Videoperfect Jerzy Dampc",
-  "ownerName" : "aaaaa",
-  "ownerSurname" : "aaaaaaaaaaaaaaaaaa",
-  "phone" : "33333333",
-  "email" : "dfdfdfd",
-  "websiteAddress" : "fdfdfd",
-  "location" : {
-    "voivodeship" : "LUBELSKIE",
-    "city" : "Szemudfddfdfdf"
-  },
-  "serviceType" : {
-    "description" : "opis taki jakidfdf",
-    "price" : "1999",
-    "typesOfService" : "FOTOGRAFIA",
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ [ 2022, 3, 2 ] ]
-  },
-  "ratingList" : [ ],
+  "ratingList" : [ {
+    "rating" : 5,
+    "comment" : "Mega"
+  }, {
+    "rating" : 5,
+    "comment" : "Jeszcze bardziej mega."
+  }, {
+    "rating" : 5,
+    "comment" : "Oby tak dalej."
+  }, {
+    "rating" : 5,
+    "comment" : "test"
+  } ],
   "active" : true
 } ]

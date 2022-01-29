@@ -5,7 +5,9 @@ import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
+import com.infoshareacademy.dto.ServiceDeActivateProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
+import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,14 @@ public class ServiceProviderService {
         return serviceProviderRepo.getServiceProvidersList();
     }
 
+    public ServiceProvider deActivate(Integer id) {
+        serviceProviderRepo.getServiceProvidersList().stream()
+                .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
+                .forEach(serviceProvider -> serviceProvider.setActive(false));
+        return null;
+
+    }
+
     public ServiceProvider editById(Integer id) {
         return serviceProviderRepo.getServiceProvidersList()
                 .stream()
@@ -53,10 +63,10 @@ public class ServiceProviderService {
         serviceProvider.setServiceType(new ServiceType(serviceEditProviderDto.getDescription(), serviceEditProviderDto.getPrice(), serviceEditProviderDto.getTypesOfService()));
 
 
-
         // ToDo add more fields allowed to edit; we can also create remaping method in ServiceProviderMapper
         serviceProviderRepo.exportProviders();
     }
+
     public void exportServiceProviders() {
         try {
             serviceProviderRepo.exportProviders();
@@ -64,6 +74,7 @@ public class ServiceProviderService {
             e.printStackTrace();
         }
     }
+
     public void addProvider(ServiceAddProviderDto serviceAddProviderDto) throws IOException {
         serviceProviderRepo.getServiceProvidersList().add(serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto));
         serviceProviderRepo.exportProviders();

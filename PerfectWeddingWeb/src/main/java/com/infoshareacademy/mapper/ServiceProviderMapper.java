@@ -5,6 +5,7 @@ import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
+import com.infoshareacademy.dto.ServiceDeActivateProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import org.springframework.stereotype.Component;
@@ -115,4 +116,9 @@ public class ServiceProviderMapper {
         // ToDo add more fields
         return serviceEditProviderDto;
     }
+    public ServiceDeActivateProviderDto mapToServiceDeActivateProviderDto(ServiceProvider serviceProvider) {
+        ServiceDeActivateProviderDto serviceDeActivateProviderDto = new ServiceDeActivateProviderDto();
+                serviceDeActivateProviderDto.setId(serviceProvider.getCurrentID());
+        serviceDeActivateProviderDto.setActive(serviceProvider.isActive());
+        return  serviceDeActivateProviderDto;}
 }
