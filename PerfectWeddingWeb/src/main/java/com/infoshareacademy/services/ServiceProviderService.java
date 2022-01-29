@@ -1,6 +1,8 @@
 package com.infoshareacademy.services;
 
+import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.ServiceProvider;
+import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
@@ -44,6 +46,14 @@ public class ServiceProviderService {
     public void editProvider(ServiceEditProviderDto serviceEditProviderDto) throws IOException {
         ServiceProvider serviceProvider = editById(serviceEditProviderDto.getId());
         serviceProvider.setCompanyName(serviceEditProviderDto.getCompanyName());
+        serviceProvider.setOwnerName(serviceEditProviderDto.getOwnerName());
+        serviceProvider.setOwnerSurname(serviceEditProviderDto.getOwnerSurname());
+        serviceProvider.setPhone(serviceEditProviderDto.getPhone());
+        serviceProvider.setEmail(serviceEditProviderDto.getEmail());
+        serviceProvider.setWebsiteAddress(serviceEditProviderDto.getWebsiteAddress());
+        serviceProvider.setLocation(new Location(serviceEditProviderDto.getCity(), serviceEditProviderDto.getVoivodeship()));
+        serviceProvider.setActive(true);
+//        serviceProvider.setServiceType(new ServiceType(serviceEditProviderDto.getDescription(), serviceEditProviderDto.getPrice(), serviceEditProviderDto.getTypesOfService()));
         // ToDo add more fields allowed to edit; we can also create remaping method in ServiceProviderMapper
         serviceProviderRepo.exportProviders();
     }

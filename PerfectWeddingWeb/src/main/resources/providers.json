@@ -1,20 +1,20 @@
 [ {
   "averageRating" : 4.83,
   "currentID" : 1,
-  "companyName" : "Videoperfect Po edycji",
+  "companyName" : "Videoperfect Paweł Dampc",
   "ownerName" : "Paweł",
   "ownerSurname" : "Dampc",
   "phone" : "570099286",
   "email" : "poczta@videoperfect.eu",
   "websiteAddress" : "videoperfect.eu",
   "location" : {
-    "voivodeship" : "POMORSKIE",
-    "city" : "Szemud"
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Bojano"
   },
   "serviceType" : {
-    "description" : "Zajmujemy się filmowaniem wesel od przygotowań do końca oczepin. W pakiecie 3 szt pendrive, teledysk ślubny.",
-    "price" : "3200 zł",
-    "typesOfService" : "FILMOWANIE",
+    "description" : "Zajmujmy sie fajnymi sprawami",
+    "price" : "49",
+    "typesOfService" : "FOTOGRAFIA",
     "id" : 0
   },
   "availability" : {
@@ -79,115 +79,43 @@
 }, {
   "averageRating" : -1.0,
   "currentID" : 3,
-  "companyName" : "",
-  "ownerName" : "",
-  "ownerSurname" : "",
-  "phone" : "",
-  "email" : "",
-  "websiteAddress" : "",
+  "companyName" : "Videoperfect Jerzy Dampc",
+  "ownerName" : "Jurek",
+  "ownerSurname" : "Dampc",
+  "phone" : "570099286",
+  "email" : "paweldampc@op.pl",
+  "websiteAddress" : "Rzemieślnicza",
   "location" : {
     "voivodeship" : "DOLNOŚLĄSKIE",
     "city" : "Szemud"
   },
   "serviceType" : {
-    "description" : "",
-    "price" : "",
+    "description" : "opisssss",
+    "price" : "23",
     "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ [ 2022, 1, 26 ] ]
-  },
-  "ratingList" : [ ],
-  "active" : true
-}, {
-  "averageRating" : -1.0,
-  "currentID" : 4,
-  "companyName" : "",
-  "ownerName" : "",
-  "ownerSurname" : "",
-  "phone" : "",
-  "email" : "",
-  "websiteAddress" : "",
-  "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "SZEMUD"
-  },
-  "serviceType" : {
-    "description" : "",
-    "price" : "",
-    "typesOfService" : "FOTOGRAFIA",
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ null ]
-  },
-  "ratingList" : [ ],
-  "active" : true
-}, {
-  "averageRating" : -1.0,
-  "currentID" : 5,
-  "companyName" : "",
-  "ownerName" : "",
-  "ownerSurname" : "",
-  "phone" : "",
-  "email" : "",
-  "websiteAddress" : "",
-  "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "SZEMUD"
-  },
-  "serviceType" : {
-    "description" : "",
-    "price" : "",
-    "typesOfService" : "FOTOGRAFIA",
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ null ]
-  },
-  "ratingList" : [ ],
-  "active" : true
-}, {
-  "averageRating" : -1.0,
-  "currentID" : 3,
-  "companyName" : "Correct company name",
-  "ownerName" : "Correct Owner",
-  "ownerSurname" : "Correct Owner",
-  "phone" : "500 500 500",
-  "email" : "",
-  "websiteAddress" : "",
-  "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "Lublin"
-  },
-  "serviceType" : {
-    "description" : "Correct description",
-    "price" : "500",
-    "typesOfService" : "FILMOWANIE",
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ [ 2022, 1, 26 ] ]
+    "dates" : [ [ 2022, 2, 16 ] ]
   },
   "ratingList" : [ ],
   "active" : false
 }, {
   "averageRating" : -1.0,
   "currentID" : 4,
-  "companyName" : "Our new Company",
-  "ownerName" : "fdsf",
-  "ownerSurname" : "fasdf",
-  "phone" : "fasdf",
-  "email" : "fasdf@test.pl",
+  "companyName" : "Bogumiła Raulin Consulting",
+  "ownerName" : "Kasia",
+  "ownerSurname" : "Kasia",
+  "phone" : "",
+  "email" : "",
   "websiteAddress" : "",
   "location" : {
     "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "fdsaf"
+    "city" : "Pępowo Kartuskie"
   },
   "serviceType" : {
-    "description" : "fasdf",
-    "price" : "1",
+    "description" : "Wstawić pranie",
+    "price" : "70",
     "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
@@ -195,5 +123,5 @@
     "dates" : [ [ 2022, 2, 22 ] ]
   },
   "ratingList" : [ ],
-  "active" : false
+  "active" : true
 } ]

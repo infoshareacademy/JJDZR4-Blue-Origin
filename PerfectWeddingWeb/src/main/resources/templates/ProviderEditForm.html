@@ -14,7 +14,6 @@
 </head>
 
 
-<body>
 <!--<div style="text-align:center">-->
 <!--    <p>-->
 <!--    <h1>Panel Klienta</h1></p>-->
@@ -39,18 +38,116 @@
             </div>
         </aside>
         <main class="col-lg-8">
-
-                    <form class="form-control left-10" th:action="@{/providers/editById}" method="post" th:object="${serviceEditProviderDto}">
-                        <input type="hidden" th:field="*{id}" id="id">
+            <form class="form-control left-10" th:action="@{/providers/editById}" method="post"
+                  th:object="${serviceEditProviderDto}">
+                <input type="hidden" th:field="*{id}" id="id">
+                <table class="table table-striped table-bordered table-hover">
+                    <tr>
 
                         <label class=”control-label” th:for="companyName" th:text="'podaj Company Name'"></label>
                         <input class="form-control" type="text" id="companyName" th:field="*{companyName}">
                         <div th:if="${#fields.hasErrors('companyName')}">
                             <span th:each="error : ${#fields.errors('companyName')}" th:text="${error}"></span>
                         </div>
-<!--                        ToDo Add more fields to edit-->
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="ownerName" th:text="'podaj Owner Name'"></label>
+                        <input class="form-control" type="text" id="ownerName" th:field="*{ownerName}">
+                        <div th:if="${#fields.hasErrors('ownerName')}">
+                            <span th:each="error : ${#fields.errors('ownerName')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="ownerSurname" th:text="'podaj Owner Surname'"></label>
+                        <input class="form-control" type="text" id="ownerSurname" th:field="*{ownerSurname}">
+                        <div th:if="${#fields.hasErrors('ownerSurname')}">
+                            <span th:each="error : ${#fields.errors('ownerSurname')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="phone" th:text="'podaj Phone'"></label>
+                        <input class="form-control" type="text" id="phone" th:field="*{phone}">
+                        <div th:if="${#fields.hasErrors('phone')}">
+                            <span th:each="error : ${#fields.errors('phone')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="email" th:text="'podaj E-Mail'"></label>
+                        <input class="form-control" type="text" id="email" th:field="*{email}">
+                        <div th:if="${#fields.hasErrors('email')}">
+                            <span th:each="error : ${#fields.errors('email')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="websiteAddress" th:text="'podaj Website Address'"></label>
+                        <input class="form-control" type="text" id="websiteAddress" th:field="*{websiteAddress}">
+                        <div th:if="${#fields.hasErrors('websiteAddress')}">
+                            <span th:each="error : ${#fields.errors('websiteAddress')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="city" th:text="'Podaj miejscowość'"></label>
+                        <input class="form-control" type="text" id="city" th:field="*{city}">
+                        <div th:if="${#fields.hasErrors('city')}">
+                            <span th:each="error : ${#fields.errors('city')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="voivodeship" th:text="'Podaj wojewodztwo'"></label>
+                        <select class="form-control" id="voivodeship" th:field="*{voivodeship}">
+                            <option th:each="category_option : ${T(com.infoshareacademy.domain.Voivodeship).values()}"
+                                    th:value="${category_option}" th:text="${category_option.fullName}">
+                            </option>
+                        </select>
+                        <div th:if="${#fields.hasErrors('voivodeship')}">
+                            <span th:each="error : ${#fields.errors('voivodeship')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                   <!-- <tr>
+                        <label class=”control-label” th:for="TypesOfService" th:text="'Podaj rodzaj usługi'"></label>
+                        <select class="form-control" id="TypesOfService" th:field="*{typesOfService}">
+                            <option th:each="category_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"
+                                    th:value="${category_option}" th:text="${category_option.fullName}">
+                            </option>
+                        </select>
+                        <div th:if="${#fields.hasErrors('TypesOfService')}">
+                            <span th:each="error : ${#fields.errors('TypesOfService')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="description" th:text="'Podaj opis'"></label>
+                        <input class="form-control" type="text" id="description" th:field="*{description}">
+                        <div th:if="${#fields.hasErrors('description')}">
+                            <span th:each="error : ${#fields.errors('description')}" th:text="${error}"></span>
+                        </div>
+                        <label class=”control-label” th:for="price" th:text="'Podaj cenę'"></label>
+                        <input class="form-control" type="number" id="price" th:field="*{price}">
+                        <div th:if="${#fields.hasErrors('price')}">
+                            <span th:each="error : ${#fields.errors('price')}" th:text="${error}"></span>
+                        </div>
+                    </tr>-->
+                    <tr>
+
+
+                    </tr>
+                    <tr>
+
+
+                    </tr>
+                    <tr>
+
+
+                    </tr>
+                    <tr>
+
+
+                    </tr>
+                    <tr>
+                        <br>
                         <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Zapisz'"></button>
-                    </form>
+                    </tr>
+                </table>
+            </form>
         </main>
     </div>
 </section>

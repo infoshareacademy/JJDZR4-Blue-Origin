@@ -13,8 +13,8 @@ import java.util.Arrays;
 
 @Component
 public class ServiceProviderMapper {
-    
-    
+
+
     public ServiceProviderDto mapperToDto(ServiceProvider serviceProvider) {
         ServiceProviderDto serviceProviderDto = new ServiceProviderDto();
         serviceProviderDto.setActive(serviceProvider.isActive());
@@ -53,7 +53,7 @@ public class ServiceProviderMapper {
 
     public ServiceProvider mapperFromAddDto(ServiceAddProviderDto serviceAddProviderDto) {
         ServiceProvider serviceProvider = new ServiceProvider();
-        serviceProvider.setActive(serviceAddProviderDto.isActive());
+        serviceProvider.setActive(true);
         serviceProvider.setAvailability(new Availability(Arrays.asList(serviceAddProviderDto.getAvailability())));
         serviceProvider.setLocation(new Location(serviceAddProviderDto.getCity(), serviceAddProviderDto.getVoivodeship()));
         serviceProvider.setServiceType(new ServiceType(serviceAddProviderDto.getID(), serviceAddProviderDto.getDescription(), serviceAddProviderDto.getPrice(), serviceAddProviderDto.getTypesOfService()));
@@ -67,7 +67,8 @@ public class ServiceProviderMapper {
         serviceProvider.setWebsiteAddress(serviceAddProviderDto.getWebsiteAddress());
         return serviceProvider;
     }
-    public ServiceProviderDto mapperToAddDto(ServiceProvider serviceProvider){
+
+    public ServiceProviderDto mapperToAddDto(ServiceProvider serviceProvider) {
 //        ServiceAddProviderDto serviceAddProviderDto = new ServiceAddProviderDto();
 //        serviceAddProviderDto.setActive(serviceProvider.isActive());
 //        serviceAddProviderDto.setAvailability(serviceProvider.getAvailability().getDates().get(0));
@@ -83,7 +84,7 @@ public class ServiceProviderMapper {
 //        serviceAddProviderDto.setWebsiteAddress(serviceAddProviderDto.getWebsiteAddress());
         return null;
     }
-    public ServiceProvider mapperFromEditDto(ServiceEditProviderDto serviceEditProviderDto) {
+    /*public ServiceProvider mapperFromEditDto(ServiceEditProviderDto serviceEditProviderDto) {
         ServiceProvider serviceProvider = new ServiceProvider();
         serviceProvider.setCompanyName(serviceEditProviderDto.getCompanyName());
         serviceProvider.setOwnerName(serviceEditProviderDto.getOwnerName());
@@ -97,12 +98,19 @@ public class ServiceProviderMapper {
         serviceProvider.setAvailability(new Availability(Arrays.asList(serviceEditProviderDto.getAvailability())));
 
         return serviceProvider;
-    }
+    }*/
 
     public ServiceEditProviderDto mapToServiceEditProviderDto(ServiceProvider serviceProvider) {
         ServiceEditProviderDto serviceEditProviderDto = new ServiceEditProviderDto();
         serviceEditProviderDto.setId(serviceProvider.getCurrentID());
         serviceEditProviderDto.setCompanyName(serviceProvider.getCompanyName());
+        serviceEditProviderDto.setCity(serviceProvider.getLocation().getCity());
+        serviceEditProviderDto.setVoivodeship(serviceProvider.getLocation().getVoivodeship());
+/*        serviceEditProviderDto.setDescription(serviceProvider.getServiceType().getDescription());
+        serviceEditProviderDto.setPrice(serviceProvider.getServiceType().getPrice());
+        serviceEditProviderDto.setTypesOfService(serviceProvider.getServiceType().getTypesOfService());*/
+
+
         // ToDo add more fields
         return serviceEditProviderDto;
     }
