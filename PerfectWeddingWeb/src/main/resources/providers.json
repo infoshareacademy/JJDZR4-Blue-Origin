@@ -1,7 +1,7 @@
 [ {
-  "averageRating" : 4.833333333333333,
+  "averageRating" : 4.83,
   "currentID" : 1,
-  "companyName" : "Videoperfect",
+  "companyName" : "Videoperfect Po edycji",
   "ownerName" : "Paweł",
   "ownerSurname" : "Dampc",
   "phone" : "570099286",
@@ -77,7 +77,7 @@
   } ],
   "active" : true
 }, {
-  "averageRating" : 0.0,
+  "averageRating" : -1.0,
   "currentID" : 3,
   "companyName" : "",
   "ownerName" : "",
@@ -101,7 +101,7 @@
   "ratingList" : [ ],
   "active" : true
 }, {
-  "averageRating" : 0.0,
+  "averageRating" : -1.0,
   "currentID" : 4,
   "companyName" : "",
   "ownerName" : "",
@@ -125,7 +125,7 @@
   "ratingList" : [ ],
   "active" : true
 }, {
-  "averageRating" : 0.0,
+  "averageRating" : -1.0,
   "currentID" : 5,
   "companyName" : "",
   "ownerName" : "",
@@ -149,7 +149,7 @@
   "ratingList" : [ ],
   "active" : true
 }, {
-  "averageRating" : 0.0,
+  "averageRating" : -1.0,
   "currentID" : 3,
   "companyName" : "Correct company name",
   "ownerName" : "Correct Owner",
@@ -173,7 +173,7 @@
   "ratingList" : [ ],
   "active" : false
 }, {
-  "averageRating" : 0.0,
+  "averageRating" : -1.0,
   "currentID" : 4,
   "companyName" : "Our new Company",
   "ownerName" : "fdsf",

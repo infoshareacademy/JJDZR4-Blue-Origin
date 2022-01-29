@@ -99,4 +99,11 @@ public class ServiceProviderMapper {
         return serviceProvider;
     }
 
+    public ServiceEditProviderDto mapToServiceEditProviderDto(ServiceProvider serviceProvider) {
+        ServiceEditProviderDto serviceEditProviderDto = new ServiceEditProviderDto();
+        serviceEditProviderDto.setId(serviceProvider.getCurrentID());
+        serviceEditProviderDto.setCompanyName(serviceProvider.getCompanyName());
+        // ToDo add more fields
+        return serviceEditProviderDto;
+    }
 }

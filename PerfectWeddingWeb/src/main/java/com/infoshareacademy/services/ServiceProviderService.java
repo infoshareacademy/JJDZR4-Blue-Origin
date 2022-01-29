@@ -29,19 +29,22 @@ public class ServiceProviderService {
         this.serviceProviderMapper = serviceProviderMapper;
     }
 
-
     public List<ServiceProvider> returnAllServiceProviders() {
         return serviceProviderRepo.getServiceProvidersList();
     }
 
-    public List<ServiceProvider> editById(Integer id) {
+    public ServiceProvider editById(Integer id) {
         return serviceProviderRepo.getServiceProvidersList()
                 .stream()
                 .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
-                .collect(Collectors.toList());
+                .findFirst()
+                .orElseThrow();
     }
+
     public void editProvider(ServiceEditProviderDto serviceEditProviderDto) throws IOException {
-        serviceProviderRepo.getServiceProvidersList().add(serviceProviderMapper.mapperFromEditDto(serviceEditProviderDto));
+        ServiceProvider serviceProvider = editById(serviceEditProviderDto.getId());
+        serviceProvider.setCompanyName(serviceEditProviderDto.getCompanyName());
+        // ToDo add more fields allowed to edit; we can also create remaping method in ServiceProviderMapper
         serviceProviderRepo.exportProviders();
     }
     public void exportServiceProviders() {

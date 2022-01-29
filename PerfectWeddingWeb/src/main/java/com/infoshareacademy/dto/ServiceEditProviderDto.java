@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @Setter
 public class ServiceEditProviderDto {
 
+    private int id;
     private String companyName;
     private String ownerName;
     private String ownerSurname;

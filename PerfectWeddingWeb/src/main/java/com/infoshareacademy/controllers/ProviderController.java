@@ -1,5 +1,6 @@
 package com.infoshareacademy.controllers;
 
+import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
@@ -47,14 +48,16 @@ public class ProviderController {
 
     @GetMapping("providers/edit/{id}")
     public String editForm(Model model, @PathVariable Integer id) {
-        model.addAttribute("serviceProviderEditById", serviceProviderService.editById(id));
+        ServiceProvider serviceProvider = serviceProviderService.editById(id);
+        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+        model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
         return "ProviderEditForm";
     }
-    @PostMapping("providers/editById")
-    public String editById(@ModelAttribute("serviceProviderEditByIdTH") ServiceEditProviderDto serviceEditProviderDto) throws IOException {
-        serviceProviderService.editProvider(serviceEditProviderDto);
-                return "redirect:/all-providers";
 
+    @PostMapping("providers/editById")
+    public String editById(ServiceEditProviderDto serviceEditProviderDto) throws IOException {
+        serviceProviderService.editProvider(serviceEditProviderDto);
+        return "redirect:/all-providers";
     }
 
     @ResponseBody
