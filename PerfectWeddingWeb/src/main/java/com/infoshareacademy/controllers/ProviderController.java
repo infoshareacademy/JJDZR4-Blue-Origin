@@ -2,6 +2,7 @@ package com.infoshareacademy.controllers;
 
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
+import com.infoshareacademy.dto.ServiceSearchProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,13 +45,14 @@ public class ProviderController {
     }
 
     @GetMapping("providers/edit/{id}")
+    @ResponseBody //TODO: usunac jak juz bedzie gotowa metoda
     public String editForm(Model model, @PathVariable Integer id) {
 
         model.addAttribute("serviceProviderAddDto", null);
 
         //toDO dodać po ID
 
-        return "ProviderAdd";
+        return "tu bedzie formatka edycji pojedynczego dostawcy";
     }
 
 
@@ -76,6 +78,20 @@ public class ProviderController {
 
         model.addAttribute("allProvidersTH", serviceProviderDtos);
         return "AllProviders";
+    }
+
+    @GetMapping("/providers/edit")
+    public String clientsPage(Model model) {
+        model.addAttribute("cityAndTypeOfService", new ServiceSearchProviderDto());
+        return "ProviderEditMenu";
+    }
+
+    @PostMapping("/providers/edit")
+    public String findByTypeOfService(Model modelOfFoundProviders, /*@ModelAttribute("serviceSearchProviderDto")*/ ServiceSearchProviderDto serviceSearchProviderDto) {
+        modelOfFoundProviders
+                .addAttribute("providersByServiceTH", serviceProviderService.findProviders(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity(), serviceSearchProviderDto.getDate(), true))
+                .addAttribute("ClientPanel", false);
+        return "FoundProviders";
     }
 
 }

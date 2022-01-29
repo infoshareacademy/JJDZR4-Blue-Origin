@@ -18,7 +18,7 @@ public class HomePageController {
         return "ProviderMenu";
     }
 
-    @GetMapping("/clients")
+    @GetMapping("/find")
     public String clientsPage(Model model) {
         model.addAttribute("cityAndTypeOfService", new ServiceSearchProviderDto());
         return "ClientMenu";

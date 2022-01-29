@@ -3,6 +3,7 @@ package com.infoshareacademy.domain;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -34,9 +35,12 @@ public class ServiceProvider {
             sum += rating.getRating();
         }
         if (ratingList.size() > 0) {
-            return sum / ratingList.size();
+            Double averageRating = sum / ratingList.size();
+            DecimalFormat df = new DecimalFormat("#.##");
+            return Double.valueOf(df.format(averageRating));
+
         } else {
-            return 0; //returns -1 if no rating has been done so far
+            return -1; //returns -1 if no rating has been done so far
         }
     }
 

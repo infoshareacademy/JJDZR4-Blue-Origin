@@ -1,56 +1,143 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+    <link th:href="@{/css/Style.css}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
-    <title>This is the title of the webpage!</title>
+    <title th:text="#{FoundProviders.title}"></title>
+
 </head>
 <body>
-<div style="text-align:center">
-    <p>
-    <h1>Panel Klienta</h1></p>
-    <img th:src="@{LOGO.jpg}"/>
-    <h2>Wyszukany provider</h2>
+<body>
+<header class="section-header">
+    <div th:insert="fragments/frame::header ('Wyszukani dostawcy')"></div>
+</header>
+<section class="section-content py-3">
+    <div class="row">
+        <aside class="col-lg-2">
+            <div class="nav-link navbar-right ">
+                <nav>
+                    <div th:insert="fragments/commonButtons :: custom ('',#{ToMainMenu.caption})"></div>
+                    <div th:insert="fragments/commonButtons :: custom ('clients',#{ToClientPanel.caption})"></div>
+                </nav>
+            </div>
+        </aside>
 
-</div>
-<br>
-<table th:align="center">
-    <tr>
-        <th>Incremental ID</th>
-        <th>Average Rating</th>
-        <th>Current ID</th>
-        <th>Company Name</th>
-        <th>Owner Name</th>
-        <th>Owner Surname</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Website Address</th>
-        <th>Location</th>
-        <th>Service Type</th>
-        <th>Availability</th>
-        <th>Rating List</th>
-    </tr>
+        <main class="col-lg-10">
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <th>Incremental ID</th>
+                    <th>Average Rating</th>
+                    <th>Current ID</th>
+                    <th>Company Name</th>
+                    <th>Owner Name</th>
+                    <th>Owner Surname</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Website Address</th>
+                    <th>Location</th>
+                    <th>Service Type</th>
+                    <th>Availability</th>
+                    <th>Akcja</th>
+                    <!-- <th>Rating List</th>-->
+                </tr>
 
-    <tr th:each="provider : ${providersByServiceTH}">
-        <td th:text="${provider.incrementalID}"></td>
-        <td th:text="${provider.averageRating}"></td>
-        <td th:text="${provider.currentID}"></td>
-        <td th:text="${provider.companyName}"></td>
-        <td th:text="${provider.ownerName}"></td>
-        <td th:text="${provider.ownerSurname}"></td>
-        <td th:text="${provider.phone}"></td>
-        <td th:text="${provider.email}"></td>
-        <td th:text="${provider.websiteAddress}"></td>
-        <!--    Tu sie wybierze co nam trzeba. Jak wrzuce samo location to rzyga odniesieniem w pamieci.-->
-        <td th:text="${provider.location.getCity()}"></td>
-        <!--    Podobnie jak wyzej.-->
-        <td th:text="${provider.serviceType.getTypesOfService()}"></td>
-        <td th:text="${provider.availability}"></td>
-        <td th:text="${provider.ratingList}"></td>
+                <tr th:each="provider, stat : ${providersByServiceTH}">
+                    <td th:text="${stat.index + 1}"></td>
+                    <span th:if="${provider.averageRating == -1}">
+                        <td th:text="#{emptyRating.message}"></td>
+                    </span>
+                    <span th:unless="${provider.averageRating == -1}">
+                    <td th:text="${provider.averageRating}"></td>
+                        </span>
+                    <td th:text="${provider.currentID}"></td>
+                    <td th:text="${provider.companyName}"></td>
+                    <td th:text="${provider.ownerName}"></td>
+                    <td th:text="${provider.ownerSurname}"></td>
+                    <td th:text="${provider.phone}"></td>
+                    <td th:text="${provider.email}"></td>
+                    <td th:text="${provider.websiteAddress}"></td>
+                    <!--    Tu sie wybierze co nam trzeba. Jak wrzuce samo location to rzyga odniesieniem w pamieci.-->
+                    <td th:text="${provider.location.getCity()}"></td>
+                    <!--    Podobnie jak wyzej.-->
+                    <td th:text="${provider.serviceType.getTypesOfService()}"></td>
+                    <!--    Data narazie nie dziala.-->
+                    <td th:text="${provider.availability}"></td>
+                    <span th:if="${ClientPanel}">
+                        <td th:text="'tu bedzie przysk przenoszacy na rating'">
 
-    </tr>
-</table>
-<br><br>
-<div th:align="center"><button onclick="window.location.href='/'">Return to Main Menu</button></div>
-
+                        </td>
+                    </span>
+                    <span th:unless="${ClientPanel}">
+                        <td>
+                            <a th:href="@{edit/{id} (id=${provider.currentID})}">
+                                    <button id="Edit" class="btn btn-secondary" type="button"
+                                            th:text="'Edycja'"></button>
+                                </a>
+                        </td>
+                    </span>
+                   <!-- <td th:text="${provider.isActive()}"></td>-->
+                    <!-- <td th:text="${provider.ratingList}"></td>-->
+                </tr>
+            </table>
+        </main>
+        <br>
+    </div>
+</section>
 </body>
+<!--<div style="text-align:center">-->
+<!--    <p>-->
+<!--    <h1>Panel Klienta</h1></p>-->
+<!--    <img th:src="@{LOGO.jpg}"/>-->
+<!--    <h2>Wyszukany provider</h2>-->
+
+<!--</div>-->
+<!--<br>-->
+<!--<table th:align="center">-->
+<!--    <tr>-->
+<!--        <th>Incremental ID</th>-->
+<!--        <th>Average Rating</th>-->
+<!--        <th>Current ID</th>-->
+<!--        <th>Company Name</th>-->
+<!--        <th>Owner Name</th>-->
+<!--        <th>Owner Surname</th>-->
+<!--        <th>Phone</th>-->
+<!--        <th>Email</th>-->
+<!--        <th>Website Address</th>-->
+<!--        <th>Location</th>-->
+<!--        <th>Service Type</th>-->
+<!--        <th>Availability</th>-->
+<!--        <th>Rating List</th>-->
+<!--    </tr>-->
+
+<!--    <tr th:each="provider : ${providersByServiceTH}">-->
+<!--        <td th:text="${provider.incrementalID}"></td>-->
+<!--        <td th:text="${provider.averageRating}"></td>-->
+<!--        <td th:text="${provider.currentID}"></td>-->
+<!--        <td th:text="${provider.companyName}"></td>-->
+<!--        <td th:text="${provider.ownerName}"></td>-->
+<!--        <td th:text="${provider.ownerSurname}"></td>-->
+<!--        <td th:text="${provider.phone}"></td>-->
+<!--        <td th:text="${provider.email}"></td>-->
+<!--        <td th:text="${provider.websiteAddress}"></td>-->
+<!--        &lt;!&ndash;    Tu sie wybierze co nam trzeba. Jak wrzuce samo location to rzyga odniesieniem w pamieci.&ndash;&gt;-->
+<!--        <td th:text="${provider.location.getCity()}"></td>-->
+<!--        &lt;!&ndash;    Podobnie jak wyzej.&ndash;&gt;-->
+<!--        <td th:text="${provider.serviceType.getTypesOfService()}"></td>-->
+<!--        <td th:text="${provider.availability}"></td>-->
+<!--        <td th:text="${provider.ratingList}"></td>-->
+
+<!--    </tr>-->
+<!--</table>-->
+<!--<br><br>-->
+<!--<div th:align="center"><button onclick="window.location.href='/'">Return to Main Menu</button></div>-->
+
+<!--</body>-->
 </html>

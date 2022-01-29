@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -51,15 +53,55 @@ public class ServiceProviderService {
         serviceProviderRepo.exportProviders();
     }
 
+    //tu pewnie najczytelniejszy bylby switch, ale musialbym sie zastanowic, poki co niech zostanie
+    public List<ServiceProvider> findProviders(String typeOfService, String city, LocalDate date, Boolean onlyActive) {
+        List<ServiceProvider> toReturn = new ArrayList();
+        if (typeOfService.equalsIgnoreCase("WSZYSTKIE")) {
+            if (Objects.isNull(date)) {
+                toReturn = filterByCity(city);
+            } else {
+                toReturn = filterByCityAndDate(city, date);
+            }
+        } else {
+            if (Objects.isNull(date)) {
+                toReturn = filterByServiceAndCity(typeOfService, city);
+            } else {
+                toReturn = filterServiceCityAndDate(typeOfService, city, date);
+            }
+        }
+        if (onlyActive) {
+            toReturn = toReturn.stream()
+                    .filter(sd -> sd.isActive())
+                    .toList();
+        }
+        return toReturn;
+    }
 
-    public List<ServiceProvider> findByCityAndTypeOfService(String typeOfService, String city) {
-        return serviceProviderRepo.getServiceProvidersList()
-                .stream()
-                .filter(serviceProvider -> Objects.nonNull(serviceProvider.getServiceType()))
-                .collect(Collectors.toList()).stream()
-                .filter(serviceProvider -> serviceProvider.getServiceType().getTypesOfService().getFullName().equals(typeOfService))
-                .collect(Collectors.toList()).stream()
-                .filter(serviceProvider -> StringUtils.containsIgnoreCase(serviceProvider.getLocation().getCity(), city, Locale.ROOT))
-                .collect(Collectors.toList());
+    private List<ServiceProvider> filterServiceCityAndDate(String typeOfService, String city, LocalDate date) {
+        return serviceProviderRepo.getServiceProvidersList().stream()
+                .filter(sp -> sp.getServiceType().getTypesOfService().getFullName().equalsIgnoreCase(typeOfService))
+                .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
+                .filter(sp -> sp.getAvailability().getDates().contains(date))
+                .toList();
+    }
+
+    private List<ServiceProvider> filterByCity(String city) {
+        return serviceProviderRepo.getServiceProvidersList().stream()
+                .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
+                .toList();
+    }
+
+    private List<ServiceProvider> filterByCityAndDate(String city, LocalDate date) {
+        return serviceProviderRepo.getServiceProvidersList().stream()
+                .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
+                .filter(sp -> sp.getAvailability().getDates().contains(date))
+                .toList();
+    }
+
+    private List<ServiceProvider> filterByServiceAndCity(String typeOfService, String city) {
+        return serviceProviderRepo.getServiceProvidersList().stream()
+                .filter(sp -> sp.getServiceType().getTypesOfService().getFullName().equalsIgnoreCase(typeOfService))
+                .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
+                .toList();
     }
 }
