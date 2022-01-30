@@ -75,14 +75,17 @@ public class ServiceProviderMapper {
         ServiceEditProviderDto serviceEditProviderDto = new ServiceEditProviderDto();
         serviceEditProviderDto.setId(serviceProvider.getCurrentID());
         serviceEditProviderDto.setCompanyName(serviceProvider.getCompanyName());
+        serviceEditProviderDto.setOwnerName(serviceProvider.getOwnerName());
+        serviceEditProviderDto.setOwnerSurname(serviceProvider.getOwnerSurname());
+        serviceEditProviderDto.setPhone(serviceProvider.getPhone());
+        serviceEditProviderDto.setEmail(serviceProvider.getEmail());
+        serviceEditProviderDto.setWebsiteAddress(serviceProvider.getWebsiteAddress());
         serviceEditProviderDto.setCity(serviceProvider.getLocation().getCity());
         serviceEditProviderDto.setVoivodeship(serviceProvider.getLocation().getVoivodeship());
         serviceEditProviderDto.setDescription(serviceProvider.getServiceType().getDescription());
         serviceEditProviderDto.setPrice(serviceProvider.getServiceType().getPrice());
         serviceEditProviderDto.setTypesOfService(serviceProvider.getServiceType().getTypesOfService());
 
-
-        // ToDo add more fields
         return serviceEditProviderDto;
     }
 }
