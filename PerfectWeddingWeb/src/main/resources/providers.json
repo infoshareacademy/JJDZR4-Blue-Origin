@@ -41,7 +41,7 @@
   } ],
   "active" : true
 }, {
-  "averageRating" : 3,
+  "averageRating" : 3.0,
   "currentID" : 2,
   "companyName" : "Inre",
   "ownerName" : "Piotr",
@@ -71,7 +71,7 @@
   } ],
   "active" : true
 }, {
-  "averageRating" : 5,
+  "averageRating" : 5.0,
   "currentID" : 3,
   "companyName" : "Videoperfect Paweł Dampc",
   "ownerName" : "Paweł",
@@ -105,5 +105,29 @@
     "rating" : 5,
     "comment" : "test"
   } ],
+  "active" : true
+}, {
+  "averageRating" : -1.0,
+  "currentID" : 4,
+  "companyName" : "Pracownia Reklamy Sylwia Frankowska",
+  "ownerName" : "Sylwia ",
+  "ownerSurname" : "Frankowska",
+  "phone" : "570099286",
+  "email" : "sylwia86pawel@gmail.com",
+  "websiteAddress" : "Starowiejska 1",
+  "location" : {
+    "voivodeship" : "POMORSKIE",
+    "city" : "Bojano"
+  },
+  "serviceType" : {
+    "description" : "Grajki",
+    "price" : "5000",
+    "typesOfService" : "OPRAWA_MUZYCZNA",
+    "id" : 0
+  },
+  "availability" : {
+    "dates" : [ [ 2022, 2, 5 ] ]
+  },
+  "ratingList" : [ ],
   "active" : true
 } ]

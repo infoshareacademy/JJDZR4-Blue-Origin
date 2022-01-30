@@ -53,17 +53,19 @@ public class ProviderController {
     }
 
     @PostMapping("providers/editById")
-    public String editById(ServiceEditProviderDto serviceEditProviderDto) throws IOException {
+    public String editById(@Valid ServiceEditProviderDto serviceEditProviderDto, BindingResult bindingResult) throws IOException {
+        if (bindingResult.hasErrors()) {
+            return "ProviderEditForm";}
         serviceProviderService.editProvider(serviceEditProviderDto);
         return "redirect:/all-providers";
     }
 
-    @ResponseBody
+/*    @ResponseBody
     public String clientsPage() {
         serviceProviderService.exportServiceProviders();
 
         return "tu bedzie froamtka do edycji uslugodawcy";
-    }
+    }*/
 
     @GetMapping("/deactivate/{id}")
     public String providersPageDeActivate(@PathVariable Integer id, Model model) {

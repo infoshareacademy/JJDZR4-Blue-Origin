@@ -10,17 +10,11 @@
             crossorigin="anonymous"></script>
     <link th:href="@{/css/Style.css}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
-    <title>Add Provider</title>
+    <title>Edit Provider</title>
 </head>
 
 
-<!--<div style="text-align:center">-->
-<!--    <p>-->
-<!--    <h1>Panel Klienta</h1></p>-->
-<!--    <img th:src="@{LOGO.jpg}"/>-->
-<!--    <h2>Tu ma być wyszukiwarka</h2>-->
-<!--    <button onclick="window.location.href='/'">Return to Main Menu</button>-->
-<!--</div>-->
+
 <body class="bg-light">
 <header class="section-header ">
 
@@ -126,22 +120,7 @@
                             <span th:each="error : ${#fields.errors('price')}" th:text="${error}"></span>
                         </div>
                     </tr>
-                    <tr>
 
-
-                    </tr>
-                    <tr>
-
-
-                    </tr>
-                    <tr>
-
-
-                    </tr>
-                    <tr>
-
-
-                    </tr>
                     <tr>
                         <br>
                         <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Zapisz'"></button>

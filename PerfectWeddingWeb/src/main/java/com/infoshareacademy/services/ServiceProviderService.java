@@ -1,13 +1,10 @@
 package com.infoshareacademy.services;
 
-import com.infoshareacademy.domain.Availability;
 import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
-import com.infoshareacademy.dto.ServiceDeActivateProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
-import com.infoshareacademy.dto.ServiceProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +14,6 @@ import org.thymeleaf.util.StringUtils;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class ServiceProviderService {
