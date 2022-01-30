@@ -75,7 +75,7 @@
   "currentID" : 3,
   "companyName" : "Videoperfect Paweł Dampc",
   "ownerName" : "Paweł",
-  "ownerSurname" : "Dampc",
+  "ownerSurname" : "Dempc",
   "phone" : "570099286",
   "email" : "poczta@videoperfect.eu",
   "websiteAddress" : "www.videoperfect.eu",
@@ -85,7 +85,7 @@
   },
   "serviceType" : {
     "description" : "zajmujemy się fotografią",
-    "price" : "3200 zł",
+    "price" : "70",
     "typesOfService" : "FILMOWANIE",
     "id" : 0
   },

@@ -37,8 +37,7 @@ public class ServiceEditProviderDto {
     private String price;
     @NotNull(message = "You have to pick a type of service.")
     private TypesOfService typesOfService;
-    @NotNull(message = "You have to type a date.")
-    @Future(message = "You have to type a date from future.")
+        @Future(message = "You have to type a date from future.")
     private LocalDate availability;
     private boolean isActive;
 
