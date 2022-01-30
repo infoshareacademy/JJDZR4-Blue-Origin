@@ -1,7 +1,10 @@
 package com.infoshareacademy.services;
 
+import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.ServiceProvider;
+import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
+import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +13,7 @@ import org.thymeleaf.util.StringUtils;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.stream.Collectors;
+import java.util.*;
 
 @Service
 public class ServiceProviderService {
@@ -28,16 +27,40 @@ public class ServiceProviderService {
         this.serviceProviderMapper = serviceProviderMapper;
     }
 
-
     public List<ServiceProvider> returnAllServiceProviders() {
         return serviceProviderRepo.getServiceProvidersList();
     }
 
-    public List<ServiceProvider> findById(Integer id) {
+    public ServiceProvider deActivate(Integer id) {
+        serviceProviderRepo.getServiceProvidersList().stream()
+                .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
+                .forEach(serviceProvider -> serviceProvider.setActive(false));
+        return null;
+
+    }
+
+    public ServiceProvider editById(Integer id) {
         return serviceProviderRepo.getServiceProvidersList()
                 .stream()
                 .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
-                .collect(Collectors.toList());
+                .findFirst()
+                .orElseThrow();
+    }
+
+    public void editProvider(ServiceEditProviderDto serviceEditProviderDto) throws IOException {
+        ServiceProvider serviceProvider = editById(serviceEditProviderDto.getId());
+        serviceProvider.setCompanyName(serviceEditProviderDto.getCompanyName());
+        serviceProvider.setOwnerName(serviceEditProviderDto.getOwnerName());
+        serviceProvider.setOwnerSurname(serviceEditProviderDto.getOwnerSurname());
+        serviceProvider.setPhone(serviceEditProviderDto.getPhone());
+        serviceProvider.setEmail(serviceEditProviderDto.getEmail());
+        serviceProvider.setWebsiteAddress(serviceEditProviderDto.getWebsiteAddress());
+        serviceProvider.setLocation(new Location(serviceEditProviderDto.getCity(), serviceEditProviderDto.getVoivodeship()));
+        serviceProvider.setServiceType(new ServiceType(serviceEditProviderDto.getDescription(), serviceEditProviderDto.getPrice(), serviceEditProviderDto.getTypesOfService()));
+
+
+        // ToDo add more fields allowed to edit; we can also create remaping method in ServiceProviderMapper
+        serviceProviderRepo.exportProviders();
     }
 
     public void exportServiceProviders() {

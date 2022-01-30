@@ -25,7 +25,7 @@
             <div class="nav-link navbar-right ">
                 <nav>
                     <div th:insert="fragments/commonButtons :: custom ('',#{ToMainMenu.caption})"></div>
-                    <div th:insert="fragments/commonButtons :: custom ('clients',#{ToClientPanel.caption})"></div>
+                    <div th:insert="fragments/commonButtons :: custom ('find',#{ToClientPanel.caption})"></div>
                 </nav>
             </div>
         </aside>
@@ -45,7 +45,8 @@
                     <th>Location</th>
                     <th>Service Type</th>
                     <th>Availability</th>
-                    <th>Akcja</th>
+                    <th></th>
+                    <th></th>
                     <!-- <th>Rating List</th>-->
                 </tr>
 
@@ -76,6 +77,11 @@
                         </td>
                     </span>
                     <span th:unless="${ClientPanel}">
+                        <td>
+                            <a th:href="@{/deactivate/{id}(id=${provider.getCurrentID()})}">
+                                    <button id="d" class="btn btn-secondary" type="button"
+                                            th:text="'Dezaktywuj'"></button></a>
+                        </td>
                         <td>
                             <a th:href="@{edit/{id} (id=${provider.currentID})}">
                                     <button id="Edit" class="btn btn-secondary" type="button"

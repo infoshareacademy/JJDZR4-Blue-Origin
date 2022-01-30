@@ -19,8 +19,16 @@ public class ServiceType {
         this.typesOfService = typesOfService;
     }
 
+    public ServiceType(String description, String price, TypesOfService typesOfService) {
+        this.description = description;
+        this.price = price;
+        this.typesOfService = typesOfService;
+    }
+
     public ServiceType() {
     }
+
+
 
     public TypesOfService getTypesOfService() {
         return typesOfService;

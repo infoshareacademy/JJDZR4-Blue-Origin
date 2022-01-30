@@ -1,20 +1,20 @@
 [ {
-  "averageRating" : 4.833333333333333,
+  "averageRating" : 4.83,
   "currentID" : 1,
-  "companyName" : "Videoperfect",
-  "ownerName" : "Paweł",
-  "ownerSurname" : "Dampc",
-  "phone" : "570099286",
-  "email" : "poczta@videoperfect.eu",
-  "websiteAddress" : "videoperfect.eu",
+  "companyName" : "Multimedia360",
+  "ownerName" : "Marek",
+  "ownerSurname" : "Pałubicki",
+  "phone" : "578899563",
+  "email" : "poczta@vmultimedia.eu",
+  "websiteAddress" : "www.multimedia.eu",
   "location" : {
     "voivodeship" : "POMORSKIE",
-    "city" : "Szemud"
+    "city" : "Bolszewo"
   },
   "serviceType" : {
-    "description" : "Zajmujemy się filmowaniem wesel od przygotowań do końca oczepin. W pakiecie 3 szt pendrive, teledysk ślubny.",
-    "price" : "3200 zł",
-    "typesOfService" : "FILMOWANIE",
+    "description" : "Zdjęcia 360",
+    "price" : "2000 zł",
+    "typesOfService" : "FOTOGRAFIA",
     "id" : 0
   },
   "availability" : {
@@ -41,7 +41,7 @@
   } ],
   "active" : true
 }, {
-  "averageRating" : 5.0,
+  "averageRating" : 3.0,
   "currentID" : 2,
   "companyName" : "Inre",
   "ownerName" : "Piotr",
@@ -63,137 +63,71 @@
     "dates" : [ [ 2022, 6, 5 ], [ 2022, 1, 1 ] ]
   },
   "ratingList" : [ {
-    "rating" : 5,
+    "rating" : 3,
     "comment" : "SUper"
   }, {
-    "rating" : 5,
-    "comment" : "Sprawdzam czy da sie dodac koment dla ID ktorego nie ma na liscie."
-  }, {
-    "rating" : 5,
-    "comment" : "Test 26112021"
-  }, {
-    "rating" : 5,
-    "comment" : "Ma sie dodac ocena dla uslugodawcy o ID = 2, wyjcie z poziomu wyszukiwarki po rodzaju uslugi."
+    "rating" : 3,
+    "comment" : "OK"
   } ],
   "active" : true
 }, {
-  "averageRating" : 0.0,
+  "averageRating" : 5.0,
   "currentID" : 3,
-  "companyName" : "",
-  "ownerName" : "",
-  "ownerSurname" : "",
-  "phone" : "",
-  "email" : "",
-  "websiteAddress" : "",
+  "companyName" : "Videoperfect Paweł Dampc",
+  "ownerName" : "Paweł",
+  "ownerSurname" : "Dempc",
+  "phone" : "570099286",
+  "email" : "poczta@videoperfect.eu",
+  "websiteAddress" : "www.videoperfect.eu",
   "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
+    "voivodeship" : "POMORSKIE",
     "city" : "Szemud"
   },
   "serviceType" : {
-    "description" : "",
-    "price" : "",
+    "description" : "zajmujemy się fotografią",
+    "price" : "70",
     "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ [ 2022, 1, 26 ] ]
+    "dates" : [ [ 2022, 2, 16 ] ]
   },
-  "ratingList" : [ ],
+  "ratingList" : [ {
+    "rating" : 5,
+    "comment" : "Mega"
+  }, {
+    "rating" : 5,
+    "comment" : "Jeszcze bardziej mega."
+  }, {
+    "rating" : 5,
+    "comment" : "Oby tak dalej."
+  }, {
+    "rating" : 5,
+    "comment" : "test"
+  } ],
   "active" : true
 }, {
-  "averageRating" : 0.0,
+  "averageRating" : -1.0,
   "currentID" : 4,
-  "companyName" : "",
-  "ownerName" : "",
-  "ownerSurname" : "",
-  "phone" : "",
-  "email" : "",
-  "websiteAddress" : "",
+  "companyName" : "Pracownia Reklamy Sylwia Frankowska",
+  "ownerName" : "Sylwia ",
+  "ownerSurname" : "Frankowska",
+  "phone" : "570099286",
+  "email" : "sylwia86pawel@gmail.com",
+  "websiteAddress" : "Starowiejska 1",
   "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "SZEMUD"
+    "voivodeship" : "POMORSKIE",
+    "city" : "Bojano"
   },
   "serviceType" : {
-    "description" : "",
-    "price" : "",
-    "typesOfService" : "FOTOGRAFIA",
+    "description" : "Grajki",
+    "price" : "5000",
+    "typesOfService" : "OPRAWA_MUZYCZNA",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ null ]
+    "dates" : [ [ 2022, 2, 5 ] ]
   },
   "ratingList" : [ ],
   "active" : true
-}, {
-  "averageRating" : 0.0,
-  "currentID" : 5,
-  "companyName" : "",
-  "ownerName" : "",
-  "ownerSurname" : "",
-  "phone" : "",
-  "email" : "",
-  "websiteAddress" : "",
-  "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "SZEMUD"
-  },
-  "serviceType" : {
-    "description" : "",
-    "price" : "",
-    "typesOfService" : "FOTOGRAFIA",
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ null ]
-  },
-  "ratingList" : [ ],
-  "active" : true
-}, {
-  "averageRating" : 0.0,
-  "currentID" : 3,
-  "companyName" : "Correct company name",
-  "ownerName" : "Correct Owner",
-  "ownerSurname" : "Correct Owner",
-  "phone" : "500 500 500",
-  "email" : "",
-  "websiteAddress" : "",
-  "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "Lublin"
-  },
-  "serviceType" : {
-    "description" : "Correct description",
-    "price" : "500",
-    "typesOfService" : "FILMOWANIE",
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ [ 2022, 1, 26 ] ]
-  },
-  "ratingList" : [ ],
-  "active" : false
-}, {
-  "averageRating" : 0.0,
-  "currentID" : 4,
-  "companyName" : "Our new Company",
-  "ownerName" : "fdsf",
-  "ownerSurname" : "fasdf",
-  "phone" : "fasdf",
-  "email" : "fasdf@test.pl",
-  "websiteAddress" : "",
-  "location" : {
-    "voivodeship" : "DOLNOŚLĄSKIE",
-    "city" : "fdsaf"
-  },
-  "serviceType" : {
-    "description" : "fasdf",
-    "price" : "1",
-    "typesOfService" : "FILMOWANIE",
-    "id" : 0
-  },
-  "availability" : {
-    "dates" : [ [ 2022, 2, 22 ] ]
-  },
-  "ratingList" : [ ],
-  "active" : false
 } ]

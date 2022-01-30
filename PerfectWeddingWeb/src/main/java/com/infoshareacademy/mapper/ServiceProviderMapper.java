@@ -5,6 +5,7 @@ import com.infoshareacademy.domain.Location;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
+import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.dto.ServiceProviderDto;
 import org.springframework.stereotype.Component;
 
@@ -12,8 +13,8 @@ import java.util.Arrays;
 
 @Component
 public class ServiceProviderMapper {
-    
-    
+
+
     public ServiceProviderDto mapperToDto(ServiceProvider serviceProvider) {
         ServiceProviderDto serviceProviderDto = new ServiceProviderDto();
         serviceProviderDto.setActive(serviceProvider.isActive());
@@ -52,7 +53,7 @@ public class ServiceProviderMapper {
 
     public ServiceProvider mapperFromAddDto(ServiceAddProviderDto serviceAddProviderDto) {
         ServiceProvider serviceProvider = new ServiceProvider();
-        serviceProvider.setActive(serviceAddProviderDto.isActive());
+        serviceProvider.setActive(true);
         serviceProvider.setAvailability(new Availability(Arrays.asList(serviceAddProviderDto.getAvailability())));
         serviceProvider.setLocation(new Location(serviceAddProviderDto.getCity(), serviceAddProviderDto.getVoivodeship()));
         serviceProvider.setServiceType(new ServiceType(serviceAddProviderDto.getID(), serviceAddProviderDto.getDescription(), serviceAddProviderDto.getPrice(), serviceAddProviderDto.getTypesOfService()));
@@ -66,21 +67,25 @@ public class ServiceProviderMapper {
         serviceProvider.setWebsiteAddress(serviceAddProviderDto.getWebsiteAddress());
         return serviceProvider;
     }
-    public ServiceProviderDto mapperToAddDto(ServiceProvider serviceProvider){
-//        ServiceAddProviderDto serviceAddProviderDto = new ServiceAddProviderDto();
-//        serviceAddProviderDto.setActive(serviceProvider.isActive());
-//        serviceAddProviderDto.setAvailability(serviceProvider.getAvailability().getDates().get(0));
-//        serviceAddProviderDto.setLocation(new Location(serviceAddProviderDto.getCity(), serviceAddProviderDto.getVoivodeship()));
-//        serviceAddProviderDto.setServiceType(new ServiceType(serviceAddProviderDto.getID(), serviceAddProviderDto.getDescription(), serviceAddProviderDto.getPrice(), serviceAddProviderDto.getTypesOfService()));
-//        serviceAddProviderDto.setAverageRating(serviceAddProviderDto.getAverageRating());
-//        serviceAddProviderDto.setCompanyName(serviceAddProviderDto.getCompanyName());
-//        serviceAddProviderDto.setEmail(serviceAddProviderDto.getEmail());
-//        serviceAddProviderDto.setOwnerName(serviceAddProviderDto.getOwnerName());
-//        serviceAddProviderDto.setOwnerSurname(serviceAddProviderDto.getOwnerSurname());
-//        serviceAddProviderDto.setPhone(serviceAddProviderDto.getPhone());
-//        serviceAddProviderDto.setCurrentID(serviceAddProviderDto.getCurrentID());
-//        serviceAddProviderDto.setWebsiteAddress(serviceAddProviderDto.getWebsiteAddress());
-        return null;
-    }
 
+
+
+
+    public ServiceEditProviderDto mapToServiceEditProviderDto(ServiceProvider serviceProvider) {
+        ServiceEditProviderDto serviceEditProviderDto = new ServiceEditProviderDto();
+        serviceEditProviderDto.setId(serviceProvider.getCurrentID());
+        serviceEditProviderDto.setCompanyName(serviceProvider.getCompanyName());
+        serviceEditProviderDto.setOwnerName(serviceProvider.getOwnerName());
+        serviceEditProviderDto.setOwnerSurname(serviceProvider.getOwnerSurname());
+        serviceEditProviderDto.setPhone(serviceProvider.getPhone());
+        serviceEditProviderDto.setEmail(serviceProvider.getEmail());
+        serviceEditProviderDto.setWebsiteAddress(serviceProvider.getWebsiteAddress());
+        serviceEditProviderDto.setCity(serviceProvider.getLocation().getCity());
+        serviceEditProviderDto.setVoivodeship(serviceProvider.getLocation().getVoivodeship());
+        serviceEditProviderDto.setDescription(serviceProvider.getServiceType().getDescription());
+        serviceEditProviderDto.setPrice(serviceProvider.getServiceType().getPrice());
+        serviceEditProviderDto.setTypesOfService(serviceProvider.getServiceType().getTypesOfService());
+
+        return serviceEditProviderDto;
+    }
 }

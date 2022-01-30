@@ -1,8 +1,7 @@
 package com.infoshareacademy.controllers;
 
-import com.infoshareacademy.dto.ServiceAddProviderDto;
-import com.infoshareacademy.dto.ServiceProviderDto;
-import com.infoshareacademy.dto.ServiceSearchProviderDto;
+import com.infoshareacademy.domain.ServiceProvider;
+import com.infoshareacademy.dto.*;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,32 +40,37 @@ public class ProviderController {
             return "ProviderAdd";
         }
         serviceProviderService.addProvider(serviceAddProviderDto);
+        return "redirect:/all-providers"; //toDO przed prezentacją zmienić na HomePage
+    }
+
+
+    @GetMapping("providers/edit/{id}")
+    public String editForm(Model model, @PathVariable Integer id) {
+        ServiceProvider serviceProvider = serviceProviderService.editById(id);
+        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+        model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
+        return "ProviderEditForm";
+    }
+
+    @PostMapping("providers/editById")
+    public String editById(@Valid ServiceEditProviderDto serviceEditProviderDto, BindingResult bindingResult) throws IOException {
+        if (bindingResult.hasErrors()) {
+            return "ProviderEditForm";}
+        serviceProviderService.editProvider(serviceEditProviderDto);
         return "redirect:/all-providers";
     }
 
-    @GetMapping("providers/edit/{id}")
-    @ResponseBody //TODO: usunac jak juz bedzie gotowa metoda
-    public String editForm(Model model, @PathVariable Integer id) {
-
-        model.addAttribute("serviceProviderAddDto", null);
-
-        //toDO dodać po ID
-
-        return "tu bedzie formatka edycji pojedynczego dostawcy";
-    }
-
-
-    @ResponseBody
+/*    @ResponseBody
     public String clientsPage() {
         serviceProviderService.exportServiceProviders();
 
         return "tu bedzie froamtka do edycji uslugodawcy";
-    }
+    }*/
 
-    @GetMapping("providers/deactivate")
-    @ResponseBody
-    public String providersPage() {
-        return "tu bedzie froamtka do dezaktywacji uslugodawcy";
+    @GetMapping("/deactivate/{id}")
+    public String providersPageDeActivate(@PathVariable Integer id, Model model) {
+        model.addAttribute("deActivatebyId", serviceProviderService.deActivate(id));
+        return "redirect:/all-providers";
     }
 
     @GetMapping(value = "/all-providers")

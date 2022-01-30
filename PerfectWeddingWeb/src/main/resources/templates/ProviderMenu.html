@@ -1,25 +1,4 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang=“en” xmlns:th=“http://www.thymeleaf.org” xmlns:layout=“http://www.ultraq.net.nz/thymeleaf/layout”-->
-<!--      layout:decorate=“~{layout}“>-->
-<!--<head>-->
-<!--    <link rel="shortcut icon" th:href="@{ICON.jpg}"/>-->
-<!--    <title>This is the title of the webpage!</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div style="text-align:center">-->
-<!--    <p>-->
-<!--    <h1>Panel Uslugodawcy</h1></p>-->
-<!--    <img th:src="@{LOGO.jpg}"/>-->
-<!--    <br>-->
-<!--    <div style="margin: auto">-->
-<!--        <button onclick="window.location.href='providers/create'">Create provider</button>-->
-<!--        <button onclick="window.location.href='providers/edit'">Edit provider</button>-->
-<!--        <button onclick="window.location.href='providers/deactivate'">Deactivate provider</button>-->
-<!--        <button onclick="window.location.href='/'">Return to Main Menu</button>-->
-<!--    </div>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
+
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -40,24 +19,11 @@
 </header>
 <div class="nav-link navbar-right ">
     <nav>
-         <div th:insert="fragments/commonButtons :: custom ('providers/create','Utworz dostawce')"></div>
+        <div th:insert="fragments/commonButtons :: custom ('providers/create','Utworz dostawce')"></div>
         <div th:insert="fragments/commonButtons :: custom ('providers/edit','Edytuj dostawce')"></div>
-        <div th:insert="fragments/commonButtons :: custom ('providers/deactivate','Usun dostawce')"></div>
         <div th:insert="fragments/commonButtons :: custom ('','Strona glowna')"></div>
-
-
-        <!--        <button onclick="window.location.href='providers/deactivate'">Deactivate provider</button>-->
-        <!--        <button onclick="window.location.href='/'">Return to Main Menu</button>-->
-
     </nav>
 </div>
-<!--<section class="section-content py-3">-->
-<!--    <div class="row">-->
-<!--        <aside class="col-lg-2">-->
-<!--            <div th:insert="fragments/frame::menu"></div>-->
 
-<!--        </aside>-->
-<!--    </div>-->
-<!--</section>-->
 </body>
 </html>
