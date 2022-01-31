@@ -1,14 +1,20 @@
 package com.infoshareacademy.controllers;
 
 import com.infoshareacademy.domain.ServiceProvider;
-import com.infoshareacademy.dto.*;
+import com.infoshareacademy.dto.ServiceAddProviderDto;
+import com.infoshareacademy.dto.ServiceEditProviderDto;
+import com.infoshareacademy.dto.ServiceProviderDto;
+import com.infoshareacademy.dto.ServiceSearchProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.io.IOException;
@@ -55,7 +61,8 @@ public class ProviderController {
     @PostMapping("providers/editById")
     public String editById(@Valid ServiceEditProviderDto serviceEditProviderDto, BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()) {
-            return "ProviderEditForm";}
+            return "ProviderEditForm";
+        }
         serviceProviderService.editProvider(serviceEditProviderDto);
         return "redirect:/all-providers";
     }
@@ -91,10 +98,10 @@ public class ProviderController {
     }
 
     @PostMapping("/providers/edit")
-    public String findByTypeOfService(Model modelOfFoundProviders, /*@ModelAttribute("serviceSearchProviderDto")*/ ServiceSearchProviderDto serviceSearchProviderDto) {
+    public String findByTypeOfService(Model modelOfFoundProviders, ServiceSearchProviderDto serviceSearchProviderDto) {
         modelOfFoundProviders
                 .addAttribute("providersByServiceTH", serviceProviderService.findProviders(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity(), serviceSearchProviderDto.getDate(), true))
-                .addAttribute("ClientPanel", false);
+                .addAttribute("toggleDeactivateEdit", false);
         return "FoundProviders";
     }
 
