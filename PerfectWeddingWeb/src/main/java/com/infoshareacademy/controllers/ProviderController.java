@@ -67,12 +67,6 @@ public class ProviderController {
         return "redirect:/all-providers";
     }
 
-/*    @ResponseBody
-    public String clientsPage() {
-        serviceProviderService.exportServiceProviders();
-
-        return "tu bedzie froamtka do edycji uslugodawcy";
-    }*/
 
     @GetMapping("/deactivate/{id}")
     public String providersPageDeActivate(@PathVariable Integer id, Model model) {

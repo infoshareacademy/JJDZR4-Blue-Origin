@@ -13,7 +13,10 @@ import org.thymeleaf.util.StringUtils;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 @Service
 public class ServiceProviderService {
@@ -36,7 +39,6 @@ public class ServiceProviderService {
                 .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
                 .forEach(serviceProvider -> serviceProvider.setActive(false));
         return null;
-
     }
 
     public ServiceProvider editById(Integer id) {
@@ -58,7 +60,6 @@ public class ServiceProviderService {
         serviceProvider.setLocation(new Location(serviceEditProviderDto.getCity(), serviceEditProviderDto.getVoivodeship()));
         serviceProvider.setServiceType(new ServiceType(serviceEditProviderDto.getDescription(), serviceEditProviderDto.getPrice(), serviceEditProviderDto.getTypesOfService()));
 
-
         // ToDo add more fields allowed to edit; we can also create remaping method in ServiceProviderMapper
         serviceProviderRepo.exportProviders();
     }
@@ -76,29 +77,40 @@ public class ServiceProviderService {
         serviceProviderRepo.exportProviders();
     }
 
-    //tu pewnie najczytelniejszy bylby switch, ale musialbym sie zastanowic, poki co niech zostanie
-    public List<ServiceProvider> findProviders(String typeOfService, String city, LocalDate date, Boolean onlyActive) {
-        List<ServiceProvider> toReturn = new ArrayList();
-        if (typeOfService.equalsIgnoreCase("WSZYSTKIE")) {
-            if (Objects.isNull(date)) {
-                toReturn = filterByCity(city);
-            } else {
-                toReturn = filterByCityAndDate(city, date);
-            }
-        } else {
-            if (Objects.isNull(date)) {
-                toReturn = filterByServiceAndCity(typeOfService, city);
-            } else {
-                toReturn = filterServiceCityAndDate(typeOfService, city, date);
-            }
+
+    public List<ServiceProvider> findProviders(String typeOfService, String city, LocalDate date, boolean onlyActive) {
+        List<ServiceProvider> filteredList = new ArrayList();
+        switch (typeOfService) {
+            case "WSZYSTKIE":
+                if (Objects.nonNull(date) && Objects.nonNull(city)) {
+                    filteredList = filterByCityAndDate(city, date);
+                }
+                if (Objects.nonNull(city)) {
+                    filteredList = filterByCity(city);
+                }
+                if (Objects.nonNull(date)) {
+                    filteredList = filterByDate(date);
+                }
+                break;
+            default:
+                if (Objects.nonNull(date) && Objects.nonNull(city)) {
+                    filteredList = filterServiceCityAndDate(typeOfService, city, date);
+                }
+                if (Objects.nonNull(city)) {
+                    filteredList = filterByServiceAndCity(typeOfService, city);
+                }
+                if (Objects.nonNull(date)) {
+                    filteredList = filterByDateAndServiceType(date, typeOfService);
+                }
+                break;
         }
+
         if (onlyActive) {
-            toReturn = toReturn.stream()
-                    .filter(sd -> sd.isActive())
-                    .toList();
+            return filteredList.stream().filter(sd -> sd.isActive()).toList();
         }
-        return toReturn;
+        return filteredList;
     }
+
 
     private List<ServiceProvider> filterServiceCityAndDate(String typeOfService, String city, LocalDate date) {
         return serviceProviderRepo.getServiceProvidersList().stream()
@@ -111,6 +123,19 @@ public class ServiceProviderService {
     private List<ServiceProvider> filterByCity(String city) {
         return serviceProviderRepo.getServiceProvidersList().stream()
                 .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
+                .toList();
+    }
+
+    private List<ServiceProvider> filterByDate(LocalDate date) {
+        return serviceProviderRepo.getServiceProvidersList().stream()
+                .filter(sp -> sp.getAvailability().getDates().contains(date))
+                .toList();
+    }
+
+    private List<ServiceProvider> filterByDateAndServiceType(LocalDate date, String typeOfService) {
+        return serviceProviderRepo.getServiceProvidersList().stream()
+                .filter(sp -> sp.getServiceType().getTypesOfService().getFullName().equalsIgnoreCase(typeOfService))
+                .filter(sp -> sp.getAvailability().getDates().contains(date))
                 .toList();
     }
 
