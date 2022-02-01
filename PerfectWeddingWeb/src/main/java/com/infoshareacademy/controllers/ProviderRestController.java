@@ -26,6 +26,6 @@ public class ProviderRestController {
 
     @PostMapping(value = "/service-provider/find")
     public List<ServiceProvider> returnFoundProvidersActive(@RequestBody ServiceSearchProviderRestDto serviceSearchProviderRestDto) {
-        return serviceProviderService.findProviders(serviceSearchProviderRestDto.getServiceType(), serviceSearchProviderRestDto.getCity(), serviceSearchProviderRestDto.getDate(), serviceSearchProviderRestDto.isActive());
+        return serviceProviderService.findProviders(serviceSearchProviderRestDto.getServiceType(), serviceSearchProviderRestDto.getCity(), serviceSearchProviderRestDto.getDate(), serviceSearchProviderRestDto.getIsActive());
     }
 }
