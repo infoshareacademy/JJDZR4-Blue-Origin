@@ -22,10 +22,10 @@ public class ClientController {
     }
 
     @PostMapping("/find")
-    public String findByTypeOfService(Model modelOfFoundProviders, /*@ModelAttribute("serviceSearchProviderDto")*/ ServiceSearchProviderDto serviceSearchProviderDto) {
+    public String findByTypeOfService(Model modelOfFoundProviders, ServiceSearchProviderDto serviceSearchProviderDto) {
         modelOfFoundProviders
                 .addAttribute("providersByServiceTH", serviceProviderService.findProviders(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity(), serviceSearchProviderDto.getDate(), true))
-                .addAttribute("ClientPanel", true);
+                .addAttribute("toggleDeactivateEdit", true);
         return "FoundProviders";
     }
 }

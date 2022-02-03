@@ -15,7 +15,6 @@
 
 </head>
 <body>
-<body>
 <header class="section-header">
     <div th:insert="fragments/frame::header ('Wyszukani dostawcy')"></div>
 </header>
@@ -71,12 +70,12 @@
                     <td th:text="${provider.serviceType.getTypesOfService()}"></td>
                     <!--    Data narazie nie dziala.-->
                     <td th:text="${provider.availability}"></td>
-                    <span th:if="${ClientPanel}">
+                    <span th:if="${toggleDeactivateEdit}">
                         <td th:text="'tu bedzie przysk przenoszacy na rating'">
 
                         </td>
                     </span>
-                    <span th:unless="${ClientPanel}">
+                    <span th:unless="${toggleDeactivateEdit}">
                         <td>
                             <a th:href="@{/deactivate/{id}(id=${provider.getCurrentID()})}">
                                     <button id="d" class="btn btn-secondary" type="button"
@@ -89,7 +88,7 @@
                                 </a>
                         </td>
                     </span>
-                   <!-- <td th:text="${provider.isActive()}"></td>-->
+                    <!-- <td th:text="${provider.isActive()}"></td>-->
                     <!-- <td th:text="${provider.ratingList}"></td>-->
                 </tr>
             </table>
@@ -98,52 +97,4 @@
     </div>
 </section>
 </body>
-<!--<div style="text-align:center">-->
-<!--    <p>-->
-<!--    <h1>Panel Klienta</h1></p>-->
-<!--    <img th:src="@{LOGO.jpg}"/>-->
-<!--    <h2>Wyszukany provider</h2>-->
-
-<!--</div>-->
-<!--<br>-->
-<!--<table th:align="center">-->
-<!--    <tr>-->
-<!--        <th>Incremental ID</th>-->
-<!--        <th>Average Rating</th>-->
-<!--        <th>Current ID</th>-->
-<!--        <th>Company Name</th>-->
-<!--        <th>Owner Name</th>-->
-<!--        <th>Owner Surname</th>-->
-<!--        <th>Phone</th>-->
-<!--        <th>Email</th>-->
-<!--        <th>Website Address</th>-->
-<!--        <th>Location</th>-->
-<!--        <th>Service Type</th>-->
-<!--        <th>Availability</th>-->
-<!--        <th>Rating List</th>-->
-<!--    </tr>-->
-
-<!--    <tr th:each="provider : ${providersByServiceTH}">-->
-<!--        <td th:text="${provider.incrementalID}"></td>-->
-<!--        <td th:text="${provider.averageRating}"></td>-->
-<!--        <td th:text="${provider.currentID}"></td>-->
-<!--        <td th:text="${provider.companyName}"></td>-->
-<!--        <td th:text="${provider.ownerName}"></td>-->
-<!--        <td th:text="${provider.ownerSurname}"></td>-->
-<!--        <td th:text="${provider.phone}"></td>-->
-<!--        <td th:text="${provider.email}"></td>-->
-<!--        <td th:text="${provider.websiteAddress}"></td>-->
-<!--        &lt;!&ndash;    Tu sie wybierze co nam trzeba. Jak wrzuce samo location to rzyga odniesieniem w pamieci.&ndash;&gt;-->
-<!--        <td th:text="${provider.location.getCity()}"></td>-->
-<!--        &lt;!&ndash;    Podobnie jak wyzej.&ndash;&gt;-->
-<!--        <td th:text="${provider.serviceType.getTypesOfService()}"></td>-->
-<!--        <td th:text="${provider.availability}"></td>-->
-<!--        <td th:text="${provider.ratingList}"></td>-->
-
-<!--    </tr>-->
-<!--</table>-->
-<!--<br><br>-->
-<!--<div th:align="center"><button onclick="window.location.href='/'">Return to Main Menu</button></div>-->
-
-<!--</body>-->
 </html>

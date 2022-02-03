@@ -7,10 +7,11 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class ServiceSearchProviderDto {
+public class ServiceSearchProviderRestDto {
 
     private String city;
     private String serviceType;
     private LocalDate date;
+    private Boolean isActive;
 
 }
