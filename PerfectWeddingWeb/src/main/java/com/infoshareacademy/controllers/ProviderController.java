@@ -98,5 +98,12 @@ public class ProviderController {
                 .addAttribute("toggleDeactivateEdit", false);
         return "FoundProviders";
     }
+    @GetMapping("providers/rate/{id}")
+    public String rateForm(Model model, @PathVariable Integer id) {
+        ServiceProvider serviceProvider = serviceProviderService.editById(id);
+        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+        model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
+        return "ProviderRateForm";
+    }
 
 }
