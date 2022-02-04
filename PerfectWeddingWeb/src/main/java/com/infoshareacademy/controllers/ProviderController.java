@@ -105,5 +105,12 @@ public class ProviderController {
         model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
         return "ProviderRateForm";
     }
-
+    @PostMapping("providers/rateById")
+    public String rateById(@Valid ServiceEditProviderDto serviceEditProviderDto, BindingResult bindingResult) throws IOException {
+        if (bindingResult.hasErrors()) {
+            return "ProviderEditForm";
+        }
+        serviceProviderService.editProvider(serviceEditProviderDto);
+        return "redirect:/all-providers";
+    }
 }

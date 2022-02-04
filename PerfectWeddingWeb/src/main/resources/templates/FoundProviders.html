@@ -71,8 +71,10 @@
                     <!--    Data narazie nie dziala.-->
                     <td th:text="${provider.availability}"></td>
                     <span th:if="${toggleDeactivateEdit}">
-                        <td th:text="'tu bedzie przysk przenoszacy na rating'">
-
+                        <td>
+                            <a th:href="@{providers/rate/{id}(id=${provider.getCurrentID()})}">
+                                    <button id="rate" class="btn btn-secondary" type="button"
+                                            th:text="'Ocen Dostawce'"></button></a>
                         </td>
                     </span>
                     <span th:unless="${toggleDeactivateEdit}">
