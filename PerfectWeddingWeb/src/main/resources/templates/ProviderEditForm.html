@@ -35,8 +35,8 @@
                 <tr>
                     <td>Aktualne daty dostępności</td>
                 </tr>
-                <tr th:each="provider : ${providerToBeEdited}">
-                    <td th:text="${providerToBeEdited.availability}"></td>
+                <tr th:each="date : ${providerToBeEditedAvailability}">
+                    <td th:text="${date}"></td>
                 </tr>
 
             </table>

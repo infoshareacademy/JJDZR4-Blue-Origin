@@ -55,8 +55,9 @@ public class ProviderController {
     public String editForm(Model model, @PathVariable Integer id) {
         ServiceProvider serviceProvider = serviceProviderService.editById(id);
         ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+        List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(id-1).getAvailability().getDates().stream().sorted().toList();
         model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
-        model.addAttribute("providerToBeEdited", serviceProviderService.getProviderData(id-1));
+        model.addAttribute("providerToBeEditedAvailability", providerAvailabilityDates);
         return "ProviderEditForm";
     }
 
@@ -72,7 +73,8 @@ public class ProviderController {
     @PostMapping("providers/addAvailabilityById")
     public String addAvailability(ServiceEditProviderDto serviceEditProviderDto) {
         serviceProviderService.addAvailabilityDateToProvider(serviceEditProviderDto.getAvailability().toString(), serviceEditProviderDto.getId());
-        return "redirect:/all-providers";
+        int partOfUrl = serviceEditProviderDto.getId();
+        return "redirect:edit/" + partOfUrl;
     }
 
 
