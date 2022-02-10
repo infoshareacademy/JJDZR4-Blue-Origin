@@ -49,6 +49,15 @@ public class ServiceProviderService {
                 .orElseThrow();
     }
 
+    public void addAvailabilityDateToProvider(String availabilityDate, Integer id) {
+        ServiceProvider serviceProvider = editById(id);
+        serviceProvider.getAvailability().addNewAvailability(LocalDate.parse(availabilityDate));
+    }
+
+    public ServiceProvider getProviderData(Integer id) {
+        return serviceProviderRepo.getServiceProvidersList().get(id);
+    }
+
     public void editProvider(ServiceEditProviderDto serviceEditProviderDto) throws IOException {
         ServiceProvider serviceProvider = editById(serviceEditProviderDto.getId());
         serviceProvider.setCompanyName(serviceEditProviderDto.getCompanyName());
