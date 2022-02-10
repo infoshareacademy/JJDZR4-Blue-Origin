@@ -14,13 +14,7 @@
 
 </head>
 <body>
-<!--<div style="text-align:center">-->
-<!--    <p>-->
-<!--    <h1>Panel Klienta</h1></p>-->
-<!--    <img th:src="@{LOGO.jpg}"/>-->
-<!--    <h2>Tu ma być wyszukiwarka</h2>-->
-<!--    <button onclick="window.location.href='/'">Return to Main Menu</button>-->
-<!--</div>-->
+
 <body class="bg-light">
 <header class="section-header ">
     <div th:insert="fragments/frame::header ('Panel Klienta')"></div>
@@ -31,7 +25,6 @@
         <aside class="col-lg-2">
             <div class="nav-link navbar-right">
                 <nav>
-<!--                    <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>-->
                     <div th:insert="fragments/commonButtons :: custom ('',#{ToMainMenu.caption})"></div>
                 </nav>
             </div>
@@ -39,15 +32,10 @@
             <form th:object="${cityAndTypeOfService}" th:action="@{/find}" method="post">
                 <label class=”control-label” th:for="searchForProvidersByCity" th:text="'Szukaj wg miasta'"></label>
                 <input class="form-control" type="text" id="searchForProvidersByCity" th:field="*{city}">
-<!--                <button class="btn btn-primary " type="submit" th:text="Wyszukaj"></button>-->
-<!--&lt;!&ndash;            </form>&ndash;&gt;-->
 
-<!--&lt;!&ndash;            <br>&ndash;&gt;-->
-
-<!--            <form th:object="${cityAndTypeOfService}" th:action="@{/find-by-service}" method="post">-->
                 <label class=”control-label” th:for="searchForProvidersByService" th:text="'Szukaj wg rodzaju uslugi'"></label>
                 <select class="form-control" id="searchForProvidersByService" th:field="*{serviceType}">
-<!--                    <option th:text="'Wszystkie typy uslug'" th:value="'All'"/>-->
+
                     <option th:each="service_option : ${T(com.infoshareacademy.domain.TypesOfServiceForForm).values()}"
                             th:value="${service_option}" th:text="${service_option.fullName}">
                     </option>
@@ -64,9 +52,6 @@
     </div>
 </section>
 </body>
-
-
-
 
 </body>
 </html>

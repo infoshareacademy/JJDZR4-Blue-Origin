@@ -40,16 +40,13 @@
         <td th:text="${provider.phone}"></td>
         <td th:text="${provider.email}"></td>
         <td th:text="${provider.websiteAddress}"></td>
-        <!--    Tu sie wybierze co nam trzeba. Jak wrzuce samo location to rzyga odniesieniem w pamieci.-->
         <td th:text="${provider.location.getCity()}"></td>
-        <!--    Podobnie jak wyzej.-->
         <td th:text="${provider.serviceType.getTypesOfService()}"></td>
         <td th:text="${provider.availability}"></td>
         <td th:text="${provider.ratingList}"></td>
 
     </tr>
 </table>
-
 
 </body>
 </html>

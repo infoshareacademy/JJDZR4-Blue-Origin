@@ -13,15 +13,6 @@
     <title>Add Provider</title>
 </head>
 
-
-<body>
-<!--<div style="text-align:center">-->
-<!--    <p>-->
-<!--    <h1>Panel Klienta</h1></p>-->
-<!--    <img th:src="@{LOGO.jpg}"/>-->
-<!--    <h2>Tu ma być wyszukiwarka</h2>-->
-<!--    <button onclick="window.location.href='/'">Return to Main Menu</button>-->
-<!--</div>-->
 <body class="bg-light">
 <header class="section-header ">
 
@@ -33,35 +24,11 @@
         <aside class="col-lg-2">
             <div class="nav-link navbar-right">
                 <nav>
-<!--                    <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>-->
                     <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>
                     <div th:insert="fragments/commonButtons :: custom ('',#{ToMainMenu.caption})"></div>
                 </nav>
             </div>
-            <!--            <div class="form-control left-10">-->
-            <!--                <form th:object="${cityAndTypeOfService}" th:action="@{/find}" method="post">-->
-            <!--                    <label class=”control-label” th:for="searchForProvidersByCity" th:text="'Szukaj wg miasta'"></label>-->
-            <!--                    <input class="form-control" type="text" id="searchForProvidersByCity" th:field="*{city}">-->
-            <!--                    &lt;!&ndash;                <button class="btn btn-primary " type="submit" th:text="Wyszukaj"></button>&ndash;&gt;-->
-            <!--                    &lt;!&ndash;&lt;!&ndash;            </form>&ndash;&gt;&ndash;&gt;-->
 
-            <!--                    &lt;!&ndash;&lt;!&ndash;            <br>&ndash;&gt;&ndash;&gt;-->
-
-            <!--                    &lt;!&ndash;            <form th:object="${cityAndTypeOfService}" th:action="@{/find-by-service}" method="post">&ndash;&gt;-->
-            <!--                    <label class=”control-label” th:for="searchForProvidersByService" th:text="'Szukaj wg rodzaju uslugi'"></label>-->
-            <!--                    <select class="form-control" id="searchForProvidersByService" th:field="*{serviceType}">-->
-            <!--                        &lt;!&ndash;                    <option th:text="'Wszystkie typy uslug'" th:value="'All'"/>&ndash;&gt;-->
-            <!--                        <option th:each="service_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"-->
-            <!--                                th:value="${service_option}" th:text="${service_option.fullName}">-->
-            <!--                        </option>-->
-
-
-            <!--                    </select>-->
-            <!--                    <label class=”control-label” th:for="searchForProvidersByDate" th:text="'Szukaj wg daty'"></label>-->
-            <!--                    <input class="form-control" type="date" id="searchForProvidersByDate" th:field="*{date}">-->
-            <!--                    <button class="btn btn-primary " type="submit" th:text="Wyszukaj"></button>-->
-            <!--                </form>-->
-            <!--            </div>-->
         </aside>
         <main class="col-lg-8">
             <form class="form-control left-10" th:action="@{/providers/create}" method="post"
@@ -133,7 +100,6 @@
                 <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Dodaj dostawce'"></button>
             </form>
         </main>
-
 
     </div>
     </section>
