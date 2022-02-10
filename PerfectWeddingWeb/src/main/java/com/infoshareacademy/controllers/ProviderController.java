@@ -56,6 +56,7 @@ public class ProviderController {
         ServiceProvider serviceProvider = serviceProviderService.editById(id);
         ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
         model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
+        model.addAttribute("providerToBeEdited", serviceProviderService.getProviderData(id-1));
         return "ProviderEditForm";
     }
 
