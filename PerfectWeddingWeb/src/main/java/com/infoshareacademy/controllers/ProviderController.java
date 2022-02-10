@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -67,6 +68,12 @@ public class ProviderController {
         return "redirect:/all-providers";
     }
 
+    @PostMapping("providers/addAvailabilityById")
+    public String addAvailability(ServiceEditProviderDto serviceEditProviderDto) {
+        serviceProviderService.addAvailabilityDateToProvider(serviceEditProviderDto.getAvailability().toString(), serviceEditProviderDto.getId());
+        return "redirect:/all-providers";
+    }
+
 
     @GetMapping("/deactivate/{id}")
     public String providersPageDeActivate(@PathVariable Integer id, Model model) {
@@ -98,5 +105,6 @@ public class ProviderController {
                 .addAttribute("toggleDeactivateEdit", false);
         return "FoundProviders";
     }
+
 
 }

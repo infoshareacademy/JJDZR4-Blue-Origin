@@ -30,6 +30,27 @@
             </div>
         </aside>
         <main class="col-lg-8">
+
+            <form th:action="@{/providers/addAvailabilityById}" method="post" th:object="${serviceEditProviderDto}">
+                <input type="hidden" th:field="*{id}" id="id">
+                <table>
+                    <tr>
+
+                        <label class=”control-label” th:for="availabilityDate" th:text="'dodaj date dostepnosci'"></label>
+                        <input class="form-control" type="text" id="availabilityDate" th:field="*{availability}">
+                        <div th:if="${#fields.hasErrors('availability')}">
+                            <span th:each="error : ${#fields.errors('availability')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+
+                    <tr>
+                        <br>
+                        <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Dodaj date'"></button>
+                    </tr>
+
+                </table>
+            </form>
+
             <form class="form-control left-10" th:action="@{/providers/editById}" method="post"
                   th:object="${serviceEditProviderDto}">
                 <input type="hidden" th:field="*{id}" id="id">
