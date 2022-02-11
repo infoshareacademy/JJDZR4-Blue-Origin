@@ -1,6 +1,7 @@
 package com.infoshareacademy.services;
 
 import com.infoshareacademy.domain.Location;
+import com.infoshareacademy.domain.Rating;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.domain.ServiceType;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
@@ -151,5 +152,10 @@ public class ServiceProviderService {
                 .filter(sp -> sp.getServiceType().getTypesOfService().getFullName().equalsIgnoreCase(typeOfService))
                 .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
                 .toList();
+    }
+
+    public void addRatingToProvider(Rating rating, Integer id) {
+        ServiceProvider serviceProvider = editById(id);
+        serviceProvider.addRating(rating);
     }
 }

@@ -83,5 +83,8 @@ public class ServiceProvider {
                         + "\n";
 
     }
+    public void addRating (Rating rating) {
+        ratingList.add(rating);
+    }
 
 }
