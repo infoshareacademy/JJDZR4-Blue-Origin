@@ -1,8 +1,10 @@
 package com.infoshareacademy.services;
 
 import com.infoshareacademy.domain.Location;
+import com.infoshareacademy.domain.Rating;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.domain.ServiceType;
+import com.infoshareacademy.dto.RatingDto;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -160,5 +163,10 @@ public class ServiceProviderService {
                 .filter(sp -> sp.getServiceType().getTypesOfService().getFullName().equalsIgnoreCase(typeOfService))
                 .filter(sp -> StringUtils.containsIgnoreCase(sp.getLocation().getCity(), city, Locale.ROOT))
                 .toList();
+    }
+
+    public void addRatingToProvider(RatingDto rating) {
+        ServiceProvider serviceProvider = editById(rating.getID());
+        serviceProvider.addRating(new Rating(rating.getRating(), rating.getComment()));
     }
 }
