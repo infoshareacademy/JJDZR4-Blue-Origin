@@ -31,17 +31,22 @@
             </div>
         </aside>
         <main class="col-lg-8">
-            <form class="form-control left-10" th:object="${providerDto}">
-                  <!-- th:object="${providerName}" th:action="@{/providers/rateById}" method="post"-->
-
-                <label class=”control-label” th:for="companyName" th:text="'Oceniasz dostawce:'"></label>
-                                        <input class="form-control" type="text" id="companyName" th:field="*{companyName}"
-                                               th:readonly="readonly">
-            </form>
             <form class="form-control left-10" th:action="@{/providers/rateById}" method="post"
                   th:object="${ratingDto}">
+                  <!-- th:object="${providerName}" th:action="@{/providers/rateById}" method="post"-->
+
+
+
 <!--                <input type="hidden" th:field="*{id}" id="id">-->
                 <table class="table table-striped table-bordered table-hover">
+                    <tr>
+                        <input class="form-control" type="text" id="ID" th:field="*{ID}"
+                               th:readonly="readonly">
+
+                        <label class=”control-label” th:for="companyName" th:text="'Oceniasz dostawce:'"></label>
+                        <input class="form-control" type="text" id="companyName" th:field="*{companyName}"
+                               th:readonly="readonly">
+                    </tr>
 <!--                    <tr>-->
 
 <!--                        <label class=”control-label” th:for="companyName" th:text="'Oceniasz dostawce:'"></label>-->

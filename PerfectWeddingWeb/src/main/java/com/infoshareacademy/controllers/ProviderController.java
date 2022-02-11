@@ -2,10 +2,7 @@ package com.infoshareacademy.controllers;
 
 import com.infoshareacademy.domain.Rating;
 import com.infoshareacademy.domain.ServiceProvider;
-import com.infoshareacademy.dto.ServiceAddProviderDto;
-import com.infoshareacademy.dto.ServiceEditProviderDto;
-import com.infoshareacademy.dto.ServiceProviderDto;
-import com.infoshareacademy.dto.ServiceSearchProviderDto;
+import com.infoshareacademy.dto.*;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,18 +99,22 @@ public class ProviderController {
     @GetMapping("providers/rate/{id}")
     public String rateForm(Model model, @PathVariable Integer id) {
         ServiceProvider serviceProvider = serviceProviderService.editById(id);
-        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
-       Rating ratingDto = new Rating();
+//        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+       RatingDto ratingDto = new RatingDto();
+       ratingDto.setID(id);
+       ratingDto.setCompanyName(serviceProvider.getCompanyName());
         model.addAttribute("ratingDto", ratingDto);
-        model.addAttribute("providerDto", serviceEditProviderDto);
+       // model.addAttribute("providerDto", serviceEditProviderDto);
         return "ProviderRateForm";
     }
     @PostMapping("providers/rateById")
-    public String rateById(@Valid ServiceEditProviderDto serviceEditProviderDto, @Valid Rating ratingDto, BindingResult bindingResult) throws IOException {
+    public String rateById(@Valid RatingDto ratingDto, BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()) {
             return "ProviderRateForm";
         }
-
+        serviceProviderService.addRatingToProvider(ratingDto);
+//        int partOfUrl = serviceEditProviderDto.getId();
+//        return "redirect:edit/" + partOfUrl;
         return "redirect:/all-providers";
     }
 }
