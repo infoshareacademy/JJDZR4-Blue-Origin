@@ -1,6 +1,5 @@
 package com.infoshareacademy.controllers;
 
-import com.infoshareacademy.domain.Rating;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.dto.*;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
@@ -53,7 +52,7 @@ public class ProviderController {
     public String editForm(Model model, @PathVariable Integer id) {
         ServiceProvider serviceProvider = serviceProviderService.editById(id);
         ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
-        List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(id-1).getAvailability().getDates().stream().sorted().toList();
+        List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(id - 1).getAvailability().getDates().stream().sorted().toList();
         model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
         model.addAttribute("providerToBeEditedAvailability", providerAvailabilityDates);
         return "ProviderEditForm";
@@ -111,22 +110,19 @@ public class ProviderController {
     @GetMapping("providers/rate/{id}")
     public String rateForm(Model model, @PathVariable Integer id) {
         ServiceProvider serviceProvider = serviceProviderService.editById(id);
-//        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
-       RatingDto ratingDto = new RatingDto();
-       ratingDto.setID(id);
-       ratingDto.setCompanyName(serviceProvider.getCompanyName());
+        RatingDto ratingDto = new RatingDto();
+        ratingDto.setID(id);
+        ratingDto.setCompanyName(serviceProvider.getCompanyName());
         model.addAttribute("ratingDto", ratingDto);
-       // model.addAttribute("providerDto", serviceEditProviderDto);
         return "ProviderRateForm";
     }
+
     @PostMapping("providers/rateById")
     public String rateById(@Valid RatingDto ratingDto, BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()) {
             return "ProviderRateForm";
         }
         serviceProviderService.addRatingToProvider(ratingDto);
-//        int partOfUrl = serviceEditProviderDto.getId();
-//        return "redirect:edit/" + partOfUrl;
         return "redirect:/all-providers";
     }
 }
