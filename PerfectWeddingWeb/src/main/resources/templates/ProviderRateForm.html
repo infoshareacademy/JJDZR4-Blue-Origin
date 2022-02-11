@@ -3,164 +3,90 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width = device-width, initial-scale = 1">
-
+    <title>Rate Provider</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
     <link th:href="@{/css/Style.css}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
-    <title>Edit Provider</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-    /**{*/
-    /*    margin: 0;*/
-    /*    padding: 0;*/
-    /*    box-sizing: border-box;*/
-    /*    font-family: 'Poppins', sans-serif;*/
-    /*}*/
-    html, body {
-        /*display: grid;*/
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    html,body{
+        align-content: flex-start;
         height: 100%;
         place-items: center;
         text-align: center;
         background: #000;
     }
+    .container{
+        position: relative;
+        width: 800px;
+        padding: 20px 30px;
+        border: 1px solid #444;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 
-    /*.container{*/
-    /*    position: relative;*/
-    /*    width: 400px;*/
-    /*    background: #111;*/
-    /*    padding: 20px 30px;*/
-    /*    border: 1px solid #444;*/
-    /*    border-radius: 5px;*/
-    /*    display: flex;*/
-    /*    align-items: center;*/
-    /*    justify-content: center;*/
-    /*    flex-direction: column;*/
-    /*}*/
-    /*.container .post{*/
-    /*    display: none;*/
-    /*}*/
-    /*.container .text{*/
-    /*    font-size: 25px;*/
-    /*    color: #666;*/
-    /*    font-weight: 500;*/
-    /*}*/
-    /*.container .edit{*/
-    /*    position: absolute;*/
-    /*    right: 10px;*/
-    /*    top: 5px;*/
-    /*    font-size: 16px;*/
-    /*    color: #666;*/
-    /*    font-weight: 500;*/
-    /*    cursor: pointer;*/
-    /*}*/
-    .container .star-widget input {
+    .container .star-widget input{
         display: none;
     }
-
-    .star-widget label {
-        font-size: 40px;
+    .star-widget label{
+        font-size: 90px;
         color: #444;
         padding: 10px;
-
+        float: right;
         transition: all 0.2s ease;
     }
-
     input:not(:checked) ~ label:hover,
-    input:not(:checked) ~ label:hover ~ label {
+    input:not(:checked) ~ label:hover ~ label{
         color: #fd4;
     }
-
-    input:checked ~ label {
+    input:checked ~ label{
         color: #fd4;
     }
-
-    input#rate-5:checked ~ label {
+    input#rate-5:checked ~ label{
         color: #fe7;
         text-shadow: 0 0 20px #952;
     }
-
-    #rate-1:checked ~ form header:before {
-        content: "I just hate it ";
-    }
-
-    #rate-2:checked ~ form header:before {
-        content: "I don't like it ";
-    }
-
-    #rate-3:checked ~ form header:before {
-        content: "It is awesome ";
-    }
-
-    #rate-4:checked ~ form header:before {
-        content: "I just like it ";
-    }
-
-    #rate-5:checked ~ form header:before {
-        content: "I just love it ";
-    }
-
-    .container form {
+      .container form{
         display: none;
     }
-
-    input:checked ~ form {
+    input:checked ~ form{
         display: block;
     }
+    form header{
+        width: 100%;
+        font-size: 25px;
+        color: #fe7;
+        font-weight: 500;
+        margin: 5px 0 20px 0;
+        text-align: center;
+        transition: all 0.2s ease;
+    }
+    form .textarea{
+        height: 100px;
+        width: 80%;
+        overflow: hidden;
+        border-radius: 5px;
+    }
 
-    /*form header{*/
-    /*    width: 100%;*/
-    /*    font-size: 25px;*/
-    /*    color: #fe7;*/
-    /*    font-weight: 500;*/
-    /*    margin: 5px 0 20px 0;*/
-    /*    text-align: center;*/
-    /*    transition: all 0.2s ease;*/
-    /*}*/
-    /*form .textarea{*/
-    /*    height: 100px;*/
-    /*    width: 100%;*/
-    /*    overflow: hidden;*/
-    /*}*/
-    /*form .textarea textarea{*/
-    /*    height: 100%;*/
-    /*    width: 100%;*/
-    /*    outline: none;*/
-    /*    color: #eee;*/
-    /*    border: 1px solid #333;*/
-    /*    background: #222;*/
-    /*    padding: 10px;*/
-    /*    font-size: 17px;*/
-    /*    resize: none;*/
-    /*}*/
-    /*.textarea textarea:focus{*/
-    /*    border-color: #444;*/
-    /*}*/
-    /*form .btn{*/
-    /*    height: 45px;*/
-    /*    width: 100%;*/
-    /*    margin: 15px 0;*/
-    /*}*/
-    /*form .btn button{*/
-    /*    height: 100%;*/
-    /*    width: 100%;*/
-    /*    border: 1px solid #444;*/
-    /*    outline: none;*/
-    /*    background: #222;*/
-    /*    color: #999;*/
-    /*    font-size: 17px;*/
-    /*    font-weight: 500;*/
-    /*    text-transform: uppercase;*/
-    /*    cursor: pointer;*/
-    /*    transition: all 0.3s ease;*/
-    /*}*/
-    /*form .btn button:hover{*/
-    /*    background: #1b1b1b;*/
-    /*}*/
+    .textarea textarea:focus{
+        border-color: #777;
+    }
+
 </style>
 </head>
 
@@ -184,40 +110,22 @@
         <main class="col-lg-8">
             <form class="form-control left-10" th:action="@{/providers/rateById}" method="post"
                   th:object="${ratingDto}">
-                <!-- th:object="${providerName}" th:action="@{/providers/rateById}" method="post"-->
-
-
-                <!--                <input type="hidden" th:field="*{id}" id="id">-->
-                <table class="table table-striped table-bordered table-hover">
-                    <tr>
                         <input class="form-control" type="text" id="ID" th:field="*{ID}"
                                th:hidden="hidden">
-
-                        <label class=”control-label” th:for="companyName" th:text="'Oceniasz dostawce:'"></label>
-                    </tr>
-                    <tr>
-                        <input class="form-control" type="text" id="companyName" th:field="*{companyName}"
-                               th:readonly="readonly" center="center">
-                    </tr>
-                    <!--                    <tr>-->
-
-                    <!--                        <label class=”control-label” th:for="companyName" th:text="'Oceniasz dostawce:'"></label>-->
-                    <!--                        <input class="form-control" type="text" id="companyName" th:field="*{companyName}"-->
-                    <!--                               th:readonly="readonly">-->
-                    <!--                    </tr>-->
-                    <tr>
-                        <label class=”control-label” th:for="rating" th:text="'Ocen dostawce'"></label>
-                        <!-- <input class="form-control" type="text" id="rating" th:field="*{rating}">-->
-                    </tr>
-                    <tr>
-                        <div class="align-content-center">
+                      <input class="form-control" type="text" id="companyName" th:field="*{companyName}"
+                       th:hidden="hidden">
+                        <H4 class=”control-label” th:text="'Oceniasz dostawce:'"></H4>
+                        <H3  class=”control-label”  th:text="*{companyName}"></H3>
+                <br>
+                <container class="container">
+                        <div >
                             <div class="star-widget">
                                 <input id="rate-5" class="custom-control-input" type="radio" th:field="*{rating}"
-                                       value="1"
+                                       value="5"
                                        th:hidden="hidden">
                                 <label for="rate-5" class="fas fa-star"></label>
                                 <input id="rate-4" class="custom-control-input" type="radio" th:field="*{rating}"
-                                       value="2"
+                                       value="4"
                                        th:hidden="hidden">
                                 <label for="rate-4" class="fas fa-star"></label>
                                 <input id="rate-3" class="custom-control-input" type="radio" th:field="*{rating}"
@@ -225,118 +133,27 @@
                                        th:hidden="hidden">
                                 <label for="rate-3" class="fas fa-star"></label>
                                 <input id="rate-2" class="custom-control-input" type="radio" th:field="*{rating}"
-                                       value="4"
+                                       value="2"
                                        th:hidden="hidden">
                                 <label for="rate-2" class="fas fa-star"></label>
                                 <input id="rate-1" class="custom-control-input" type="radio" th:field="*{rating}"
-                                       value="5"
+                                       value="1"
                                        th:hidden="hidden">
                                 <label for="rate-1" class="fas fa-star"></label>
                             </div>
                         </div>
-                        <!--                        </div>-->
-                        <!--                        <div th:if="${#fields.hasErrors('rating')}">-->
-                        <!--                            <span th:each="error : ${#fields.errors('rating')}" th:text="${error}"></span>-->
-                        <!--                        </div>-->
-                    </tr>
+                </container>
                     <br>
-                    <br>
-                    <br>
-                    <tr>
-                        <label class=”control-label” th:for="comment" th:text="'Dodaj komentarz (opcjonalnie)'"></label>
-                    </tr>
-                    <tr>
-                        <input class="form-control" type="text" id="comment" th:field="*{comment}">
+                        <h4 class=”control-label” th:for="comment" th:text="'Dodaj komentarz (opcjonalnie)'"></h4>
+                <textarea class="textarea" type="text" id="comment" th:field="*{comment}"></textarea>
                         <div th:if="${#fields.hasErrors('comment')}">
                             <span th:each="error : ${#fields.errors('comment')}" th:text="${error}"></span>
                         </div>
-                    </tr>
-                    <!-- <tr>
-                         <label class=”control-label” th:for="ownerName" th:text="'podaj Owner Name'"></label>
-                         <input class="form-control" type="text" id="ownerName" th:field="*{ownerName}">
-                         <div th:if="${#fields.hasErrors('ownerName')}">
-                             <span th:each="error : ${#fields.errors('ownerName')}" th:text="${error}"></span>
-                         </div>
-                     </tr>
-                     <tr>
-                         <label class=”control-label” th:for="ownerSurname" th:text="'podaj Owner Surname'"></label>
-                         <input class="form-control" type="text" id="ownerSurname" th:field="*{ownerSurname}">
-                         <div th:if="${#fields.hasErrors('ownerSurname')}">
-                             <span th:each="error : ${#fields.errors('ownerSurname')}" th:text="${error}"></span>
-                         </div>
-                     </tr>
-                     <tr>
-                         <label class=”control-label” th:for="phone" th:text="'podaj Phone'"></label>
-                         <input class="form-control" type="text" id="phone" th:field="*{phone}">
-                         <div th:if="${#fields.hasErrors('phone')}">
-                             <span th:each="error : ${#fields.errors('phone')}" th:text="${error}"></span>
-                         </div>
-                     </tr>
-                     <tr>
-                         <label class=”control-label” th:for="email" th:text="'podaj E-Mail'"></label>
-                         <input class="form-control" type="text" id="email" th:field="*{email}">
-                         <div th:if="${#fields.hasErrors('email')}">
-                             <span th:each="error : ${#fields.errors('email')}" th:text="${error}"></span>
-                         </div>
-                     </tr>
-                     <tr>
-                         <label class=”control-label” th:for="websiteAddress" th:text="'podaj Website Address'"></label>
-                         <input class="form-control" type="text" id="websiteAddress" th:field="*{websiteAddress}">
-                         <div th:if="${#fields.hasErrors('websiteAddress')}">
-                             <span th:each="error : ${#fields.errors('websiteAddress')}" th:text="${error}"></span>
-                         </div>
-                     </tr>
-                     <tr>
-                         <label class=”control-label” th:for="city" th:text="'Podaj miejscowość'"></label>
-                         <input class="form-control" type="text" id="city" th:field="*{city}">
-                         <div th:if="${#fields.hasErrors('city')}">
-                             <span th:each="error : ${#fields.errors('city')}" th:text="${error}"></span>
-                         </div>
-                     </tr>
-                     <tr>
-                         <label class=”control-label” th:for="voivodeship" th:text="'Podaj wojewodztwo'"></label>
-                         <select class="form-control" id="voivodeship" th:field="*{voivodeship}">
-                             <option th:each="category_option : ${T(com.infoshareacademy.domain.Voivodeship).values()}"
-                                     th:value="${category_option}" th:text="${category_option.fullName}">
-                             </option>
-                         </select>
-                         <div th:if="${#fields.hasErrors('voivodeship')}">
-                             <span th:each="error : ${#fields.errors('voivodeship')}" th:text="${error}"></span>
-                         </div>
-                     </tr>
-                     <tr>
-                         <label class=”control-label” th:for="TypesOfService" th:text="'Podaj rodzaj usługi'"></label>
-                         <select class="form-control" id="TypesOfService" th:field="*{typesOfService}">
-                             <option th:each="category_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"
-                                     th:value="${category_option}" th:text="${category_option.fullName}">
-                             </option>
-                         </select>
-                         <div th:if="${#fields.hasErrors('TypesOfService')}">
-                             <span th:each="error : ${#fields.errors('TypesOfService')}" th:text="${error}"></span>
-                         </div>
-                     </tr>
-                     <tr>
-                         <label class=”control-label” th:for="description" th:text="'Podaj opis'"></label>
-                         <input class="form-control" type="text" id="description" th:field="*{description}">
-                         <div th:if="${#fields.hasErrors('description')}">
-                             <span th:each="error : ${#fields.errors('description')}" th:text="${error}"></span>
-                         </div>
-                         <label class=”control-label” th:for="price" th:text="'Podaj cenę'"></label>
-                         <input class="form-control" type="number" id="price" th:field="*{price}">
-                         <div th:if="${#fields.hasErrors('price')}">
-                             <span th:each="error : ${#fields.errors('price')}" th:text="${error}"></span>
-                         </div>
-                     </tr>-->
-
-                    <tr>
                         <br>
                         <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Zapisz'"></button>
-                    </tr>
-                </table>
             </form>
         </main>
     </div>
 </section>
-
 </body>
 </html>
