@@ -56,6 +56,15 @@
                     <tr>
                         <label class=”control-label” th:for="rating" th:text="'Podaj ocene'"></label>
                         <input class="form-control" type="text" id="rating" th:field="*{rating}">
+
+                        <div>
+                            <input class="custom-control-input" type="radio" th:field="*{rating}" value="1">1</input>
+                            <input class="custom-control-input" type="radio" th:field="*{rating}" value="2">2</input>
+                            <input class="custom-control-input" type="radio" th:field="*{rating}" value="3">3</input>
+                            <input class="custom-control-input" type="radio" th:field="*{rating}" value="4">4</input>
+                            <input class="custom-control-input" type="radio" th:field="*{rating}" value="5">5</input>
+
+                        </div>
                         <div th:if="${#fields.hasErrors('rating')}">
                             <span th:each="error : ${#fields.errors('rating')}" th:text="${error}"></span>
                         </div>
