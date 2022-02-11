@@ -101,10 +101,13 @@ public class ProviderController {
     }
     @GetMapping("providers/rate/{id}")
     public String rateForm(Model model, @PathVariable Integer id) {
-//        ServiceProvider serviceProvider = serviceProviderService.editById(id);
-//        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+        ServiceProvider serviceProvider = serviceProviderService.editById(id);
+        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+
+
        Rating ratingDto = new Rating();
         model.addAttribute("ratingDto", ratingDto);
+        model.addAttribute("providerDto", serviceEditProviderDto);
         return "ProviderRateForm";
     }
     @PostMapping("providers/rateById")
