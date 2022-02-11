@@ -1,5 +1,6 @@
 package com.infoshareacademy.controllers;
 
+import com.infoshareacademy.domain.Rating;
 import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
@@ -100,9 +101,10 @@ public class ProviderController {
     }
     @GetMapping("providers/rate/{id}")
     public String rateForm(Model model, @PathVariable Integer id) {
-        ServiceProvider serviceProvider = serviceProviderService.editById(id);
-        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
-        model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
+//        ServiceProvider serviceProvider = serviceProviderService.editById(id);
+//        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+       Rating ratingDto = new Rating();
+        model.addAttribute("ratingDto", ratingDto);
         return "ProviderRateForm";
     }
     @PostMapping("providers/rateById")
