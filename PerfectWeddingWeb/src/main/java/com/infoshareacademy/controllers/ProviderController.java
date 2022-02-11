@@ -103,19 +103,17 @@ public class ProviderController {
     public String rateForm(Model model, @PathVariable Integer id) {
         ServiceProvider serviceProvider = serviceProviderService.editById(id);
         ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
-
-
        Rating ratingDto = new Rating();
         model.addAttribute("ratingDto", ratingDto);
         model.addAttribute("providerDto", serviceEditProviderDto);
         return "ProviderRateForm";
     }
     @PostMapping("providers/rateById")
-    public String rateById(@Valid ServiceEditProviderDto serviceEditProviderDto, BindingResult bindingResult) throws IOException {
+    public String rateById(@Valid ServiceEditProviderDto serviceEditProviderDto, @Valid Rating ratingDto, BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()) {
-            return "ProviderEditForm";
+            return "ProviderRateForm";
         }
-        serviceProviderService.editProvider(serviceEditProviderDto);
+
         return "redirect:/all-providers";
     }
 }
