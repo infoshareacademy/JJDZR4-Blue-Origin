@@ -13,8 +13,6 @@
     <title>Edit Provider</title>
 </head>
 
-
-
 <body class="bg-light">
 <header class="section-header ">
 
@@ -32,6 +30,38 @@
             </div>
         </aside>
         <main class="col-lg-8">
+
+            <table class="table table-striped table-bordered table-hover">
+                <tr>
+                    <td>Aktualne daty dostępności</td>
+                </tr>
+                <tr th:each="date : ${providerToBeEditedAvailability}">
+                    <td th:text="${date}"></td>
+                </tr>
+
+            </table>
+
+            <form class="form-control left-10" th:action="@{/providers/addAvailabilityById}" method="post" th:object="${serviceEditProviderDto}">
+                <input type="hidden" th:field="*{id}" id="id">
+                <table class="table table-striped table-bordered table-hover">
+                    <tr>
+                        <label class=”control-label” th:for="availabilityDate" th:text="'dodaj date dostepnosci'"></label>
+                        <input class="form-control" type="date" id="availabilityDate" th:required="required" th:field="*{availability}">
+                        <div th:if="${#fields.hasErrors('availability')}">
+                            <span th:each="error : ${#fields.errors('availability')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+
+                    <tr>
+                        <br>
+                        <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Dodaj date'"></button>
+                    </tr>
+
+                </table>
+            </form>
+
+            <br>
+
             <form class="form-control left-10" th:action="@{/providers/editById}" method="post"
                   th:object="${serviceEditProviderDto}">
                 <input type="hidden" th:field="*{id}" id="id">

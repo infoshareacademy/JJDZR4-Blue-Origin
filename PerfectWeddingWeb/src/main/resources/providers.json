@@ -13,12 +13,12 @@
   },
   "serviceType" : {
     "description" : "Zdjęcia 360",
-    "price" : "2000 zł",
+    "price" : "500",
     "typesOfService" : "FOTOGRAFIA",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ [ 2022, 5, 1 ] ]
+    "dates" : [ [ 2022, 5, 1 ], [ 2022, 2, 17 ], [ 2022, 3, 3 ] ]
   },
   "ratingList" : [ {
     "rating" : 5,

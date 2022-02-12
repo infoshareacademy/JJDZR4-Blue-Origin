@@ -1,10 +1,7 @@
 package com.infoshareacademy.controllers;
 
 import com.infoshareacademy.domain.ServiceProvider;
-import com.infoshareacademy.dto.ServiceAddProviderDto;
-import com.infoshareacademy.dto.ServiceEditProviderDto;
-import com.infoshareacademy.dto.ServiceProviderDto;
-import com.infoshareacademy.dto.ServiceSearchProviderDto;
+import com.infoshareacademy.dto.*;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,7 +52,9 @@ public class ProviderController {
     public String editForm(Model model, @PathVariable Integer id) {
         ServiceProvider serviceProvider = serviceProviderService.editById(id);
         ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+        List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(id - 1).getAvailability().getDates().stream().sorted().toList();
         model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
+        model.addAttribute("providerToBeEditedAvailability", providerAvailabilityDates);
         return "ProviderEditForm";
     }
 
@@ -65,6 +65,13 @@ public class ProviderController {
         }
         serviceProviderService.editProvider(serviceEditProviderDto);
         return "redirect:/all-providers";
+    }
+
+    @PostMapping("providers/addAvailabilityById")
+    public String addAvailability(ServiceEditProviderDto serviceEditProviderDto) {
+        serviceProviderService.addAvailabilityDateToProvider(serviceEditProviderDto.getAvailability().toString(), serviceEditProviderDto.getId());
+        int partOfUrl = serviceEditProviderDto.getId();
+        return "redirect:edit/" + partOfUrl;
     }
 
 
@@ -99,4 +106,23 @@ public class ProviderController {
         return "FoundProviders";
     }
 
+
+    @GetMapping("providers/rate/{id}")
+    public String rateForm(Model model, @PathVariable Integer id) {
+        ServiceProvider serviceProvider = serviceProviderService.editById(id);
+        RatingDto ratingDto = new RatingDto();
+        ratingDto.setID(id);
+        ratingDto.setCompanyName(serviceProvider.getCompanyName());
+        model.addAttribute("ratingDto", ratingDto);
+        return "ProviderRateForm";
+    }
+
+    @PostMapping("providers/rateById")
+    public String rateById(@Valid RatingDto ratingDto, BindingResult bindingResult) throws IOException {
+        if (bindingResult.hasErrors()) {
+            return "ProviderRateForm";
+        }
+        serviceProviderService.addRatingToProvider(ratingDto);
+        return "redirect:/all-providers";
+    }
 }

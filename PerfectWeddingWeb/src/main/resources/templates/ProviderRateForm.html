@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <title>Rate Provider</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+    <link th:href="@{/css/Style.css}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    html,body{
+        align-content: flex-start;
+        height: 100%;
+        place-items: center;
+        text-align: center;
+        background: #000;
+    }
+    .container{
+        position: relative;
+        width: 800px;
+        padding: 20px 30px;
+        border: 1px solid #444;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .container .star-widget input{
+        display: none;
+    }
+    .star-widget label{
+        font-size: 90px;
+        color: #444;
+        padding: 10px;
+        float: right;
+        transition: all 0.2s ease;
+    }
+    input:not(:checked) ~ label:hover,
+    input:not(:checked) ~ label:hover ~ label{
+        color: #fd4;
+    }
+    input:checked ~ label{
+        color: #fd4;
+    }
+    input#rate-5:checked ~ label{
+        color: #fe7;
+        text-shadow: 0 0 20px #952;
+    }
+      .container form{
+        display: none;
+    }
+    input:checked ~ form{
+        display: block;
+    }
+    form header{
+        width: 100%;
+        font-size: 25px;
+        color: #fe7;
+        font-weight: 500;
+        margin: 5px 0 20px 0;
+        text-align: center;
+        transition: all 0.2s ease;
+    }
+    form .textarea{
+        height: 100px;
+        width: 80%;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+
+    .textarea textarea:focus{
+        border-color: #777;
+    }
+
+</style>
+</head>
+
+
+<body class="bg-light">
+<header class="section-header ">
+
+    <div th:insert="fragments/frame::header ('Ocena dostawcy')"></div>
+</header>
+
+<section class="section-content py-3">
+    <div class="row">
+        <aside class="col-lg-2">
+            <div class="nav-link navbar-right">
+                <nav>
+                    <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>
+                    <div th:insert="fragments/commonButtons :: custom ('',#{ToMainMenu.caption})"></div>
+                </nav>
+            </div>
+        </aside>
+        <main class="col-lg-8">
+            <form class="form-control left-10" th:action="@{/providers/rateById}" method="post"
+                  th:object="${ratingDto}">
+                        <input class="form-control" type="text" id="ID" th:field="*{ID}"
+                               th:hidden="hidden">
+                      <input class="form-control" type="text" id="companyName" th:field="*{companyName}"
+                       th:hidden="hidden">
+                        <H4 class=”control-label” th:text="'Oceniasz dostawce:'"></H4>
+                        <H3  class=”control-label”  th:text="*{companyName}"></H3>
+                <br>
+                <container class="container">
+                        <div >
+                            <div class="star-widget">
+                                <input id="rate-5" class="custom-control-input" type="radio" th:field="*{rating}"
+                                       value="5"
+                                       th:hidden="hidden">
+                                <label for="rate-5" class="fas fa-star"></label>
+                                <input id="rate-4" class="custom-control-input" type="radio" th:field="*{rating}"
+                                       value="4"
+                                       th:hidden="hidden">
+                                <label for="rate-4" class="fas fa-star"></label>
+                                <input id="rate-3" class="custom-control-input" type="radio" th:field="*{rating}"
+                                       value="3"
+                                       th:hidden="hidden">
+                                <label for="rate-3" class="fas fa-star"></label>
+                                <input id="rate-2" class="custom-control-input" type="radio" th:field="*{rating}"
+                                       value="2"
+                                       th:hidden="hidden">
+                                <label for="rate-2" class="fas fa-star"></label>
+                                <input id="rate-1" class="custom-control-input" type="radio" th:field="*{rating}"
+                                       value="1"
+                                       th:hidden="hidden">
+                                <label for="rate-1" class="fas fa-star"></label>
+                            </div>
+                        </div>
+                </container>
+                    <br>
+                        <h4 class=”control-label” th:for="comment" th:text="'Dodaj komentarz (opcjonalnie)'"></h4>
+                <textarea class="textarea" type="text" id="comment" th:field="*{comment}"></textarea>
+                        <div th:if="${#fields.hasErrors('comment')}">
+                            <span th:each="error : ${#fields.errors('comment')}" th:text="${error}"></span>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Zapisz'"></button>
+            </form>
+        </main>
+    </div>
+</section>
+</body>
+</html>

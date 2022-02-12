@@ -42,7 +42,6 @@
                     <th>Service Type</th>
                     <th>Availability</th>
                     <th>Is Active</th>
-                    <!-- <th>Rating List</th>-->
                 </tr>
 
                 <tr th:each="provider, stat : ${allProvidersTH}">
@@ -60,14 +59,10 @@
                     <td th:text="${provider.phone}"></td>
                     <td th:text="${provider.email}"></td>
                     <td th:text="${provider.websiteAddress}"></td>
-                    <!--    Tu sie wybierze co nam trzeba. Jak wrzuce samo location to rzyga odniesieniem w pamieci.-->
                     <td th:text="${provider.location.getCity()}"></td>
-                    <!--    Podobnie jak wyzej.-->
                     <td th:text="${provider.serviceType.getTypesOfService()}"></td>
-                    <!--    Data narazie nie dziala.-->
                     <td th:text="${provider.availability}"></td>
                     <td th:text="${provider.isActive()}"></td>
-                    <!-- <td th:text="${provider.ratingList}"></td>-->
                 </tr>
             </table>
         </main>
