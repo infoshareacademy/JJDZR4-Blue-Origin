@@ -1,6 +1,5 @@
 package com.infoshareacademy.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,10 +22,8 @@ public class Availability {
 
     @Id
     @GeneratedValue
-    @Column(name = COLUMN_PREFIX + "id")
     private int id;
 
-    @Column(name = COLUMN_PREFIX + "dates", nullable = true)
     @ElementCollection
     private List<LocalDate> dates = new ArrayList<>();
 
@@ -34,7 +31,7 @@ public class Availability {
     @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;
 
-      public Availability(List<LocalDate> dates) {
+    public Availability(List<LocalDate> dates) {
         this.dates = dates;
     }
 

@@ -16,17 +16,13 @@ import javax.persistence.*;
 public class ServiceType {
 
     public static final String TABLE_NAME = "service_type";
-    public static final String COLUMN_PREFIX = "st_";
+
 
     @Id
     @GeneratedValue
-    @Column(name = COLUMN_PREFIX + "id")
     private int ID;
 
-    @Column(name = COLUMN_PREFIX + "description", nullable = false)
     private String description;
-
-    @Column(name = COLUMN_PREFIX + "price", nullable = false)
     private String price;
 
     @OneToOne(cascade = CascadeType.ALL)

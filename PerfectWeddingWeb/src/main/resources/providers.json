@@ -1,6 +1,6 @@
 [ {
-  "averageRating" : 4.83,
   "currentID" : 1,
+  "averageRating" : 4.83,
   "companyName" : "Multimedia360",
   "ownerName" : "Marek",
   "ownerSurname" : "Pałubicki",
@@ -10,40 +10,56 @@
   "location" : {
     "id" : 0,
     "voivodeship" : "POMORSKIE",
-    "city" : "Bolszewo"
+    "city" : "Bolszewo",
+    "serviceProvider" : null
   },
   "serviceType" : {
     "description" : "Zdjęcia 360",
     "price" : "500",
+    "serviceProvider" : null,
     "typesOfService" : "FOTOGRAFIA",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ [ 2022, 5, 1 ], [ 2022, 2, 17 ], [ 2022, 3, 3 ], [ 2022, 2, 18 ] ]
+    "id" : 0,
+    "dates" : [ [ 2022, 5, 1 ], [ 2022, 2, 17 ], [ 2022, 3, 3 ], [ 2022, 2, 18 ] ],
+    "serviceProvider" : null
   },
   "ratingList" : [ {
+    "id" : 0,
     "rating" : 5,
-    "comment" : "Mega"
+    "comment" : "Mega",
+    "serviceProvider" : null
   }, {
+    "id" : 0,
     "rating" : 4,
-    "comment" : "Jeszcze bardziej mega."
+    "comment" : "Jeszcze bardziej mega.",
+    "serviceProvider" : null
   }, {
+    "id" : 0,
     "rating" : 5,
-    "comment" : "Oby tak dalej."
+    "comment" : "Oby tak dalej.",
+    "serviceProvider" : null
   }, {
+    "id" : 0,
     "rating" : 5,
-    "comment" : "Sprawdzam ocene w szukajce po typie uslugi."
+    "comment" : "Sprawdzam ocene w szukajce po typie uslugi.",
+    "serviceProvider" : null
   }, {
+    "id" : 0,
     "rating" : 5,
-    "comment" : "test"
+    "comment" : "test",
+    "serviceProvider" : null
   }, {
+    "id" : 0,
     "rating" : 5,
-    "comment" : "Ma sie dodac komentarz dla uslugodawcy ID = 1, wejscie z poziomu wyszukiwarki po lokalizacji."
+    "comment" : "Ma sie dodac komentarz dla uslugodawcy ID = 1, wejscie z poziomu wyszukiwarki po lokalizacji.",
+    "serviceProvider" : null
   } ],
   "active" : true
 }, {
-  "averageRating" : 3.0,
   "currentID" : 2,
+  "averageRating" : 3.67,
   "companyName" : "Inre",
   "ownerName" : "Piotr",
   "ownerSurname" : "Dering",
@@ -53,28 +69,41 @@
   "location" : {
     "id" : 0,
     "voivodeship" : "POMORSKIE",
-    "city" : "Żukowo"
+    "city" : "Żukowo",
+    "serviceProvider" : null
   },
   "serviceType" : {
     "description" : "Zajmujemy się fotografią od ponad 10 lat. Szukamy klientów którym podoba się nasze podejście do uwieczniania chwil.",
-    "price" : "4000 zł",
+    "price" : "70",
+    "serviceProvider" : null,
     "typesOfService" : "FOTOGRAFIA",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ [ 2022, 6, 5 ], [ 2022, 1, 1 ] ]
+    "id" : 0,
+    "dates" : [ [ 2022, 6, 5 ], [ 2022, 1, 1 ], [ 2022, 2, 19 ] ],
+    "serviceProvider" : null
   },
   "ratingList" : [ {
+    "id" : 0,
     "rating" : 3,
-    "comment" : "SUper"
+    "comment" : "SUper",
+    "serviceProvider" : null
   }, {
+    "id" : 0,
     "rating" : 3,
-    "comment" : "OK"
+    "comment" : "OK",
+    "serviceProvider" : null
+  }, {
+    "id" : 0,
+    "rating" : 5,
+    "comment" : "ok\r\n",
+    "serviceProvider" : null
   } ],
   "active" : true
 }, {
-  "averageRating" : 5.0,
   "currentID" : 3,
+  "averageRating" : 5.0,
   "companyName" : "Videoperfect Paweł Dampc",
   "ownerName" : "Paweł",
   "ownerSurname" : "Dempc",
@@ -84,34 +113,46 @@
   "location" : {
     "id" : 0,
     "voivodeship" : "POMORSKIE",
-    "city" : "Szemud"
+    "city" : "Szemud",
+    "serviceProvider" : null
   },
   "serviceType" : {
     "description" : "zajmujemy się fotografią",
     "price" : "70",
+    "serviceProvider" : null,
     "typesOfService" : "FILMOWANIE",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ [ 2022, 2, 16 ] ]
+    "id" : 0,
+    "dates" : [ [ 2022, 2, 16 ] ],
+    "serviceProvider" : null
   },
   "ratingList" : [ {
+    "id" : 0,
     "rating" : 5,
-    "comment" : "Mega"
+    "comment" : "Mega",
+    "serviceProvider" : null
   }, {
+    "id" : 0,
     "rating" : 5,
-    "comment" : "Jeszcze bardziej mega."
+    "comment" : "Jeszcze bardziej mega.",
+    "serviceProvider" : null
   }, {
+    "id" : 0,
     "rating" : 5,
-    "comment" : "Oby tak dalej."
+    "comment" : "Oby tak dalej.",
+    "serviceProvider" : null
   }, {
+    "id" : 0,
     "rating" : 5,
-    "comment" : "test"
+    "comment" : "test",
+    "serviceProvider" : null
   } ],
   "active" : true
 }, {
-  "averageRating" : -1.0,
   "currentID" : 4,
+  "averageRating" : -1.0,
   "companyName" : "Pracownia Reklamy Sylwia Frankowska",
   "ownerName" : "Sylwia ",
   "ownerSurname" : "Frankowska",
@@ -121,16 +162,20 @@
   "location" : {
     "id" : 0,
     "voivodeship" : "POMORSKIE",
-    "city" : "Bojano"
+    "city" : "Bojano",
+    "serviceProvider" : null
   },
   "serviceType" : {
     "description" : "Grajki",
     "price" : "5000",
+    "serviceProvider" : null,
     "typesOfService" : "OPRAWA_MUZYCZNA",
     "id" : 0
   },
   "availability" : {
-    "dates" : [ [ 2022, 2, 5 ] ]
+    "id" : 0,
+    "dates" : [ [ 2022, 2, 5 ] ],
+    "serviceProvider" : null
   },
   "ratingList" : [ ],
   "active" : true

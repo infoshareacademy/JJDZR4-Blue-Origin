@@ -19,15 +19,15 @@ import java.util.Objects;
 public class ServiceProvider {
 
     public static final String TABLE_NAME = "service_provider";
-    public static final String COLUMN_PREFIX = "s_";
-
-    public static int incrementalID;
-    double averageRating;
 
     @Id
     @GeneratedValue
-    @Column(name = COLUMN_PREFIX + "id")
+    @Column(name = "id")
     private int currentID;
+//
+//    public static int incrementalID;
+//
+    double averageRating;
     private String companyName;
     private String ownerName;
     private String ownerSurname;
@@ -106,7 +106,8 @@ public class ServiceProvider {
                         + "\n";
 
     }
-    public void addRating (Rating rating) {
+
+    public void addRating(Rating rating) {
         ratingList.add(rating);
     }
 
