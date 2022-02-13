@@ -18,7 +18,6 @@ import java.util.List;
 public class Availability {
 
     public static final String TABLE_NAME = "availability";
-    public static final String COLUMN_PREFIX = "av_";
 
     @Id
     @GeneratedValue

@@ -17,7 +17,6 @@ public class ServiceType {
 
     public static final String TABLE_NAME = "service_type";
 
-
     @Id
     @GeneratedValue
     private int ID;
