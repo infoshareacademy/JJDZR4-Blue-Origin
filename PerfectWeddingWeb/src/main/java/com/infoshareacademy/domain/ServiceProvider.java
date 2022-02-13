@@ -1,18 +1,32 @@
 package com.infoshareacademy.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@NoArgsConstructor
+@Entity
 @Getter
 @Setter
+@Table(name = ServiceProvider.TABLE_NAME)
+
 public class ServiceProvider {
+
+    public static final String TABLE_NAME = "service_provider";
+    public static final String COLUMN_PREFIX = "s_";
+
     public static int incrementalID;
     double averageRating;
+
+    @Id
+    @GeneratedValue
+    @Column(name = COLUMN_PREFIX + "id")
     private int currentID;
     private String companyName;
     private String ownerName;
@@ -20,10 +34,19 @@ public class ServiceProvider {
     private String phone;
     private String email;
     private String websiteAddress;
+
+    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY)
     private Location location;
+
+    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY)
     private ServiceType serviceType;
+
+    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY)
     private Availability availability;
+
     private boolean isActive;
+
+    @OneToMany(mappedBy = "serviceProvider", fetch = FetchType.LAZY)
     private List<Rating> ratingList = new ArrayList<>();
 
     public double getAverageRating() {

@@ -27,6 +27,10 @@ public class Location {
     @Column(name = COLUMN_PREFIX + "city", nullable = false)
     private String city;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "service_provider_id")
+    private ServiceProvider serviceProvider;
+
 
     public Location(String city, Voivodeship voivodeship) {
         this.voivodeship = voivodeship;

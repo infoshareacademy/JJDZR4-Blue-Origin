@@ -1,22 +1,40 @@
 package com.infoshareacademy.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@NoArgsConstructor
 @Getter
 @Setter
+@Table(name = Availability.TABLE_NAME)
+
 public class Availability {
 
+    public static final String TABLE_NAME = "availability";
+    public static final String COLUMN_PREFIX = "av_";
+
+    @Id
+    @GeneratedValue
+    @Column(name = COLUMN_PREFIX + "id")
+    private int id;
+
+    @Column(name = COLUMN_PREFIX + "dates", nullable = true)
+    @ElementCollection
     private List<LocalDate> dates = new ArrayList<>();
 
-    public Availability() {
-    }
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "service_provider_id")
+    private ServiceProvider serviceProvider;
 
-    public Availability(List<LocalDate> dates) {
+      public Availability(List<LocalDate> dates) {
         this.dates = dates;
     }
 
