@@ -8,6 +8,7 @@
   "email" : "poczta@vmultimedia.eu",
   "websiteAddress" : "www.multimedia.eu",
   "location" : {
+    "id" : 0,
     "voivodeship" : "POMORSKIE",
     "city" : "Bolszewo"
   },
@@ -18,7 +19,7 @@
     "id" : 0
   },
   "availability" : {
-    "dates" : [ [ 2022, 5, 1 ], [ 2022, 2, 17 ], [ 2022, 3, 3 ] ]
+    "dates" : [ [ 2022, 5, 1 ], [ 2022, 2, 17 ], [ 2022, 3, 3 ], [ 2022, 2, 18 ] ]
   },
   "ratingList" : [ {
     "rating" : 5,
@@ -50,6 +51,7 @@
   "email" : "inre@gmail.com",
   "websiteAddress" : "inre.pl",
   "location" : {
+    "id" : 0,
     "voivodeship" : "POMORSKIE",
     "city" : "Żukowo"
   },
@@ -80,6 +82,7 @@
   "email" : "poczta@videoperfect.eu",
   "websiteAddress" : "www.videoperfect.eu",
   "location" : {
+    "id" : 0,
     "voivodeship" : "POMORSKIE",
     "city" : "Szemud"
   },
@@ -116,6 +119,7 @@
   "email" : "sylwia86pawel@gmail.com",
   "websiteAddress" : "Starowiejska 1",
   "location" : {
+    "id" : 0,
     "voivodeship" : "POMORSKIE",
     "city" : "Bojano"
   },
