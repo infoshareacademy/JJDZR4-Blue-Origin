@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.infoshareacademy.domain.ServiceProvider;
 import org.springframework.stereotype.Repository;
@@ -23,7 +22,6 @@ public class ServiceProviderRepo {
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             .registerModule(new JavaTimeModule());
     private final String pathToRepoForCurrentUser = System.getProperty("user.dir");
-    //To sie moze wyjebac na windowsie.
     private File allProvidersFile = new File(pathToRepoForCurrentUser + "/PerfectWeddingWeb/src/main/resources/providers.json");
 
     public ServiceProviderRepo() {
@@ -46,6 +44,9 @@ public class ServiceProviderRepo {
     }
 
     public void exportProviders() throws IOException {
+        for (int i = 0; i < serviceProvidersList.size(); i++) {
+            serviceProvidersList.get(i).getAvailability().sortDates(serviceProvidersList.get(i).getAvailability().getDates());
+        }
         allProvidersMapper.writerWithDefaultPrettyPrinter().writeValue(allProvidersFile, serviceProvidersList);
     }
 }

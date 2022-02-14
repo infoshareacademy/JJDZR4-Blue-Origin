@@ -53,13 +53,21 @@ public class ProviderController {
         ServiceProvider serviceProvider = serviceProviderService.editById(id);
         ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
         List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(id - 1).getAvailability().getDates().stream().sorted().toList();
+        List<ServiceProvider> providerToBeEdited = serviceProviderService.returnAllServiceProviders();
         model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
         model.addAttribute("providerToBeEditedAvailability", providerAvailabilityDates);
+        model.addAttribute("allProviders", providerToBeEdited);
         return "ProviderEditForm";
     }
 
     @PostMapping("providers/editById")
-    public String editById(@Valid ServiceEditProviderDto serviceEditProviderDto, BindingResult bindingResult) throws IOException {
+    public String editById(@Valid ServiceEditProviderDto serviceEditProviderDto,
+                           BindingResult bindingResult,
+                           Model model) throws IOException {
+        List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(serviceEditProviderDto.getId() - 1).getAvailability().getDates().stream().sorted().toList();
+        List<ServiceProvider> providerToBeEdited = serviceProviderService.returnAllServiceProviders();
+        model.addAttribute("providerToBeEditedAvailability", providerAvailabilityDates);
+        model.addAttribute("allProviders", providerToBeEdited);
         if (bindingResult.hasErrors()) {
             return "ProviderEditForm";
         }
@@ -74,6 +82,13 @@ public class ProviderController {
         return "redirect:edit/" + partOfUrl;
     }
 
+    @GetMapping(value = "/providers/remove/availability/{providerId}/{dateIndex}")
+    public String removeAvailabilityFromProvider(@PathVariable int providerId, @PathVariable int dateIndex,
+                                                 ServiceEditProviderDto serviceEditProviderDto) {
+        serviceProviderService.removeAvailabilityDateFromProvider(providerId, dateIndex);
+        int partOfUrl = serviceEditProviderDto.getId();
+        return "redirect:/providers/edit/" + partOfUrl+1;
+    }
 
     @GetMapping("/deactivate/{id}")
     public String providersPageDeActivate(@PathVariable Integer id, Model model) {

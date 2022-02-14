@@ -57,6 +57,11 @@ public class ServiceProviderService {
         serviceProvider.getAvailability().addNewAvailability(LocalDate.parse(availabilityDate));
     }
 
+    public void removeAvailabilityDateFromProvider(Integer providerId, int dateIndex) {
+        ServiceProvider serviceProvider = editById(providerId);
+        serviceProvider.getAvailability().removeAvailability(dateIndex);
+    }
+
     public ServiceProvider getProviderData(Integer id) {
         return serviceProviderRepo.getServiceProvidersList().get(id);
     }
