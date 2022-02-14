@@ -1,7 +1,7 @@
 [ {
   "currentID" : 1,
   "averageRating" : 4.83,
-  "companyName" : "Multimedia360",
+  "companyName" : "Multimedia360 change",
   "ownerName" : "Marek",
   "ownerSurname" : "Pałubicki",
   "phone" : "578899563",
@@ -15,7 +15,7 @@
   },
   "serviceType" : {
     "description" : "Zdjęcia 360",
-    "price" : "500",
+    "price" : "700",
     "serviceProvider" : null,
     "typesOfService" : "FOTOGRAFIA",
     "id" : 0

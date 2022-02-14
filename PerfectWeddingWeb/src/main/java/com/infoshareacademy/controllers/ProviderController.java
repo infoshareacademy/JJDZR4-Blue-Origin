@@ -59,7 +59,11 @@ public class ProviderController {
     }
 
     @PostMapping("providers/editById")
-    public String editById(@Valid ServiceEditProviderDto serviceEditProviderDto, BindingResult bindingResult) throws IOException {
+    public String editById(@Valid ServiceEditProviderDto serviceEditProviderDto,
+                           BindingResult bindingResult,
+                           Model model) throws IOException {
+        List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(serviceEditProviderDto.getId() - 1).getAvailability().getDates().stream().sorted().toList();
+        model.addAttribute("providerToBeEditedAvailability", providerAvailabilityDates);
         if (bindingResult.hasErrors()) {
             return "ProviderEditForm";
         }
