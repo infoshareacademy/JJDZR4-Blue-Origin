@@ -31,7 +31,7 @@ public class Availability {
     private ServiceProvider serviceProvider;
 
     public Availability(List<LocalDate> dates) {
-        this.dates = dates;
+        this.dates = dates.stream().sorted().toList();
     }
 
     public void addNewAvailability(LocalDate date) {
@@ -39,6 +39,10 @@ public class Availability {
             dates = new ArrayList<>();
         }
         dates.add(date);
+    }
+
+    public List<LocalDate> sortDates(List<LocalDate> dates) {
+        return dates.stream().sorted().toList();
     }
 
     public void removeAvailability(int dateIndex) {

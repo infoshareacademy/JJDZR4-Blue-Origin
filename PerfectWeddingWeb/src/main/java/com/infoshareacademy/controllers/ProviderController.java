@@ -53,8 +53,10 @@ public class ProviderController {
         ServiceProvider serviceProvider = serviceProviderService.editById(id);
         ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
         List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(id - 1).getAvailability().getDates().stream().sorted().toList();
+        List<ServiceProvider> providerToBeEdited = serviceProviderService.returnAllServiceProviders();
         model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
         model.addAttribute("providerToBeEditedAvailability", providerAvailabilityDates);
+        model.addAttribute("allProviders", providerToBeEdited);
         return "ProviderEditForm";
     }
 
@@ -63,7 +65,9 @@ public class ProviderController {
                            BindingResult bindingResult,
                            Model model) throws IOException {
         List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(serviceEditProviderDto.getId() - 1).getAvailability().getDates().stream().sorted().toList();
+        List<ServiceProvider> providerToBeEdited = serviceProviderService.returnAllServiceProviders();
         model.addAttribute("providerToBeEditedAvailability", providerAvailabilityDates);
+        model.addAttribute("allProviders", providerToBeEdited);
         if (bindingResult.hasErrors()) {
             return "ProviderEditForm";
         }
