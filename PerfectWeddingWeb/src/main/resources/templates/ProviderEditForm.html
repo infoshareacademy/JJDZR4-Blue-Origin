@@ -39,9 +39,13 @@
                     <th th:text="'Usuń datę'"></th>
                 </tr>
 
-                <tr th:each="date : ${providerToBeEditedAvailability}">
+                <tr th:each="date, iterator : ${providerToBeEditedAvailability}">
                     <td td th:text="${date}"></td>
-                    <td th:text="Delete"></td>
+                    <td>
+                        <a th:href="@{/service-provider/remove/availability/1/{dateIndex}(dateIndex=${iterator.index})}">
+                            <button type="button" th:text="'Remove this date'"></button>
+                        </a>
+                    </td>
                 </tr>
 
             </table>
