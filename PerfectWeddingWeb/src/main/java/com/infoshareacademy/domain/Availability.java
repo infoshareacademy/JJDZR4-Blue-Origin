@@ -41,6 +41,13 @@ public class Availability {
         dates.add(date);
     }
 
+    public void removeAvailability(int dateIndex) {
+        if (dates == null) {
+
+        }
+        dates.remove(dateIndex);
+    }
+
     @Override
     public String toString() {
         String toReturn = "";

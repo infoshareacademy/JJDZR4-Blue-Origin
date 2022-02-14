@@ -38,4 +38,9 @@ public class ProviderRestController {
         int id = objectNode.get("id").asInt();
         serviceProviderService.addAvailabilityDateToProvider(availabilityDate, id);
     }
+
+    @GetMapping(value = "/service-provider/remove/availability/{providerId}/{dateIndex}")
+    public void removeAvailabilityFromProvider(@PathVariable int providerId, @PathVariable int dateIndex) {
+        serviceProviderService.removeAvailabilityDateFromProvider(providerId, dateIndex);
+    }
 }
