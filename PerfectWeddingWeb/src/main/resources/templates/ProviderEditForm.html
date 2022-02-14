@@ -42,7 +42,7 @@
                 <tr th:each="date, iterator : ${providerToBeEditedAvailability}">
                     <td td th:text="${date}"></td>
                     <td>
-                        <a th:href="@{/service-provider/remove/availability/{providerId}/{dateIndex}
+                        <a th:href="@{/providers/remove/availability/{providerId}/{dateIndex}
                         (dateIndex=${iterator.index}, providerId=*{id})}">
                             <button type="button" th:text="'Remove this date'"></button>
                         </a>

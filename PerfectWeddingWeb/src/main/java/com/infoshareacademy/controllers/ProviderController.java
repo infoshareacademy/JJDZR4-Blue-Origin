@@ -82,6 +82,13 @@ public class ProviderController {
         return "redirect:edit/" + partOfUrl;
     }
 
+    @GetMapping(value = "/providers/remove/availability/{providerId}/{dateIndex}")
+    public String removeAvailabilityFromProvider(@PathVariable int providerId, @PathVariable int dateIndex,
+                                                 ServiceEditProviderDto serviceEditProviderDto) {
+        serviceProviderService.removeAvailabilityDateFromProvider(providerId, dateIndex);
+        int partOfUrl = serviceEditProviderDto.getId();
+        return "redirect:/providers/edit/" + partOfUrl+1;
+    }
 
     @GetMapping("/deactivate/{id}")
     public String providersPageDeActivate(@PathVariable Integer id, Model model) {
