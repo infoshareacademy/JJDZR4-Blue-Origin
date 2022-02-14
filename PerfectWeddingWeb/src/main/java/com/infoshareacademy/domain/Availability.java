@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -31,7 +32,7 @@ public class Availability {
     private ServiceProvider serviceProvider;
 
     public Availability(List<LocalDate> dates) {
-        this.dates = dates.stream().sorted().toList();
+        this.dates = dates;
     }
 
     public void addNewAvailability(LocalDate date) {
@@ -41,8 +42,11 @@ public class Availability {
         dates.add(date);
     }
 
+
     public List<LocalDate> sortDates(List<LocalDate> dates) {
-        return dates.stream().sorted().toList();
+        List<LocalDate> datesToBeSorted = dates;
+        Collections.sort(datesToBeSorted);
+        return datesToBeSorted;
     }
 
     public void removeAvailability(int dateIndex) {
