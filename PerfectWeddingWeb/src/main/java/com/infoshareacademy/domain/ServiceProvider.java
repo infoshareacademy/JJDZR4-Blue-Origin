@@ -41,7 +41,9 @@ public class ServiceProvider {
     @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private ServiceType serviceType;
 
-    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "availability_id")
+//    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Availability availability;
 
     private boolean isActive;

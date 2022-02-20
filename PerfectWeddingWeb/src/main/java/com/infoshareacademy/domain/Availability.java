@@ -27,8 +27,9 @@ public class Availability {
     @ElementCollection
     private List<LocalDate> dates = new ArrayList<>();
 
-    @OneToOne
-    @JoinColumn(name = "service_provider_id")
+
+    @OneToOne(mappedBy = "availability")
+//    @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;
 
     public Availability(List<LocalDate> dates) {

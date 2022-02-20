@@ -15,8 +15,8 @@ public class ServiceProviderRepoDB {
     private EntityManager entityManager;
 
     public void saveProviders(ServiceProvider serviceProvider) {
-        Availability availability = serviceProvider.getAvailability();
+//        Availability availability = serviceProvider.getAvailability();
         entityManager.persist(serviceProvider);
-        availability.setServiceProvider(serviceProvider);
+//        availability.setServiceProvider(serviceProvider);
     }
 }
