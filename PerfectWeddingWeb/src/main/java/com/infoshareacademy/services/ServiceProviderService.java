@@ -9,6 +9,7 @@ import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.repository.ServiceProviderRepo;
+import com.infoshareacademy.repository.ServiceProviderRepoDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
@@ -26,11 +27,13 @@ public class ServiceProviderService {
 
     private ServiceProviderRepo serviceProviderRepo;
     private ServiceProviderMapper serviceProviderMapper;
+    private ServiceProviderRepoDB serviceProviderRepoDB;
 
     @Autowired
-    public ServiceProviderService(ServiceProviderRepo serviceProviderRepo, ServiceProviderMapper serviceProviderMapper) {
+    public ServiceProviderService(ServiceProviderRepo serviceProviderRepo, ServiceProviderMapper serviceProviderMapper, ServiceProviderRepoDB serviceProviderRepoDB) {
         this.serviceProviderRepo = serviceProviderRepo;
         this.serviceProviderMapper = serviceProviderMapper;
+        this.serviceProviderRepoDB = serviceProviderRepoDB;
     }
 
     public List<ServiceProvider> returnAllServiceProviders() {
@@ -89,9 +92,12 @@ public class ServiceProviderService {
         }
     }
 
+
     public void addProvider(ServiceAddProviderDto serviceAddProviderDto) throws IOException {
-        serviceProviderRepo.getServiceProvidersList().add(serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto));
+        ServiceProvider serviceProvider = serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto);
+        serviceProviderRepo.getServiceProvidersList().add(serviceProvider);
         serviceProviderRepo.exportProviders();
+        serviceProviderRepoDB.saveProviders(serviceProvider);
     }
 
 

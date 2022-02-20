@@ -179,4 +179,120 @@
   },
   "ratingList" : [ ],
   "active" : true
+}, {
+  "currentID" : 5,
+  "averageRating" : -1.0,
+  "companyName" : "testDB",
+  "ownerName" : "testDB",
+  "ownerSurname" : "testDB",
+  "phone" : "500500500",
+  "email" : "testDB@google.pl",
+  "websiteAddress" : "",
+  "location" : {
+    "id" : 0,
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Lublin",
+    "serviceProvider" : null
+  },
+  "serviceType" : {
+    "description" : "testDB",
+    "price" : "500",
+    "serviceProvider" : null,
+    "typesOfService" : "SALA_WESELNA",
+    "id" : 0
+  },
+  "availability" : {
+    "id" : 0,
+    "dates" : [ [ 2022, 2, 24 ] ],
+    "serviceProvider" : null
+  },
+  "ratingList" : [ ],
+  "active" : true
+}, {
+  "currentID" : 6,
+  "averageRating" : -1.0,
+  "companyName" : "testDB",
+  "ownerName" : "testDB",
+  "ownerSurname" : "testDB",
+  "phone" : "500500500",
+  "email" : "testDB@google.pl",
+  "websiteAddress" : "",
+  "location" : {
+    "id" : 0,
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Lublin",
+    "serviceProvider" : null
+  },
+  "serviceType" : {
+    "description" : "testDB",
+    "price" : "500",
+    "serviceProvider" : null,
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "id" : 0,
+    "dates" : [ [ 2022, 2, 24 ] ],
+    "serviceProvider" : null
+  },
+  "ratingList" : [ ],
+  "active" : true
+}, {
+  "currentID" : 7,
+  "averageRating" : -1.0,
+  "companyName" : "testDB",
+  "ownerName" : "testDB",
+  "ownerSurname" : "testDB",
+  "phone" : "500500500",
+  "email" : "testDB@google.pl",
+  "websiteAddress" : "",
+  "location" : {
+    "id" : 0,
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Lublin",
+    "serviceProvider" : null
+  },
+  "serviceType" : {
+    "description" : "testDB",
+    "price" : "500",
+    "serviceProvider" : null,
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "id" : 0,
+    "dates" : [ [ 2022, 2, 24 ] ],
+    "serviceProvider" : null
+  },
+  "ratingList" : [ ],
+  "active" : true
+}, {
+  "currentID" : 8,
+  "averageRating" : -1.0,
+  "companyName" : "testDB",
+  "ownerName" : "testDB",
+  "ownerSurname" : "testDB",
+  "phone" : "500500500",
+  "email" : "testDB@google.pl",
+  "websiteAddress" : "",
+  "location" : {
+    "id" : 0,
+    "voivodeship" : "DOLNOŚLĄSKIE",
+    "city" : "Lublin",
+    "serviceProvider" : null
+  },
+  "serviceType" : {
+    "description" : "test",
+    "price" : "500",
+    "serviceProvider" : null,
+    "typesOfService" : "FILMOWANIE",
+    "id" : 0
+  },
+  "availability" : {
+    "id" : 0,
+    "dates" : [ [ 2022, 2, 24 ] ],
+    "serviceProvider" : null
+  },
+  "ratingList" : [ ],
+  "active" : true
 } ]
