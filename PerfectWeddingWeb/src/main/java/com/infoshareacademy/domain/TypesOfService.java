@@ -3,6 +3,7 @@ package com.infoshareacademy.domain;
 
 import lombok.Getter;
 
+
 @Getter
 public enum TypesOfService {
     FILMOWANIE("FILMOWANIE"),

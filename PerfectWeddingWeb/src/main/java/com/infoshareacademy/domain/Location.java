@@ -19,6 +19,7 @@ public class Location {
     @GeneratedValue
     private int id;
 
+    @Enumerated(value = EnumType.STRING)
     private Voivodeship voivodeship;
     private String city;
 

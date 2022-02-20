@@ -28,6 +28,7 @@ public class ServiceType {
     @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;
 
+    @Enumerated(value = EnumType.STRING)
     private TypesOfService typesOfService;
 
     public ServiceType(int ID, String description, String price, TypesOfService typesOfService) {
