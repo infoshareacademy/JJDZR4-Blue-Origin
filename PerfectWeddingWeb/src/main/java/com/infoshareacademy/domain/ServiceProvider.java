@@ -23,7 +23,7 @@ public class ServiceProvider {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int currentID;
+    private Integer currentID;
 //
 //    public static int incrementalID;
 //

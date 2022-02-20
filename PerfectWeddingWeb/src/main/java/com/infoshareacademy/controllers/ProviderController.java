@@ -52,7 +52,7 @@ public class ProviderController {
 
     @GetMapping("providers/edit/{id}")
     public String editForm(Model model, @PathVariable Integer id) {
-        ServiceProvider serviceProvider = serviceProviderService.editById(id);
+        ServiceProvider serviceProvider = serviceProviderService.findById(id);
         ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
         List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(id - 1).getAvailability().getDates().stream().sorted().toList();
         List<ServiceProvider> providerToBeEdited = serviceProviderService.returnAllServiceProviders();
@@ -126,7 +126,7 @@ public class ProviderController {
 
     @GetMapping("providers/rate/{id}")
     public String rateForm(Model model, @PathVariable Integer id) {
-        ServiceProvider serviceProvider = serviceProviderService.editById(id);
+        ServiceProvider serviceProvider = serviceProviderService.findById(id);
         RatingDto ratingDto = new RatingDto();
         ratingDto.setID(id);
         ratingDto.setCompanyName(serviceProvider.getCompanyName());

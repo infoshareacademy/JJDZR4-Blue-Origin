@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Table(name = Rating.TABLE_NAME)
 public class Rating {
 
+
     public static final String TABLE_NAME = "rating";
 
     @Id

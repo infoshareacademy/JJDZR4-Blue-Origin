@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
-import javax.validation.Valid;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class ServiceProviderService {
         return null;
     }
 
-    public ServiceProvider editById(Integer id) {
+    public ServiceProvider findById(Integer id) {
         return serviceProviderRepo.getServiceProvidersList()
                 .stream()
                 .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
@@ -56,12 +55,12 @@ public class ServiceProviderService {
     }
 
     public void addAvailabilityDateToProvider(String availabilityDate, Integer id) {
-        ServiceProvider serviceProvider = editById(id);
+        ServiceProvider serviceProvider = findById(id);
         serviceProvider.getAvailability().addNewAvailability(LocalDate.parse(availabilityDate));
     }
 
     public void removeAvailabilityDateFromProvider(Integer providerId, int dateIndex) {
-        ServiceProvider serviceProvider = editById(providerId);
+        ServiceProvider serviceProvider = findById(providerId);
         serviceProvider.getAvailability().removeAvailability(dateIndex);
     }
 
@@ -70,7 +69,7 @@ public class ServiceProviderService {
     }
 
     public void editProvider(ServiceEditProviderDto serviceEditProviderDto) throws IOException {
-        ServiceProvider serviceProvider = editById(serviceEditProviderDto.getId());
+        ServiceProvider serviceProvider = findById(serviceEditProviderDto.getId());
         serviceProvider.setCompanyName(serviceEditProviderDto.getCompanyName());
         serviceProvider.setOwnerName(serviceEditProviderDto.getOwnerName());
         serviceProvider.setOwnerSurname(serviceEditProviderDto.getOwnerSurname());
@@ -177,7 +176,7 @@ public class ServiceProviderService {
     }
 
     public void addRatingToProvider(RatingDto rating) {
-        ServiceProvider serviceProvider = editById(rating.getID());
+        ServiceProvider serviceProvider = findById(rating.getID());
         serviceProvider.addRating(new Rating(rating.getRating(), rating.getComment()));
     }
 }

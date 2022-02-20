@@ -1,7 +1,9 @@
 package com.infoshareacademy.repository;
 
 import com.infoshareacademy.domain.Availability;
+import com.infoshareacademy.domain.Rating;
 import com.infoshareacademy.domain.ServiceProvider;
+import com.infoshareacademy.dto.RatingDto;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -18,5 +20,10 @@ public class ServiceProviderRepoDB {
 //        Availability availability = serviceProvider.getAvailability();
         entityManager.persist(serviceProvider);
 //        availability.setServiceProvider(serviceProvider);
+    }
+
+    public void addRating(Rating rating) {
+        entityManager.persist(rating);
+
     }
 }
