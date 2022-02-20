@@ -16,5 +16,6 @@ public class ServiceProviderRepoDB {
 
     public void saveProviders(ServiceProvider serviceProvider) {
         entityManager.merge(serviceProvider);
+
     }
 }

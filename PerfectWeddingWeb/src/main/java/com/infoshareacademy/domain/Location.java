@@ -16,14 +16,14 @@ public class Location {
     public static final String TABLE_NAME = "location";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Enumerated(value = EnumType.STRING)
     private Voivodeship voivodeship;
     private String city;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;
 

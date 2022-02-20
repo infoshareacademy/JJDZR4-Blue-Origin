@@ -63,7 +63,7 @@ public class ServiceProviderMapper {
         serviceProvider.setOwnerName(serviceAddProviderDto.getOwnerName());
         serviceProvider.setOwnerSurname(serviceAddProviderDto.getOwnerSurname());
         serviceProvider.setPhone(serviceAddProviderDto.getPhone());
-        serviceProvider.setCurrentID(serviceAddProviderDto.getCurrentID());
+//        serviceProvider.setCurrentID(serviceAddProviderDto.getCurrentID());
         serviceProvider.setWebsiteAddress(serviceAddProviderDto.getWebsiteAddress());
         return serviceProvider;
     }

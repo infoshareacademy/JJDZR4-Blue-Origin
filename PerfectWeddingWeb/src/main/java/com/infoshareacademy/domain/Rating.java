@@ -17,7 +17,7 @@ public class Rating {
     public static final String TABLE_NAME = "rating";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private int rating;

@@ -21,7 +21,7 @@ public class ServiceProvider {
     public static final String TABLE_NAME = "service_provider";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int currentID;
 //
@@ -35,13 +35,13 @@ public class ServiceProvider {
     private String email;
     private String websiteAddress;
 
-    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     private Location location;
 
-    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade =CascadeType.ALL)
+    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     private ServiceType serviceType;
 
-    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     private Availability availability;
 
     private boolean isActive;

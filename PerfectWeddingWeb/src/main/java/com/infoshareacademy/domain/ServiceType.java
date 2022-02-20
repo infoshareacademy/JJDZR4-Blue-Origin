@@ -18,13 +18,13 @@ public class ServiceType {
     public static final String TABLE_NAME = "service_type";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
     private String description;
     private String price;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;
 

@@ -43,10 +43,10 @@ public class ServiceAddProviderDto {
     private LocalDate availability;
     private boolean isActive;
 
-    public int getCurrentID() {
-        ServiceProviderRepo serviceProviderRepo = new ServiceProviderRepo();
-        int count = serviceProviderRepo.getServiceProvidersList().size();
-        return currentID = serviceProviderRepo.getServiceProvidersList()
-                .stream().skip(count - 1).findFirst().get().getCurrentID() + 1;
-    }
+//    public int getCurrentID() {
+//        ServiceProviderRepo serviceProviderRepo = new ServiceProviderRepo();
+//        int count = serviceProviderRepo.getServiceProvidersList().size();
+//        return currentID = serviceProviderRepo.getServiceProvidersList()
+//                .stream().skip(count - 1).findFirst().get().getCurrentID() + 1;
+//    }
 }

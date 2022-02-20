@@ -21,13 +21,13 @@ public class Availability {
     public static final String TABLE_NAME = "availability";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ElementCollection
     private List<LocalDate> dates = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;
 
