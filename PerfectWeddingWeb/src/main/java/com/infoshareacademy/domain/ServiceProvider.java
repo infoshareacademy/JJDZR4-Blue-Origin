@@ -35,13 +35,13 @@ public class ServiceProvider {
     private String email;
     private String websiteAddress;
 
-    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Location location;
 
     @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private ServiceType serviceType;
 
-    @JoinColumn(name = "availability_id")
 //    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Availability availability;

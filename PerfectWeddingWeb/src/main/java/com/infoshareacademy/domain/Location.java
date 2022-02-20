@@ -23,8 +23,7 @@ public class Location {
     private Voivodeship voivodeship;
     private String city;
 
-    @OneToOne
-    @JoinColumn(name = "service_provider_id")
+    @OneToOne(mappedBy = "location")
     private ServiceProvider serviceProvider;
 
 
