@@ -8,13 +8,21 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+import java.util.List;
 
 
 @Repository
+@Transactional
 public class ServiceProviderRepoDB {
 
     @PersistenceContext
     private EntityManager entityManager;
+    private ServiceProviderCRUD serviceProviderCRUD;
+
+    public ServiceProviderRepoDB(ServiceProviderCRUD serviceProviderCRUD) {
+        this.serviceProviderCRUD = serviceProviderCRUD;
+    }
 
     public void saveProviders(ServiceProvider serviceProvider) {
 //        Availability availability = serviceProvider.getAvailability();
@@ -22,8 +30,11 @@ public class ServiceProviderRepoDB {
 //        availability.setServiceProvider(serviceProvider);
     }
 
+    public List<ServiceProvider> returnAllProviders() {
+        return serviceProviderCRUD.findAll();
+    }
+
     public void addRating(Rating rating) {
         entityManager.persist(rating);
-
     }
 }

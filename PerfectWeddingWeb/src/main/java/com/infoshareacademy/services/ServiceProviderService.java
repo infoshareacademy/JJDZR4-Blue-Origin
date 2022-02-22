@@ -36,7 +36,8 @@ public class ServiceProviderService {
     }
 
     public List<ServiceProvider> returnAllServiceProviders() {
-        return serviceProviderRepo.getServiceProvidersList();
+//        return serviceProviderRepo.getServiceProvidersList();
+        return serviceProviderRepoDB.returnAllProviders();
     }
 
     public ServiceProvider deActivate(Integer id) {
