@@ -24,9 +24,9 @@ public class ServiceProviderRepo {
     private final String pathToRepoForCurrentUser = System.getProperty("user.dir");
     private File allProvidersFile = new File(pathToRepoForCurrentUser + "/PerfectWeddingWeb/src/main/resources/providers.json");
 
-    public ServiceProviderRepo() {
-        this.serviceProvidersList = importProviders();
-    }
+//    public ServiceProviderRepo() {
+//        this.serviceProvidersList = importProviders();
+//    }
 
     public List<ServiceProvider> importProviders() {
         var allProviders = new ArrayList<ServiceProvider>();

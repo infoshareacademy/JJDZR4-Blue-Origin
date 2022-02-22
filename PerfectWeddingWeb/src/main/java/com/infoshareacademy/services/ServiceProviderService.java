@@ -94,7 +94,7 @@ public class ServiceProviderService {
 
     public void addProvider(ServiceAddProviderDto serviceAddProviderDto) throws IOException {
         ServiceProvider serviceProvider = serviceProviderMapper.mapperFromAddDto(serviceAddProviderDto);
-        serviceProviderRepo.getServiceProvidersList().add(serviceProvider);
+//        serviceProviderRepo.getServiceProvidersList().add(serviceProvider);
 //        serviceProviderRepo.exportProviders();
         serviceProviderRepoDB.saveProviders(serviceProvider);
     }
