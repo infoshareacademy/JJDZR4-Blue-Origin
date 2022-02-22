@@ -24,8 +24,7 @@ public class ServiceType {
     private String description;
     private String price;
 
-    @OneToOne
-    @JoinColumn(name = "service_provider_id")
+    @OneToOne(mappedBy = "serviceType")
     private ServiceProvider serviceProvider;
 
     @Enumerated(value = EnumType.STRING)

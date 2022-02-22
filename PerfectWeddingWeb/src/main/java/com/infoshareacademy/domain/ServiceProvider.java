@@ -39,7 +39,7 @@ public class ServiceProvider {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Location location;
 
-    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private ServiceType serviceType;
 
 //    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
