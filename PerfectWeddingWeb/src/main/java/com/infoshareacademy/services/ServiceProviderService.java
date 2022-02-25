@@ -106,7 +106,8 @@ public class ServiceProviderService {
         switch (typeOfService) {
             case "WSZYSTKIE":
                 if (Objects.nonNull(date) && Objects.nonNull(city)) {
-                    filteredList = filterByCityAndDate(city, date);
+//                    filteredList = filterByCityAndDate(city, date);
+                    filteredList = serviceProviderRepoDB.returnByLocationAndAvailability(city, date);
                 }
                 if (Objects.nonNull(city)) {
                     filteredList = filterByCity(city);

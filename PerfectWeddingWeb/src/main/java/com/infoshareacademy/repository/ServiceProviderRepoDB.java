@@ -4,6 +4,7 @@ import com.infoshareacademy.domain.ServiceProvider;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -23,6 +24,10 @@ public class ServiceProviderRepoDB {
 
     public List<ServiceProvider> returnAllProviders() {
         return serviceProviderCRUD.findAll();
+    }
+
+    public List<ServiceProvider> returnByLocationAndAvailability(String city, LocalDate availabilityDates) {
+        return serviceProviderCRUD.findAllByLocation_CityAndAvailability_Dates(city, availabilityDates);
     }
 
 }
