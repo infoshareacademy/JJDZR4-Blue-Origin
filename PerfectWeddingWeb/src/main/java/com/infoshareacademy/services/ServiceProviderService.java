@@ -82,8 +82,6 @@ public class ServiceProviderService {
         serviceProvider.setLocation(new Location(serviceEditProviderDto.getCity(), serviceEditProviderDto.getVoivodeship()));
         serviceProvider.setServiceType(new ServiceType(serviceEditProviderDto.getDescription(), serviceEditProviderDto.getPrice(), serviceEditProviderDto.getTypesOfService()));
 
-        // ToDo add more fields allowed to edit; we can also create remaping method in ServiceProviderMapper
-        serviceProviderRepo.exportProviders();
     }
 
     public void exportServiceProviders() {
