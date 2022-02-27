@@ -1,6 +1,7 @@
 package com.infoshareacademy.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @NoArgsConstructor
 @Getter
@@ -31,7 +33,6 @@ public class Availability {
 
     @JsonBackReference
     @OneToOne(mappedBy = "availability")
-//    @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;
 
     public Availability(List<LocalDate> dates) {
@@ -54,7 +55,6 @@ public class Availability {
 
     public void removeAvailability(int dateIndex) {
         if (dates == null) {
-
         }
         dates.remove(dateIndex);
     }
