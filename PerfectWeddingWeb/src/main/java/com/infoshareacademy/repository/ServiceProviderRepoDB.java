@@ -1,6 +1,7 @@
 package com.infoshareacademy.repository;
 
 import com.infoshareacademy.domain.ServiceProvider;
+import com.infoshareacademy.domain.TypesOfService;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -36,6 +37,10 @@ public class ServiceProviderRepoDB {
 
     public List<ServiceProvider> returnByAvailability(LocalDate availabilityDate) {
         return serviceProviderCRUD.findAllByAvailability_Dates(availabilityDate);
+    }
+
+    public List<ServiceProvider> returnByTypeOfServiceAndCityAndAvailability(TypesOfService typeOfService, String city, LocalDate availabilityDate) {
+        return serviceProviderCRUD.findAllByServiceTypeAndLocation_CityAndAvailability_Dates(typeOfService, city, availabilityDate);
     }
 
 }

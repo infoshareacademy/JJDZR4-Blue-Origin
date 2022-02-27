@@ -1,9 +1,6 @@
 package com.infoshareacademy.services;
 
-import com.infoshareacademy.domain.Location;
-import com.infoshareacademy.domain.Rating;
-import com.infoshareacademy.domain.ServiceProvider;
-import com.infoshareacademy.domain.ServiceType;
+import com.infoshareacademy.domain.*;
 import com.infoshareacademy.dto.RatingDto;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
@@ -122,8 +119,10 @@ public class ServiceProviderService {
                 }
                 break;
             default:
-                if (Objects.nonNull(date) && Objects.nonNull(city)) {
-                    filteredList = filterServiceCityAndDate(typeOfService, city, date);
+                if (Objects.nonNull(date) && Objects.nonNull(city) && !city.isEmpty()) {
+//                    filteredList = filterServiceCityAndDate(typeOfService, city, date);
+                    filteredList = serviceProviderRepoDB.returnByTypeOfServiceAndCityAndAvailability(TypesOfService.valueOf(typeOfService), city, date);
+                    break;
                 }
                 if (Objects.nonNull(city)) {
                     filteredList = filterByServiceAndCity(typeOfService, city);
