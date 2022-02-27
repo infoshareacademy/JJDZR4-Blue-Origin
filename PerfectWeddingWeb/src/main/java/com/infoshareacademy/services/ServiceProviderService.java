@@ -38,7 +38,10 @@ public class ServiceProviderService {
     }
 
     public ServiceProvider deActivate(Integer id) {
-        serviceProviderRepo.getServiceProvidersList().stream()
+//        serviceProviderRepo.getServiceProvidersList().stream()
+//                .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
+//                .forEach(serviceProvider -> serviceProvider.setActive(false));
+        serviceProviderRepoDB.returnAllProviders().stream()
                 .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
                 .forEach(serviceProvider -> serviceProvider.setActive(false));
         return null;
