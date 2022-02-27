@@ -43,4 +43,12 @@ public class ServiceProviderRepoDB {
         return serviceProviderCRUD.findAllByServiceTypeAndLocation_CityAndAvailability_Dates(typeOfService, city, availabilityDate);
     }
 
+    public List<ServiceProvider> returnByTypeOfServiceAndCity(TypesOfService typesOfService, String city) {
+        return serviceProviderCRUD.findAllByServiceTypeAndLocation_City(typesOfService, city);
+    }
+
+    public List<ServiceProvider> returnByTypeOfServiceAndAvailability(TypesOfService typesOfService, LocalDate availabilityDate) {
+        return serviceProviderCRUD.findAllByServiceTypeAndAvailability_Dates(typesOfService, availabilityDate);
+    }
+
 }

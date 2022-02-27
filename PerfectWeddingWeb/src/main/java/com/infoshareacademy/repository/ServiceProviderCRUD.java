@@ -5,7 +5,6 @@ import com.infoshareacademy.domain.TypesOfService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -25,5 +24,10 @@ public interface ServiceProviderCRUD extends JpaRepository<ServiceProvider, Inte
     @Query("select s from ServiceProvider s where s.serviceType.typesOfService = ?1 and s.location.city = ?2 and ?3 in (select d from s.availability.dates d)")
     List<ServiceProvider> findAllByServiceTypeAndLocation_CityAndAvailability_Dates(TypesOfService typesOfService, String city, LocalDate availabilityDate);
 
+    @Query("select s from ServiceProvider s where s.serviceType.typesOfService = ?1 and s.location.city = ?2")
+    List<ServiceProvider> findAllByServiceTypeAndLocation_City(TypesOfService typesOfService, String city);
+
+    @Query("select s from ServiceProvider s where s.serviceType.typesOfService = ?1 and ?2 in (select d from s.availability.dates d)")
+    List<ServiceProvider> findAllByServiceTypeAndAvailability_Dates(TypesOfService typesOfService, LocalDate date);
 
 }

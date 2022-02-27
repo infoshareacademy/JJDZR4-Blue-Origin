@@ -124,11 +124,14 @@ public class ServiceProviderService {
                     filteredList = serviceProviderRepoDB.returnByTypeOfServiceAndCityAndAvailability(TypesOfService.valueOf(typeOfService), city, date);
                     break;
                 }
-                if (Objects.nonNull(city)) {
-                    filteredList = filterByServiceAndCity(typeOfService, city);
+                if (Objects.nonNull(city) && !city.isEmpty()) {
+//                    filteredList = filterByServiceAndCity(typeOfService, city);
+                    filteredList = serviceProviderRepoDB.returnByTypeOfServiceAndCity(TypesOfService.valueOf(typeOfService), city);
+                    break;
                 }
                 if (Objects.nonNull(date)) {
-                    filteredList = filterByDateAndServiceType(date, typeOfService);
+//                    filteredList = filterByDateAndServiceType(date, typeOfService);
+                    filteredList = serviceProviderRepoDB.returnByTypeOfServiceAndAvailability(TypesOfService.valueOf(typeOfService), date);
                 }
                 break;
         }
