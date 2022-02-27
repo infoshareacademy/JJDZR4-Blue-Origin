@@ -105,15 +105,20 @@ public class ServiceProviderService {
         List<ServiceProvider> filteredList = new ArrayList();
         switch (typeOfService) {
             case "WSZYSTKIE":
-                if (Objects.nonNull(date) && Objects.nonNull(city)) {
+                if (Objects.nonNull(date) && Objects.nonNull(city) && !city.isEmpty()) {
 //                    filteredList = filterByCityAndDate(city, date);
                     filteredList = serviceProviderRepoDB.returnByLocationAndAvailability(city, date);
+                    break;
                 }
-                if (Objects.nonNull(city)) {
-                    filteredList = filterByCity(city);
+                if (Objects.nonNull(city) && !city.isEmpty()) {
+//                    filteredList = filterByCity(city);
+                    filteredList = serviceProviderRepoDB.returnByLocation(city);
+                    break;
                 }
                 if (Objects.nonNull(date)) {
-                    filteredList = filterByDate(date);
+//                    filteredList = filterByDate(date);
+                    filteredList = serviceProviderRepoDB.returnByAvailability(date);
+                    break;
                 }
                 break;
             default:

@@ -26,8 +26,16 @@ public class ServiceProviderRepoDB {
         return serviceProviderCRUD.findAll();
     }
 
-    public List<ServiceProvider> returnByLocationAndAvailability(String city, LocalDate availabilityDates) {
-        return serviceProviderCRUD.findAllByLocation_CityAndAvailability_Dates(city, availabilityDates);
+    public List<ServiceProvider> returnByLocationAndAvailability(String city, LocalDate availabilityDate) {
+        return serviceProviderCRUD.findAllByLocation_CityAndAvailability_Dates(city, availabilityDate);
+    }
+
+    public List<ServiceProvider> returnByLocation(String city) {
+        return serviceProviderCRUD.findAllByLocation_City(city);
+    }
+
+    public List<ServiceProvider> returnByAvailability(LocalDate availabilityDate) {
+        return serviceProviderCRUD.findAllByAvailability_Dates(availabilityDate);
     }
 
 }
