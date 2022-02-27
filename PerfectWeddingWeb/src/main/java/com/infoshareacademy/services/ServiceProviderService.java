@@ -45,11 +45,12 @@ public class ServiceProviderService {
     }
 
     public ServiceProvider findById(Integer id) {
-        return serviceProviderRepo.getServiceProvidersList()
-                .stream()
-                .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
-                .findFirst()
-                .orElseThrow();
+//        return serviceProviderRepo.getServiceProvidersList()
+//                .stream()
+//                .filter(serviceProvider -> serviceProvider.getCurrentID() == id)
+//                .findFirst()
+//                .orElseThrow();
+        return serviceProviderRepoDB.returnProviderById(id);
     }
 
     public void addAvailabilityDateToProvider(String availabilityDate, Integer id) {

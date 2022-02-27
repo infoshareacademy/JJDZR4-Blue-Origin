@@ -1,6 +1,7 @@
 package com.infoshareacademy.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,6 +25,7 @@ public class ServiceType {
     private String description;
     private String price;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "serviceType")
     private ServiceProvider serviceProvider;
 

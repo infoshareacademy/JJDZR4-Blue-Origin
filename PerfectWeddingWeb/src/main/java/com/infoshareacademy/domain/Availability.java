@@ -1,5 +1,6 @@
 package com.infoshareacademy.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,6 +29,7 @@ public class Availability {
     private List<LocalDate> dates = new ArrayList<>();
 
 
+    @JsonBackReference
     @OneToOne(mappedBy = "availability")
 //    @JoinColumn(name = "service_provider_id")
     private ServiceProvider serviceProvider;

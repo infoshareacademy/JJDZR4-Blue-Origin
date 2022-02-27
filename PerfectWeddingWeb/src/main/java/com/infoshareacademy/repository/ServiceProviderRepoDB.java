@@ -51,4 +51,8 @@ public class ServiceProviderRepoDB {
         return serviceProviderCRUD.findAllByServiceTypeAndAvailability_Dates(typesOfService, availabilityDate);
     }
 
+    public ServiceProvider returnProviderById(Integer ID) {
+        return serviceProviderCRUD.findByCurrentID(ID);
+    }
+
 }

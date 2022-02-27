@@ -1,5 +1,7 @@
 package com.infoshareacademy.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,18 +38,22 @@ public class ServiceProvider {
     private String websiteAddress;
 
 
+    @JsonBackReference
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Location location;
 
+    @JsonBackReference
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private ServiceType serviceType;
 
 //    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonBackReference
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Availability availability;
 
     private boolean isActive;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "serviceProvider", fetch = FetchType.LAZY)
     private List<Rating> ratingList = new ArrayList<>();
 

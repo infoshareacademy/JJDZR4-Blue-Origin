@@ -1,5 +1,6 @@
 package com.infoshareacademy.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +24,7 @@ public class Location {
     private Voivodeship voivodeship;
     private String city;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "location")
     private ServiceProvider serviceProvider;
 
