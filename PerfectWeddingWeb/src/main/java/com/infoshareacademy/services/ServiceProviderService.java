@@ -67,7 +67,8 @@ public class ServiceProviderService {
     }
 
     public ServiceProvider getProviderData(Integer id) {
-        return serviceProviderRepo.getServiceProvidersList().get(id);
+//        return serviceProviderRepo.getServiceProvidersList().get(id);
+        return serviceProviderRepoDB.returnAllProviders().get(id);
     }
 
     public void editProvider(ServiceEditProviderDto serviceEditProviderDto) throws IOException {
