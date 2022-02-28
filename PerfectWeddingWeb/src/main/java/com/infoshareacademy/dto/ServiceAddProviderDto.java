@@ -2,7 +2,6 @@ package com.infoshareacademy.dto;
 
 import com.infoshareacademy.domain.TypesOfService;
 import com.infoshareacademy.domain.Voivodeship;
-import com.infoshareacademy.repository.ServiceProviderRepo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -43,10 +42,4 @@ public class ServiceAddProviderDto {
     private LocalDate availability;
     private boolean isActive;
 
-//    public int getCurrentID() {
-//        ServiceProviderRepo serviceProviderRepo = new ServiceProviderRepo();
-//        int count = serviceProviderRepo.getServiceProvidersList().size();
-//        return currentID = serviceProviderRepo.getServiceProvidersList()
-//                .stream().skip(count - 1).findFirst().get().getCurrentID() + 1;
-//    }
 }
