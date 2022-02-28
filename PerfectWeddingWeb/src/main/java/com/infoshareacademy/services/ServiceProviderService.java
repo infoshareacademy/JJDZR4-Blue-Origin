@@ -84,13 +84,13 @@ public class ServiceProviderService {
 
     }
 
-    public void exportServiceProviders() {
-        try {
-            serviceProviderRepo.exportProviders();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void exportServiceProviders() {
+//        try {
+//            serviceProviderRepo.exportProviders();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
     public void addProvider(ServiceAddProviderDto serviceAddProviderDto) throws IOException {
