@@ -8,13 +8,13 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
 @Table(name = Rating.TABLE_NAME)
 public class Rating {
-
 
     public static final String TABLE_NAME = "rating";
 
@@ -34,7 +34,6 @@ public class Rating {
         this.rating = rating;
         this.comment = comment;
     }
-
 
     @Override
     public String toString() {

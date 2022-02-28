@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO Ta klasa będzie do zaorania jak się wszystko przepnie na ServiceProviderRepoDB
+
 @Repository
 public class ServiceProviderRepo {
 

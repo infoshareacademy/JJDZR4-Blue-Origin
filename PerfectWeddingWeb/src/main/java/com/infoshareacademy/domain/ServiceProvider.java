@@ -114,4 +114,8 @@ public class ServiceProvider {
         ratingList.add(rating);
     }
 
+    public ServiceProvider(Integer currentID) {
+        this.currentID = currentID;
+    }
+
 }

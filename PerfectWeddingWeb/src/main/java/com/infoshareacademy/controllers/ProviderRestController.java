@@ -34,8 +34,7 @@ public class ProviderRestController {
 
     @GetMapping(value = "/service-provider/find/{id}")
     public ServiceProvider findById(@PathVariable Integer id) {
-        ServiceProvider serviceProvider = serviceProviderService.findById(id);
-        return serviceProvider;
+        return serviceProviderService.findById(id);
     }
 
     @PostMapping(value = "/service-provider/add/availability")
@@ -43,7 +42,6 @@ public class ProviderRestController {
         String availabilityDate = objectNode.get("availabilityDate").asText();
         int id = objectNode.get("id").asInt();
         serviceProviderService.addAvailabilityDateToProvider(availabilityDate, id);
-//        serviceProviderService.exportServiceProviders();
     }
 
     @GetMapping(value = "/service-provider/remove/availability/{providerId}/{dateIndex}")
