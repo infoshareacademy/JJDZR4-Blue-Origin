@@ -97,6 +97,7 @@ public class ServiceProviderService {
                 }
                 if (city.isEmpty() && Objects.isNull(date)) {
                     filteredList = serviceProviderRepoDB.returnAllProviders();
+                    break;
                 }
                 break;
             default:
@@ -110,6 +111,10 @@ public class ServiceProviderService {
                 }
                 if (Objects.nonNull(date)) {
                     filteredList = serviceProviderRepoDB.returnByTypeOfServiceAndAvailability(TypesOfService.valueOf(typeOfService), date);
+                }
+                if (city.isEmpty() && Objects.isNull(date)) {
+                    filteredList = serviceProviderRepoDB.returnAllByServiceType(TypesOfService.valueOf(typeOfService));
+                    break;
                 }
                 break;
         }

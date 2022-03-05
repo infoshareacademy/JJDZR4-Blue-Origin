@@ -30,6 +30,9 @@ public interface ServiceProviderCRUD extends JpaRepository<ServiceProvider, Inte
     @Query("select s from ServiceProvider s where s.serviceType.typesOfService = ?1 and ?2 in (select d from s.availability.dates d)")
     List<ServiceProvider> findAllByServiceTypeAndAvailability_Dates(TypesOfService typesOfService, LocalDate date);
 
+    @Query("select s from ServiceProvider s where s.serviceType.typesOfService = ?1")
+    List<ServiceProvider> findAllByServiceType(TypesOfService typesOfService);
+
     @Query("select s from ServiceProvider s where s.currentID = ?1")
     ServiceProvider findByCurrentID(Integer ID);
 
