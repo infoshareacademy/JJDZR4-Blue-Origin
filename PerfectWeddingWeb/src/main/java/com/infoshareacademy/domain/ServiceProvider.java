@@ -32,6 +32,7 @@ public class ServiceProvider {
     private String phone;
     private String email;
     private String websiteAddress;
+    private boolean isActive;
 
 
     @JsonManagedReference
@@ -46,10 +47,8 @@ public class ServiceProvider {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Availability availability;
 
-    private boolean isActive;
-
     @JsonManagedReference
-    @OneToMany(mappedBy = "serviceProvider", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Rating> ratingList = new ArrayList<>();
 
     public double getAverageRating() {

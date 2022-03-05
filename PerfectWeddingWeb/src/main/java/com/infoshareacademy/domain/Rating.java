@@ -26,8 +26,7 @@ public class Rating {
     private String comment;
 
     @JsonBackReference
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "service_provider_id")
+    @ManyToOne
     private ServiceProvider serviceProvider;
 
     public Rating(int rating, String comment) {
