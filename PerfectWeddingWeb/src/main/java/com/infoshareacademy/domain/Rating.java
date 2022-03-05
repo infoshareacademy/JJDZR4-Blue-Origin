@@ -21,17 +21,18 @@ public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private int rating;
     private String comment;
 
     @JsonBackReference
     @ManyToOne
+    @JoinColumn(name="service_provider_id")
     private ServiceProvider serviceProvider;
 
-    public Rating(int rating, String comment) {
+    public Rating(int rating, String comment, ServiceProvider serviceProvider) {
         this.rating = rating;
         this.comment = comment;
+        this.serviceProvider = serviceProvider;
     }
 
     @Override

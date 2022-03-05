@@ -119,6 +119,6 @@ public class ServiceProviderService {
 
     public void addRatingToProvider(RatingDto rating) {
         ServiceProvider serviceProvider = findById(rating.getID());
-        serviceProvider.addRating(new Rating(rating.getRating(), rating.getComment()));
+        serviceProvider.addRating(new Rating(rating.getRating(), rating.getComment(), serviceProvider));
     }
 }

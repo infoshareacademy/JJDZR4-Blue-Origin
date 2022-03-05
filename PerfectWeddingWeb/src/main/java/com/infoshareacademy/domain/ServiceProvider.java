@@ -49,7 +49,7 @@ public class ServiceProvider {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Rating> ratingList = new ArrayList<>();
+    private List<Rating> ratingList;
 
     public double getAverageRating() {
         if (Objects.isNull(ratingList)) {
