@@ -95,6 +95,9 @@ public class ServiceProviderService {
                     filteredList = serviceProviderRepoDB.returnByAvailability(date);
                     break;
                 }
+                if (city.isEmpty() && Objects.isNull(date)) {
+                    filteredList = serviceProviderRepoDB.returnAllProviders();
+                }
                 break;
             default:
                 if (Objects.nonNull(date) && Objects.nonNull(city) && !city.isEmpty()) {
