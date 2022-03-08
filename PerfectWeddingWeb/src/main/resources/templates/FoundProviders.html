@@ -9,8 +9,7 @@
           crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
-    <link th:href="@{/css/Style.css}" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" th:href="@{ICON.jpg}"/>
+    <link rel="shortcut icon" th:href="@{/ICON.jpg}"/>
     <title th:text="#{FoundProviders.title}"></title>
 
 </head>
@@ -32,9 +31,8 @@
         <main class="col-lg-10">
             <table class="table table-striped table-bordered table-hover">
                 <tr>
-                    <th>Incremental ID</th>
+                    <th></th>
                     <th>Average Rating</th>
-                    <th>Current ID</th>
                     <th>Company Name</th>
                     <th>Owner Name</th>
                     <th>Owner Surname</th>
@@ -56,7 +54,6 @@
                     <span th:unless="${provider.averageRating == -1}">
                     <td th:text="${provider.averageRating}"></td>
                         </span>
-                    <td th:text="${provider.currentID}"></td>
                     <td th:text="${provider.companyName}"></td>
                     <td th:text="${provider.ownerName}"></td>
                     <td th:text="${provider.ownerSurname}"></td>

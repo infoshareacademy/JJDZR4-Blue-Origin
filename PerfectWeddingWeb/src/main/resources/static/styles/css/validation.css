@@ -1,0 +1,8 @@
+span {
+    background: #365d7a;
+    border-radius: 5px;
+    justify-content: center;
+    display: flex;
+    margin: 5px;
+    color: #d9c858;
+}
