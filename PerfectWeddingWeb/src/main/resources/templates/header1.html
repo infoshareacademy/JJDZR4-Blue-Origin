@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<body>
+<nav th:fragment="header1" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar justify-content-center"
+     style="background-color: darkslategray; margin-bottom: 40px">
+    <div class="nav-item">
+        <a class="navbar-brand btn btn-outline-primary" th:href="@{/}">Home</a>
+    </div>
+    <div class="nav-item">
+        <a class="navbar-brand btn btn-outline-primary" th:href="@{/providers/create}" sec:authorize="hasRole('ROLE_ADMIN')">Dodaj usługę</a>
+    </div>
+
+    <div class="nav-item">
+        <a class="navbar-brand btn btn-outline-primary" th:href="@{/providers/edit}" sec:authorize="hasRole('ROLE_ADMIN')">Edytuj</a>
+           </div>
+
+    <div class="nav-item">
+        <a class="navbar-brand btn btn-outline-primary" th:href="@{/sign-out}" sec:authorize="isAuthenticated()">Wyloguj</a>
+    </div>
+
+
+</nav>
+</body>
+</html>

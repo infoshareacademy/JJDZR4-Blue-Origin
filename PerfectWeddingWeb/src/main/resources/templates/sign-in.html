@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Perfect Wedding</title>
+    <!-- Bootstrap CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<div th:insert="header"></div>
+
+<div th:width="150" th:align="center">
+    <form th:action="@{/api/sign-in}" method="post">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <div th:if="${param.error}" class="alert alert-danger">Invalid Username or Password</div>
+        <label for="username" class="sr-only">Email address</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required=""
+               autofocus="">
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">© 2022</p>
+    </form>
+</div>
+
+<!-- Bootstrap core JS-->
+<script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

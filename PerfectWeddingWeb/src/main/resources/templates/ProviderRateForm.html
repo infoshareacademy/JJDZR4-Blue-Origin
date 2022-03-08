@@ -11,7 +11,9 @@
     <link rel="shortcut icon" th:href="@{/ICON.jpg}"/>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-</head>
+    <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+
 <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
     *{
@@ -87,26 +89,12 @@
     }
 
 </style>
+    <div th:insert="header"></div>
 </head>
 
 
 <body class="bg-light">
-<header class="section-header ">
 
-    <div th:insert="fragments/frame::header ('Ocena dostawcy')"></div>
-</header>
-
-<section class="section-content py-3">
-    <div class="row">
-        <aside class="col-lg-2">
-            <div class="nav-link navbar-right">
-                <nav>
-                    <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>
-                    <div th:insert="fragments/commonButtons :: custom ('',#{ToMainMenu.caption})"></div>
-                </nav>
-            </div>
-        </aside>
-        <main class="col-lg-8">
             <form class="form-control left-10" th:action="@{/providers/rateById}" method="post"
                   th:object="${ratingDto}">
                         <input class="form-control" type="text" id="ID" th:field="*{ID}"
@@ -151,8 +139,6 @@
                         <br>
                         <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Zapisz'"></button>
             </form>
-        </main>
-    </div>
-</section>
+
 </body>
 </html>
