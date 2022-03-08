@@ -1,5 +1,6 @@
 package com.infoshareacademy.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,12 +22,9 @@ public class ServiceProvider {
     public static final String TABLE_NAME = "service_provider";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int currentID;
-//
-//    public static int incrementalID;
-//
+    private Integer currentID;
     double averageRating;
     private String companyName;
     private String ownerName;
@@ -34,20 +32,24 @@ public class ServiceProvider {
     private String phone;
     private String email;
     private String websiteAddress;
-
-    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY)
-    private Location location;
-
-    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY)
-    private ServiceType serviceType;
-
-    @OneToOne(mappedBy = "serviceProvider", fetch = FetchType.LAZY)
-    private Availability availability;
-
     private boolean isActive;
 
-    @OneToMany(mappedBy = "serviceProvider", fetch = FetchType.LAZY)
-    private List<Rating> ratingList = new ArrayList<>();
+
+    @JsonManagedReference
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Location location;
+
+    @JsonManagedReference
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private ServiceType serviceType;
+
+    @JsonManagedReference
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Availability availability;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "serviceProvider", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Rating> ratingList;
 
     public double getAverageRating() {
         if (Objects.isNull(ratingList)) {
@@ -109,6 +111,10 @@ public class ServiceProvider {
 
     public void addRating(Rating rating) {
         ratingList.add(rating);
+    }
+
+    public ServiceProvider(Integer currentID) {
+        this.currentID = currentID;
     }
 
 }

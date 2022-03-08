@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Transactional
 @Controller
 public class ProviderController {
 
@@ -50,7 +52,7 @@ public class ProviderController {
 
     @GetMapping("providers/edit/{id}")
     public String editForm(Model model, @PathVariable Integer id) {
-        ServiceProvider serviceProvider = serviceProviderService.editById(id);
+        ServiceProvider serviceProvider = serviceProviderService.findById(id);
         ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
         List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(id - 1).getAvailability().getDates().stream().sorted().toList();
         List<ServiceProvider> providerToBeEdited = serviceProviderService.returnAllServiceProviders();
@@ -124,7 +126,7 @@ public class ProviderController {
 
     @GetMapping("providers/rate/{id}")
     public String rateForm(Model model, @PathVariable Integer id) {
-        ServiceProvider serviceProvider = serviceProviderService.editById(id);
+        ServiceProvider serviceProvider = serviceProviderService.findById(id);
         RatingDto ratingDto = new RatingDto();
         ratingDto.setID(id);
         ratingDto.setCompanyName(serviceProvider.getCompanyName());

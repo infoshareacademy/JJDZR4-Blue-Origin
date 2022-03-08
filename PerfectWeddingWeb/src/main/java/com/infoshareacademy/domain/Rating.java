@@ -1,5 +1,6 @@
 package com.infoshareacademy.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @NoArgsConstructor
 @Getter
@@ -17,21 +19,21 @@ public class Rating {
     public static final String TABLE_NAME = "rating";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private int rating;
     private String comment;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "service_provider_id")
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name="service_provider_id")
     private ServiceProvider serviceProvider;
 
-    public Rating(int rating, String comment) {
+    public Rating(int rating, String comment, ServiceProvider serviceProvider) {
         this.rating = rating;
         this.comment = comment;
+        this.serviceProvider = serviceProvider;
     }
-
 
     @Override
     public String toString() {

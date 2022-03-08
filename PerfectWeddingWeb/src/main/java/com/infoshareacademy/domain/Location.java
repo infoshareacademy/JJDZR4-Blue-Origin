@@ -1,11 +1,14 @@
 package com.infoshareacademy.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @NoArgsConstructor
 @Getter
@@ -16,14 +19,15 @@ public class Location {
     public static final String TABLE_NAME = "location";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Enumerated(value = EnumType.STRING)
     private Voivodeship voivodeship;
     private String city;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "service_provider_id")
+    @JsonBackReference
+    @OneToOne(mappedBy = "location")
     private ServiceProvider serviceProvider;
 
 

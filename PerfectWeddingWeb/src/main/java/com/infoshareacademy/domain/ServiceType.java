@@ -1,12 +1,15 @@
 package com.infoshareacademy.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @NoArgsConstructor
 @Getter
@@ -18,16 +21,17 @@ public class ServiceType {
     public static final String TABLE_NAME = "service_type";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ID;
 
     private String description;
     private String price;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "service_provider_id")
+    @JsonBackReference
+    @OneToOne(mappedBy = "serviceType")
     private ServiceProvider serviceProvider;
 
+    @Enumerated(value = EnumType.STRING)
     private TypesOfService typesOfService;
 
     public ServiceType(int ID, String description, String price, TypesOfService typesOfService) {
