@@ -6,6 +6,7 @@ import com.infoshareacademy.dto.ServiceSearchProviderRestDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,29 +22,29 @@ public class ProviderRestController {
         this.serviceProviderService = serviceProviderService;
         this.serviceProviderMapper = serviceProviderMapper;
     }
-
+    @Secured("ROLE_USER")
     @PostMapping(value = "/service-provider/find")
     public List<ServiceProvider> returnFoundProvidersActive(@RequestBody ServiceSearchProviderRestDto serviceSearchProviderRestDto) {
         return serviceProviderService.findProviders(serviceSearchProviderRestDto.getServiceType(), serviceSearchProviderRestDto.getCity(), serviceSearchProviderRestDto.getDate(), serviceSearchProviderRestDto.getIsActive());
     }
-
+    @Secured("ROLE_USER")
     @GetMapping(value = "/service-provider/get/{id}")
     public ServiceProvider getProviderData(@PathVariable Integer id) {
         return serviceProviderService.getProviderData(id);
     }
-
+    @Secured("ROLE_USER")
     @GetMapping(value = "/service-provider/find/{id}")
     public ServiceProvider findById(@PathVariable Integer id) {
         return serviceProviderService.findById(id);
     }
-
+    @Secured("ROLE_USER")
     @PostMapping(value = "/service-provider/add/availability")
     public void addAvailabilityToProvider(@RequestBody ObjectNode objectNode) {
         String availabilityDate = objectNode.get("availabilityDate").asText();
         int id = objectNode.get("id").asInt();
         serviceProviderService.addAvailabilityDateToProvider(availabilityDate, id);
     }
-
+    @Secured("ROLE_USER")
     @GetMapping(value = "/service-provider/remove/availability/{providerId}/{dateIndex}")
     public void removeAvailabilityFromProvider(@PathVariable int providerId, @PathVariable int dateIndex) {
         serviceProviderService.removeAvailabilityDateFromProvider(providerId, dateIndex);

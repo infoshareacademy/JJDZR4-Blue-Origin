@@ -5,6 +5,7 @@ import com.infoshareacademy.dto.*;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,13 +33,13 @@ public class ProviderController {
         this.serviceProviderService = serviceProviderService;
         this.serviceProviderMapper = serviceProviderMapper;
     }
-
+    @Secured("ROLE_USER")
     @GetMapping("providers/create")
     public String showCreateForm(Model model) {
         model.addAttribute("serviceProviderAddDto", new ServiceAddProviderDto());
         return "ProviderAdd";
     }
-
+    @Secured("ROLE_USER")
     @PostMapping("providers/create")
     public String addProvider(@Valid @ModelAttribute("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto,
                               BindingResult bindingResult) throws IOException {
@@ -49,7 +50,7 @@ public class ProviderController {
         return "redirect:/all-providers"; //toDO przed prezentacją zmienić na HomePage
     }
 
-
+    @Secured("ROLE_USER")
     @GetMapping("providers/edit/{id}")
     public String editForm(Model model, @PathVariable Integer id) {
         ServiceProvider serviceProvider = serviceProviderService.findById(id);
@@ -61,7 +62,7 @@ public class ProviderController {
         model.addAttribute("allProviders", providerToBeEdited);
         return "ProviderEditForm";
     }
-
+    @Secured("ROLE_USER")
     @PostMapping("providers/editById")
     public String editById(@Valid ServiceEditProviderDto serviceEditProviderDto,
                            BindingResult bindingResult,
@@ -76,14 +77,14 @@ public class ProviderController {
         serviceProviderService.editProvider(serviceEditProviderDto);
         return "redirect:/all-providers";
     }
-
+    @Secured("ROLE_USER")
     @PostMapping("providers/addAvailabilityById")
     public String addAvailability(ServiceEditProviderDto serviceEditProviderDto) {
         serviceProviderService.addAvailabilityDateToProvider(serviceEditProviderDto.getAvailability().toString(), serviceEditProviderDto.getId());
         int partOfUrl = serviceEditProviderDto.getId();
         return "redirect:edit/" + partOfUrl;
     }
-
+    @Secured("ROLE_USER")
     @GetMapping(value = "/providers/remove/availability/{providerId}/{dateIndex}")
     public String removeAvailabilityFromProvider(@PathVariable int providerId, @PathVariable int dateIndex,
                                                  ServiceEditProviderDto serviceEditProviderDto) {
@@ -91,13 +92,13 @@ public class ProviderController {
         int partOfUrl = serviceEditProviderDto.getId();
         return "redirect:/providers/edit/" + partOfUrl+1;
     }
-
+    @Secured("ROLE_USER")
     @GetMapping("/deactivate/{id}")
     public String providersPageDeActivate(@PathVariable Integer id, Model model) {
         model.addAttribute("deActivatebyId", serviceProviderService.deActivate(id));
         return "redirect:/all-providers";
     }
-
+    @Secured("ROLE_USER")
     @GetMapping(value = "/all-providers")
     public String showAllProviders(Model model) {
 
@@ -108,13 +109,13 @@ public class ProviderController {
         model.addAttribute("allProvidersTH", serviceProviderDtos);
         return "AllProviders";
     }
-
+    @Secured("ROLE_USER")
     @GetMapping("/providers/edit")
     public String clientsPage(Model model) {
         model.addAttribute("cityAndTypeOfService", new ServiceSearchProviderDto());
         return "ProviderEditMenu";
     }
-
+    @Secured("ROLE_USER")
     @PostMapping("/providers/edit")
     public String findByTypeOfService(Model modelOfFoundProviders, ServiceSearchProviderDto serviceSearchProviderDto) {
         modelOfFoundProviders
@@ -123,7 +124,7 @@ public class ProviderController {
         return "FoundProviders";
     }
 
-
+    @Secured("ROLE_USER")
     @GetMapping("providers/rate/{id}")
     public String rateForm(Model model, @PathVariable Integer id) {
         ServiceProvider serviceProvider = serviceProviderService.findById(id);
@@ -133,7 +134,7 @@ public class ProviderController {
         model.addAttribute("ratingDto", ratingDto);
         return "ProviderRateForm";
     }
-
+    @Secured("ROLE_USER")
     @PostMapping("providers/rateById")
     public String rateById(@Valid RatingDto ratingDto, BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()) {

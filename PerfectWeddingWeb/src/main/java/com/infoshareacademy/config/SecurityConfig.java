@@ -27,8 +27,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         , "/validation.css", "/ICON.jpg", "/LOGO.jpg",
                         HOME_PAGE,
                         SIGN_IN_PAGE,
-                        FIND,
-                        PROVIDERS_RATE,
                         SIGN_IN_API).permitAll()
                 .antMatchers("/users").hasRole("ADMIN")
                 .anyRequest().authenticated()
@@ -43,7 +41,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl(SIGN_OUT_API)
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl(HOME_PAGE);
+                .logoutSuccessUrl(HOME_PAGE)
+                .and()
+                .exceptionHandling().accessDeniedPage("/403");
     }
 
 /*    @Override
