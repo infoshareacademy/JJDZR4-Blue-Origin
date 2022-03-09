@@ -20,6 +20,9 @@
     <nav>
         <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>
         <div th:insert="fragments/commonButtons :: custom ('find',#{ToClientPanel.caption})"></div>
+        <div th:insert="fragments/commonButtons :: custom ('users','Użytkownicy')"></div>
+        <div th:insert="fragments/commonButtons :: custom ('sign-in',#{ToLogInPanel.caption})"></div>
+        <div th:insert="fragments/commonButtons :: custom ('sign-out',#{ToLogOutPanel.caption})"></div>
     </nav>
 </div>
 
