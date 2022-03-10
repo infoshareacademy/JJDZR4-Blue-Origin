@@ -120,7 +120,7 @@ public class ProviderController {
     public String findByTypeOfService(Model modelOfFoundProviders, ServiceSearchProviderDto serviceSearchProviderDto) {
         modelOfFoundProviders
                 .addAttribute("providersByServiceTH", serviceProviderService.findProviders(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity(), serviceSearchProviderDto.getDate(), true))
-                .addAttribute("toggleDeactivateEdit", false);
+                .addAttribute("toggleDeactivateEdit", "edit");
         return "FoundProviders";
     }
 
@@ -141,6 +141,7 @@ public class ProviderController {
             return "ProviderRateForm";
         }
         serviceProviderService.addRatingToProvider(ratingDto);
+
         return "redirect:/all-providers";
     }
 }

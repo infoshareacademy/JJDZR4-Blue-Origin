@@ -26,7 +26,7 @@ public class ClientController {
     public String findByTypeOfService(Model modelOfFoundProviders, ServiceSearchProviderDto serviceSearchProviderDto) {
         modelOfFoundProviders
                 .addAttribute("providersByServiceTH", serviceProviderService.findProviders(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity(), serviceSearchProviderDto.getDate(), true))
-                .addAttribute("toggleDeactivateEdit", true);
+                .addAttribute("toggleDeactivateEdit", "rate");
         return "FoundProviders";
     }
 }
