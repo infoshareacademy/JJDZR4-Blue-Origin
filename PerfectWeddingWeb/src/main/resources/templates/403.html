@@ -13,13 +13,13 @@
 </head>
 <body class="bg-light">
 <header class="section-header">
-    <div th:insert="fragments/frame::header ('Strona Glowna')"></div>
+    <div th:insert="fragments/frame::header ('Nie masz zezwolenia aby wejść na tę stronę!')"></div>
 </header>
 
 <div class="nav-link navbar-right ">
     <nav>
         <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})" sec:authorize="hasRole('ROLE_USER')"></div>
-        <div th:insert="fragments/commonButtons :: custom ('find',#{ToClientPanel.caption})" ></div>
+        <div th:insert="fragments/commonButtons :: custom ('find',#{ToClientPanel.caption})" sec:authorize="hasRole('ROLE_USER')"></div>
         <div th:insert="fragments/commonButtons :: custom ('users','Użytkownicy')" sec:authorize="hasRole('ROLE_ADMIN')"></div>
         <div th:insert="fragments/commonButtons :: custom ('sign-in',#{ToLogInPanel.caption})" sec:authorize="!isAuthenticated()"></div>
         <div th:insert="fragments/commonButtons :: custom ('sign-out',#{ToLogOutPanel.caption})" sec:authorize="!isAuthenticated()"></div>
