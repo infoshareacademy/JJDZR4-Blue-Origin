@@ -12,8 +12,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     private static final String HOME_PAGE = "/";
-    private static final String PROVIDERS = "/providers";
+    private static final String ALL_PROVIDERS = "/all-providers";
     private static final String PROVIDERS_RATE = "/providers/rate/{id}";
+    private static final String PROVIDERS_RATE_Id = "/providers/rateById";
     private static final String FIND = "/find";
     private static final String SIGN_IN_PAGE = "/sign-in";
     private static final String SIGN_IN_API = "/api/sign-in";
@@ -26,6 +27,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**", "/bootstrap/**", "/assets/bootstrap-solid.svg"
                         , "/validation.css", "/ICON.jpg", "/LOGO.jpg",
                         HOME_PAGE,
+                        FIND,
+                        PROVIDERS_RATE,
+                        PROVIDERS_RATE_Id,
+                        ALL_PROVIDERS,
                         SIGN_IN_PAGE,
                         SIGN_IN_API).permitAll()
                 .antMatchers("/users").hasRole("ADMIN")

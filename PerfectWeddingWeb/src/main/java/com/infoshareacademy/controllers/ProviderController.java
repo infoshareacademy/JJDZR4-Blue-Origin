@@ -98,7 +98,7 @@ public class ProviderController {
         model.addAttribute("deActivatebyId", serviceProviderService.deActivate(id));
         return "redirect:/all-providers";
     }
-    @Secured("ROLE_USER")
+
     @GetMapping(value = "/all-providers")
     public String showAllProviders(Model model) {
 
@@ -124,7 +124,7 @@ public class ProviderController {
         return "FoundProviders";
     }
 
-    @Secured("ROLE_USER")
+
     @GetMapping("providers/rate/{id}")
     public String rateForm(Model model, @PathVariable Integer id) {
         ServiceProvider serviceProvider = serviceProviderService.findById(id);
@@ -134,7 +134,7 @@ public class ProviderController {
         model.addAttribute("ratingDto", ratingDto);
         return "ProviderRateForm";
     }
-    @Secured("ROLE_USER")
+
     @PostMapping("providers/rateById")
     public String rateById(@Valid RatingDto ratingDto, BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()) {

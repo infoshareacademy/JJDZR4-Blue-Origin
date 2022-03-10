@@ -18,7 +18,7 @@ public class HomePageController {
     public String providersPage() {
         return "ProviderMenu";
     }
-    @Secured("ROLE_USER")
+
     @GetMapping("/find")
     public String clientsPage(Model model) {
         model.addAttribute("cityAndTypeOfService", new ServiceSearchProviderDto());

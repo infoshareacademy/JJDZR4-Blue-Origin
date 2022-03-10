@@ -21,7 +21,7 @@ public class ClientController {
         this.serviceProviderService = serviceProviderService;
         this.serviceProviderMapper = serviceProviderMapper;
     }
-    @Secured("ROLE_USER")
+
     @PostMapping("/find")
     public String findByTypeOfService(Model modelOfFoundProviders, ServiceSearchProviderDto serviceSearchProviderDto) {
         modelOfFoundProviders

@@ -22,17 +22,17 @@ public class ProviderRestController {
         this.serviceProviderService = serviceProviderService;
         this.serviceProviderMapper = serviceProviderMapper;
     }
-    @Secured("ROLE_USER")
+
     @PostMapping(value = "/service-provider/find")
     public List<ServiceProvider> returnFoundProvidersActive(@RequestBody ServiceSearchProviderRestDto serviceSearchProviderRestDto) {
         return serviceProviderService.findProviders(serviceSearchProviderRestDto.getServiceType(), serviceSearchProviderRestDto.getCity(), serviceSearchProviderRestDto.getDate(), serviceSearchProviderRestDto.getIsActive());
     }
-    @Secured("ROLE_USER")
+
     @GetMapping(value = "/service-provider/get/{id}")
     public ServiceProvider getProviderData(@PathVariable Integer id) {
         return serviceProviderService.getProviderData(id);
     }
-    @Secured("ROLE_USER")
+
     @GetMapping(value = "/service-provider/find/{id}")
     public ServiceProvider findById(@PathVariable Integer id) {
         return serviceProviderService.findById(id);
