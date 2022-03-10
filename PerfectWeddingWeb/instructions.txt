@@ -1,0 +1,20 @@
+spring security users:
+    L:admin H:admin
+    L:user H:user
+
+database connection:
+    user:root
+    password:secretRootPassword
+    port:3307
+    database:perfect_wedding
+
+docker:
+    odpalenie kontenera z bazą:
+        docker-compose up db
+    zatrzymanie kontenera z bazą:
+        docker-compose down:
+
+misc:
+    Jak już utworzymy dockera z bazą ->
+    Najpierw trzeba w application.properties zrobić hibernate:ddl na create-drop, potem create a potem zostawić
+    na update i powinny się już odkładać dane w bazie.
