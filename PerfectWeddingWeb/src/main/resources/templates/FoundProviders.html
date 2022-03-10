@@ -36,7 +36,7 @@
                     <th>Average Rating</th>
                     <th>Location</th>
                     <th>Service Type</th>
-                    <th>Availability</th>
+
                     <span th:if="${toggleDeactivateEdit}=='rate'">
                         <th></th>
                     </span>
@@ -57,8 +57,7 @@
                         </span>
                     <td th:text="${provider.location.getCity()}"></td>
                     <td th:text="${provider.serviceType.getTypesOfService()}"></td>
-                    <td th:text="${provider.availability}"></td>
-                    <span th:if="${toggleDeactivateEdit}=='rate'">
+                     <span th:if="${toggleDeactivateEdit}=='rate'">
                         <td>
                             <a th:href="@{providers/rate/{id}(id=${provider.getCurrentID()})}">
                                     <button id="rate" class="btn btn-secondary" type="button"
