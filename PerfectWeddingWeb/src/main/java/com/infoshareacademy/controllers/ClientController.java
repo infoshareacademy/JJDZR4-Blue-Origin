@@ -44,5 +44,6 @@ public class ClientController {
                 .addAttribute("providersByServiceTH",serviceProviderList )
                 .addAttribute("toggleDeactivateEdit", "rated");
         return "FoundProviders";
+        //TODO: for some reason it requires logging. Why?
     }
 }

@@ -38,19 +38,13 @@
                     <th>Service Type</th>
                     <th>Availability</th>
                     <span th:if="${toggleDeactivateEdit}=='rate'">
-
-                            <th></th>
-
+                        <th></th>
                     </span>
                     <span th:if="${toggleDeactivateEdit}=='edit'">
-
-                            <th></th>
                         <th></th>
-
+                        <th></th>
                     </span>
-
                 </tr>
-
                 <tr th:each="provider, stat : ${providersByServiceTH}">
                     <td th:text="${stat.index + 1}"></td>
 
@@ -69,6 +63,9 @@
                             <a th:href="@{providers/rate/{id}(id=${provider.getCurrentID()})}">
                                     <button id="rate" class="btn btn-secondary" type="button"
                                             th:text="'Ocen Dostawce'"></button></a>
+                             <a th:href="@{providers/show/{id}(id=${provider.getCurrentID()})}">
+                                    <button id="moreinfo" class="btn btn-secondary" type="button"
+                                            th:text="'Szczegolwe informacje'"></button></a>
                         </td>
                     </span>
                     <span th:if="${toggleDeactivateEdit}=='edit'">
@@ -81,7 +78,7 @@
                             <a th:href="@{edit/{id} (id=${provider.currentID})}">
                                     <button id="Edit" class="btn btn-secondary" type="button"
                                             th:text="'Edycja'"></button>
-                                </a>
+                            </a>
                         </td>
                     </span>
                 </tr>

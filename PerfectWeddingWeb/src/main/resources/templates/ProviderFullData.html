@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+    <link rel="shortcut icon" th:href="@{/ICON.jpg}"/>
+    <title>Edit Provider</title>
+</head>
+
+<body class="bg-light">
+<header class="section-header ">
+
+    <div th:insert="fragments/frame::header ('Pelne dane dostawcy')"></div>
+</header>
+
+<section class="section-content py-3">
+    <div class="row">
+        <aside class="col-lg-2">
+            <div class="nav-link navbar-right">
+                <nav>
+                    <div th:insert="fragments/commonButtons :: custom ('providers',#{ToServiceProviderPanel.caption})"></div>
+                    <div th:insert="fragments/commonButtons :: custom ('',#{ToMainMenu.caption})"></div>
+                </nav>
+            </div>
+        </aside>
+        <main class="col-lg-8">
+
+            <table class="table table-striped table-bordered table-hover" th:object="${serviceEditProviderDto}">
+                <span th:text="'Aktualne daty dostępności'"></span>
+
+                <tr>
+                    <th th:text="'Daty dostępności'"></th>
+
+                </tr>
+
+                <tr th:each="date, iterator : ${providerToBeEditedAvailability}">
+                    <td td th:text="${date}"></td>
+
+                </tr>
+
+            </table>
+
+<!--            <form class="form-control left-10" th:action="@{/providers/addAvailabilityById}" method="post" th:object="${serviceEditProviderDto}">-->
+<!--                <input type="hidden" th:field="*{id}" id="id">-->
+<!--                <table class="table table-striped table-bordered table-hover">-->
+<!--                    <tr>-->
+<!--                        <label class=”control-label” th:for="availabilityDate" th:text="'dodaj date dostepnosci'"></label>-->
+<!--                        <input class="form-control" type="date" id="availabilityDate" th:required="required" th:field="*{availability}">-->
+<!--                        <div th:if="${#fields.hasErrors('availability')}">-->
+<!--                            <span th:each="error : ${#fields.errors('availability')}" th:text="${error}"></span>-->
+<!--                        </div>-->
+<!--                    </tr>-->
+
+<!--                    <tr>-->
+<!--                        <br>-->
+<!--                        <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Dodaj date'"></button>-->
+<!--                    </tr>-->
+
+<!--                </table>-->
+<!--            </form>-->
+
+            <br>
+
+            <form class="form-control left-10" th:object="${serviceEditProviderDto}"> <!--th:action="@{/providers/editById}" method="post"-->
+
+                <input type="hidden" th:field="*{id}" id="id">
+                <table class="table table-striped table-bordered table-hover">
+                    <tr>
+
+                        <label class=”control-label” th:for="companyName" th:text="'Company Name'"></label>
+                        <input class="form-control" type="text" id="companyName" th:field="*{companyName}" th:readonly="readonly">
+                        <div th:if="${#fields.hasErrors('companyName')}">
+                            <span th:each="error : ${#fields.errors('companyName')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="ownerName" th:text="'Owner Name'"></label>
+                        <input class="form-control" type="text" id="ownerName" th:field="*{ownerName}" th:readonly="readonly">
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="ownerSurname" th:text="'Owner Surname'"></label>
+                        <input class="form-control" type="text" id="ownerSurname" th:field="*{ownerSurname}" th:readonly="readonly">
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="phone" th:text="'odaj Phone'"></label>
+                        <input class="form-control" type="text" id="phone" th:field="*{phone}" th:readonly="readonly">
+
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="email" th:text="'odaj E-Mail'"></label>
+                        <input class="form-control" type="text" id="email" th:field="*{email}" th:readonly="readonly">
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="websiteAddress" th:text="'Website Address'"></label>
+                        <input class="form-control" type="text" id="websiteAddress" th:field="*{websiteAddress}" th:readonly="readonly">
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="city" th:text="'Miejscowość'"></label>
+                        <input class="form-control" type="text" id="city" th:field="*{city}" th:readonly="readonly">
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="voivodeship" th:text="'Wojewodztwo'"></label>
+                        <input class="form-control" type="text" id="voivodeship" th:field="*{voivodeship}" th:readonly="readonly">
+                        <select class="form-control"  th:field="*{voivodeship}">
+                            <option th:each="category_option : ${T(com.infoshareacademy.domain.Voivodeship).values()}"
+                                    th:value="${category_option}" th:text="${category_option.fullName}">
+                            </option>
+                        </select>
+                        <div th:if="${#fields.hasErrors('voivodeship')}">
+                            <span th:each="error : ${#fields.errors('voivodeship')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="TypesOfService" th:text="'Podaj rodzaj usługi'"></label>
+                        <select class="form-control" id="TypesOfService" th:field="*{typesOfService}">
+                            <option th:each="category_option : ${T(com.infoshareacademy.domain.TypesOfService).values()}"
+                                    th:value="${category_option}" th:text="${category_option.fullName}">
+                            </option>
+                        </select>
+                        <div th:if="${#fields.hasErrors('TypesOfService')}">
+                            <span th:each="error : ${#fields.errors('TypesOfService')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+                    <tr>
+                        <label class=”control-label” th:for="description" th:text="'Podaj opis'"></label>
+                        <input class="form-control" type="text" id="description" th:field="*{description}">
+                        <div th:if="${#fields.hasErrors('description')}">
+                            <span th:each="error : ${#fields.errors('description')}" th:text="${error}"></span>
+                        </div>
+                        <label class=”control-label” th:for="price" th:text="'Podaj cenę'"></label>
+                        <input class="form-control" type="number" id="price" th:field="*{price}">
+                        <div th:if="${#fields.hasErrors('price')}">
+                            <span th:each="error : ${#fields.errors('price')}" th:text="${error}"></span>
+                        </div>
+                    </tr>
+
+<!--                    <tr>-->
+<!--                        <br>-->
+<!--                        <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Zapisz'"></button>-->
+<!--                    </tr>-->
+                </table>
+            </form>
+        </main>
+    </div>
+</section>
+
+<br>
+<a href="http://localhost:8080/all-providers">All providers</a>
+</body>
+</html>

@@ -151,4 +151,16 @@ public class ProviderController {
         serviceProviderService.addRatingToProvider(ratingDto);
         return "redirect:/providers/rated/" + ratingDto.getID();
     }
+
+    @GetMapping("providers/show/{id}")
+    public String showForm(Model model, @PathVariable Integer id) {
+        ServiceProvider serviceProvider = serviceProviderService.findById(id);
+        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+        List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(id - 1).getAvailability().getDates().stream().sorted().toList();
+        List<ServiceProvider> providerToBeEdited = serviceProviderService.returnAllServiceProviders();
+        model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
+        model.addAttribute("providerToBeEditedAvailability", providerAvailabilityDates);
+        model.addAttribute("allProviders", providerToBeEdited);
+        return "ProviderFullData";
+    }
 }
