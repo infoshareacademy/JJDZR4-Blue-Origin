@@ -37,8 +37,18 @@
                     <th>Location</th>
                     <th>Service Type</th>
                     <th>Availability</th>
-                    <th></th>
-                    <th></th>
+                    <span th:if="${toggleDeactivateEdit}=='rate'">
+
+                            <th></th>
+
+                    </span>
+                    <span th:if="${toggleDeactivateEdit}=='edit'">
+
+                            <th></th>
+                        <th></th>
+
+                    </span>
+
                 </tr>
 
                 <tr th:each="provider, stat : ${providersByServiceTH}">
