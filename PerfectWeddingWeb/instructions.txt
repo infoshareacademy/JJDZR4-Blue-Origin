@@ -9,10 +9,16 @@ database connection:
     database:perfect_wedding
 
 docker:
+Polecenia dockerowe należy wykonywac w ścieżce, w której znajduje się dockerowy yaml (czyli u nas PerfectWeddingWeb)
     odpalenie kontenera z bazą:
         docker-compose up db
+    usunięcie kontenera z bazą:
+        docker-compose down: -> usuwa kontener, zostawia volume
+        docker-compose down -v -> usuwa kontener, usuwa volume
     zatrzymanie kontenera z bazą:
-        docker-compose down:
+        docker-compose stop -> porty pozostają w dalszym ciągu zajęte
+    wznowienie kontenera z bazą:
+        docker-compose start
 
 misc:
     Jak już utworzymy dockera z bazą ->
