@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+
+  db:
+    image: mysql:8
+    container_name: perfect_wedding_db
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secretRootPassword
+      MYSQL_DATABASE: perfect_wedding
+      MYSQL_USER: rootUser
+      MYSQL_PASSWORD: rootPassword
+    ports:
+      - "3307:3306"
+    networks:
+      - backend
+
+volumes:
+  db_data:
+
+networks:
+  backend:
