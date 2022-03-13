@@ -54,6 +54,9 @@
                     <span th:each="error : ${#fields.errors('phone')}" th:text="${error}"></span>
                 </div>
                 <label class=”control-label” th:for="email" th:text="'Podaj email'"></label>
+                <div th:if="${#fields.hasErrors('email')}">
+                    <span th:each="error : ${#fields.errors('email')}" th:text="${error}"></span>
+                </div>
                 <input class="form-control" type="email" id="email" th:field="*{email}">
                 <label class=”control-label” th:for="websiteAddress" th:text="'Podaj adres strony WWW'"></label>
                 <input class="form-control" type="text" id="websiteAddress" th:field="*{websiteAddress}">
