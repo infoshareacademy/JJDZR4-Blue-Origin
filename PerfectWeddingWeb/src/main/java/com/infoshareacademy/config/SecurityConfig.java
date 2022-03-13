@@ -19,6 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String SIGN_IN_PAGE = "/sign-in";
     private static final String SIGN_IN_API = "/api/sign-in";
     private static final String SIGN_OUT_API = "/api/sign-out";
+    private static final String RATE_PROVIDER = "/providers/rated/{id}";
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -32,7 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         PROVIDERS_RATE_Id,
                         ALL_PROVIDERS,
                         SIGN_IN_PAGE,
-                        SIGN_IN_API).permitAll()
+                        SIGN_IN_API,
+                        RATE_PROVIDER).permitAll()
                 .antMatchers("/users").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
@@ -50,12 +52,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling().accessDeniedPage("/403");
     }
-
-/*    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password("{bcrypt}$2a$12$NID.YIxlFe/Au92P0zbaquwb1/.GR8vkd2mKgZDaj4Np3IQ54JNAO")
-                .roles("ADMIN");
-    }*/
 }

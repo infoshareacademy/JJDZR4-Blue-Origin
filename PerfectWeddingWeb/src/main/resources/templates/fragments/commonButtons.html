@@ -9,11 +9,5 @@
 <div th:fragment="custom (customPath, customLabel)">
   <a th:href="@{/{path}(path=${customPath})}" class="nav-link" th:text="${customLabel}"></a>
 </div>
-
-<div th:fragment="main">
-  <a th:href="@{/{path}(path=#{main.path})}">
-    <button type="button" th:text="#{main.label}"></button>
-  </a>
-</div>
 </body>
 </html>
