@@ -33,12 +33,14 @@ public class ProviderController {
         this.serviceProviderService = serviceProviderService;
         this.serviceProviderMapper = serviceProviderMapper;
     }
+
     @Secured("ROLE_USER")
     @GetMapping("providers/create")
     public String showCreateForm(Model model) {
         model.addAttribute("serviceProviderAddDto", new ServiceAddProviderDto());
         return "ProviderAdd";
     }
+
     @Secured("ROLE_USER")
     @PostMapping("providers/create")
     public String addProvider(@Valid @ModelAttribute("serviceProviderAddDto") ServiceAddProviderDto serviceAddProviderDto,
@@ -62,6 +64,7 @@ public class ProviderController {
         model.addAttribute("allProviders", providerToBeEdited);
         return "ProviderEditForm";
     }
+
     @Secured("ROLE_USER")
     @PostMapping("providers/editById")
     public String editById(@Valid ServiceEditProviderDto serviceEditProviderDto,
@@ -77,6 +80,7 @@ public class ProviderController {
         serviceProviderService.editProvider(serviceEditProviderDto);
         return "redirect:/all-providers";
     }
+
     @Secured("ROLE_USER")
     @PostMapping("providers/addAvailabilityById")
     public String addAvailability(ServiceEditProviderDto serviceEditProviderDto) {
@@ -84,14 +88,16 @@ public class ProviderController {
         int partOfUrl = serviceEditProviderDto.getId();
         return "redirect:edit/" + partOfUrl;
     }
+
     @Secured("ROLE_USER")
     @GetMapping(value = "/providers/remove/availability/{providerId}/{dateIndex}")
     public String removeAvailabilityFromProvider(@PathVariable int providerId, @PathVariable int dateIndex,
                                                  ServiceEditProviderDto serviceEditProviderDto) {
         serviceProviderService.removeAvailabilityDateFromProvider(providerId, dateIndex);
         int partOfUrl = serviceEditProviderDto.getId();
-        return "redirect:/providers/edit/" + partOfUrl+1;
+        return "redirect:/providers/edit/" + partOfUrl + 1;
     }
+
     @Secured("ROLE_USER")
     @GetMapping("/deactivate/{id}")
     public String providersPageDeActivate(@PathVariable Integer id, Model model) {
@@ -109,18 +115,20 @@ public class ProviderController {
         model.addAttribute("allProvidersTH", serviceProviderDtos);
         return "AllProviders";
     }
+
     @Secured("ROLE_USER")
     @GetMapping("/providers/edit")
     public String clientsPage(Model model) {
         model.addAttribute("cityAndTypeOfService", new ServiceSearchProviderDto());
         return "ProviderEditMenu";
     }
+
     @Secured("ROLE_USER")
     @PostMapping("/providers/edit")
     public String findByTypeOfService(Model modelOfFoundProviders, ServiceSearchProviderDto serviceSearchProviderDto) {
         modelOfFoundProviders
                 .addAttribute("providersByServiceTH", serviceProviderService.findProviders(serviceSearchProviderDto.getServiceType(), serviceSearchProviderDto.getCity(), serviceSearchProviderDto.getDate(), true))
-                .addAttribute("toggleDeactivateEdit", false);
+                .addAttribute("toggleDeactivateEdit", "edit");
         return "FoundProviders";
     }
 
@@ -141,6 +149,18 @@ public class ProviderController {
             return "ProviderRateForm";
         }
         serviceProviderService.addRatingToProvider(ratingDto);
-        return "redirect:/all-providers";
+        return "redirect:/providers/rated/" + ratingDto.getID();
+    }
+
+    @GetMapping("providers/show/{id}")
+    public String showForm(Model model, @PathVariable Integer id) {
+        ServiceProvider serviceProvider = serviceProviderService.findById(id);
+        ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
+        List<LocalDate> providerAvailabilityDates = serviceProviderService.getProviderData(id - 1).getAvailability().getDates().stream().sorted().toList();
+        List<ServiceProvider> providerToBeEdited = serviceProviderService.returnAllServiceProviders();
+        model.addAttribute("serviceEditProviderDto", serviceEditProviderDto);
+        model.addAttribute("providerToBeEditedAvailability", providerAvailabilityDates);
+        model.addAttribute("allProviders", providerToBeEdited);
+        return "ProviderFullData";
     }
 }
