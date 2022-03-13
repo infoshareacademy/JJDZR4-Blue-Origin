@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ServiceProviderCRUD extends JpaRepository<ServiceProvider, Integer> {
 
-    List<ServiceProvider> findAll();
+//    List<ServiceProvider> findAll();
 
     @Query("select s from ServiceProvider s where s.location.city like ?1 and ?2 IN (select d from s.availability.dates d)")
     List<ServiceProvider> findAllByLocation_CityAndAvailability_Dates(String city, LocalDate availabilityDate);
@@ -35,5 +35,6 @@ public interface ServiceProviderCRUD extends JpaRepository<ServiceProvider, Inte
 
     @Query("select s from ServiceProvider s where s.currentID = ?1")
     ServiceProvider findByCurrentID(Integer ID);
+
 
 }

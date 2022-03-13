@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -128,5 +129,9 @@ public class ServiceProviderService {
     public void addRatingToProvider(RatingDto rating) {
         ServiceProvider serviceProvider = findById(rating.getID());
         serviceProvider.addRating(new Rating(rating.getRating(), rating.getComment(), serviceProvider));
+    }
+
+    public List<Voivodeship> getCategories() {
+        return Arrays.asList(Voivodeship.values());
     }
 }

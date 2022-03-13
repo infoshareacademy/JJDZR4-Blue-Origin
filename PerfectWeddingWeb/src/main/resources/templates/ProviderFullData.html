@@ -90,6 +90,12 @@
                     </tr>
                 </table>
             </form>
+            <td>
+                <a th:href="@{/providers/remove/availability/{providerId}/{dateIndex}
+                        (dateIndex=${iterator.index}, providerId=*{id})}">
+                    <button type="button" th:text="'Remove this date'"></button>
+                </a>
+            </td>
         </main>
     </div>
 </section>
