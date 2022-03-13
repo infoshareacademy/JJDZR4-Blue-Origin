@@ -36,7 +36,7 @@ public class ClientController {
         return "FoundProviders";
     }
 
-    @GetMapping("providers/rated/{id}")
+    @GetMapping("/providers/rated/{id}")
     public String ratedProvider(Model model, @PathVariable Integer id) {
         List<ServiceProvider> serviceProviderList = new ArrayList<>();
         serviceProviderList.add(serviceProviderService.findById(id));
