@@ -52,8 +52,9 @@ public class ClientController {
     }
 
     @PostMapping("/sendEmail")
-    public void sendEmail(EmailRequestDto emailRequestDto) {
+    public String sendEmail(EmailRequestDto emailRequestDto) {
         emailService.sendMessage(emailRequestDto.getProviderEmail(), emailRequestDto.getClientEmail() + "- Zapytanie", emailRequestDto.getQueryMessage());
+        return "redirect:/";
     }
 
     @GetMapping("/sendEmail/{id}")
