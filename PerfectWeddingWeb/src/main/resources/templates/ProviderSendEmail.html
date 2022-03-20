@@ -38,7 +38,8 @@
                 <H3  class=”control-label”  th:text="*{companyName}"></H3>
                 <br>
             </form>
-                <form class="form-control left-10" th:object="${emailRequestDto}">
+
+                <form class="form-control left-10" th:object="${emailRequestDto}" th:action="@{/sendEmail}" method="post">
                 <table class="table table-striped table-bordered table-hover">
 
                     <tr>
@@ -52,16 +53,16 @@
                     <tr>
                         <label class=”control-label” th:for="email" th:text="'ClientEmail'"></label>
                         <input class="form-control" type="text" id="email" th:field="*{clientEmail}">
-
                     </tr>
 
-                </table>
-<!--                    <a th:href="@{/sendEmail/{id} (id=${serviceEditProviderDto.getId()})}">-->
-<!--                        <button id="Edit" class="btn btn-secondary" type="button"-->
-<!--                                th:text="'Send email'"></button>-->
-<!--                    </a>-->
-            </form>
+                    <tr th:hidden="hidden">
+                        <input class="form-control" type="text" id="providerEmail" th:field="*{providerEmail}" th:value="*{providerEmail}" th:hidden="hidden">
+                    </tr>
 
+
+                </table>
+                    <button class="btn btn-primary " th:type="submit" value="Submit" th:text="'Send email'"></button>
+            </form>
 
         </main>
     </div>

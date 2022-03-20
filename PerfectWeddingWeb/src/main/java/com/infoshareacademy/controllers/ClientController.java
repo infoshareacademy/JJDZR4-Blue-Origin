@@ -51,9 +51,9 @@ public class ClientController {
         return "FoundProviders";
     }
 
-    @PostMapping("/sendEmail/{id}")
-    public String sendEmail(@PathVariable Integer id, Model model) {
-      return null;
+    @PostMapping("/sendEmail")
+    public void sendEmail(EmailRequestDto emailRequestDto) {
+        emailService.sendMessage(emailRequestDto.getProviderEmail(), emailRequestDto.getClientEmail() + "- Zapytanie", emailRequestDto.getQueryMessage());
     }
 
     @GetMapping("/sendEmail/{id}")
@@ -61,6 +61,7 @@ public class ClientController {
         ServiceProvider serviceProvider = serviceProviderService.findById(id);
         ServiceEditProviderDto serviceEditProviderDto = serviceProviderMapper.mapToServiceEditProviderDto(serviceProvider);
                 EmailRequestDto emailRequestDto= new EmailRequestDto();
+        emailRequestDto.setProviderEmail(serviceProvider.getEmail());
         model.addAttribute("emailRequestDto", emailRequestDto);
         model.addAttribute("provider", serviceEditProviderDto);
         return "ProviderSendEmail";
