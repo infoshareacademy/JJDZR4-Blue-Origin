@@ -5,7 +5,6 @@ import com.infoshareacademy.dto.RatingDto;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
-import com.infoshareacademy.repository.ServiceProviderRepo;
 import com.infoshareacademy.repository.ServiceProviderRepoDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,19 +19,16 @@ import java.util.Objects;
 @Service
 public class ServiceProviderService {
 
-    private ServiceProviderRepo serviceProviderRepo;
     private ServiceProviderMapper serviceProviderMapper;
     private ServiceProviderRepoDB serviceProviderRepoDB;
 
     @Autowired
-    public ServiceProviderService(ServiceProviderRepo serviceProviderRepo, ServiceProviderMapper serviceProviderMapper, ServiceProviderRepoDB serviceProviderRepoDB) {
-        this.serviceProviderRepo = serviceProviderRepo;
+    public ServiceProviderService(ServiceProviderMapper serviceProviderMapper, ServiceProviderRepoDB serviceProviderRepoDB) {
         this.serviceProviderMapper = serviceProviderMapper;
         this.serviceProviderRepoDB = serviceProviderRepoDB;
     }
 
     public List<ServiceProvider> returnAllServiceProviders() {
-//        return serviceProviderRepo.getServiceProvidersList();
         return serviceProviderRepoDB.returnAllProviders();
     }
 
