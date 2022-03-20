@@ -54,7 +54,7 @@ public class ClientController {
     @PostMapping("/sendEmail")
     public String sendEmail(EmailRequestDto emailRequestDto) {
         emailService.sendMessage(emailRequestDto.getProviderEmail(), emailRequestDto.getClientEmail() + "- Zapytanie", emailRequestDto.getQueryMessage());
-        return "redirect:/";
+        return "redirect:/emailSent";
     }
 
     @GetMapping("/sendEmail/{id}")
@@ -66,5 +66,10 @@ public class ClientController {
         model.addAttribute("emailRequestDto", emailRequestDto);
         model.addAttribute("provider", serviceEditProviderDto);
         return "ProviderSendEmail";
+    }
+
+    @GetMapping("/emailSent")
+    public String emailSentConfirmation() {
+        return "EmailSent";
     }
 }
