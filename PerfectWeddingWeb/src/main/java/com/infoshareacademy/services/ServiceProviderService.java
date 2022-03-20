@@ -43,6 +43,10 @@ public class ServiceProviderService {
         return serviceProviderRepoDB.returnProviderById(id);
     }
 
+    public ServiceProvider findByEmail(String email) {
+        return serviceProviderRepoDB.returnProviderByEmail(email);
+    }
+
     public void addAvailabilityDateToProvider(String availabilityDate, Integer id) {
         ServiceProvider serviceProvider = findById(id);
         serviceProvider.getAvailability().addNewAvailability(LocalDate.parse(availabilityDate));
