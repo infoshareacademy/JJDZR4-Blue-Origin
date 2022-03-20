@@ -4,6 +4,7 @@ import com.infoshareacademy.domain.ServiceProvider;
 import com.infoshareacademy.dto.EmailRequestDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.dto.ServiceSearchProviderDto;
+import com.infoshareacademy.email.EmailServiceImpl;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
 import com.infoshareacademy.services.ServiceProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +24,14 @@ public class ClientController {
 
     private ServiceProviderService serviceProviderService;
     private ServiceProviderMapper serviceProviderMapper;
+    private EmailServiceImpl emailService;
 
-    @Autowired
-    public ClientController(ServiceProviderService serviceProviderService, ServiceProviderMapper serviceProviderMapper) {
+    public ClientController(ServiceProviderService serviceProviderService, ServiceProviderMapper serviceProviderMapper, EmailServiceImpl emailService) {
         this.serviceProviderService = serviceProviderService;
         this.serviceProviderMapper = serviceProviderMapper;
+        this.emailService = emailService;
     }
+
 
     @PostMapping("/find")
     public String findByTypeOfService(Model modelOfFoundProviders, ServiceSearchProviderDto serviceSearchProviderDto) {
