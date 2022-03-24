@@ -27,7 +27,7 @@
                 </nav>
             </div>
         </aside>
-        <main class="col-lg-8">
+        <main class="col-lg-8" th:object="${serviceEditProviderDto}">
             <table class="table table-striped table-bordered table-hover" th:object="${serviceEditProviderDto}">
                 <span th:text="'Aktualne daty dostępności'"></span>
                 <tr>
@@ -90,6 +90,11 @@
                     </tr>
                 </table>
             </form>
+
+            <a th:href="@{/sendEmail/{id} (id=${serviceEditProviderDto.getId()})}">
+                <button id="Edit" class="btn btn-secondary" type="button"
+                        th:text="'E-mail'"></button>
+            </a>
         </main>
     </div>
 </section>

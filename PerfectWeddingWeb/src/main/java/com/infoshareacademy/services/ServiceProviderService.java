@@ -5,7 +5,6 @@ import com.infoshareacademy.dto.RatingDto;
 import com.infoshareacademy.dto.ServiceAddProviderDto;
 import com.infoshareacademy.dto.ServiceEditProviderDto;
 import com.infoshareacademy.mapper.ServiceProviderMapper;
-import com.infoshareacademy.repository.ServiceProviderRepo;
 import com.infoshareacademy.repository.ServiceProviderRepoDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,25 +12,23 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 @Service
 public class ServiceProviderService {
 
-    private ServiceProviderRepo serviceProviderRepo;
     private ServiceProviderMapper serviceProviderMapper;
     private ServiceProviderRepoDB serviceProviderRepoDB;
 
     @Autowired
-    public ServiceProviderService(ServiceProviderRepo serviceProviderRepo, ServiceProviderMapper serviceProviderMapper, ServiceProviderRepoDB serviceProviderRepoDB) {
-        this.serviceProviderRepo = serviceProviderRepo;
+    public ServiceProviderService(ServiceProviderMapper serviceProviderMapper, ServiceProviderRepoDB serviceProviderRepoDB) {
         this.serviceProviderMapper = serviceProviderMapper;
         this.serviceProviderRepoDB = serviceProviderRepoDB;
     }
 
     public List<ServiceProvider> returnAllServiceProviders() {
-//        return serviceProviderRepo.getServiceProvidersList();
         return serviceProviderRepoDB.returnAllProviders();
     }
 
@@ -44,6 +41,10 @@ public class ServiceProviderService {
 
     public ServiceProvider findById(Integer id) {
         return serviceProviderRepoDB.returnProviderById(id);
+    }
+
+    public ServiceProvider findByEmail(String email) {
+        return serviceProviderRepoDB.returnProviderByEmail(email);
     }
 
     public void addAvailabilityDateToProvider(String availabilityDate, Integer id) {
@@ -128,5 +129,9 @@ public class ServiceProviderService {
     public void addRatingToProvider(RatingDto rating) {
         ServiceProvider serviceProvider = findById(rating.getID());
         serviceProvider.addRating(new Rating(rating.getRating(), rating.getComment(), serviceProvider));
+    }
+
+    public List<Voivodeship> getCategories() {
+        return Arrays.asList(Voivodeship.values());
     }
 }

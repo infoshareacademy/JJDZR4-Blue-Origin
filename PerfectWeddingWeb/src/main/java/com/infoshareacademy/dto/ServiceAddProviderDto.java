@@ -24,6 +24,7 @@ public class ServiceAddProviderDto {
     private String ownerSurname;
     @NotEmpty(message = "You have to type a phone number.")
     private String phone;
+    @NotEmpty(message = "You have to type an email address.")
     private String email;
     private String websiteAddress;
     @NotNull(message = "You have to pick a voivodeship.")

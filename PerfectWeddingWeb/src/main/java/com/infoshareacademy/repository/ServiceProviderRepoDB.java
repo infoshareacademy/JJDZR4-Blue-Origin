@@ -59,4 +59,8 @@ public class ServiceProviderRepoDB {
         return serviceProviderCRUD.findByCurrentID(ID);
     }
 
+    public ServiceProvider returnProviderByEmail(String email) {
+        return serviceProviderCRUD.findByEmail(email);
+    }
+
 }
